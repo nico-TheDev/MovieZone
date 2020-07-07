@@ -3,10 +3,11 @@
     width: max-content;
     padding: 0.3em 0.6em;
     margin: 0.5em;
+    margin-left: 0;
     background-color: $main-color;
     text-align: center;
     border-radius: 1rem;
-
+    cursor: pointer;
     &:hover{
         background-color: darken($main-color,10%);
     }

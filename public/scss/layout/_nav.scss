@@ -1,6 +1,5 @@
 .nav{
     width: 100%;
-    position: absolute;
     top: 0;
     left: 0;
     .container{
@@ -36,4 +35,8 @@
         height: 2.5rem;
     }
 
+}
+
+a.active{
+    color:$main-color;
 }

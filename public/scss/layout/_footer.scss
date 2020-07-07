@@ -1,0 +1,45 @@
+.footer{
+    background: lighten($main-dark,5%);
+    padding: 2rem 0;
+
+    .container{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+    }
+
+    &__logoLink{
+        display: grid;
+        gap: 0.4rem;
+    }
+
+    &__dbLogo{
+        width: 5rem;
+    }
+
+    &__socialLink{
+        &:hover svg{
+            fill: $main-color;
+        }
+    }
+
+    &__socialIcon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    &__author{
+        animation:blink 1s infinite alternate
+    }
+}
+
+@keyframes blink{
+    from{
+        color: white;
+    }
+    to{
+        color: $main-color;
+    }
+}

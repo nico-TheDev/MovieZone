@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import Header from "../layout/Header";
 import Slider from "../components/Slider"; 
-
+import Footer  from '../layout/Footer';
 
 export default function Home({setLoading}) {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
@@ -14,7 +14,7 @@ export default function Home({setLoading}) {
 
     useEffect(() => {
         async function getData() {
-
+            setLoading(true);
             try{
                 const [
                     nowPlayingResponse,
@@ -28,7 +28,7 @@ export default function Home({setLoading}) {
                         `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
                     ),
                     fetch(
-                        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+                        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=3`
                     )
                 ]);
     
@@ -61,10 +61,11 @@ export default function Home({setLoading}) {
 
     return (
         <>
-            <Header />
+            <Header setLoading={setLoading}/>
             <Slider title={'Now Playing'} movies={nowPlaying}/>
             <Slider title={'Popular'} movies={popular}/>
             <Slider title={'Trending'} movies={trending}/>
+            <Footer/>
         </>
     )
 }

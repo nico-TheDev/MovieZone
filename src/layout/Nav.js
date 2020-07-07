@@ -2,9 +2,9 @@ import React from "react";
 import Search from "../components/Search";
 import { Link, NavLink } from "react-router-dom";
 
-export default function Nav() {
+export default function Nav({position}) {
     return (
-        <nav className="nav">
+        <nav className="nav" style={{position:`${position}`}}>
             <div className="container">
                 <Link to="./" className="nav__logoLink">
                     <img
@@ -13,17 +13,18 @@ export default function Nav() {
                         className="nav__logo"
                     />
                 </Link>
+
                 <Search />
                 <ul className="nav__list">
                     <li className="nav__item">
-                        <Link className="nav__link" to="./trending">
+                        <NavLink className="nav__link" to="/trending">
                             Trending
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav__item">
-                        <Link className="nav__link" to="./popular">
+                        <NavLink className="nav__link" to="/popular">
                             Popular
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav__item">
                         <svg className="icon nav__avatar">

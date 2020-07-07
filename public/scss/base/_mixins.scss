@@ -1,17 +1,42 @@
-@mixin flexCenter{
+@mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@mixin gridCenter{
+@mixin gridCenter {
     display: grid;
     place-items: center;
 }
 
-@mixin positionCenter{
+@mixin positionCenter {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+}
+
+// QUERY
+
+@mixin query($bp) {
+    @if ($bp == tabl) {
+        @media only screen and (max-width: 1200px) {
+            @content;
+        }
+    }
+    @if ($bp == tabp) {
+        @media only screen and (max-width: 800px) {
+            @content;
+        }
+    }
+    @if ($bp == cp) {
+        @media only screen and (max-width: 600px) {
+            @content;
+        }
+    }
+    @if ($bp == scp) {
+        @media only screen and (max-width: 400px) {
+            @content;
+        }
+    }
 }

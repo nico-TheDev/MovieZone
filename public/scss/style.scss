@@ -10,6 +10,7 @@
 // LAYOUT
 @import "./layout/header";
 @import "./layout/nav";
+@import "./layout/footer";
 
 //COMPONENTS
 @import "./components/buttons";
@@ -18,6 +19,11 @@
 @import "./components/movieCard";
 @import "./components/slider";
 @import "./components/genres";
+@import "./components/pagination";
+
+// PAGES
+
+@import "./pages/collection";
 
 // LOADER
 

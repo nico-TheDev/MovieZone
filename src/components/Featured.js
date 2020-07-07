@@ -3,7 +3,7 @@ import GenrePill from "./GenrePill";
 
 import { Link } from "react-router-dom";
 
-export default function Featured() {
+export default function Featured({ setLoading }) {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const [featured, setFeatured] = useState({});
     const [movieGenres, setMovieGenres] = useState([]);
@@ -12,7 +12,9 @@ export default function Featured() {
         async function fetchData() {
             const [featuredResponse, genreResponse] = await Promise.all([
                 fetch(
-                    `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
+                    `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${Math.floor(
+                        Math.random() * 4 + 1
+                    )}`
                 ),
                 fetch(
                     `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`
@@ -29,20 +31,25 @@ export default function Featured() {
                 ]
             );
             setMovieGenres(genreData.genres);
+            setLoading(false);
         }
 
         fetchData();
     }, []);
 
-    const genreList = featured.genre_ids && featured.genre_ids.map(id => {
-        let genreName ;
-        movieGenres.forEach(item => {
-            if(item.id === id){
-                genreName = item.name;
-            }
-        })
-        return <GenrePill genre={genreName}/>
-    })
+    // SET UP THE GENRE PILL
+    const genreList =
+        featured.genre_ids &&
+        featured.genre_ids.map((id) => {
+            let genreName, itemId;
+            movieGenres.forEach((item) => {
+                if (item.id === id) {
+                    genreName = item.name;
+                    itemId = item.id;
+                }
+            });
+            return <GenrePill key={itemId} genre={genreName} />;
+        });
 
     return (
         <div className="featured">
@@ -55,13 +62,14 @@ export default function Featured() {
             </div>
             <div className="container">
                 <div className="featured__content">
-                    <h2 className="featured__title mb-1">
-                        {featured.original_title}
+                    <h2 className="featured__title">
+                        {`${featured.original_title} (${
+                            featured.release_date &&
+                            featured.release_date.split("").slice(0, 4).join("")
+                        })`}
                     </h2>
+                    <ul className="featured__genres">{genreList}</ul>
                     <p className="featured__desc mb-1">{featured.overview}</p>
-                    <ul className="featured__genres mb-2">
-                        {genreList}
-                    </ul>
                     <button className="featured__btn text-center btn">
                         <svg className="icon">
                             <use href="./assets/icons/icons.svg#icon-play"></use>
