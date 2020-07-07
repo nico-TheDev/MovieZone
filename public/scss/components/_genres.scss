@@ -1,0 +1,13 @@
+
+.genrePill{
+    width: max-content;
+    padding: 0.3em 0.6em;
+    margin: 0.5em;
+    background-color: $main-color;
+    text-align: center;
+    border-radius: 1rem;
+
+    &:hover{
+        background-color: darken($main-color,10%);
+    }
+}

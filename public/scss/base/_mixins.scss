@@ -1,0 +1,17 @@
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin gridCenter{
+    display: grid;
+    place-items: center;
+}
+
+@mixin positionCenter{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

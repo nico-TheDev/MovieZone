@@ -1,0 +1,39 @@
+.nav{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .container{
+        display: flex;
+        height: 10vh;
+        align-items: center;
+        padding: 1rem 0;
+        // border: 1px solid red;
+    }
+
+    &__logoLink{
+        margin-right: auto;
+    }
+
+    &__list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item{
+        margin: 0 1rem;
+    }
+
+    &__link{
+        &:hover{
+            color: $main-color;
+        }
+    }
+
+    &__avatar{
+        width:  2.5rem;
+        height: 2.5rem;
+    }
+
+}

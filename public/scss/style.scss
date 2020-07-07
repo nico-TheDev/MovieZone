@@ -1,0 +1,24 @@
+// MAIN SCSS FILE
+
+// BASE 
+
+@import "./base/utilities";
+@import "./base/variables";
+@import "./base/mixins";
+@import "./base/resets";
+
+// LAYOUT
+@import "./layout/header";
+@import "./layout/nav";
+
+//COMPONENTS
+@import "./components/buttons";
+@import "./components/search";
+@import "./components/featured";
+@import "./components/movieCard";
+@import "./components/slider";
+@import "./components/genres";
+
+// LOADER
+
+@import "./components/loader";
