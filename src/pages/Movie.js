@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import { withRouter,useLocation } from 'react-router-dom';
 import Nav from "../layout/Nav";
 import Footer from "../layout/Footer";
 import MovieProfile from "../components/MovieProfile";
@@ -8,19 +8,22 @@ import Recommendations from "../components/Recommendations";
 import Loader from "../components/Loader";
 
 export default function Movie({ match }) {
+    const location =useLocation();
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
-    const [movieId, setMovieId] = useState(match.params.id);
+    // const [movieId, setMovieId] = useState(match.params.id);
+    const {id} = match.params;
+    const [movieId,setMovieId] = useState(id); 
     const [movieInfo, setMovieInfo] = useState({});
     const [movieRecommendations, setMovieRecommendations] = useState([]);
     const [movieCast, setMovieCast] = useState([]);
     const [loading, setLoading] = useState(true);
 
-
     // REFRESH CURRENT ROUTE
     useEffect(() => {
+        const updatedMovieId = location.pathname.slice(7);
+        setMovieId(updatedMovieId);
         async function fetchMovie() {
             setLoading(true);
-            setMovieId(match.params.id);
             try {
                 const [
                     movieInfoResponse,
@@ -36,7 +39,7 @@ export default function Movie({ match }) {
                     fetch(
                         `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
                     ),
-                ]);
+                ]); 
                 const [
                     movieInfoData,
                     movieRecommendationData,
@@ -59,16 +62,16 @@ export default function Movie({ match }) {
                 console.log(err);
             }
         }
-
         fetchMovie();
-    }, [match.params.id,match.url]);
+    }, [location,movieId]);
 
-
+    if(!movieId){
+        return null;
+    }
     
-
-    console.log(match.params.id);
     return movieId && (
         <div className='movieComp'>
+            {console.log(movieInfo)}
             <Loader loading={loading} />
             <Nav position={"absolute"} />
             <MovieProfile details={movieInfo} />

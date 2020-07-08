@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route ,Switch} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Loader from "./components/Loader";
 // PAGES
 
@@ -85,7 +85,7 @@ function App() {
                 )}
             />
             <Switch>
-                <Route exact path='/movie/:id' component={MovieProfile}/>
+                <Route path='/movie/:id' component={MovieProfile}/>
             </Switch>
         </BrowserRouter>
     );
