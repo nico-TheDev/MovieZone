@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route ,Switch} from "react-router-dom";
 import Loader from "./components/Loader";
-
 // PAGES
 
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
+import MovieProfile from "./pages/Movie";
 
 function App() {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
@@ -84,6 +84,9 @@ function App() {
                     />
                 )}
             />
+            <Switch>
+                <Route exact path='/movie/:id' component={MovieProfile}/>
+            </Switch>
         </BrowserRouter>
     );
 }

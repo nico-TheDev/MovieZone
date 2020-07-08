@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import icons from '../assets/icons/icons.svg';
 
 export default function MovieCard({ movie, index, counter }) {
     //check if it's a slider item or a normal card
@@ -51,7 +52,7 @@ export default function MovieCard({ movie, index, counter }) {
                     </p>
                     <p className="movie-card__rating">
                         <svg className="icon movie-card__star">
-                            <use href="./assets/icons/icons.svg#icon-star-full"></use>
+                            <use href={`${icons}#icon-star-full`}></use>
                         </svg>
                         {String(movie.vote_average).length === 1
                             ? movie.vote_average + ".0"

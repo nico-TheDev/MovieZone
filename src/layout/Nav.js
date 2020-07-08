@@ -2,6 +2,9 @@ import React,{ useState } from "react";
 import Search from "../components/Search";
 import MobileNav from './MobileNav';
 import { Link, NavLink } from "react-router-dom";
+import navLogo from '../assets/img/logo.png';
+import icons from  '../assets/icons/icons.svg';
+
 
 export default function Nav({position}) {
     const [open,setOpen] = useState(false);
@@ -9,9 +12,9 @@ export default function Nav({position}) {
     return (
         <nav className="nav" style={{position:`${position}`}}>
             <div className="container">
-                <Link to="./" className="nav__logoLink">
+                <Link to="/" className="nav__logoLink">
                     <img
-                        src="./assets/img/logo.png"
+                        src={navLogo}
                         alt="Movie Zone Logo"
                         className="nav__logo"
                     />
@@ -31,14 +34,14 @@ export default function Nav({position}) {
                     </li>
                     <li className="nav__item">
                         <svg className="icon nav__avatar">
-                            <use href="./assets/icons/icons.svg#icon-user-circle"></use>
+                            <use href={`${icons}#icon-user-circle`}></use>
                         </svg>
                     </li>
                 </ul>
 
                 <button className="nav__menu" onClick={() => setOpen(true)}>
                     <svg className="icon">
-                        <use href='./assets/icons/icons.svg#icon-menu'></use>
+                        <use href={`${icons}#icon-menu`}></use>
                     </svg>
                 </button>
             </div>

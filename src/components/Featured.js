@@ -48,7 +48,7 @@ export default function Featured({ setLoading }) {
                     itemId = item.id;
                 }
             });
-            return <GenrePill key={itemId} genre={genreName} />;
+            return <GenrePill key={itemId + String(Math.random() * 2)} genre={genreName} />;
         });
 
     return (

@@ -1,13 +1,16 @@
 import React from "react";
+import footerLogo from '../assets/img/moviedb-logo.svg';
+import icons from  '../assets/icons/icons.svg';
+
 
 export default function Footer() {
     return (
         <footer className="footer">
             <div className="container">
-                <a href="#" target="_blank" className="footer__logoLink">
+                <a href="https://www.themoviedb.org/" target="_blank" className="footer__logoLink">
                     Powered by:
                     <img
-                        src="./assets/img/moviedb-logo.svg"
+                        src={footerLogo}
                         alt="moviedb logo"
                         className="footer__dbLogo"
                     />
@@ -26,15 +29,15 @@ export default function Footer() {
 
 
                 <div className="footer__socials">
-                    <a href="#" className="footer__socialLink">
+                    <a href="https://twitter.com/theAspiringDev1" className="footer__socialLink">
                         <svg className="icon footer__socialIcon">
-                            <use href='./assets/icons/icons.svg#icon-twitter'></use>
+                            <use href={`${icons}#icon-twitter`}></use>
                         </svg>
                     </a>
     
-                    <a href="#" className="footer__socialLink">
+                    <a href="https://github.com/theAspiringDev1" className="footer__socialLink">
                         <svg className="icon footer__socialIcon">
-                            <use href='./assets/icons/icons.svg#icon-github'></use>
+                            <use href={`${icons}#icon-github`}></use>
                         </svg>
                     </a>
                 </div>
