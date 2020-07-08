@@ -58,7 +58,7 @@ export default function Home({setLoading}) {
     }, []);
 
 
-
+    document.title = `MovieZone - Search for movies around the globe`;
     return (
         <>
             <Header setLoading={setLoading}/>

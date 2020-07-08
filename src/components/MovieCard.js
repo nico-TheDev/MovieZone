@@ -29,8 +29,8 @@ export default function MovieCard({ movie, index, counter }) {
                             : movie.original_title + " poster"
                     }
                     style={{
-                        width: counter >= 0 ? "12rem" : "initial",
-                        height: counter >= 0 ? "18rem" : "initial",
+                        width: counter >= 0 ? "12rem" : "100%",
+                        height: counter >= 0 ? "18rem" : "100%",
                     }}
                 />
 

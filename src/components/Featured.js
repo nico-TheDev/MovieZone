@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import GenrePill from "./GenrePill";
-
-import { Link } from "react-router-dom";
+import Trailer from './Trailer';
 
 export default function Featured({ setLoading }) {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
@@ -69,13 +69,13 @@ export default function Featured({ setLoading }) {
                         })`}
                     </h2>
                     <ul className="featured__genres">{genreList}</ul>
-                    <p className="featured__desc mb-1">{featured.overview}</p>
-                    <button className="featured__btn text-center btn">
+                    <p className="featured__desc mb-1">{featured.overview ? featured.overview : 'No summary found'}</p>
+                    <Link to={`/trailer/`} className="featured__btn text-center btn">
                         <svg className="icon">
                             <use href="./assets/icons/icons.svg#icon-play"></use>
                         </svg>
                         Watch Trailer
-                    </button>
+                    </Link>
                 </div>
 
                 <div className="featured__cover">

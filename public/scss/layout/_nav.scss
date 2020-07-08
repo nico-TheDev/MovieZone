@@ -2,6 +2,11 @@
     width: 100%;
     top: 0;
     left: 0;
+
+    @include query(cp){
+        position: relative !important;
+    }
+    
     .container{
         display: flex;
         height: 10vh;
@@ -14,10 +19,31 @@
         margin-right: auto;
     }
 
+    &__logo{
+        @include query(cp){
+            width:12rem;
+        }
+    }
+
     &__list{
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include query(tabp){
+            display:none;
+        }
+
+    }
+
+    &__menu{
+        display: none;
+        @include query(tabp){
+            display: inline-block;
+            &:hover .icon{
+                fill:$main-color
+            }
+        }
     }
 
     &__item{

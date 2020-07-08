@@ -1,0 +1,28 @@
+.trailer{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    background: rgba($main-dark,0.7);
+    display: grid;
+    place-items: center;
+
+    &__container{
+        width: 80%;
+        height: 60vh;
+        border-radius: 1rem;
+    }
+
+    &__video{
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+    }
+
+    &__btn{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

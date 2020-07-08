@@ -69,6 +69,12 @@ html {
   font-size: 18px;
 }
 
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 80%;
+  }
+}
+
 body {
   font-family: 'Poppins',sans-serif;
   background: #1B1B2F;
@@ -121,6 +127,12 @@ input {
   left: 0;
 }
 
+@media only screen and (max-width: 600px) {
+  .nav {
+    position: relative !important;
+  }
+}
+
 .nav .container {
   display: flex;
   height: 10vh;
@@ -132,10 +144,35 @@ input {
   margin-right: auto;
 }
 
+@media only screen and (max-width: 600px) {
+  .nav__logo {
+    width: 12rem;
+  }
+}
+
 .nav__list {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__list {
+    display: none;
+  }
+}
+
+.nav__menu {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__menu {
+    display: inline-block;
+  }
+  .nav__menu:hover .icon {
+    fill: #E43F5A;
+  }
 }
 
 .nav__item {
@@ -168,6 +205,20 @@ a.active {
   z-index: 2;
 }
 
+@media only screen and (max-width: 600px) {
+  .footer .container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+  }
+  .footer .container > * {
+    margin-bottom: 1rem;
+  }
+}
+
 .footer__logoLink {
   display: grid;
   gap: 0.4rem;
@@ -184,6 +235,13 @@ a.active {
 .footer__socialIcon {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer__note {
+    grid-column: span 2;
+    order: 3;
+  }
 }
 
 .footer__author {
@@ -216,6 +274,12 @@ a.active {
 
 .search {
   position: relative;
+}
+
+@media only screen and (max-width: 800px) {
+  .search {
+    display: none;
+  }
 }
 
 .search__input {
@@ -252,6 +316,13 @@ a.active {
   background-position: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .featured {
+    justify-content: center;
+    min-height: 80vh;
+  }
+}
+
 .featured__backdrop {
   position: absolute;
   top: 0;
@@ -270,10 +341,24 @@ a.active {
   justify-content: flex-start;
 }
 
+@media only screen and (max-width: 600px) {
+  .featured__title {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+}
+
 .featured .container {
   display: flex;
   align-items: center;
   padding-bottom: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .featured .container {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .featured__content {
@@ -284,13 +369,37 @@ a.active {
   width: 80%;
 }
 
+@media only screen and (max-width: 600px) {
+  .featured__desc {
+    width: 100%;
+  }
+}
+
 .featured__btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .featured__btn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .featured__btn:hover {
+    transform: translateX(-50%) translateY(-5px);
+  }
 }
 
 .featured__cover {
   margin-left: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .featured__cover {
+    order: -1;
+    margin-left: 0;
+  }
 }
 
 .movie-card {
@@ -406,6 +515,84 @@ a.active {
   align-items: center;
 }
 
+.trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(27, 27, 47, 0.7);
+  display: grid;
+  place-items: center;
+}
+
+.trailer__container {
+  width: 80%;
+  height: 60vh;
+  border-radius: 1rem;
+}
+
+.trailer__video {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.trailer__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.mobileNav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  background-color: #1B1B2F;
+  z-index: 1000;
+}
+
+.mobileNav__link:hover {
+  color: #E43F5A;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobileNav {
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: 500ms;
+    opacity: 0;
+  }
+  .mobileNav > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  .mobileNav .search {
+    display: block;
+  }
+  .mobileNav .search .search__input {
+    width: 15rem;
+    font-size: inherit;
+  }
+  .mobileNav__btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+  .mobileNav__btn:hover .icon {
+    fill: #E43F5A;
+  }
+  .mobileNav__logo {
+    width: 12rem;
+  }
+}
+
 .collection .container {
   padding: 2rem 0 3rem 0;
   display: grid;
@@ -467,4 +654,9 @@ a.active {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.showNav {
+  opacity: 1;
+  transform: translateX(0) !important;
 }

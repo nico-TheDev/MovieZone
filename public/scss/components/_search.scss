@@ -1,6 +1,10 @@
 .search{
     position: relative;
 
+    @include query(tabp){
+        display:none;
+    }
+
     &__input{
         border: 1px white solid;
         background: rgba($main-dark,0.5);

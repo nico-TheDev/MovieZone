@@ -20,6 +20,8 @@
 @import "./components/slider";
 @import "./components/genres";
 @import "./components/pagination";
+@import "./components/trailer";
+@import "./components/mobilenav";
 
 // PAGES
 
@@ -28,3 +30,6 @@
 // LOADER
 
 @import "./components/loader";
+
+
+@import "./base/state";

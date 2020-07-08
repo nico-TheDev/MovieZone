@@ -5,6 +5,9 @@ import Footer from "../layout/Footer";
 import Pagination from "../components/Pagination";
 
 export default function Collection({ movies, title ,setPage, pageCount}) {
+
+    document.title  = `MovieZone - ${title}`
+
     return (
         <>
             <Nav position={"relative"} />
