@@ -3,7 +3,7 @@ import icons from "../assets/icons/icons.svg";
 import GenrePill from "../components/GenrePill";
 
 
-export default function MovieProfile({ details }) {
+export default function MovieProfile({ details ,setOpenTrailer}) {
     const getRuntime = (time) => {
         if (time) {
             const hour = Math.floor(time / 60);
@@ -72,7 +72,7 @@ export default function MovieProfile({ details }) {
                         {details.overview ? details.overview : "No Description"}
                     </p>
 
-                    <button className="btn movieProfile__btn">
+                    <button className="btn movieProfile__btn" onClick={() => setOpenTrailer(true)}>
                         <svg className="icon">
                             <use href={icons + "#icon-play"}></use>
                         </svg>

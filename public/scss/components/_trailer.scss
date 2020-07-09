@@ -8,9 +8,12 @@
     display: grid;
     place-items: center;
 
+    opacity:0;
+    pointer-events:none;
+    z-index: 999999;
     &__container{
         width: 80%;
-        height: 60vh;
+        height: 80vh;
         border-radius: 1rem;
     }
 
@@ -21,8 +24,14 @@
     }
 
     &__btn{
+
+        .icon{
+            width:2.5rem;
+            height: 2.5rem;
+        }
+
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 2rem;
+        right: 2rem;
     }
 }

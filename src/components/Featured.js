@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import GenrePill from "./GenrePill";
-import Trailer from './Trailer';
+import Trailer from "./Trailer";
 
 export default function Featured({ setLoading }) {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const [featured, setFeatured] = useState({});
     const [movieGenres, setMovieGenres] = useState([]);
+    const [openTrailer, setOpenTrailer] = useState(true);
 
     useEffect(() => {
+        setOpenTrailer(false);
         async function fetchData() {
             const [featuredResponse, genreResponse] = await Promise.all([
                 fetch(
@@ -48,44 +50,66 @@ export default function Featured({ setLoading }) {
                     itemId = item.id;
                 }
             });
-            return <GenrePill key={itemId + String(Math.random() * 2)} genre={genreName} />;
+            return (
+                <GenrePill
+                    key={itemId + String(Math.random() * 2)}
+                    genre={genreName}
+                />
+            );
         });
 
     return (
-        <div className="featured">
-            <div className="featured__backdrop-wrapper">
-                <img
-                    src={`https://image.tmdb.org/t/p/original/${featured.backdrop_path}`}
-                    alt={featured.original_title + "photo"}
-                    className="featured__backdrop"
-                />
-            </div>
-            <div className="container">
-                <div className="featured__content">
-                    <h2 className="featured__title">
-                        {`${featured.original_title} (${
-                            featured.release_date &&
-                            featured.release_date.split("").slice(0, 4).join("")
-                        })`}
-                    </h2>
-                    <ul className="featured__genres">{genreList}</ul>
-                    <p className="featured__desc mb-1">{featured.overview ? featured.overview : 'No summary found'}</p>
-                    <Link to={`/trailer/`} className="featured__btn text-center btn">
-                        <svg className="icon">
-                            <use href="./assets/icons/icons.svg#icon-play"></use>
-                        </svg>
-                        Watch Trailer
-                    </Link>
+        <div className="">
+            <Trailer
+                id={featured.id}
+                open={openTrailer}
+                setOpenTrailer={setOpenTrailer}
+            />
+            <div className="featured">
+                <div className="featured__backdrop-wrapper">
+                    <img
+                        src={`https://image.tmdb.org/t/p/original/${featured.backdrop_path}`}
+                        alt={featured.original_title + "photo"}
+                        className="featured__backdrop"
+                    />
                 </div>
+                <div className="container">
+                    <div className="featured__content">
+                        <h2 className="featured__title">
+                            {`${featured.original_title} (${
+                                featured.release_date &&
+                                featured.release_date
+                                    .split("")
+                                    .slice(0, 4)
+                                    .join("")
+                            })`}
+                        </h2>
+                        <ul className="featured__genres">{genreList}</ul>
+                        <p className="featured__desc mb-1">
+                            {featured.overview
+                                ? featured.overview
+                                : "No summary found"}
+                        </p>
+                        <button
+                            className="featured__btn text-center btn"
+                            onClick={() => setOpenTrailer(true)}
+                        >
+                            <svg className="icon">
+                                <use href="./assets/icons/icons.svg#icon-play"></use>
+                            </svg>
+                            Watch Trailer
+                        </button>
+                    </div>
 
-                <div className="featured__cover">
-                    <Link to={`/movie/${featured.id}`}>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w200/${featured.poster_path}`}
-                            alt={featured.original_title + "poster"}
-                            className="featured__poster"
-                        />
-                    </Link>
+                    <div className="featured__cover">
+                        <Link to={`/movie/${featured.id}`}>
+                            <img
+                                src={`https://image.tmdb.org/t/p/w200/${featured.poster_path}`}
+                                alt={featured.original_title + "poster"}
+                                className="featured__poster"
+                            />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

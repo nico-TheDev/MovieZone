@@ -526,11 +526,14 @@ a.active {
   background: rgba(27, 27, 47, 0.7);
   display: grid;
   place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999999;
 }
 
 .trailer__container {
   width: 80%;
-  height: 60vh;
+  height: 80vh;
   border-radius: 1rem;
 }
 
@@ -542,8 +545,13 @@ a.active {
 
 .trailer__btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2rem;
+  right: 2rem;
+}
+
+.trailer__btn .icon {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .mobileNav {
@@ -843,4 +851,9 @@ a.active {
 .showNav {
   opacity: 1;
   transform: translateX(0) !important;
+}
+
+.showTrailer {
+  opacity: 1 !important;
+  pointer-events: all !important;
 }

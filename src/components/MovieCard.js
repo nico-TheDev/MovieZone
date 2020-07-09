@@ -21,7 +21,7 @@ export default function MovieCard({ movie, index, counter }) {
     return (
         <Link to={`/movie/${movie.id}`}>
             <figure className="movie-card" style={movement}>
-                <img
+                {movie.poster_path ? <img
                     className="movie-card__poster"
                     src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                     alt={
@@ -33,7 +33,9 @@ export default function MovieCard({ movie, index, counter }) {
                         width: counter >= 0 ? "12rem" : "100%",
                         height: counter >= 0 ? "18rem" : "100%",
                     }}
-                />
+                />:
+                <div className="castCard__placeholder">No Poster Available</div>
+                }
 
                 <div className="movie-card__content">
                     <h3 className="movie-card__title">
