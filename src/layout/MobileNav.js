@@ -24,11 +24,17 @@ export default function MobileNav({ open, setOpen }) {
                 />{" "}
             </NavLink>
             <Search />
+            <NavLink to="/trending" className="mobileNav__link">
+                Trending
+            </NavLink>
             <NavLink to="/popular" className="mobileNav__link">
                 Popular
             </NavLink>
-            <NavLink to="/trending" className="mobileNav__link">
-                Trending
+            <NavLink to="/toprated" className="mobileNav__link">
+                Top Rated
+            </NavLink>
+            <NavLink to="/upcoming" className="mobileNav__link">
+                Upcoming
             </NavLink>
         </nav>
     );

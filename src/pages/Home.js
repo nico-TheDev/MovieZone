@@ -1,20 +1,21 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import Header from "../layout/Header";
-import Slider from "../components/Slider"; 
-import Footer  from '../layout/Footer';
+import Slider from "../components/Slider";
+import Footer from "../layout/Footer";
 
-export default function Home({setLoading}) {
+export default function Home({ setLoading }) {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const [nowPlaying, setNowPlaying] = useState([]);
     const [popular, setPopular] = useState([]);
     const [trending, setTrending] = useState([]);
+
 
     // INITIAL API CALL TO SET THE NOW PLAYING
 
     useEffect(() => {
         async function getData() {
             setLoading(true);
-            try{
+            try {
                 const [
                     nowPlayingResponse,
                     trendingResponse,
@@ -28,9 +29,9 @@ export default function Home({setLoading}) {
                     ),
                     fetch(
                         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=3`
-                    )
+                    ),
                 ]);
-    
+
                 const [
                     nowPlayingData,
                     trendingData,
@@ -44,27 +45,23 @@ export default function Home({setLoading}) {
                 setTrending(trendingData.results);
                 setPopular(popularData.results);
                 setLoading(false);
-            }
-
-            catch(err){
-                console.log('Error in fetching data')
+            } catch (err) {
+                console.log("Error in fetching data");
                 console.log(err);
             }
-          
         }
 
         getData();
     }, []);
 
-
     document.title = `MovieZone - Search for movies around the globe`;
     return (
         <>
-            <Header setLoading={setLoading}/>
-            <Slider title={'Now Playing'} movies={nowPlaying}/>
-            <Slider title={'Popular'} movies={popular}/>
-            <Slider title={'Trending'} movies={trending}/>
-            <Footer/>
+            <Header setLoading={setLoading} />
+            <Slider title={"Now Playing"} movies={nowPlaying} />
+            <Slider title={"Popular"} movies={popular} />
+            <Slider title={"Trending"} movies={trending} />
+            <Footer />
         </>
-    )
+    );
 }

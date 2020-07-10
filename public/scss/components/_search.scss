@@ -5,6 +5,10 @@
         display:none;
     }
 
+    &__field{
+        position: relative;
+    }
+
     &__input{
         border: 1px white solid;
         background: rgba($main-dark,0.5);
@@ -29,6 +33,19 @@
         top: 50%;
         transform: translateY(-50%);
         left: 1rem;
+    }
+
+    &__results{
+        position: absolute;
+        top:100%;
+        left: 0;
+        width: 100%;
+        height: max-content;
+        display: grid;
+
+        @include query(tabp){
+            display: none;
+        }
     }
 
 }

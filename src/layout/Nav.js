@@ -21,6 +21,7 @@ export default function Nav({position}) {
                 </Link>
 
                 <Search />
+
                 <ul className="nav__list">
                     <li className="nav__item">
                         <NavLink className="nav__link" to="/trending">
@@ -30,6 +31,16 @@ export default function Nav({position}) {
                     <li className="nav__item">
                         <NavLink className="nav__link" to="/popular">
                             Popular
+                        </NavLink>
+                    </li>
+                    <li className="nav__item">
+                        <NavLink className="nav__link" to="/toprated">
+                            Top Rated
+                        </NavLink>
+                    </li>
+                    <li className="nav__item">
+                        <NavLink className="nav__link" to="/upcoming">
+                            Upcoming
                         </NavLink>
                     </li>
                     <li className="nav__item">

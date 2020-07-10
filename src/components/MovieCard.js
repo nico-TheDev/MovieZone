@@ -34,7 +34,7 @@ export default function MovieCard({ movie, index, counter }) {
                         height: counter >= 0 ? "18rem" : "100%",
                     }}
                 />:
-                <div className="castCard__placeholder">No Poster Available</div>
+                <div className="movie-card__placeholder">No Poster Available</div>
                 }
 
                 <div className="movie-card__content">

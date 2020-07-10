@@ -1,4 +1,5 @@
 import React from "react";
+import icons from  '../assets/icons/icons.svg';
 
 export default function Pagination({ setPage, pageCount }) {
     const goToPrev = () => {
@@ -10,7 +11,7 @@ export default function Pagination({ setPage, pageCount }) {
     };
 
     return (
-        <div className="pagination">
+        <div className="pagination" style={{display:pageCount ? 'block' : 'none'}}>
             <div className="container">
                 <button
                     className="pagination_btn prev btn"
@@ -20,7 +21,7 @@ export default function Pagination({ setPage, pageCount }) {
                     }}
                 >
                     <svg className="icon">
-                        <use href="./assets/icons/icons.svg#icon-arrow-left"></use>
+                        <use href={`${icons}#icon-arrow-left`}></use>
                     </svg>
                 </button>
 
@@ -34,7 +35,7 @@ export default function Pagination({ setPage, pageCount }) {
                     }}
                 >
                     <svg className="icon">
-                        <use href="./assets/icons/icons.svg#icon-arrow-right"></use>
+                        <use href={`${icons}#icon-arrow-right`}></use>
                     </svg>
                 </button>
             </div>

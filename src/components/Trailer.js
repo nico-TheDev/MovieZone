@@ -26,13 +26,15 @@ export default function Trailer({ id, open, setOpenTrailer }) {
                 {trailer ? (
                     <iframe
                         src={`https://www.youtube.com/embed/${trailer.key}`}
-                        frameborder="0"
+                        frameBorder="0"
                         className="trailer__video"
                     ></iframe>
                 ) : (
-                    <h2 className="text-center trailer__container">
-                        No Trailer Found
-                    </h2>
+                    <div className="text-center trailer__container ">
+                        <h2 className='noTrailer'>
+                            No Trailer Found
+                        </h2>
+                    </div>
                 )}
                 <button
                     className="trailer__btn"

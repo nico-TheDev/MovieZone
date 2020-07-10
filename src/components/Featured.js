@@ -54,6 +54,7 @@ export default function Featured({ setLoading }) {
                 <GenrePill
                     key={itemId + String(Math.random() * 2)}
                     genre={genreName}
+                    id={itemId}
                 />
             );
         });

@@ -37,7 +37,7 @@ export default function MovieProfile({ details ,setOpenTrailer}) {
                     <ul className="movieProfile__genres">
                         {details.genres &&
                             details.genres.map((genre) => (
-                                <GenrePill key={genre.id} genre={genre.name} />
+                                <GenrePill key={genre.id} genre={genre.name} id={genre.id} />
                             ))}
                     </ul>
                     <ul className="movieProfile__stats">

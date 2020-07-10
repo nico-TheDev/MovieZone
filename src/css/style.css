@@ -283,6 +283,10 @@ a.active {
   }
 }
 
+.search__field {
+  position: relative;
+}
+
 .search__input {
   border: 1px white solid;
   background: rgba(27, 27, 47, 0.5);
@@ -306,6 +310,21 @@ a.active {
   top: 50%;
   transform: translateY(-50%);
   left: 1rem;
+}
+
+.search__results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  display: grid;
+}
+
+@media only screen and (max-width: 800px) {
+  .search__results {
+    display: none;
+  }
 }
 
 .featured {
@@ -451,6 +470,16 @@ a.active {
   fill: #E43F5A;
 }
 
+.movie-card__placeholder {
+  height: 18.5rem;
+  min-height: 100%;
+  min-width: 12rem;
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: #1F4068;
+}
+
 .slider {
   padding: 1.5rem 0;
   position: relative;
@@ -528,13 +557,25 @@ a.active {
   place-items: center;
   opacity: 0;
   pointer-events: none;
-  z-index: 999999;
+  z-index: 999;
 }
 
 .trailer__container {
   width: 80%;
   height: 80vh;
   border-radius: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.trailer__container .noTrailer {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: 0;
+  background-color: #1F4068;
 }
 
 .trailer__video {
@@ -560,15 +601,10 @@ a.active {
   top: 0;
   left: 0;
   width: 100%;
-  height: 50vh;
+  height: max-content;
   background-color: #1B1B2F;
   z-index: 1000;
-}
-
-@media only screen and (max-width: 600px) {
-  .mobileNav {
-    height: 40vh;
-  }
+  padding: 2rem 0;
 }
 
 .mobileNav__link:hover {
@@ -638,7 +674,7 @@ a.active {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(30%) hue-rotate(5deg);
+  filter: brightness(25%) hue-rotate(5deg);
   z-index: 1;
 }
 
@@ -785,6 +821,33 @@ a.active {
   gap: 1rem;
 }
 
+.search-card {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1B1B2F;
+  border: 1px solid #1F4068;
+}
+
+.search-card:hover {
+  background-color: #1F4068;
+}
+
+.search-card__poster {
+  width: 2rem;
+}
+
+.search-card__title {
+  flex: 1;
+  margin: 0 0.5rem;
+  font-size: 0.8rem;
+  height: 1.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
 .collection .container {
   padding: 2rem 0 3rem 0;
   display: grid;
@@ -801,7 +864,7 @@ a.active {
   width: 100%;
   height: 100vh;
   display: grid;
-  z-index: 100;
+  z-index: 99999;
   place-items: center;
   align-content: center;
   gap: 0.5rem;
