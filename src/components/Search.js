@@ -8,13 +8,13 @@ export default function Search() {
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const [searchQuery, setSearchQuery] = useState("");
     const [results, setResults] = useState(null);
-    const [displayResult,setDisplayResult] = useState(false);
+    const [displayResult, setDisplayResult] = useState(false);
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
 
         if (searchQuery === "") {
-            setDisplayResult(false)
+            setDisplayResult(false);
         } else {
             fetch(
                 `https://api.themoviedb.org/3/search/movie?query="${searchQuery}"&api_key=${apiKey}&language=en-US&page=1&include_adult=false`
@@ -37,7 +37,12 @@ export default function Search() {
     };
 
     return (
-        <form className="search" onSubmit={handleSubmit}>
+        <form
+            className="search"
+            onSubmit={handleSubmit}
+            onMouseLeave={() => setDisplayResult(false)}
+            onMouseEnter={() => setDisplayResult(true)}
+        >
             <div className="search__field">
                 <input
                     type="text"
@@ -53,7 +58,6 @@ export default function Search() {
             <div
                 className="search__results"
                 style={{ display: displayResult ? "grid" : "none" }}
-                onMouseLeave ={()=> setDisplayResult(false)}
             >
                 {results &&
                     results.map((movie) => (
