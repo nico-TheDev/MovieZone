@@ -2,8 +2,8 @@
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 200000;
-    @include query(cp){
+    z-index: 500;
+    @include query(tabp){
         position: relative !important;
     }
     

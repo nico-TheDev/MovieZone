@@ -54,7 +54,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        @include query(cp){
+        @include query(tabp){
             flex-direction: column;
             align-items:center;
         }
@@ -64,7 +64,7 @@
         display: flex;
         align-items: center;
         font-weight: bold;
-        @include query(cp){
+        @include query(tabp){
             margin-bottom: 1rem;
         }
 

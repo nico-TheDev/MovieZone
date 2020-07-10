@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function SearchCard({ movie }) {
-    const formatTitle = (text) => {
-        console.log(text)
-        return text;
-    };
+   
+
     return (
         <Link to={`/movie/${movie.id}`} className="search-card">
             <img
@@ -14,7 +12,7 @@ export default function SearchCard({ movie }) {
                 className="search-card__poster"
             />
             <h4 className="search-card__title">
-                {formatTitle(movie.title ? movie.title : movie.original_title)}
+                {movie.title ? movie.title : movie.original_title}
             </h4>
 
             <span className="search-card__year">

@@ -45,7 +45,6 @@ export default function Search() {
                     value={searchQuery}
                     placeholder="Search Movies..."
                     onChange={handleChange}
-                    onBlur={()=> setDisplayResult(false)}
                 />
                 <svg className="icon search__icon">
                     <use href={`${icons}#icon-search`}></use>

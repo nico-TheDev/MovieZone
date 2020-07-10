@@ -125,10 +125,10 @@ input {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 200000;
+  z-index: 500;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .nav {
     position: relative !important;
   }
@@ -323,7 +323,7 @@ a.active {
 
 @media only screen and (max-width: 800px) {
   .search__results {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -336,7 +336,7 @@ a.active {
   background-position: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .featured {
     justify-content: center;
     min-height: 80vh;
@@ -361,7 +361,7 @@ a.active {
   justify-content: flex-start;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .featured__title {
     text-align: center;
     margin: 0.5rem 0;
@@ -374,7 +374,7 @@ a.active {
   padding-bottom: 3rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .featured .container {
     flex-direction: column;
     justify-content: center;
@@ -389,7 +389,7 @@ a.active {
   width: 80%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .featured__desc {
     width: 100%;
   }
@@ -400,7 +400,7 @@ a.active {
   align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .featured__btn {
     position: relative;
     left: 50%;
@@ -415,7 +415,7 @@ a.active {
   margin-left: 3rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .featured__cover {
     order: -1;
     margin-left: 0;
@@ -709,7 +709,7 @@ a.active {
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .movieProfile__stats {
     flex-direction: column;
     align-items: center;
@@ -722,7 +722,7 @@ a.active {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .movieProfile__stat {
     margin-bottom: 1rem;
   }
