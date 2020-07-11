@@ -9,10 +9,11 @@ export default function Search() {
     const [searchQuery, setSearchQuery] = useState("");
     const [results, setResults] = useState(null);
     const [displayResult, setDisplayResult] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
-
+        setLoading(true);
         if (searchQuery === "") {
             setDisplayResult(false);
         } else {
@@ -24,6 +25,7 @@ export default function Search() {
                     console.log(data.results.slice(0, 6));
                     setResults(data.results.slice(0, 6));
                     setDisplayResult(true);
+                    setLoading(false);
                 })
                 .catch((err) => console.log(err));
         }
@@ -54,6 +56,12 @@ export default function Search() {
                 <svg className="icon search__icon">
                     <use href={`${icons}#icon-search`}></use>
                 </svg>
+                <div className="lds-ring search__loader" style={{display:loading ? 'inline-block' : 'none'}}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
             <div
                 className="search__results"

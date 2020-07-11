@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import Nav from "../layout/Nav";
 import Footer from "../layout/Footer";
 import MovieProfile from "../components/MovieProfile";
@@ -11,7 +11,6 @@ import Trailer from "../components/Trailer";
 export default function Movie({ match }) {
     const location = useLocation();
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
-    // const [movieId, setMovieId] = useState(match.params.id);
     const { id } = match.params;
     const [movieId, setMovieId] = useState(id);
     const [movieInfo, setMovieInfo] = useState({});

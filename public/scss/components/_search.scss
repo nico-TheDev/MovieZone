@@ -48,4 +48,15 @@
         }
     }
 
+    &__loader{
+        position: absolute !important;
+        transform:scale(0.25);
+        right: -1rem;
+        top:-1rem;
+
+        @include query(tabp){
+            display: none !important;
+        }
+    }
+
 }

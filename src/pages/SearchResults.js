@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import Nav from "../layout/Nav";
 import Footer from "../layout/Footer";
@@ -7,7 +8,7 @@ import Pagination from "../components/Pagination";
 
 export default function Collection({ match }) {
     document.title = `Search Results`;
-
+    const location = useLocation();
     const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const [query, setQuery] = useState(match.params.query);
     const [movies, setMovies] = useState([]);
@@ -16,7 +17,8 @@ export default function Collection({ match }) {
 
     useEffect(() => {
         setLoading(true);
-        setQuery(match.params.query);
+        const newQuery = location.pathname.slice(8);
+        setQuery(newQuery);
         async function fetchResults() {
             const response = await fetch(
                 `https://api.themoviedb.org/3/search/movie?query="${query}"&api_key=${apiKey}&language=en-US&page=${currentPage}&include_adult=false`
@@ -28,7 +30,20 @@ export default function Collection({ match }) {
         }
 
         fetchResults();
-    }, [currentPage, query]);
+    }, [currentPage, query, location]);
+
+    const resultList = () => {
+        let result;
+        if (movies.length !== 0) {
+            result = movies.map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
+            ));
+        } else {
+            result = <h2 className="noResult">No Movies Found</h2>;
+        }
+
+        return result;
+    };
 
     return (
         <>
@@ -37,13 +52,12 @@ export default function Collection({ match }) {
             <div className="mb-1"></div>
             <div className="collection">
                 <h2 className="collection__title mb-1 text-center">{`Search Results for: ${query}`}</h2>
-                <div className="container">
-                    {movies.map((movie) => (
-                        <MovieCard key={movie.id} movie={movie} />
-                    ))}
-                </div>
+                <div className="container">{resultList()}</div>
             </div>
-            <Pagination setPage={setCurrentPage} pageCount={currentPage} />
+            <Pagination
+                setPage={setCurrentPage}
+                pageCount={movies.length !== 0 ? currentPage : 0}
+            />
             <Footer />
         </>
     );

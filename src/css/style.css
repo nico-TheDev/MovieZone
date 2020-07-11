@@ -327,6 +327,19 @@ a.active {
   }
 }
 
+.search__loader {
+  position: absolute !important;
+  transform: scale(0.25);
+  right: -1rem;
+  top: -1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .search__loader {
+    display: none !important;
+  }
+}
+
 .featured {
   min-height: 100vh;
   display: flex;
@@ -495,6 +508,13 @@ a.active {
 
 .slider__btn:hover .icon {
   fill: #E43F5A;
+}
+
+@media only screen and (max-width: 600px) {
+  .slider__btn {
+    opacity: 1;
+    transform: scale(1.4) translateY(-50%);
+  }
 }
 
 .slider__prev {

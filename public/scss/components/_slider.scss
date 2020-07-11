@@ -10,6 +10,11 @@
         &:hover .icon{
             fill:$main-color;
         }
+
+        @include query(cp){
+            opacity: 1;
+            transform: scale(1.4) translateY(-50%);
+        }
     }
 
     &__prev{

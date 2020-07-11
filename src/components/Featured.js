@@ -15,7 +15,7 @@ export default function Featured({ setLoading }) {
             const [featuredResponse, genreResponse] = await Promise.all([
                 fetch(
                     `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${Math.floor(
-                        Math.random() * 4 + 1
+                        Math.random() * 3 + 1
                     )}`
                 ),
                 fetch(
