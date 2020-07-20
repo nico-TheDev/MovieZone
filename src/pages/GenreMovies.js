@@ -36,7 +36,6 @@ export default function Collection({ match }) {
     return (
         <>
             <Loader loading={loading}/>
-            <Nav position={"relative"} />
             <div className="mb-1"></div>
             <div className="collection">
     <h2 className="collection__title mb-1 text-center">{`${match.params.genre} Movies`}</h2>
@@ -47,7 +46,6 @@ export default function Collection({ match }) {
                 </div>
             </div>
             <Pagination setPage={setCurrentPage} pageCount={currentPage}/>
-            <Footer />
         </>
     );
 }

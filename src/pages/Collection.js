@@ -10,7 +10,6 @@ export default function Collection({ movies, title ,setPage, pageCount}) {
 
     return (
         <>
-            <Nav position={"relative"} />
             <div className="mb-1"></div>
             <div className="collection">
                 <h2 className="collection__title mb-1 text-center">{title}</h2>
@@ -21,7 +20,6 @@ export default function Collection({ movies, title ,setPage, pageCount}) {
                 </div>
             </div>
             <Pagination setPage={setPage} pageCount={pageCount}/>
-            <Footer />
         </>
     );
 }

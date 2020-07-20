@@ -8,6 +8,8 @@ import Collection from "./pages/Collection";
 import MovieProfile from "./pages/Movie";
 import GenreMovies from "./pages/GenreMovies";
 import SearchResults from "./pages/SearchResults";
+import Nav from "./layout/Nav";
+import Footer from "./layout/Footer";
 
 // TODO
 // Search
@@ -24,14 +26,18 @@ function App() {
     const [currentTrendingPage, setCurrentTrendingPage] = useState(1);
     const [currentPopularPage, setCurrentPopularPage] = useState(1);
     const [currentTopRatedPage, setCurrentTopRatedPage] = useState(1);
-
     // INITIAL API CALL TO SET THE NOW PLAYING
 
     useEffect(() => {
         async function getData() {
             setLoading(true);
             try {
-                const [trendingResponse, popularResponse,topRatedResponse,upcomingResponse] = await Promise.all([
+                const [
+                    trendingResponse,
+                    popularResponse,
+                    topRatedResponse,
+                    upcomingResponse,
+                ] = await Promise.all([
                     fetch(
                         `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=en-US&page=${currentTrendingPage}`
                     ),
@@ -41,10 +47,15 @@ function App() {
                     fetch(`
                     https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=${currentTopRatedPage}`),
                     fetch(`
-                    https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US`)
+                    https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US`),
                 ]);
 
-                const [trendingData, popularData,topRatedData,upcomingData] = await Promise.all([
+                const [
+                    trendingData,
+                    popularData,
+                    topRatedData,
+                    upcomingData,
+                ] = await Promise.all([
                     trendingResponse.json(),
                     popularResponse.json(),
                     topRatedResponse.json(),
@@ -53,7 +64,7 @@ function App() {
                 setTrending(trendingData.results);
                 setPopular(popularData.results);
                 setTopRated(topRatedData.results);
-                setUpcoming(upcomingData.results)
+                setUpcoming(upcomingData.results);
                 setLoading(false);
             } catch (err) {
                 console.log("Error in fetching data");
@@ -62,13 +73,17 @@ function App() {
         }
 
         getData();
-    }, [currentTrendingPage, currentPopularPage,currentTopRatedPage]);
+    }, [currentTrendingPage, currentPopularPage, currentTopRatedPage]);
+
+
+
 
     // LOADER STOP MOUSE SCROLL
     document.body.style.overflow = loading ? "hidden" : "initial";
 
     return (
         <BrowserRouter>
+            <Nav />
             <Loader loading={loading} />
             <Switch>
                 <Route
@@ -79,7 +94,7 @@ function App() {
                     )}
                 />
                 <Route
-                    path="/trending"
+                    path="/list/trending"
                     render={(props) => (
                         <Collection
                             {...props}
@@ -92,7 +107,7 @@ function App() {
                     )}
                 />
                 <Route
-                    path="/popular"
+                    path="/list/popular"
                     render={(props) => (
                         <Collection
                             {...props}
@@ -105,7 +120,7 @@ function App() {
                     )}
                 />
                 <Route
-                    path="/toprated"
+                    path="/list/toprated"
                     render={(props) => (
                         <Collection
                             {...props}
@@ -118,7 +133,7 @@ function App() {
                     )}
                 />
                 <Route
-                    path="/upcoming"
+                    path="/list/upcoming"
                     render={(props) => (
                         <Collection
                             {...props}
@@ -135,6 +150,7 @@ function App() {
 
                 <Route path="/movie/:id" component={MovieProfile} />
             </Switch>
+            <Footer />
         </BrowserRouter>
     );
 }

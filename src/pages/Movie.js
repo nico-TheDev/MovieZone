@@ -82,11 +82,9 @@ export default function Movie({ match }) {
                     setOpenTrailer={setOpenTrailer}
                 />
                 <Loader loading={loading} />
-                <Nav position={"absolute"} />
                 <MovieProfile details={movieInfo} setOpenTrailer={setOpenTrailer}/>
                 <CastList casts={movieCast} />
                 <Recommendations movies={movieRecommendations} />
-                <Footer />
             </div>
         )
     );

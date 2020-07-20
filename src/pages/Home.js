@@ -61,7 +61,6 @@ export default function Home({ setLoading }) {
             <Slider title={"Now Playing"} movies={nowPlaying} />
             <Slider title={"Popular"} movies={popular} />
             <Slider title={"Trending"} movies={trending} />
-            <Footer />
         </>
     );
 }

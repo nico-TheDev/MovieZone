@@ -1,16 +1,23 @@
-import React,{ useState } from "react";
+import React,{ useState , useEffect } from "react";
 import Search from "../components/Search";
 import MobileNav from './MobileNav';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import navLogo from '../assets/img/logo.png';
 import icons from  '../assets/icons/icons.svg';
 
 
 export default function Nav({position}) {
     const [open,setOpen] = useState(false);
+    const [navPosition,setNavPosition] = useState('absolute');
+    const location = useLocation();
+
+    useEffect(() => {
+        const position = (document.URL.includes('list/') || document.URL.includes('search/') || document.URL.includes('genre/')) ? 'relative' : 'absolute';
+        setNavPosition(position)
+    }, [location.pathname])
 
     return (
-        <nav className="nav" style={{position:`${position}`}}>
+        <nav className="nav" style={{position:`${navPosition}`}}>
             <div className="container">
                 <Link to="/" className="nav__logoLink">
                     <img
@@ -24,22 +31,22 @@ export default function Nav({position}) {
 
                 <ul className="nav__list">
                     <li className="nav__item">
-                        <NavLink className="nav__link" to="/trending">
+                        <NavLink className="nav__link" to="/list/trending">
                             Trending
                         </NavLink>
                     </li>
                     <li className="nav__item">
-                        <NavLink className="nav__link" to="/popular">
+                        <NavLink className="nav__link" to="/list/popular">
                             Popular
                         </NavLink>
                     </li>
                     <li className="nav__item">
-                        <NavLink className="nav__link" to="/toprated">
+                        <NavLink className="nav__link" to="/list/toprated">
                             Top Rated
                         </NavLink>
                     </li>
                     <li className="nav__item">
-                        <NavLink className="nav__link" to="/upcoming">
+                        <NavLink className="nav__link" to="/list/upcoming">
                             Upcoming
                         </NavLink>
                     </li>

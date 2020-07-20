@@ -48,7 +48,6 @@ export default function Collection({ match }) {
     return (
         <>
             <Loader loading={loading} />
-            <Nav position={"relative"} />
             <div className="mb-1"></div>
             <div className="collection">
                 <h2 className="collection__title mb-1 text-center">{`Search Results for: ${query}`}</h2>
@@ -58,7 +57,6 @@ export default function Collection({ match }) {
                 setPage={setCurrentPage}
                 pageCount={movies.length !== 0 ? currentPage : 0}
             />
-            <Footer />
         </>
     );
 }
