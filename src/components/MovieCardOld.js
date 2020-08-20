@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import icons from "../assets/icons/icons.svg";
 
-export default function MovieCard({ movie, index, counter }) {
+export default function MovieCardOld({ movie, index, counter }) {
     //check if it's a slider item or a normal card
     const movement =
         counter >= 0

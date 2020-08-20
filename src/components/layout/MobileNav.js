@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "../components/Search";
+import Search from "../Search";
 import { NavLink } from "react-router-dom";
 import mobileLogo from '../assets/img/logo.png'
 import icons from '../assets/icons/icons.svg';

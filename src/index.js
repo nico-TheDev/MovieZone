@@ -1,7 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from './App';
-import './css/style.css';
+import App from "./App";
+import Theme from "./contexts/ThemeContext";
 
-ReactDOM.render(<App/>,document.getElementById('root'));
+ReactDOM.render(
+    <Theme>
+        <App />
+    </Theme>,
+    document.getElementById("root")
+);

@@ -4,6 +4,15 @@ import Icon from "../shared/Icon";
 const Card = styled.figure`
     overflow: hidden;
     border-radius: 1rem;
+
+    &:hover .content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    &:hover img {
+        filter: brightness(50%);
+    }
 `;
 
 const Poster = styled.img`
@@ -41,7 +50,7 @@ const Rating = styled.p`
 
 const StarIcon = styled(Icon)`
     margin-right: 10px;
-    fill: lime;
+    fill: ${({ theme }) => theme.mainColor };
 `;
 
-export { Card, Poster, Title, Date, Rating, StarIcon };
+export { Card, Poster, Title, Date, Rating, StarIcon, Content };

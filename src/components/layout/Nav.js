@@ -1,5 +1,5 @@
 import React,{ useState , useEffect } from "react";
-import Search from "../components/Search";
+import Search from "../Search";
 import MobileNav from './MobileNav';
 import { Link, NavLink, useLocation } from "react-router-dom";
 import navLogo from '../assets/img/logo.png';
