@@ -1,0 +1,47 @@
+import styled from "styled-components";
+import Icon from "../shared/Icon";
+
+const Card = styled.figure`
+    overflow: hidden;
+    border-radius: 1rem;
+`;
+
+const Poster = styled.img`
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+`;
+
+const Content = styled.div`
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 1rem;
+    transition: 500ms ease-in-out;
+    transform: translateY(1rem);
+    opacity: 0;
+`;
+
+const Title = styled.h3``;
+
+const Date = styled.p``;
+
+const Rating = styled.p`
+    display: flex;
+    align-items: center;
+`;
+
+const StarIcon = styled(Icon)`
+    margin-right: 10px;
+    fill: lime;
+`;
+
+export { Card, Poster, Title, Date, Rating, StarIcon };

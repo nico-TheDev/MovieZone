@@ -10,7 +10,6 @@ import Trailer from "../components/Trailer";
 
 export default function Movie({ match }) {
     const location = useLocation();
-    const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const { id } = match.params;
     const [movieId, setMovieId] = useState(id);
     const [movieInfo, setMovieInfo] = useState({});
@@ -33,13 +32,13 @@ export default function Movie({ match }) {
                     movieCastResponse,
                 ] = await Promise.all([
                     fetch(
-                        `https://api.themoviedb.org/3/movie/${movieId}}?api_key=${apiKey}&language=en-US`
+                        `https://api.themoviedb.org/3/movie/${movieId}}?api_key=${process.env.REACT_APP_KEY}&language=en-US`
                     ),
                     fetch(
-                        `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
+                        `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=1`
                     ),
                     fetch(
-                        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
+                        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${process.env.REACT_APP_KEY}`
                     ),
                 ]);
                 const [

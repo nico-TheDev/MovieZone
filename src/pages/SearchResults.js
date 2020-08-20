@@ -9,7 +9,6 @@ import Pagination from "../components/Pagination";
 export default function Collection({ match }) {
     document.title = `Search Results`;
     const location = useLocation();
-    const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const [query, setQuery] = useState(match.params.query);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -21,7 +20,7 @@ export default function Collection({ match }) {
         setQuery(newQuery);
         async function fetchResults() {
             const response = await fetch(
-                `https://api.themoviedb.org/3/search/movie?query="${query}"&api_key=${apiKey}&language=en-US&page=${currentPage}&include_adult=false`
+                `https://api.themoviedb.org/3/search/movie?query="${query}"&api_key=${process.env.REACT_APP_KEY}&language=en-US&page=${currentPage}&include_adult=false`
             );
 
             const data = await response.json();

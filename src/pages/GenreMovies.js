@@ -3,18 +3,17 @@ import MovieCard from "../components/MovieCard";
 import Nav from "../layout/Nav";
 import Footer from "../layout/Footer";
 import Loader from "../components/Loader";
-import Pagination from '../components/Pagination';
+import Pagination from "../components/Pagination";
 
 export default function Collection({ match }) {
     document.title = `MovieZone - ${match.params.genre} Movies`;
 
-    const apiKey = `8de0aa83cbd229a4fe1edec663d0235d`;
     const { id } = match.params;
     const [genreId, setGenreId] = useState(id);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [currentPage,setCurrentPage] = useState(1);
-    
+    const [currentPage, setCurrentPage] = useState(1);
+
     console.log(match);
 
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function Collection({ match }) {
         setGenreId(id);
         async function fetchGenres() {
             const response = await fetch(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genreId}&page=${currentPage}`
+                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_KEY}&language=en-US&with_genres=${genreId}&page=${currentPage}`
             );
 
             const data = await response.json();
@@ -35,17 +34,17 @@ export default function Collection({ match }) {
 
     return (
         <>
-            <Loader loading={loading}/>
+            <Loader loading={loading} />
             <div className="mb-1"></div>
             <div className="collection">
-    <h2 className="collection__title mb-1 text-center">{`${match.params.genre} Movies`}</h2>
+                <h2 className="collection__title mb-1 text-center">{`${match.params.genre} Movies`}</h2>
                 <div className="container">
                     {movies.map((movie) => (
                         <MovieCard key={movie.id} movie={movie} />
                     ))}
                 </div>
             </div>
-            <Pagination setPage={setCurrentPage} pageCount={currentPage}/>
+            <Pagination setPage={setCurrentPage} pageCount={currentPage} />
         </>
     );
 }

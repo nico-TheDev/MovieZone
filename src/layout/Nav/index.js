@@ -1,22 +1,8 @@
-import React,{ useState , useEffect } from "react";
-import Search from "../components/Search";
-import MobileNav from './MobileNav';
-import { Link, NavLink, useLocation } from "react-router-dom";
-import navLogo from '../assets/img/logo.png';
-import icons from  '../assets/icons/icons.svg';
+import React from "react";
 
-export default function Nav({position}) {
-    const [open,setOpen] = useState(false);
-    const [navPosition,setNavPosition] = useState('absolute');
-    const location = useLocation();
-
-    useEffect(() => {
-        const position = (document.URL.includes('list/') || document.URL.includes('search/') || document.URL.includes('genre/')) ? 'relative' : 'absolute';
-        setNavPosition(position)
-    }, [location.pathname])
-
+export default function Nav() {
     return (
-        <nav className="nav" style={{position:`${navPosition}`}}>
+        <nav className="nav" style={{ position: `${navPosition}` }}>
             <div className="container">
                 <Link to="/" className="nav__logoLink">
                     <img
@@ -55,14 +41,14 @@ export default function Nav({position}) {
                         </svg>
                     </li>
                 </ul>
- 
+
                 <button className="nav__menu" onClick={() => setOpen(true)}>
                     <svg className="icon">
                         <use href={`${icons}#icon-menu`}></use>
                     </svg>
                 </button>
             </div>
-            <MobileNav open={open} setOpen={setOpen}/>
+            <MobileNav open={open} setOpen={setOpen} />
         </nav>
     );
 }
