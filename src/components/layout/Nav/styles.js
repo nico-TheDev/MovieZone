@@ -8,6 +8,7 @@ const NavStyle = styled.nav`
     top: 0;
     left: 0;
     z-index: 500;
+    position:absolute;
 `;
 
 const NavContainer = styled(Container)`

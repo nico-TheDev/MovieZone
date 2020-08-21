@@ -26,6 +26,17 @@ body{
     color: white;
 }
 
+::-webkit-scrollbar{
+    position: absolute;
+    background:var(--main-mid);
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--main-color);
+    border-radius: 1rem;
+}
+
+
 button{
     border: none;
     background: none;

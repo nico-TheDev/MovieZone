@@ -1,7 +1,25 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
+const Pill = styled.span`
+    width: max-content;
+    padding: 0.3em 0.6em;
+    margin: 0.5em;
+    margin-left: 0;
+    background-color: var(--main-color);
+    text-align: center;
+    border-radius: 1rem;
+    cursor: pointer;
+    &:hover {
+        background-color: darken(var(--main-color), 10%);
+    }
+`;
 
 export default function GenrePill({ genre, id }) {
-    return <Link to={`/genre/${genre}/${id}`} className="genrePill">{genre}</Link>;
+    return (
+        <Link to={`/genre/${genre}/${id}`}>
+            <Pill>{genre}</Pill>
+        </Link>
+    );
 }

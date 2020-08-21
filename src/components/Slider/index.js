@@ -31,8 +31,7 @@ export default function Slider({ title, movies }) {
 
     return (
         <SliderContainer>
-            <Container>
-                <SliderTitle>{title} Movies</SliderTitle>
+                <SliderTitle>{title}</SliderTitle>
                 <Swiper
                     spaceBetween={30}
                     navigation
@@ -45,7 +44,6 @@ export default function Slider({ title, movies }) {
                             </SwiperSlide>
                         ))}
                 </Swiper>
-            </Container>
         </SliderContainer>
     );
 }

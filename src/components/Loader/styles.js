@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Container from '../shared/Container';
 import { blink, ringAnim } from "../../assets/animations";
 
 const SampleTitle = styled.h3`
@@ -57,4 +58,32 @@ const RingLoader = styled.div`
     }
 `;
 
-export { SampleTitle, SampleSlider, SampleSlide, RingLoader };
+
+// FEATURED LOADER
+
+const FeaturedLoader = styled(Container)`
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    /* background:var(--main-dark); */
+
+`;
+
+const FeaturedBottom = styled.div`
+    height:40vh;
+    display:grid;
+    grid-template-columns:1fr 12rem;
+    gap:2rem;
+    & > div {
+        background:var(--main-mid);
+        border-radius:1rem;
+        height:3rem;
+    }
+
+    & div:nth-child(5){
+        height:14rem;
+
+    }
+`;
+
+export { SampleTitle, SampleSlider, SampleSlide, RingLoader,FeaturedBottom,FeaturedLoader };

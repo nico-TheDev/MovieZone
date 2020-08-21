@@ -17,7 +17,7 @@ export default function MovieCard({ movie }) {
                     />
                 )}
                 <Content className="content">
-                    <Title> {movie.name || movie.original_title}</Title>
+                    <Title> { movie.original_title || movie.name}</Title>
                     <Date>
                         {cardDate(movie.release_date || movie.first_air_date)}
                     </Date>
