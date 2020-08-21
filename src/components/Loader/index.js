@@ -1,12 +1,13 @@
 import React from "react";
+import { RingLoader } from "./styles";
 
 export default function Loader() {
     return (
-        <div className="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <RingLoader>
+            <div />
+            <div />
+            <div />
+            <div />
+        </RingLoader>
     );
 }

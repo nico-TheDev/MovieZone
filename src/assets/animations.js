@@ -9,6 +9,15 @@ export const blink = keyframes`
       25%,
       75% {
         opacity: 0;
-      }
-    
+      }    
+`;
+
+
+export const ringAnim = keyframes`
+ 0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
 `;

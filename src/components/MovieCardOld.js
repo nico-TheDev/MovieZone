@@ -30,7 +30,7 @@ export default function MovieCardOld({ movie, index, counter }) {
             alt={
                 movie.name
                     ? movie.name + " poster"
-                    : movie.original_title + " poster"
+                     : movie.original_title + " poster"
             }
             style={posterStyle}
         />

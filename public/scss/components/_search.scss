@@ -1,10 +1,8 @@
 .search{
-    position: relative;
-
     @include query(tabp){
         display:none;
     }
-
+ 
     &__field{
         position: relative;
     }

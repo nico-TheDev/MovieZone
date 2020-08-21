@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import icons from "../assets/icons/icons.svg";
-import SearchCard from "../components/SearchCard";
+import SearchCard from "./SearchCard";
 import { useHistory } from "react-router-dom";
 
 export default function Search() {
@@ -75,3 +75,4 @@ export default function Search() {
         </form>
     );
 }
+ 

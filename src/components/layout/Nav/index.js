@@ -1,54 +1,49 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
+
+import { NavStyle, NavContainer, Logo, NavList, NavItem, UserIcon } from "./styles";
+import getIcon from "../../../util/getIcon";
+import logoDir from '../../../assets/img/logo.png'
+import Search from "../../Search/index";
 
 export default function Nav() {
     return (
-        <nav className="nav" style={{ position: `${navPosition}` }}>
-            <div className="container">
-                <Link to="/" className="nav__logoLink">
-                    <img
-                        src={navLogo}
-                        alt="Movie Zone Logo"
-                        className="nav__logo"
-                    />
+        <NavStyle>
+            <NavContainer>
+                <Link to="/" className='logo-link'>
+                    <Logo src={logoDir} alt="Movie Zone Logo" />
                 </Link>
 
-                <Search />
+                <Search/>
 
-                <ul className="nav__list">
-                    <li className="nav__item">
-                        <NavLink className="nav__link" to="/list/trending">
+                <NavList>
+                    <NavItem>
+                        <NavLink to="/list/trending">
                             Trending
                         </NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink className="nav__link" to="/list/popular">
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to="/list/popular">
                             Popular
                         </NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink className="nav__link" to="/list/toprated">
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to="/list/toprated">
                             Top Rated
                         </NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink className="nav__link" to="/list/upcoming">
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to="/list/upcoming">
                             Upcoming
                         </NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <svg className="icon nav__avatar">
-                            <use href={`${icons}#icon-user-circle`}></use>
-                        </svg>
-                    </li>
-                </ul>
-
-                <button className="nav__menu" onClick={() => setOpen(true)}>
-                    <svg className="icon">
-                        <use href={`${icons}#icon-menu`}></use>
-                    </svg>
-                </button>
-            </div>
-            <MobileNav open={open} setOpen={setOpen} />
-        </nav>
+                    </NavItem>
+                    <NavItem>
+                        <UserIcon>
+                            <use href={getIcon("user-circle")} />
+                        </UserIcon>
+                    </NavItem>
+                </NavList>
+            </NavContainer>
+        </NavStyle>
     );
 }

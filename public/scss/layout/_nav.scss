@@ -5,7 +5,7 @@
     z-index: 500;
     @include query(tabp){
         position: relative !important;
-    }
+    } 
     
     .container{
         display: flex;

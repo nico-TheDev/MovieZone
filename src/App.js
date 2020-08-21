@@ -2,11 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./components/pages/Home";
+import Nav from "./components/layout/Nav/";
 import './assets/css/custom.css';
 
 function App() {
     return (
         <Router>
+            <Nav/>
             <Switch>
                 <Route exact path="/" component={Home} />
                 
