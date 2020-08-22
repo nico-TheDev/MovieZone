@@ -16,8 +16,8 @@ export default function FeaturedSlider() {
 
     if (isError) return "An Error Occured";
 
-    const randomNumber = Math.floor(Math.random() * 15);
-    const movies = data.results.slice(randomNumber, randomNumber + 3);
+    const randomNumber = Math.floor(Math.random() * 13);
+    const movies = data.results.slice(randomNumber, randomNumber + 4);
 
     return (
         <Swiper

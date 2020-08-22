@@ -4,23 +4,24 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/layout/Nav/";
 import Footer from "./components/layout/Footer/";
 import Home from "./components/pages/Home";
-import './assets/css/custom.css';
+import Movie from "./components/pages/Movie/";
+
+import "./assets/css/custom.css";
 
 function App() {
     return (
         <Router>
-            <Nav/>
+            <Nav />
             <Switch>
                 <Route exact path="/" component={Home} />
-                
+                <Route path="/movie/:id" component={Movie} />
             </Switch>
-            <Footer/>
+            <Footer />
         </Router>
     );
 }
 
 export default App;
-
 
 /*
 
