@@ -1,21 +1,42 @@
-import React from 'react'
+import React from "react";
 
-export default function Trailer() {
+import useMovieTrailers from "../../hooks/useMovieTrailers";
+import {
+    TrailerStyle,
+    TrailerContainer,
+    TrailerButton,
+    CloseIcon,
+} from "./styles";
+import getIcon from "../../util/getIcon";
+
+export default function Trailer({ id, isOpen, setIsTrailerOpen }) {
+    const { data, isLoading, isError } = useMovieTrailers(id);
+
+
+    const handleClick = () => setIsTrailerOpen(false);
+
+    if (isLoading) return "trailer loading...";
+
+    if (isError) return "Error";
+
     return (
-        <div className={open ? "trailer showTrailer" : "trailer"} onClick={() => console.log('PLAY')}>
-        <div
-            className="trailer__container"
-        >
-            {trailerDisplay()}
-            <button
-                className="trailer__btn"
-                onClick={() => setOpenTrailer(false)}
-            >
-                <svg className="icon">
-                    <use href={`${icons}#icon-close-outline`}></use>
-                </svg>
-            </button>
-        </div>
-    </div>
-    )
+        <TrailerStyle isOpen={isOpen}>
+            <TrailerContainer>
+                {(data.results[0] && isOpen) ? (
+                    <iframe
+                        src={`https://www.youtube.com/embed/${data.results[0].key}`}
+                        frameBorder="0"
+                    ></iframe>
+                ) : (
+                    <h2>No Trailer Found</h2>
+                )}
+
+                <TrailerButton onClick={handleClick}>
+                    <CloseIcon>
+                        <use href={getIcon("close-outline")} />
+                    </CloseIcon>
+                </TrailerButton>
+            </TrailerContainer>
+        </TrailerStyle>
+    );
 }

@@ -4,15 +4,7 @@ import GenrePill from "../components/GenrePill";
 
 
 export default function MovieProfile({ details ,setOpenTrailer}) {
-    const getRuntime = (time) => {
-        if (time) {
-            const hour = Math.floor(time / 60);
-            const minutes = Math.ceil(((time/60) - 3));
-            return `${hour}h ${minutes}m`;
-        }else{
-            return 'No data';
-        }
-    };
+    
 
     document.title = details.title ? 'MovieZone -' + details.title : 'MovieZone -' + details.original_title;
 

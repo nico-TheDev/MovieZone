@@ -6,7 +6,6 @@ export default function useGenreList() {
     
     const { data, error} = useSWR('/api/genrelist',fetcher);
 
-    console.log(data);
     return {
         data,
         isLoading: !data && !error,

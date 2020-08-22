@@ -1,12 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Icon from "../shared/Icon";
-import getIcon from "../../util/getIcon";
 import GenrePill from "../GenrePill";
 import useGenreList from "../../hooks/useGenreList";
 import cutText from "../../util/cutText";
-// import Trailer from "./Trailer";
 import {
     FeaturedStyle,
     BGWrapper,
@@ -21,6 +18,8 @@ import {
 
 export default function Featured({ featured }) {
     const { data: genreNames, isLoading } = useGenreList();
+
+    const handleClick = () => setIsTrailerOpen(true);
 
     const genreList =
         genreNames &&
@@ -41,7 +40,6 @@ export default function Featured({ featured }) {
             );
         });
 
-
     return (
         <div>
             <FeaturedStyle>
@@ -60,15 +58,14 @@ export default function Featured({ featured }) {
                         <Genres>{genreList}</Genres>
                         <Description>
                             {featured.overview
-                                ? cutText(featured.overview,300)
+                                ? cutText(featured.overview, 300)
                                 : "No summary found"}
                         </Description>
-                        <FeaturedButton>
-                            <Icon>
-                                <use href={getIcon("play")} />
-                            </Icon>
-                            Watch Trailer
-                        </FeaturedButton>
+                        <Link to={`/movie/${featured.id}`}>
+                            <FeaturedButton>
+                                See More
+                            </FeaturedButton>
+                        </Link>
                     </Content>
                     <Cover>
                         <Link to={`/movie/${featured.id}`}>

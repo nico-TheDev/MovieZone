@@ -12,7 +12,7 @@ const Pill = styled.span`
     border-radius: 1rem;
     cursor: pointer;
     &:hover {
-        background-color: darken(var(--main-color), 10%);
+        background-color: var(--main-color-2);
     }
 `;
 

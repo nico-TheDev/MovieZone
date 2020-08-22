@@ -9,9 +9,15 @@ const Button = styled.button`
     border-radius: 2rem;
 
     &:hover {
-        background:limegreen;
-        box-shadow: 0 0 1.5rem rgba(var(--main-color), 0.8);
+        background:var(--main-color-2);
+        box-shadow: 0 0 1.5rem var(--main-color);
         transform: translateY(-5px);
+    }
+
+    &:active{
+        transform: translateY(0px);
+        box-shadow: 0 0 0.5rem var(--main-color);
+
     }
 `;
 

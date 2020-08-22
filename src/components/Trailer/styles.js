@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Container from "../shared/Container";
+import Icon from "../shared/Icon";
 
 const TrailerStyle = styled.div`
     position: fixed;
@@ -7,47 +8,12 @@ const TrailerStyle = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba($main-dark, 0.7);
+    background: var(--main-dark-3);
     display: grid;
     place-items: center;
-
-    opacity: 0;
-    pointer-events: none;
-    z-index: 999;
-    &__container {
-        width: 80%;
-        height: 80vh;
-        border-radius: 1rem;
-        display: grid;
-        place-items: center;
-
-        .noTrailer {
-            display: grid;
-            place-items: center;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            margin: 0;
-            background-color: $main-mid;
-        }
-    }
-
-    &__video {
-        width: 100%;
-        height: 100%;
-        border-radius: 1rem;
-    }
-
-    &__btn {
-        .icon {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-    }
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+    pointer-events: ${({ isOpen }) => (isOpen ? "all" : "none")};
+    z-index: 99999;
 `;
 
 const TrailerContainer = styled(Container)`
@@ -56,4 +22,35 @@ const TrailerContainer = styled(Container)`
     border-radius: 1rem;
     display: grid;
     place-items: center;
+    text-align: center;
+
+    & iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+    }
+
+    & h2 {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        margin: 0;
+        background-color: var(--main-mid);
+    }
 `;
+
+const TrailerButton = styled.button`
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+`;
+
+const CloseIcon = styled(Icon)`
+    width: 2.5rem;
+    height: 2.5rem;
+    fill:white;
+`;
+
+export { TrailerStyle, TrailerContainer, TrailerButton, CloseIcon };
