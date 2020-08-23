@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Container from "../shared/Container";
 
 const RecommendationsMain = styled.div`
-    padding: 4rem 0;
+    padding: 2rem 0;
 `;
 
 const Title = styled.h2`
@@ -17,4 +17,9 @@ const RecommendationsContainer = styled(Container)`
     gap: 1rem;
 `;
 
-export { RecommendationsMain, RecommendationsContainer,Title };
+const Placeholder = styled.h2`
+    grid-column:1/-1;
+    text-align:center;
+`;
+
+export { RecommendationsMain, RecommendationsContainer,Title, Placeholder };

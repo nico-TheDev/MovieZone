@@ -25,6 +25,7 @@ export default function FeaturedSlider() {
                 delay: 5000,
                 disableOnInteraction: true,
             }}
+            loop='true'
         >
             {movies.map((movie) => (
                 <SwiperSlide key={movie.id}>

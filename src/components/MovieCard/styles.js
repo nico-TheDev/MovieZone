@@ -8,6 +8,7 @@ const Card = styled.figure`
     &:hover .content {
         transform: translateY(0);
         opacity: 1;
+        background:var(--contentBg);
     }
 
     &:hover img {

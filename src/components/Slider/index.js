@@ -35,6 +35,7 @@ export default function Slider({ title, movies, type }) {
                     spaceBetween={30}
                     navigation
                     breakpoints={breakpoints}
+                    grabCursor='true'
                 >
                     {movies &&
                         movies.map((movie) => (

@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { RingLoader } from "../Loader/styles";
 import Icon from "../shared/Icon";
 
-const SearchForm = styled.form``;
+const SearchForm = styled.form`
+    margin-right:1rem;
+`;
 
 const FieldContainer = styled.div`
     position: relative;

@@ -17,7 +17,7 @@ export default function Trailer({ id, isOpen, setIsTrailerOpen }) {
 
     const handleClick = () => setIsTrailerOpen(false);
 
-    if (isLoading) return "trailer loading...";
+    if (isLoading) return null;
 
     if (isError) return "Error";
 

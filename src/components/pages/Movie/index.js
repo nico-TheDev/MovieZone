@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
 import MovieProfile from "../../MovieProfile";
 import Recommendations from "../../Recommendations";
+import CastSlider from "../../CastSlider";
 
 export default function Movie({ match }) {
     const { id, type } = match.params;
@@ -8,6 +10,7 @@ export default function Movie({ match }) {
     return (
         <>
             <MovieProfile id={id} />
+            <CastSlider id={id} type={type} />
             <Recommendations id={id} type={type} />
         </>
     );

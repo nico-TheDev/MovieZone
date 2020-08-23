@@ -6,6 +6,7 @@ import {
     RecommendationsMain,
     RecommendationsContainer as Container,
     Title,
+    Placeholder,
 } from "./styles";
 
 export default function Recommendations({ id, type }) {
@@ -17,15 +18,18 @@ export default function Recommendations({ id, type }) {
 
     return (
         <RecommendationsMain>
-            <Title>More Like This</Title>
-            <Container>
-                {data.results.length !== 0 &&
-                    data.results
-                        .slice(0, 12)
-                        .map((movie) => (
-                            <MovieCard key={movie} movie={movie} type={type} />
-                        ))}
-            </Container>
+            <Title>
+                {data.results.length !== 0
+                    ? "More Like This"
+                    : "No Movie Recommendations"}
+            </Title>
+            {data.results.length !== 0 && (
+                <Container>
+                    {data.results.slice(0, 12).map((movie) => (
+                        <MovieCard key={movie} movie={movie} type={type} />
+                    ))}
+                </Container>
+            )}
         </RecommendationsMain>
     );
 }
