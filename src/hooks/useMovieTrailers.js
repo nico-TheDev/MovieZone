@@ -1,11 +1,11 @@
 import useSWR from "swr";
 import axios from "axios";
 
-export default function useMovieTrailers(id) {
+export default function useMovieTrailers(id,type) {
     const fetcher = () =>
         axios
             .get(
-                `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_KEY}&language=en-US`
+                `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${process.env.REACT_APP_KEY}&language=en-US`
             )
             .then((res) => res.data);
 

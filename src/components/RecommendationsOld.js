@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "./MovieCard";
 
 export default function Recommendations({ movies }) {
     return ( movies.length !== 0 ?

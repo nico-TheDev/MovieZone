@@ -1,14 +1,14 @@
-import React,{ useState } from 'react'
-import MovieProfile from '../../MovieProfile'
+import React, { useState, useEffect } from "react";
+import MovieProfile from "../../MovieProfile";
+import Recommendations from "../../Recommendations";
 
 export default function Movie({ match }) {
-    const { id } = match.params;
-    const [movieID,setMovieID] = useState(id);
-
+    const { id, type } = match.params;
 
     return (
         <>
-          <MovieProfile id={movieID}/>
+            <MovieProfile id={id} />
+            <Recommendations id={id} type={type} />
         </>
-    )
+    );
 }

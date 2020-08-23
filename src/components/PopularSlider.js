@@ -11,5 +11,5 @@ export default function PopularSlider() {
 
     if (isError) return "Error";
 
-    return <Slider title="Popular" movies={data.results} />;
+    return <Slider title="Popular" movies={data.results} type='movie'/>;
 }

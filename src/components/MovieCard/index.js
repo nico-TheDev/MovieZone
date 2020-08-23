@@ -4,11 +4,11 @@ import { ThemeContext } from "styled-components";
 import { Poster, Card, Date, Rating, StarIcon, Title, Content } from "./styles";
 import getIcon from "../../util/getIcon";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, type }) {
     const cardDate = (date) => (date ? String(date).slice(0, 4) : "unknown");
     const { theme } = useContext(ThemeContext);
     return (
-        <Link to={`/movie/${movie.id}`}>
+        <Link to={`/${type}/${movie.id}`}>
             <Card>
                 {movie.poster_path && (
                     <Poster

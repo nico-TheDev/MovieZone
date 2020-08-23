@@ -11,5 +11,5 @@ export default function TopRatedSlider() {
 
     if (isError) return "Error";
 
-    return <Slider title="Top Rated" movies={data.results} />;
+    return <Slider title="Top Rated" movies={data.results} type='movie'/>;
 }

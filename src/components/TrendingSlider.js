@@ -11,5 +11,5 @@ export default function TrendingSlider() {
 
     if (isError) return "Error";
 
-    return <Slider title="Trending" movies={data.results} />;
+    return <Slider title="Trending" movies={data.results} type='movie' />;
 }

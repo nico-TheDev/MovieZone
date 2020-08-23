@@ -14,7 +14,7 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/movie/:id" component={Movie} />
+                <Route path="/:type/:id" component={Movie} />
             </Switch>
             <Footer />
         </Router>

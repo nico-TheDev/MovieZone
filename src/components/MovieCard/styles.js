@@ -4,7 +4,7 @@ import Icon from "../shared/Icon";
 const Card = styled.figure`
     overflow: hidden;
     border-radius: 1rem;
-
+    position:relative;
     &:hover .content {
         transform: translateY(0);
         opacity: 1;

@@ -7,11 +7,10 @@ import "swiper/components/navigation/navigation.scss";
 import { SliderContainer, SliderTitle } from "./styles";
 
 import MovieCard from "../MovieCard";
-import Container from "../shared/Container";
 
 SwiperCore.use([Navigation]);
 
-export default function Slider({ title, movies }) {
+export default function Slider({ title, movies, type }) {
     const breakpoints = {
         320: {
             slidesPerView: 2,
@@ -40,7 +39,7 @@ export default function Slider({ title, movies }) {
                     {movies &&
                         movies.map((movie) => (
                             <SwiperSlide key={movie.id}>
-                                <MovieCard movie={movie} />
+                                <MovieCard movie={movie} type={type}/>
                             </SwiperSlide>
                         ))}
                 </Swiper>
