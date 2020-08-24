@@ -25,7 +25,7 @@ export default function Dropdown({ type, title }) {
                 <DropdownItem>
                     <NavLink to={`/list/${type}/upcoming`}>Upcoming</NavLink>
                 </DropdownItem>
-            </DropdownBody>
+            </DropdownBody> 
         </DropdownHead>
     );
 }

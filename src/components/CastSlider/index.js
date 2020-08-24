@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { SwiperSlide, Swiper } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
@@ -8,12 +8,32 @@ import "swiper/components/navigation/navigation.scss";
 
 import useGetCasts from "../../hooks/useGetCasts";
 import CastCard from "../CastCard";
-import { Title, CastContainer } from './styles';
+import { Title, CastContainer } from "./styles";
 
 SwiperCore.use([Navigation]);
 
 export default function CastSlider({ id, type }) {
     const { data, isLoading, isError } = useGetCasts(id, type);
+    const breakpoints = {
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            slidesPerGroup: 2,
+        },
+        480: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            slidesPerGroup: 2,
+        },
+        640: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+        },
+        760: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+        },
+    };
 
     if (isLoading) return "Cast Loading";
 
@@ -29,8 +49,9 @@ export default function CastSlider({ id, type }) {
                 freeMode={true}
                 navigation
                 grabCursor={true}
+                breakpoints={breakpoints}
             >
-                {data.cast.slice(0,20).map((cast) => (
+                {data.cast.slice(0, 20).map((cast) => (
                     <SwiperSlide key={cast.id}>
                         <CastCard person={cast} />
                     </SwiperSlide>

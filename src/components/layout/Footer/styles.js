@@ -3,7 +3,7 @@ import Icon from "../../shared/Icon";
 import Container from "../../shared/Container";
 
 const Footer = styled.footer`
-    background-color: darken(var(--main-dark), 0.5);
+    background-color: var(--main-dark-5);
     padding: 2rem 0;
 `;
 

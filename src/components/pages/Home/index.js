@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import PopularSlider from "../../PopularSlider";
 import TrendingSlider from "../../TrendingSlider";
-import UpcomingSlider from "../../UpcomingSlider";
+import PopularTVSlider from "../../PopularTVSlider";
 import TopRatedSlider from "../../TopRatedSlider";
 import FeaturedSlider from "../../FeaturedSlider";
 import Container from "../../shared/Container";
@@ -20,7 +20,7 @@ export default function Home() {
             <Holder>
                 <PopularSlider />
                 <TrendingSlider />
-                <UpcomingSlider />
+                <PopularTVSlider />
                 <TopRatedSlider />
             </Holder>
         </>

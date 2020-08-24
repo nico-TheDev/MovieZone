@@ -24,7 +24,7 @@ export default function Nav() {
 
                 <Search />
 
-                <Dropdown type="movies" title="Movies" />
+                <Dropdown type="movie" title="Movies" />
                 <Dropdown type="tv" title="TV Shows" />
 
                 <NavItem>

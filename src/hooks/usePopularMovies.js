@@ -9,7 +9,7 @@ export default function usePopularMovies(page = 1) {
             )
             .then((res) => res.data);
 
-    const { data, error } = useSWR("/api/popular", fetcher);
+    const { data, error } = useSWR(`/api/popular/movie/${page}`, fetcher);
 
     return {
         data,

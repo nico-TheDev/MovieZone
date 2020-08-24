@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import SliderLoader from "./Loader/SliderLoader";
 import usePopularTV from "../hooks/usePopularTV";
 
-export default function PopularSlider() {
+export default function PopularTVSlider() {
     const { isLoading, data, isError } = usePopularTV();
 
     if (isLoading) return <SliderLoader />;

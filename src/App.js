@@ -4,7 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/layout/Nav/";
 import Footer from "./components/layout/Footer/";
 import Home from "./components/pages/Home";
+
 import Movie from "./components/pages/Movie/";
+import PopularTV from "./components/pages/PopularList/PopularTV";
+import PopularMovies from "./components/pages/PopularList/PopularMovies";
+import TopRatedTV from "./components/pages/TopRatedList/TopRatedTV";
+import TopRatedMovies from "./components/pages/TopRatedList/TopRatedMovies";
 
 import "./assets/css/custom.css";
 
@@ -14,7 +19,11 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/:type/:id" component={Movie} />
+                <Route exact path="/:type/:id" component={Movie} />
+                <Route path="/list/tv/popular" component={PopularTV} />
+                <Route path="/list/movie/popular" component={PopularMovies} />
+                <Route path="/list/tv/toprated" component={TopRatedTV} />
+                <Route path="/list/movie/toprated" component={TopRatedMovies} />
             </Switch>
             <Footer />
         </Router>
