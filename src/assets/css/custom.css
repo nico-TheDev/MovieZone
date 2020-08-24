@@ -77,3 +77,12 @@ input{
 .swiper-button-prev:hover {
     transform:scale(1.2);
 }
+
+.swiper-pagination-bullet{
+    color:white;
+    background-color:white;
+}
+.swiper-pagination-bullet-active{
+    color:var(--main-color);
+    background-color:var(--main-color);
+}

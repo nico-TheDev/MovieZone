@@ -24,10 +24,16 @@ const TrailerContainer = styled(Container)`
     place-items: center;
     text-align: center;
 
-    & iframe {
+    & .swiper-container {
         width: 100%;
         height: 100%;
         border-radius: 1rem;
+
+        & .swiper-slide iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+        }
     }
 
     & h2 {
@@ -50,7 +56,7 @@ const TrailerButton = styled.button`
 const CloseIcon = styled(Icon)`
     width: 2.5rem;
     height: 2.5rem;
-    fill:white;
+    fill: white;
 `;
 
 export { TrailerStyle, TrailerContainer, TrailerButton, CloseIcon };

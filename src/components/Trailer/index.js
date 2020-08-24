@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 
 import useMovieTrailers from "../../hooks/useMovieTrailers";
+import TrailerSlider from './TrailerSlider';
 import {
     TrailerStyle,
     TrailerContainer,
@@ -24,11 +25,8 @@ export default function Trailer({ id, isOpen, setIsTrailerOpen }) {
     return (
         <TrailerStyle isOpen={isOpen}>
             <TrailerContainer>
-                {(data.results[0] && isOpen) ? (
-                    <iframe
-                        src={`https://www.youtube.com/embed/${data.results[0].key}`}
-                        frameBorder="0"
-                    ></iframe>
+                {(data.results && isOpen) ? (
+                 <TrailerSlider videos={data.results}/>
                 ) : (
                     <h2>No Trailer Found</h2>
                 )}
