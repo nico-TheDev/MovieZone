@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import axios from "axios";
 
-export default function useUpcomingMovies() {
+export default function useUpcomingMovies(page = 1) {
     const fetcher = () =>
         axios
             .get(
@@ -9,7 +9,7 @@ export default function useUpcomingMovies() {
             )
             .then((res) => res.data);
 
-    const { data, error } = useSWR("/api/upcoming", fetcher);
+    const { data, error } = useSWR(`/api/upcoming/${page}`, fetcher);
 
     return {
         data: data,

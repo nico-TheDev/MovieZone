@@ -17,6 +17,7 @@ export default function TopRatedTV() {
             title="Top Rated TV Shows"
             pageCount={pageCount}
             setPageCount={setPageCount}
+            type='tv'
         />
     );
 }

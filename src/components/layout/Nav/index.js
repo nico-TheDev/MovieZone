@@ -25,8 +25,7 @@ export default function Nav() {
                 <Search />
 
                 <Dropdown type="movie" title="Movies" />
-                <Dropdown type="tv" title="TV Shows" />
-
+                <Dropdown type="tv" title="TV Shows" item1='Today' item2='Airing'/>
                 <NavItem>
                     <UserIcon>
                         <use href={getIcon("user-circle")} />

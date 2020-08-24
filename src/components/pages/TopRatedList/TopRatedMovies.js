@@ -17,6 +17,7 @@ export default function TopRatedMovies() {
             title="Top Rated Movies"
             pageCount={pageCount}
             setPageCount={setPageCount}
+            type='movie'
         />
     );
 }

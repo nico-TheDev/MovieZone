@@ -9,7 +9,7 @@ export default function useTrendingMovies(page = 1) {
             )
             .then((res) => res.data);
 
-    const { data, error } = useSWR("/api/trending", fetcher);
+    const { data, error } = useSWR(`/api/trending/${page}`, fetcher);
 
     return {
         data: data,

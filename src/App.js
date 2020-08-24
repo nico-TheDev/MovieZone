@@ -6,6 +6,10 @@ import Footer from "./components/layout/Footer/";
 import Home from "./components/pages/Home";
 
 import Movie from "./components/pages/Movie/";
+import TrendingMovies from "./components/pages/TrendingMoviesList";
+import UpcomingMovies from "./components/pages/UpcomingMoviesList";
+import TodayTVList from "./components/pages/TodayTVList";
+import AiringTVList from "./components/pages/AiringTVList";
 import PopularTV from "./components/pages/PopularList/PopularTV";
 import PopularMovies from "./components/pages/PopularList/PopularMovies";
 import TopRatedTV from "./components/pages/TopRatedList/TopRatedTV";
@@ -23,7 +27,11 @@ function App() {
                 <Route path="/list/tv/popular" component={PopularTV} />
                 <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />
+                <Route path="/list/tv/today" component={TodayTVList} />
+                <Route path="/list/tv/airing" component={AiringTVList} />
                 <Route path="/list/movie/toprated" component={TopRatedMovies} />
+                <Route path="/list/movie/upcoming" component={UpcomingMovies} />
+                <Route path="/list/movie/trending" component={TrendingMovies} />
             </Switch>
             <Footer />
         </Router>

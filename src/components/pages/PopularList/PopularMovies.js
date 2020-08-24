@@ -17,6 +17,7 @@ export default function PopularTV() {
             title="Popular Movies"
             pageCount={pageCount}
             setPageCount={setPageCount}
+            type='movie'
         />
     );
 }
