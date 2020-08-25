@@ -3,9 +3,8 @@ import styled from 'styled-components';
 const PhotoPlaceholder = styled.div`
     display:grid;
     place-items:center;
-    width:10rem;
-    max-width:100%;
-    height:14rem;
+    width:178px;
+    height:252px;
     background:var(--main-mid-2);
 `;
 

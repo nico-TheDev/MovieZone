@@ -17,9 +17,7 @@ import {
 } from "./styles";
 
 export default function Featured({ featured }) {
-    const { data: genreNames, isLoading } = useGenreList();
-
-    const handleClick = () => setIsTrailerOpen(true);
+    const { data: genreNames } = useGenreList();
 
     const genreList =
         genreNames &&
@@ -36,6 +34,7 @@ export default function Featured({ featured }) {
                     key={itemId + String(Math.random() * 2)}
                     genre={genreName}
                     id={itemId}
+                    type='movie'
                 />
             );
         });

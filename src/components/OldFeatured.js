@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import GenrePill from "./GenrePillOld";
+import GenrePill from "./OldGenrePill";
 import Trailer from "./Trailer";
 
 export default function Featured({ setLoading }) {

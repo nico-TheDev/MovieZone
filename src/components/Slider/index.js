@@ -12,7 +12,7 @@ SwiperCore.use([Navigation]);
 
 export default function Slider({ title, movies, type }) {
     const breakpoints = {
-        350: {
+        300: {
             slidesPerView: 2,
             spaceBetween: 10,
         },

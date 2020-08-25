@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 import GenrePill from "../GenrePill";
 import Trailer from "../Trailer";
@@ -21,7 +21,8 @@ import useDetails from "../../hooks/useDetails";
 
 export default function MovieProfile({ id }) {
     const params = useParams();
-    const { data: details, isLoading, isError } = useDetails(id,params.type);
+    const type = params.type;
+    const { data: details, isLoading, isError } = useDetails(id, type);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
@@ -30,9 +31,9 @@ export default function MovieProfile({ id }) {
 
     if (isError) return "Movie Error";
 
-    document.title = `MovieZone - ${details.name
-        ? details.name
-        : (details.title || details.original_title)}`;
+    document.title = `MovieZone - ${
+        details.name ? details.name : details.title || details.original_title
+    }`;
 
     return (
         <>
@@ -65,6 +66,7 @@ export default function MovieProfile({ id }) {
                                         key={genre.id}
                                         genre={genre.name}
                                         id={genre.id}
+                                        type={type}
                                     />
                                 ))}
                         </Genres>
@@ -85,7 +87,11 @@ export default function MovieProfile({ id }) {
                                     <use href={getIcon("calendar")} />
                                 </Icon>
                                 Release Date:
-                                <span>{details.release_date ? details.release_date : details.first_air_date}</span>
+                                <span>
+                                    {details.release_date
+                                        ? details.release_date
+                                        : details.first_air_date}
+                                </span>
                             </Stat>
                             <Stat>
                                 <Icon>

@@ -9,7 +9,7 @@
     z-index: 1000;
     padding: 2rem 0;
 
-    @include query(cp){
+    @include query(cp){ 
         // height: 40vh;
     }
 

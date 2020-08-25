@@ -16,9 +16,9 @@ const Pill = styled.span`
     }
 `;
 
-export default function GenrePill({ genre, id }) {
+export default function GenrePill({ genre, id ,type}) {
     return (
-        <Link to={`/genre/${genre}/${id}`}>
+        <Link to={`/genre/${genre}/${type}/${id}`}>
             <Pill>{genre}</Pill>
         </Link>
     );

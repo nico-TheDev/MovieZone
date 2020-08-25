@@ -23,7 +23,8 @@ export default function TrailerSlider({ videos }) {
                 <SwiperSlide key={video.key}>
                     <iframe
                         src={`https://www.youtube.com/embed/${video.key}`}
-                        frameBorder="0"
+                        frameBorder="0"   
+                        title={video.name}                     
                     ></iframe>
                 </SwiperSlide>
             ))}

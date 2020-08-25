@@ -1,21 +1,29 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import {
     NavStyle,
     NavContainer,
     Logo,
-    NavList,
     NavItem,
     UserIcon,
     Menu,
 } from "./styles";
+import Dropdown from "../../Dropdown";
+import Search from "../../Search/index";
+import MobileNav from "../MobileNav";
 import getIcon from "../../../util/getIcon";
 import logoDir from "../../../assets/img/logo.png";
-import Search from "../../Search/index";
-import Dropdown from "../../Dropdown";
 
 export default function Nav() {
+    const location = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
+
+    // CLOSE THE NAV EVERYTIME THE URL CHANGES
+    useEffect(() => setIsOpen(false), [location.pathname]);
+
+    const handleClick = () => setIsOpen(true);
+
     return (
         <NavStyle>
             <NavContainer>
@@ -38,13 +46,13 @@ export default function Nav() {
                     </UserIcon>
                 </NavItem>
 
-                <Menu>
+                <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />
                     </UserIcon>
                 </Menu>
             </NavContainer>
+            {<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />}{" "}
         </NavStyle>
     );
 }
-

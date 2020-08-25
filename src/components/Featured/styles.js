@@ -75,11 +75,12 @@ const FeaturedButton = styled(Button)`
     text-align: center;
 
     ${respondTo.md`
+
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         &:hover{
-            transform: translateX(-50%) translateY(-5px;
+            transform: translateX(-50%) translateY(-5px);
         }
     `}
 `;

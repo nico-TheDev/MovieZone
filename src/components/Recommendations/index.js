@@ -6,7 +6,6 @@ import {
     RecommendationsMain,
     RecommendationsContainer as Container,
     Title,
-    Placeholder,
 } from "./styles";
 
 export default function Recommendations({ id, type }) {

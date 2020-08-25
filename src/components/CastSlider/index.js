@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { SwiperSlide, Swiper } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
@@ -15,24 +14,20 @@ SwiperCore.use([Navigation]);
 export default function CastSlider({ id, type }) {
     const { data, isLoading, isError } = useGetCasts(id, type);
     const breakpoints = {
-        380: {
+        300: {
             slidesPerView: 2,
-            spaceBetween: 20,
-            slidesPerGroup: 2,
+            spaceBetween: 10,
         },
         450: {
             slidesPerView: 3,
-            spaceBetween: 10,
-            slidesPerGroup: 2,
+            spaceBetween: 30,
         },
-        640: {
+        700: {
             slidesPerView: 4,
-            slidesPerGroup: 4,
         },
-        760: {
+        900: {
             slidesPerView: 5,
-            slidesPerGroup: 5,
-        },
+        }
     };
 
     if (isLoading) return "Cast Loading";

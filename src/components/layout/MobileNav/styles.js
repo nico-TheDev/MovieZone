@@ -11,19 +11,43 @@ const MobileNavMain = styled.nav`
     background-color: var(--main-dark);
     z-index: 1000;
     padding: 2rem 0;
+    transform: ${({ isOpen }) =>
+        isOpen ? "translateX(0)" : "translateX(-100%)"};
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+    transition: 500ms;
+
+    ul {
+        display: block;
+        div {
+            position: static;
+            opacity: 1;
+            li {
+                display: block;
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 
     ${respondTo.md`
         display: flex;
         font-size: 1.5rem;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        transform: translateX(-100%);
-        transition: 500ms;
-        opacity: 0;
-        & > *:not(:last-child){
+        flex-direction: column;   
+
+            & > *:not(:last-child){
             margin-bottom: 1rem;
         }
+        form {
+            display: block !important;
+        input {
+            width: 90%;
+            margin:auto;
+            font-size: inherit;
+        }
+    }
         `}
 
     & a:hover {
@@ -31,65 +55,30 @@ const MobileNavMain = styled.nav`
     }
 `;
 
-/*
-.mobileNav{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: max-content;
-    background-color: $main-dark;
-    z-index: 1000;
-    padding: 2rem 0;
-
-    @include query{
-        // height: 40vh;
+const CloseBtn = styled.button`
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    svg {
+        fill: white;
     }
-
-    &__link{
-        &:hover{
-            color: $main-color;
-        }
+    &:hover svg {
+        fill: var(--main-color);
     }
+`;
 
-    @include query(tabp){
-        display: flex;
-        font-size: 1.5rem;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        transform: translateX(-100%);
-        transition: 500ms;
-        opacity: 0;
-        & > *:not(:last-child){
-            margin-bottom: 1rem;
-        }
-    
-        
-        .search{
-            display:block;
+const Logo = styled.img`
+    width: 12rem;
+`;
 
-            .search__input{
-                width: 15rem;
-                font-size: inherit;
-            }
-        }
+const MenuHolder = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
-        &__btn{
-            position: absolute;
-            top:2rem;
-            right:2rem;
-
-            &:hover .icon{
-                fill:$main-color;
-            }
-        }
-
-
-        &__logo{
-            width: 12rem;
-        }
+    & > * {
+        margin: 5px;
     }
-}
-*/
+`;
+
+export { MobileNavMain, CloseBtn, Logo, MenuHolder };

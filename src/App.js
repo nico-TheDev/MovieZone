@@ -14,6 +14,7 @@ import PopularTV from "./components/pages/PopularList/PopularTV";
 import PopularMovies from "./components/pages/PopularList/PopularMovies";
 import TopRatedTV from "./components/pages/TopRatedList/TopRatedTV";
 import TopRatedMovies from "./components/pages/TopRatedList/TopRatedMovies";
+import GenreList from "./components/pages/GenreList";
 
 import "./assets/css/custom.css";
 
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/list/movie/toprated" component={TopRatedMovies} />
                 <Route path="/list/movie/upcoming" component={UpcomingMovies} />
                 <Route path="/list/movie/trending" component={TrendingMovies} />
+                <Route path="/genre/:genre/:type/:id" component={GenreList}/>
             </Switch>
             <Footer />
         </Router>

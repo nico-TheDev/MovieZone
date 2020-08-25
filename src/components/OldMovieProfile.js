@@ -1,6 +1,6 @@
 import React from "react";
 import icons from "../assets/icons/icons.svg";
-import GenrePill from "../components/GenrePill";
+import GenrePill from "./GenrePill";
 
 
 export default function MovieProfile({ details ,setOpenTrailer}) {

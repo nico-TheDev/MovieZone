@@ -16,9 +16,9 @@ const RecommendationsContainer = styled(Container)`
     gap: 1rem;
 `;
 
-const Placeholder = styled.h2`
-    grid-column:1/-1;
-    text-align:center;
-`;
+// const Placeholder = styled.h2`
+//     grid-column:1/-1;
+//     text-align:center;
+// `;
 
-export { RecommendationsMain, RecommendationsContainer,Title, Placeholder };
+export { RecommendationsMain, RecommendationsContainer,Title };
