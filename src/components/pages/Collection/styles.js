@@ -8,9 +8,9 @@ const Wrapper = styled.div`
 const CollectionContainer = styled(Container)`
     padding: 2rem 0 3rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: 2rem;
-    justify-items: center;
+    justify-items: start;
 `;
 
 

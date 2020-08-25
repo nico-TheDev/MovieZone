@@ -4,6 +4,7 @@ import Icon from "../shared/Icon";
 
 const SearchForm = styled.form`
     margin-right:1rem;
+    position:relative;
 `;
 
 const FieldContainer = styled.div`
@@ -41,17 +42,8 @@ const SearchLoader = styled(RingLoader)`
     transform: scale(0.25);
     right: -1rem;
     top: -1rem;
-    display: ${({ show }) => (show ? "inline-block" : "none")};
 `;
 
-const SearchResults = styled.div`
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: max-content;
-    display: grid;
-`;
 
 export {
     SearchForm,
@@ -59,5 +51,4 @@ export {
     SearchInput,
     SearchIcon,
     SearchLoader,
-    SearchResults,
 };

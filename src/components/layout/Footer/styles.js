@@ -59,6 +59,11 @@ const Note = styled.p`
         margin-left:5px;
         color:var(--main-color);
     }
+    
+    ${respondTo.sm`
+        grid-column:1/-1;
+        grid-row:2/3;
+    `}
 `;
 
 export { Footer, FooterContainer, DBLogo, LogoLink, SocialIcon, SocialLink , Note};

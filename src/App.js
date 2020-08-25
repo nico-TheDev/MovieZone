@@ -15,6 +15,7 @@ import PopularMovies from "./components/pages/PopularList/PopularMovies";
 import TopRatedTV from "./components/pages/TopRatedList/TopRatedTV";
 import TopRatedMovies from "./components/pages/TopRatedList/TopRatedMovies";
 import GenreList from "./components/pages/GenreList";
+import SearchPageResult from "./components/pages/SearchPageResult";
 
 import "./assets/css/custom.css";
 
@@ -24,6 +25,7 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/search/:query" component={SearchPageResult}/>
                 <Route exact path="/:type/:id" component={Movie} />
                 <Route path="/list/tv/popular" component={PopularTV} />
                 <Route path="/list/movie/popular" component={PopularMovies} />

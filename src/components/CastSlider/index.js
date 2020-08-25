@@ -16,14 +16,17 @@ export default function CastSlider({ id, type }) {
     const breakpoints = {
         300: {
             slidesPerView: 2,
+            slidesPerGroup:2,
             spaceBetween: 10,
         },
         450: {
             slidesPerView: 3,
+            slidesPerGroup:3,
             spaceBetween: 30,
         },
         700: {
             slidesPerView: 4,
+            slidesPerGroup:4,
         },
         900: {
             slidesPerView: 5,
