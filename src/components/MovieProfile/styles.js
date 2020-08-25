@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Container from "../shared/Container";
 import Button from "../shared/Button";
+import respondTo from "../../util/respondTo";
 
 const Profile = styled.header`
     position: relative;
@@ -15,6 +16,13 @@ const ProfileContainer = styled(Container)`
     gap: 2rem;
     align-items: center;
     padding-bottom: 2rem;
+
+    ${respondTo.md`
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-content: center;
+        padding-top:20vh;
+    `}
 `;
 
 const Backdrop = styled.img`
@@ -31,6 +39,11 @@ const Content = styled.div`
     display: grid;
     gap: 1rem;
     justify-items: start;
+
+    ${respondTo.md`
+        text-align: center;
+        justify-items: center;
+    `}
 `;
 
 const Genres = styled.ul`
@@ -49,12 +62,21 @@ const Stats = styled.ul`
         margin-right: 0.5rem;
         margin-bottom: 0.5rem;
     }
+
+    ${respondTo.md`
+        flex-direction: column;
+        align-items:center;
+    `}
 `;
 
 const Stat = styled.li`
     display: flex;
     align-items: center;
     font-weight: bold;
+
+    ${respondTo.md`
+        margin-bottom:1rem;
+    `}
 
     svg {
         fill: var(--main-color);
@@ -71,9 +93,7 @@ const MovieButton = styled(Button)`
     align-items: center;
 `;
 
-const Poster = styled.img`
-
-`;
+const Poster = styled.img``;
 
 export {
     Profile,
@@ -84,5 +104,5 @@ export {
     Stats,
     Stat,
     MovieButton,
-    Poster
+    Poster,
 };

@@ -1,8 +1,8 @@
 import React from "react";
-import SwiperCore, { Autoplay, Pagination } from "swiper";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/swiper.scss"
+import "swiper/swiper.scss";
 import useNowPlaying from "../../hooks/useNowPlaying";
 import Featured from "../Featured";
 import FeaturedLoader from "../Loader/FeaturedLoader";
@@ -12,7 +12,7 @@ SwiperCore.use([Autoplay]);
 export default function FeaturedSlider() {
     const { data, isLoading, isError } = useNowPlaying();
 
-    if(isLoading) return <FeaturedLoader/>
+    if (isLoading) return <FeaturedLoader />;
 
     if (isError) return "An Error Occured";
 
@@ -25,7 +25,7 @@ export default function FeaturedSlider() {
                 delay: 5000,
                 disableOnInteraction: true,
             }}
-            loop='true'
+            loop="true"
         >
             {movies.map((movie) => (
                 <SwiperSlide key={movie.id}>

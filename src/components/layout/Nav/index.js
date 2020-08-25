@@ -8,6 +8,7 @@ import {
     NavList,
     NavItem,
     UserIcon,
+    Menu,
 } from "./styles";
 import getIcon from "../../../util/getIcon";
 import logoDir from "../../../assets/img/logo.png";
@@ -25,17 +26,25 @@ export default function Nav() {
                 <Search />
 
                 <Dropdown type="movie" title="Movies" />
-                <Dropdown type="tv" title="TV Shows" item1='Today' item2='Airing'/>
+                <Dropdown
+                    type="tv"
+                    title="TV Shows"
+                    item1="Today"
+                    item2="Airing"
+                />
                 <NavItem>
                     <UserIcon>
                         <use href={getIcon("user-circle")} />
                     </UserIcon>
                 </NavItem>
+
+                <Menu>
+                    <UserIcon>
+                        <use href={getIcon("menu")} />
+                    </UserIcon>
+                </Menu>
             </NavContainer>
         </NavStyle>
     );
 }
 
-{
-    /* */
-}

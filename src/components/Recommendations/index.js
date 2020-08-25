@@ -26,7 +26,7 @@ export default function Recommendations({ id, type }) {
             {data.results.length !== 0 && (
                 <Container>
                     {data.results.slice(0, 12).map((movie) => (
-                        <MovieCard key={movie} movie={movie} type={type} />
+                        <MovieCard key={movie.id} movie={movie} type={type} />
                     ))}
                 </Container>
             )}

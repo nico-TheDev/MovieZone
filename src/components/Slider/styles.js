@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import Title from '../shared/Title';
+import Container from '../shared/Container';
 
 const SliderContainer = styled.div`
-    height:20rem;
+    height:auto;
 `;
 
 const SliderTitle = styled(Title)`
@@ -10,4 +11,8 @@ const SliderTitle = styled(Title)`
     font-size:1.3rem;
 `;
 
-export { SliderContainer, SliderTitle }
+const Holder = styled(Container)`
+    padding:20px 0;
+`;
+
+export { SliderContainer, SliderTitle,Holder }

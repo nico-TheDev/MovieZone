@@ -1,10 +1,13 @@
 import styled from "styled-components";
+
 import Icon from "../../shared/Icon";
 import Container from "../../shared/Container";
+import respondTo from '../../../util/respondTo'
 
 const Footer = styled.footer`
     background-color: var(--main-dark-5);
     padding: 2rem 0;
+    margin-top:1.5rem;
 `;
 
 const FooterContainer = styled(Container)`
@@ -13,6 +16,19 @@ const FooterContainer = styled(Container)`
     justify-content: space-between;
     align-items: center;
     z-index: 2;
+
+    ${respondTo.sm`
+       display: grid;
+        gap:1rem;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
+
+        & > * {
+            margin-bottom: 1rem;
+        }
+    `}
 `;
 
 const DBLogo = styled.img`

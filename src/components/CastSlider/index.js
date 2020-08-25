@@ -15,13 +15,13 @@ SwiperCore.use([Navigation]);
 export default function CastSlider({ id, type }) {
     const { data, isLoading, isError } = useGetCasts(id, type);
     const breakpoints = {
-        320: {
+        380: {
             slidesPerView: 2,
             spaceBetween: 20,
             slidesPerGroup: 2,
         },
-        480: {
-            slidesPerView: 2,
+        450: {
+            slidesPerView: 3,
             spaceBetween: 10,
             slidesPerGroup: 2,
         },

@@ -26,6 +26,30 @@ html{
     box-sizing: border-box;
     font-size: 18px;
 }
+/* 
+ cp: "450px",
+    sm: "600px",
+    md: "800px",
+    lg: "1200px",
+ */
+
+@media only screen  and (max-width:800px){
+    html{
+        font-size: 95%;
+    }
+}
+
+@media only screen  and (max-width:600px){
+    html{
+        font-size: 90%;
+    }
+}
+
+@media only screen  and (max-width:450px){
+    html{
+        font-size: 80%;
+    }
+}
 
 body{
     font-family: 'Poppins',sans-serif;

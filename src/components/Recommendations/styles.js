@@ -13,7 +13,6 @@ const Title = styled.h2`
 const RecommendationsContainer = styled(Container)`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-    grid-auto-rows:14rem;
     gap: 1rem;
 `;
 

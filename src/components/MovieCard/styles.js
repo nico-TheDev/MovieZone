@@ -19,7 +19,7 @@ const Card = styled.figure`
 const Poster = styled.img`
     display: block;
     width: 100%;
-    height: 14rem;
+    height: 252px;
     border-radius: 1rem;
     object-fit: cover;
 `;

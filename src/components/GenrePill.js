@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Pill = styled.span`
     width: max-content;
     padding: 0.3em 0.6em;
-    margin: 0.5em;
+    margin: 7px;
     margin-left: 0;
     background-color: var(--main-color);
     text-align: center;
