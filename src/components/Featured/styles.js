@@ -57,6 +57,9 @@ const Content = styled.div`
     ${respondTo.md`
         order:3;
         margin-top:1rem;
+        h2{
+            text-align:center;
+        }
     `}
 `;
 

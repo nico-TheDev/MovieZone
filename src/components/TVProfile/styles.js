@@ -21,6 +21,7 @@ const ProfileContainer = styled(Container)`
         grid-template-columns: 1fr;
         justify-items: center;
         align-content: center;
+        min-height:120vh;
         padding-top:20vh;
     `}
 `;
@@ -56,8 +57,9 @@ const Genres = styled.ul`
 
 const Stats = styled.ul`
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 10px;
 
     & > * {
         margin-right: 0.5rem;
@@ -65,8 +67,12 @@ const Stats = styled.ul`
     }
 
     ${respondTo.md`
-        flex-direction: column;
-        align-items:center;
+        justify-items:center;
+        align-content:center;
+        grid-template-columns:repeat(2,auto);
+    `}
+    ${respondTo.sm`
+        grid-template-columns:1fr;
     `}
 `;
 
@@ -85,8 +91,8 @@ const Stat = styled.li`
     }
 
     span {
-        display:inline-block;
-        padding-left:5px;
+        display: inline-block;
+        padding-left: 5px;
         font-weight: normal;
     }
 `;

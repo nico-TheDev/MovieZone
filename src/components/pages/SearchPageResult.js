@@ -5,7 +5,7 @@ import useSearch from "../../hooks/useSearch";
 
 export default function SearchPageResult({ match:{params:{query}} }) {
     const [pageCount, setPageCount] = useState(1);
-    const { data, isLoading, isError } = useSearch(query,pageCount);
+    const { data, isLoading, isError,pageLimit } = useSearch(query,pageCount);
 
     if (isLoading) return "Search Results Loading...";
 
@@ -17,6 +17,8 @@ export default function SearchPageResult({ match:{params:{query}} }) {
             title={`Search Results for ${query}`}
             pageCount={pageCount}
             setPageCount={setPageCount}
+            pageLimit={pageLimit.total_pages}
+
         />
     );
 }

@@ -10,6 +10,7 @@ export default function Collection({
     setPageCount,
     pageCount,
     type,
+    pageLimit
 }) {
     document.title = `MovieZone - ${title}`;
 
@@ -30,7 +31,7 @@ export default function Collection({
                     </Container>
                 </div>
             </Wrapper>
-            <Pagination setPageCount={setPageCount} pageCount={pageCount} />
+            <Pagination setPageCount={setPageCount} pageCount={pageCount} pageLimit={pageLimit}/>
         </>
     );
 }

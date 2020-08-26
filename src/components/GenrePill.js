@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Pill = styled.span`
+    display: inline-block;
     width: max-content;
     padding: 0.3em 0.6em;
     margin: 7px 7px 7px 0;
@@ -15,7 +16,7 @@ const Pill = styled.span`
     }
 `;
 
-export default function GenrePill({ genre, id ,type}) {
+export default function GenrePill({ genre, id, type }) {
     return (
         <Link to={`/genre/${genre}/${type}/${id}`}>
             <Pill>{genre}</Pill>

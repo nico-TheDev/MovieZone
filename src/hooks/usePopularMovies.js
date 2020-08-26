@@ -11,6 +11,7 @@ export default function usePopularMovies(page = 1) {
 
     const { data, error } = useSWR(`/api/popular/movie/${page}`, fetcher);
 
+    console.log(data);
     return {
         data,
         isLoading: !data && !error,

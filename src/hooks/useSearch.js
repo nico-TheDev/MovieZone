@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import axios from "axios";
 
-export default function useSearch(query,page = 1) {
+export default function useSearch(query, page = 1) {
     const fetcher = () =>
         axios
             .get(
@@ -20,5 +20,6 @@ export default function useSearch(query,page = 1) {
         data: { movies, tvShows },
         isLoading: !data && !error,
         isError: error,
+        pageLimit: data,
     };
 }

@@ -11,9 +11,9 @@ import {
 } from "./styles";
 import getIcon from "../../util/getIcon";
 
-export default function Trailer({ id, isOpen, setIsTrailerOpen }) {
+export default function Trailer({ id, isOpen, setIsTrailerOpen,type }) {
     const params = useParams();
-    const { data, isLoading, isError } = useMovieTrailers(id,params.type);
+    const { data, isLoading, isError } = useMovieTrailers(id,type);
 
 
     const handleClick = () => setIsTrailerOpen(false);

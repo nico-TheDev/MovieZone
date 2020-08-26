@@ -20,6 +20,8 @@ export default function GenreList({ match }) {
                 pageCount={pageCount}
                 setPageCount={setPageCount}
                 type={type}
+                pageLimit={data.total_pages}
+
             />
         </>
     );

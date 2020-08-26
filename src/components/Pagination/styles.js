@@ -3,7 +3,7 @@ import Container from "../shared/Container";
 import Button from "../shared/Button";
 
 const PaginationMain = styled.div`
-    display:${({pageCount}) => pageCount ? 'block' : 'none' };
+    display: ${({ pageCount }) => (pageCount ? "block" : "none")};
 `;
 
 const PaginationContainer = styled(Container)`
@@ -20,11 +20,12 @@ const PageButton = styled(Button)`
 `;
 
 const Prev = styled(PageButton)`
-    visibility:${({pageCount}) => pageCount === 1 ? 'hidden' : 'visible'};
+    visibility: ${({ pageCount }) => (pageCount === 1 ? "hidden" : "visible")};
 `;
 
 const Next = styled(PageButton)`
-    visibility:${({pageCount}) => pageCount >= 1 ? 'visible' : 'hidden'};
+    visibility: ${({ pageLimit, pageCount }) =>
+        pageCount < pageLimit ? "visible" : "hidden"};
 `;
 
-export { PaginationContainer,Prev,Next, PaginationMain }
+export { PaginationContainer, Prev, Next, PaginationMain };

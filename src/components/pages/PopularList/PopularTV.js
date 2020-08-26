@@ -18,6 +18,7 @@ export default function PopularTV() {
             pageCount={pageCount}
             setPageCount={setPageCount}
             type='tv'
+            pageLimit={data.total_pages}
         />
     );
 }

@@ -15,5 +15,6 @@ export default function useTopRatedTV(page = 1) {
         data: data,
         isLoading: !data && !error,
         isError: error,
+        
     };
 }

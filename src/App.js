@@ -6,6 +6,7 @@ import Footer from "./components/layout/Footer/";
 import Home from "./components/pages/Home";
 
 import Movie from "./components/pages/Movie/";
+import TVShow from "./components/pages/TVShow";
 import TrendingMovies from "./components/pages/TrendingMoviesList";
 import UpcomingMovies from "./components/pages/UpcomingMoviesList";
 import TodayTVList from "./components/pages/TodayTVList";
@@ -25,8 +26,9 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/search/:query" component={SearchPageResult}/>
-                <Route exact path="/:type/:id" component={Movie} />
+                <Route path="/search/:query" component={SearchPageResult}/>
+                <Route path="/movie/:id" component={Movie} />
+                <Route path="/tv/:id" component={TVShow} />
                 <Route path="/list/tv/popular" component={PopularTV} />
                 <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />

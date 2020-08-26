@@ -4,7 +4,7 @@ import Icon from "../shared/Icon";
 import getIcon from "../../util/getIcon";
 import { PaginationContainer, Prev,Next, PaginationMain } from "./styles";
 
-export default function Pagination({ setPageCount, pageCount }) {
+export default function Pagination({ setPageCount, pageCount,pageLimit }) {
     const goToPrev = () => {
         setPageCount((prevCount) => (prevCount -= 1));
     };
@@ -24,7 +24,7 @@ export default function Pagination({ setPageCount, pageCount }) {
 
                 <h2>Page {pageCount}</h2>
 
-                <Next onClick={goToNext} pageCount={pageCount}>
+                <Next onClick={goToNext} pageCount={pageCount} pageLimit={pageLimit}>
                     <Icon>
                         <use href={getIcon("arrow-right")} />
                     </Icon>

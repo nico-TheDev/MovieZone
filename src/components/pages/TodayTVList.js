@@ -18,6 +18,8 @@ export default function TodayTVList() {
             pageCount={pageCount}
             setPageCount={setPageCount}
             type='tv'
+            pageLimit={data.total_pages}
+
         />
     );
 }

@@ -20,16 +20,16 @@ import {
 } from "./styles";
 import useDetails from "../../hooks/useDetails";
 
-export default function MovieProfile({ id }) {
-    const type = 'movie';
+export default function TVProfile({ id }) {
+    const type = "tv";
     const { data: details, isLoading, isError } = useDetails(id, type);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
 
-    if (isLoading) return "Movie Loading...";
+    if (isLoading) return "TV Show Loading...";
 
-    if (isError) return "Movie Error";
+    if (isError) return "TV Show Error";
 
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
@@ -91,19 +91,44 @@ export default function MovieProfile({ id }) {
                                 <Icon>
                                     <use href={getIcon("calendar")} />
                                 </Icon>
-                                Release Date:
+                                First Air Date:
                                 <span>
-                                    {details.release_date
-                                        ? convertDate(details.release_date)
-                                        : convertDate(details.first_air_date)}
+                                    {convertDate(details.first_air_date) ?? "Unknown"}
                                 </span>
                             </Stat>
                             <Stat>
                                 <Icon>
-                                    <use href={getIcon("timer")} />
+                                    <use href={getIcon("calendar")} />
+                                </Icon>
+                                Last Air Date:
+                                <span>
+                                    {convertDate(details.last_air_date) ?? "Unknown"}
+                                </span>
+                            </Stat>
+                            <Stat>
+                                <Icon>
+                                    <use href={getIcon("pen")} />
+                                </Icon>
+                                Created By:
+                                <span>{details.created_by[0] ? details.created_by[0].name : 'Unknown'}</span>
+                            </Stat>
+                            <Stat>
+                                <Icon>
+                                    <use href={getIcon("film")} />
+                                </Icon>
+                                Episodes:
+                                <span>
+                                    {details.number_of_episodes}
+                                </span>
+                            </Stat>
+                            <Stat>
+                                <Icon>
+                                    <use href={getIcon("time")} />
                                 </Icon>
                                 Runtime:
-                                <span>{getRuntime(details.runtime)}</span>
+                                <span>
+                                    {details.episode_run_time.join("-")} min
+                                </span>
                             </Stat>
                         </Stats>
                         <p>

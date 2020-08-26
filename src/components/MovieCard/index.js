@@ -18,7 +18,9 @@ export default function MovieCard({ movie, type, mediaType }) {
                         alt={movie.name || movie.original_title}
                     />
                 ) : (
-                    <PosterPlaceholder>No Poster</PosterPlaceholder>
+                    <PosterPlaceholder>
+                        {movie.original_title || movie.name}
+                    </PosterPlaceholder>
                 )}
                 <Content className="content">
                     <Title> {movie.original_title || movie.name}</Title>

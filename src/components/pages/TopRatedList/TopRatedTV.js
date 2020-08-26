@@ -18,6 +18,8 @@ export default function TopRatedTV() {
             pageCount={pageCount}
             setPageCount={setPageCount}
             type='tv'
+            pageLimit={data.total_pages}
+
         />
     );
 }
