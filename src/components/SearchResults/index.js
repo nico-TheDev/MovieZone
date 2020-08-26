@@ -8,25 +8,22 @@ export default function SearchResults({
 }) {
     return (
         <Results isShowing={isShowing}>
-            <ul>
-                <Title>Movies</Title>
-                {movies.length !== 0
-                    ? movies.map((item) => (
-                          <SearchCard
-                              key={item.id}
-                              details={item}
-                              type="movie"
-                          />
-                      ))
-                    : "No Movies Found"}
-            </ul>
+            {movies.length !== 0 && (
+                <ul>
+                    <Title>Movies</Title>
+
+                    {movies.map((item) => (
+                        <SearchCard key={item.id} details={item} type="movie" />
+                    ))}
+                </ul>
+            )}
             <ul>
                 <Title>TV Shows</Title>
                 {tvShows.length !== 0
                     ? tvShows.map((item) => (
                           <SearchCard key={item.id} details={item} type="tv" />
                       ))
-                    : "No Movies Found"}
+                    : "No TV Shows Found"}
             </ul>
         </Results>
     );
