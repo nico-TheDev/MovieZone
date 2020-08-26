@@ -32,7 +32,6 @@ export default function Search() {
     const showResults = () => setIsShowing(true);
 
     const hideResults = () => {
-        setQuery("");
         setIsShowing(false);
     };
     

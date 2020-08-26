@@ -1,30 +1,35 @@
 import React from "react";
-import { Results, Title } from "./styles";
+import { Results, Title, SubTitle } from "./styles";
 import SearchCard from "../SearchCard";
 
-export default function SearchResults({
-    media: { movies, tvShows },
-    isShowing,
-}) {
-    return (
-        <Results isShowing={isShowing}>
-            {movies.length !== 0 && (
-                <ul>
-                    <Title>Movies</Title>
+export default function SearchResults({ media, isShowing }) {
+    const { movies, tvShows } = media;
 
-                    {movies.map((item) => (
-                        <SearchCard key={item.id} details={item} type="movie" />
-                    ))}
-                </ul>
-            )}
-            <ul>
-                <Title>TV Shows</Title>
-                {tvShows.length !== 0
-                    ? tvShows.map((item) => (
-                          <SearchCard key={item.id} details={item} type="tv" />
-                      ))
-                    : "No TV Shows Found"}
-            </ul>
+    const noResults = movies.length === 0 && tvShows.length === 0;
+
+    const movieList = (
+        <ul>
+            <Title>Movies</Title>
+            {movies.map((item) => (
+                <SearchCard key={item.id} details={item} type="movie" />
+            ))}
+        </ul>
+    );
+
+    const tvShowList = (
+        <ul>
+            <Title>TV Shows</Title>
+            {tvShows.map((item) => (
+                <SearchCard key={item.id} details={item} type="tv" />
+            ))}
+        </ul>
+    );
+
+    return (
+        <Results isShowing={isShowing} isEmpty={noResults}>
+            {movies.length !== 0 ? movieList : null}
+            {tvShows.length !== 0 ? tvShowList : null}
+            {noResults && <SubTitle>No Results</SubTitle>}
         </Results>
     );
 }

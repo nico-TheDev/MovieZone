@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from '../shared/Container';
+import Container from "../shared/Container";
 import { blink, ringAnim } from "../../assets/animations";
 
 const SampleTitle = styled.h3`
@@ -7,7 +7,7 @@ const SampleTitle = styled.h3`
     height: 30px;
     background: var(--main-mid);
     margin-bottom: 1rem;
-    animation: ${blink} 0.6s both;
+    animation: ${blink} 0.6s both infinite;
 `;
 
 const SampleSlider = styled.div`
@@ -15,7 +15,7 @@ const SampleSlider = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: 1rem;
     margin-bottom: 3rem;
-    animation: ${blink} 0.6s both;
+    animation: ${blink} 0.6s both infinite;
 `;
 
 const SampleSlide = styled.div`
@@ -23,7 +23,7 @@ const SampleSlide = styled.div`
     height: 15rem;
     background: var(--main-mid);
     border-radius: 1rem;
-    animation: ${blink} 0.6s both;
+    animation: ${blink} 0.6s both infinite;
 `;
 
 // LOADER
@@ -58,32 +58,65 @@ const RingLoader = styled.div`
     }
 `;
 
-
 // FEATURED LOADER
 
 const FeaturedLoader = styled(Container)`
-    min-height:100vh;
-    display:flex;
-    align-items:flex-end;
-    /* background:var(--main-dark); */
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    animation: ${blink} 0.6s both infinite;
 
+    /* background:var(--main-dark); */
 `;
 
 const FeaturedBottom = styled.div`
-    height:40vh;
-    display:grid;
-    grid-template-columns:1fr 12rem;
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    align-items:center;
+    grid-template-columns:1fr auto;
+    grid-template-rows:repeat(4,1fr);
+    justify-content:space-between;
     gap:2rem;
+
     & > div {
-        background:var(--main-mid);
-        border-radius:1rem;
-        height:3rem;
+        background: var(--main-mid);
+        border-radius: 1rem;
     }
 
-    & div:nth-child(5){
-        height:14rem;
-
-    }
 `;
 
-export { SampleTitle, SampleSlider, SampleSlide, RingLoader,FeaturedBottom,FeaturedLoader };
+const SampleTags = styled.div`
+    height: 50px;
+    width:60%;
+`;
+
+const SampleDesc = styled.div`
+    height: 150px;
+`;
+
+const SampleButton = styled.div`
+    height: 100px;
+    width: 230px;
+    border-radius: 100px;
+`;
+
+const SamplePoster = styled.div`
+    width: 190px;
+    height: 250px;
+    grid-column:2/3;
+    grid-row:1/-1;
+`;
+
+export {
+    SampleTitle,
+    SampleSlider,
+    SampleSlide,
+    RingLoader,
+    FeaturedBottom,
+    FeaturedLoader,
+    SampleTags,
+    SampleDesc,
+    SampleButton,
+    SamplePoster,
+};

@@ -38,6 +38,8 @@ const Content = styled.div`
     transition: 500ms ease-in-out;
     transform: translateY(1rem);
     opacity: 0;
+    font-size:1.1rem;
+    padding:5px;
 `;
 
 const Title = styled.h3``;

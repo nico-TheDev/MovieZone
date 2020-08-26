@@ -1,16 +1,24 @@
-import React from 'react'
-import { FeaturedLoader as Loader, FeaturedBottom } from './styles';
+import React from "react";
+import {
+    FeaturedLoader as Container,
+    FeaturedBottom,
+    SampleTags,
+    SampleDesc,
+    SampleButton,
+    SamplePoster,
+    SampleTitle,
+} from "./styles";
 
 export default function FeaturedLoader() {
     return (
-        <Loader>
+        <Container>
             <FeaturedBottom>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <SampleTitle />
+                <SampleTags />
+                <SampleDesc />
+                <SampleButton />
+                <SamplePoster />
             </FeaturedBottom>
-        </Loader>
-    )
+        </Container>
+    );
 }

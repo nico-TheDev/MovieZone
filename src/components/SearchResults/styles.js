@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import respondTo from '../../util/respondTo';
+import respondTo from "../../util/respondTo";
 
 const Results = styled.div`
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    height: 300px;
-    overflow-y: scroll;
+    height: ${({ isEmpty }) => (isEmpty ? "max-content" : "300px")};
+    overflow-y: ${({ isEmpty }) => (isEmpty ? "unset" : "scroll")};
     overflow-x: hidden;
     display: grid;
     padding: 5px;
@@ -25,4 +25,8 @@ const Title = styled.h3`
     border-bottom: 1px solid white;
 `;
 
-export { Results, Title };
+const SubTitle = styled(Title)`
+    border-bottom: none;
+`;
+
+export { Results, Title, SubTitle };
