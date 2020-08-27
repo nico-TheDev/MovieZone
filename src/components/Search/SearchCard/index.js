@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Card, Poster, Title,MiniPoster } from "./styles";
-import cutText from "../../util/cutText";
+import cutText from "../../../util/cutText";
 
 export default function SearchCard({ details, type }) {
     return (

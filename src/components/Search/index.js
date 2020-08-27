@@ -8,7 +8,7 @@ import {
     SearchIcon,
     SearchLoader,
 } from "./styles";
-import SearchResults from "../SearchResults";
+import SearchResults from "./SearchResults";
 import getIcon from "../../util/getIcon";
 import useSearch from "../../hooks/useSearch";
 
