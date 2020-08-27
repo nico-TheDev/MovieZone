@@ -1,15 +1,20 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import Slider from "../../Slider";
-import SliderLoader from "../../Loader/SliderLoader";
+import SliderSkeleton from "./SliderSkeleton";
 import useTrendingMovies from "../../../hooks/useTrendingMovies";
 
 export default function TrendingSlider() {
-    const { isLoading, data, isError } = useTrendingMovies();
+    const history = useHistory();
+    const { isLoading, data, hasError } = useTrendingMovies();
 
-    if (isLoading) return <SliderLoader />;
+    if (isLoading) return <SliderSkeleton />;
 
-    if (isError) return "Error";
+    if (hasError) {
+        history.push(`/error/${hasError}`);
+        return;
+    }
 
-    return <Slider title="Trending" movies={data.results} type='movie' />;
+    return <Slider title="Trending" movies={data.results} type="movie" />;
 }

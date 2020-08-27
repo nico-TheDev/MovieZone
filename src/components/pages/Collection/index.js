@@ -1,8 +1,9 @@
 import React from "react";
 
 import MovieCard from "../../MovieCard";
-import Pagination from "../../Pagination";
+import Pagination from "./Pagination";
 import { Wrapper, CollectionContainer as Container, Title } from "./styles";
+import Empty from "../../EmptyPlaceholder";
 
 export default function Collection({
     movies,
@@ -10,7 +11,7 @@ export default function Collection({
     setPageCount,
     pageCount,
     type,
-    pageLimit
+    pageLimit,
 }) {
     document.title = `MovieZone - ${title}`;
 
@@ -19,19 +20,28 @@ export default function Collection({
             <Wrapper>
                 <div>
                     <Title>{title}</Title>
-                    <Container>
-                        {movies.map((item) => (
-                            <MovieCard
-                                movie={item}
-                                key={item.id}
-                                type={type}
-                                mediaType={item.media_type}
-                            />
-                        ))}
-                    </Container>
+                    {movies.length !== 0 ? (
+                        <Container>
+                            {movies.map((item) => (
+                                <MovieCard
+                                    movie={item}
+                                    key={item.id}
+                                    type={type}
+                                    mediaType={item.media_type}
+                                />
+                            ))}
+                        </Container>
+                    ) : (
+                        <Empty title={"No Media Found"} />
+                    )}
                 </div>
             </Wrapper>
-            <Pagination setPageCount={setPageCount} pageCount={pageCount} pageLimit={pageLimit}/>
+            <Pagination
+                setPageCount={setPageCount}
+                pageCount={pageCount}
+                pageLimit={pageLimit}
+                length={movies.length}
+            />
         </>
     );
 }

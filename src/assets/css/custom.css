@@ -10,7 +10,7 @@
     --main-mid: rgb(31, 64, 104);
     --main-mid-2: rgba(31, 64, 104, 0.822);
     --contentBg: rgba(0, 0, 0, 0.8);
-    --loader-speed:1.5s;
+    --loader-speed:1.5s ease-in-out infinite;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
@@ -18,7 +18,7 @@
 *,
 *::before,
 *::after {
-    box-shadow: inherit;
+    box-sizing: inherit;
     margin: 0;
     padding: 0;
     transition: 300ms;
@@ -27,6 +27,11 @@
 html {
     box-sizing: border-box;
     font-size: 18px;
+}
+
+#root{
+    overflow-x:hidden;
+    overflow-y: unset;
 }
 /* 
  cp: "450px",

@@ -9,7 +9,7 @@ export default function useSearch(query, page = 1) {
             )
             .then((res) => res.data);
 
-    const { data, error } = useSWR(`/api/search/${query}/${page}`, fetcher);
+    const { data, error } = useSWR(query ? `/api/search/${query}/${page}` : null, fetcher);
 
     const movies =
         data && data.results.filter((item) => item.media_type === "movie");
@@ -19,7 +19,7 @@ export default function useSearch(query, page = 1) {
     return {
         data: { movies, tvShows },
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
         pageLimit: data,
     };
 }

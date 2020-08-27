@@ -1,22 +1,30 @@
 import styled from "styled-components";
 import Container from "../../shared/Container";
+import respondTo from '../../../util/respondTo';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     padding-top: 20vh;
+
+    ${respondTo.md`
+        padding-top:15vh;
+    `}
 `;
 
-const CollectionContainer = styled(Container)`
+export const CollectionContainer = styled(Container)`
     padding: 2rem 0 3rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     gap: 2rem;
     justify-items: start;
+
+    & a{
+        display:block;
+        width:100%;
+    }
 `;
 
-
-const Title = styled.h2`
+export const Title = styled.h2`
     text-align:center;
     margin-bottom:1rem;
 `;
 
-export { Wrapper, CollectionContainer, Title }

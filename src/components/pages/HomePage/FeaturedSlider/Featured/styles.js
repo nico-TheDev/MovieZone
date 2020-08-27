@@ -3,24 +3,25 @@ import Container from "../../../../shared/Container";
 import Button from "../../../../shared/Button";
 import respondTo from "../../../../../util/respondTo";
 
-const FeaturedStyle = styled.div`
+export const FeaturedStyle = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     background-size: cover;
     background-position: center;
+    padding-top:12vh;
 
     ${respondTo.md`
         justify-content: center;
-        height: 110vh;
         padding-top:20vh;
+        min-height:80vh;
     `}
 `;
 
-const BGWrapper = styled.div``;
+export const BGWrapper = styled.div``;
 
-const BG = styled.img`
+export const BG = styled.img`
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +33,7 @@ const BG = styled.img`
     filter: brightness(40%);
 `;
 
-const Genres = styled.ul`
+export const Genres = styled.ul`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -40,7 +41,7 @@ const Genres = styled.ul`
     margin: 1rem 0;
 `;
 
-const FeaturedContainer = styled(Container)`
+export const FeaturedContainer = styled(Container)`
     display: flex;
     align-items: center;
     padding-bottom: 3rem;
@@ -51,7 +52,7 @@ const FeaturedContainer = styled(Container)`
     `}
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
     flex: 1;
 
     ${respondTo.md`
@@ -63,7 +64,7 @@ const Content = styled.div`
     `}
 `;
 
-const Description = styled.p`
+export const Description = styled.p`
     width: 80%;
     margin-bottom: 1rem;
 
@@ -72,7 +73,7 @@ const Description = styled.p`
     `}
 `;
 
-const FeaturedButton = styled(Button)`
+export const FeaturedButton = styled(Button)`
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -88,22 +89,10 @@ const FeaturedButton = styled(Button)`
     `}
 `;
 
-const Cover = styled.div`
+export const Cover = styled.div`
     margin-left: 3rem;
 
     ${respondTo.md`
         margin-left: 0;
     `}
 `;
-
-export {
-    FeaturedStyle,
-    BGWrapper,
-    BG,
-    FeaturedContainer,
-    Content,
-    Description,
-    FeaturedButton,
-    Cover,
-    Genres,
-};

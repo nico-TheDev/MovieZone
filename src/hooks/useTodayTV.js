@@ -14,6 +14,6 @@ export default function useToday(page = 1) {
     return {
         data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

@@ -8,35 +8,16 @@ import {
     DropdownBody,
 } from "./styles";
 
-export default function Dropdown({ type, title, item1, item2 }) {
+export default function Dropdown({ links, title, type }) {
     return (
         <DropdownHead>
             <DropdownButton>{title}</DropdownButton>
             <DropdownBody>
-                <DropdownItem>
-                    <NavLink to={`/list/${type}/popular`}>Popular</NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                    <NavLink
-                        to={`/list/${type}/${
-                            item1 ? item1.toLowerCase() : "trending"
-                        }`}
-                    >
-                        {item1 ? item1 : "Trending"}
-                    </NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                    <NavLink to={`/list/${type}/toprated`}>Top Rated</NavLink>{" "}
-                </DropdownItem>
-                <DropdownItem>
-                    <NavLink
-                        to={`/list/${type}/${
-                            item2 ? item2.toLowerCase() : "upcoming"
-                        }`}
-                    >
-                        {item2 ? item2 : "Upcoming"}
-                    </NavLink>
-                </DropdownItem>
+                {links?.map((link) => (
+                    <DropdownItem key={link.href(type)}>
+                        <NavLink to={link.href(type)}>{link.label}</NavLink>
+                    </DropdownItem>
+                ))}
             </DropdownBody>
         </DropdownHead>
     );

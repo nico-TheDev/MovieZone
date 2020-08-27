@@ -24,7 +24,8 @@ export default function TrailerSlider({ videos }) {
                     <iframe
                         src={`https://www.youtube.com/embed/${video.key}`}
                         frameBorder="0"   
-                        title={video.name}                     
+                        title={video.name}
+                        allowFullScreen                     
                     ></iframe>
                 </SwiperSlide>
             ))}

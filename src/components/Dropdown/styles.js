@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const DropdownHead = styled.ul`
+export const DropdownHead = styled.ul`
     display: inline-block;
     position: relative;
-    text-align:center;
-    cursor:pointer;
-    border-radius:1rem;
-    &:hover span{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 1rem;
+    &:hover span {
         background: var(--main-dark);
     }
 
@@ -17,24 +17,35 @@ const DropdownHead = styled.ul`
     }
 `;
 
-const DropdownItem = styled.li`
+export const DropdownItem = styled.li`
     padding: 0.7rem 1rem;
-    width:auto;
-    font-size:0.9rem;
-    & a:hover{
-        color:var(--main-color);
-    }
+    width: auto;
+    font-size: 0.9rem;
+    a {
 
+        &:link,
+        &:visited
+        {
+            color:inherit;
+        }
+        &:hover {
+            color: var(--main-color);
+        }
+
+        &:active{
+            color:var(--main-color);
+        }
+    }
 `;
 
-const DropdownButton = styled.span`
+export const DropdownButton = styled.span`
     display: block;
     padding: 0.5rem 1rem;
-    text-transform:uppercase;
-    letter-spacing:4px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 `;
 
-const DropdownBody = styled.div`
+export const DropdownBody = styled.div`
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -43,5 +54,3 @@ const DropdownBody = styled.div`
     width: 100%;
     background: var(--main-dark);
 `;
-
-export { DropdownHead, DropdownItem, DropdownButton, DropdownBody };

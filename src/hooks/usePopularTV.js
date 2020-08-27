@@ -15,6 +15,6 @@ export default function usePopularTV(page = 1) {
     return {
         data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

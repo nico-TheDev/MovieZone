@@ -1,15 +1,22 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import Slider from "../../Slider";
-import SliderLoader from "../../Loader/SliderLoader";
+import SliderSkeleton from "./SliderSkeleton";
 import useTopRatedTV from "../../../hooks/useTopratedTV";
 
 export default function TopRatedSlider() {
-    const { isLoading, data, isError } = useTopRatedTV();
+    const history = useHistory();
+    const { isLoading, data, hasError } = useTopRatedTV();
 
-    if (isLoading) return <SliderLoader />;
+    if (isLoading) return <SliderSkeleton />;
 
-    if (isError) return "Error";
+    if (hasError) {
+        history.push(`/error/${hasError}`);
+        return;
+    }
 
-    return <Slider title="Top Rated TV Shows" movies={data.results} type='tv'/>;
+    return (
+        <Slider title="Top Rated TV Shows" movies={data.results} type="tv" />
+    );
 }

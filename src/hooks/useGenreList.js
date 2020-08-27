@@ -9,7 +9,7 @@ export default function useGenreList() {
     return {
         data,
         isLoading: !data && !error,
-        isError:error
+        hasError:error
     }
 }
 

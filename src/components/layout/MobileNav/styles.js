@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import respondTo from "../../../util/respondTo";
 
-const MobileNavMain = styled.nav`
+export const MobileNavMain = styled.nav`
     display: none;
     position: fixed;
     top: 0;
@@ -17,7 +17,7 @@ const MobileNavMain = styled.nav`
     transition: 500ms;
 
     ul {
-        display: block;
+        display: block ;
         div {
             position: static;
             opacity: 1;
@@ -29,6 +29,11 @@ const MobileNavMain = styled.nav`
             }
         }
     }
+
+/*Experimental Search Card  */
+    /* a li{
+        display:flex;
+    } */
 
     ${respondTo.md`
         display: flex;
@@ -43,7 +48,6 @@ const MobileNavMain = styled.nav`
         form {
             display: block !important;
         input {
-            width: 90%;
             margin:auto;
             font-size: inherit;
         }
@@ -55,7 +59,7 @@ const MobileNavMain = styled.nav`
     }
 `;
 
-const CloseBtn = styled.button`
+export const CloseBtn = styled.button`
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -67,11 +71,11 @@ const CloseBtn = styled.button`
     }
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
     width: 12rem;
 `;
 
-const MenuHolder = styled.div`
+export const MenuHolder = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -80,5 +84,3 @@ const MenuHolder = styled.div`
         margin: 5px;
     }
 `;
-
-export { MobileNavMain, CloseBtn, Logo, MenuHolder };

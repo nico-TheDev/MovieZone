@@ -4,9 +4,9 @@ import Container from "../../../components/shared/Container";
 import respondTo from "../../../util/respondTo";
 import Icon from "../../shared/Icon";
 
-const NavStyle = styled.nav`
+export const NavStyle = styled.nav`
     width: 100%;
-    top: 0;
+    top: 1rem;
     left: 0;
     z-index: 500;
     position: absolute;
@@ -19,7 +19,7 @@ const NavStyle = styled.nav`
     `}
 `;
 
-const NavContainer = styled(Container)`
+export const NavContainer = styled(Container)`
     display: flex;
     height: 10vh;
     align-items: center;
@@ -30,13 +30,13 @@ const NavContainer = styled(Container)`
     }
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
     ${respondTo.sm`
         width:12rem;
     `}
 `;
 
-const NavList = styled.ul`
+export const NavList = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ const NavList = styled.ul`
     `}
 `;
 
-const NavItem = styled.li`
+export const NavItem = styled.li`
     margin: 0 1rem;
 
     & a {
@@ -56,13 +56,13 @@ const NavItem = styled.li`
     }
 `;
 
-const UserIcon = styled(Icon)`
+export const UserIcon = styled(Icon)`
     width: 2.5rem;
     height: 2.5rem;
     fill:white;
 `;
 
-const Menu = styled.button`
+export const Menu = styled.button`
     display: none;
     ${respondTo.md`
         display: inline-block;
@@ -72,4 +72,3 @@ const Menu = styled.button`
     `}
 `;
 
-export { NavStyle, NavContainer, Logo, NavList, NavItem, UserIcon, Menu };

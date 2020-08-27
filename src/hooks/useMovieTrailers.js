@@ -16,6 +16,6 @@ export default function useMovieTrailers(id,type) {
     return {
         data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

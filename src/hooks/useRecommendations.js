@@ -14,6 +14,6 @@ export default function useRecommendations(id, type) {
     return {
         data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

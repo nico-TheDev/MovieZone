@@ -15,6 +15,6 @@ export default function usePersonMedia(id) {
     return {
         data:media,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

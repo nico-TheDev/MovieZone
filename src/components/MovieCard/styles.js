@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Icon from "../shared/Icon";
 
-const Card = styled.figure`
+export const Card = styled.figure`
     overflow: hidden;
     border-radius: 1rem;
     position:relative;
@@ -16,15 +16,16 @@ const Card = styled.figure`
     }
 `;
 
-const Poster = styled.img`
+export const Poster = styled.img`
     display: block;
     width: 100%;
-    height: 252px;
+    height: 300px;
     border-radius: 1rem;
     object-fit: cover;
+    object-position:center;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
     text-align: center;
     position: absolute;
     top: 0;
@@ -42,18 +43,17 @@ const Content = styled.div`
     padding:5px;
 `;
 
-const Title = styled.h3``;
+export const Title = styled.h3``;
 
-const Date = styled.p``;
+export const Date = styled.p``;
 
-const Rating = styled.p`
+export const Rating = styled.p`
     display: flex;
     align-items: center;
 `;
 
-const StarIcon = styled(Icon)`
+export const StarIcon = styled(Icon)`
     margin-right: 10px;
-    fill: ${({ theme }) => theme.mainColor };
+    fill: var(--main-color);
 `;
 
-export { Card, Poster, Title, Date, Rating, StarIcon, Content };

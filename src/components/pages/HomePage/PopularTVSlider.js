@@ -1,16 +1,22 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 
 import Slider from "../../Slider";
-import SliderLoader from "../../Loader/SliderLoader";
+import SliderSkeleton from "./SliderSkeleton";
 import usePopularTV from "../../../hooks/usePopularTV";
 
 export default function PopularTVSlider() {
-    const { isLoading, data, isError } = usePopularTV();
+    const history = useHistory();
+    const { isLoading, data, hasError } = usePopularTV();
 
-    if (isLoading) return <SliderLoader />;
+    if (isLoading) return <SliderSkeleton />;
 
-    if (isError) return "Error";
+    if (hasError) {
+        history.push(`/error/${hasError}`);
+        return;
+    }
 
-    return <Slider title="Popular TV Shows" movies={data.results} type={'tv'}/>;
+    return (
+        <Slider title="Popular TV Shows" movies={data.results} type={"tv"} />
+    );
 }

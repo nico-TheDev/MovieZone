@@ -1,18 +1,24 @@
 import React from "react";
 
 import usePersonMedia from "../../../hooks/usePersonMedia";
-import PersonProfile from "../../PersonProfile";
-import PersonMedia from "../../PersonMedia";
+import PersonProfile from "./PersonProfile";
+import PersonMedia from "./PersonMedia";
+import ProfileSkeleton from "./ProfileSkeleton";
 
 export default function Person({
     match: {
         params: { id },
     },
+    history,
 }) {
-    const { data, isLoading, isError } = usePersonMedia(id);
+    const { data, isLoading, hasError } = usePersonMedia(id);
 
-    if (isLoading) return "Loading person";
-    if (isError) return "Error person";
+    if (isLoading) return <ProfileSkeleton />;
+
+    if (hasError) {
+        history.push(`/error/${hasError}`);
+        return;
+    }
 
     return (
         <>

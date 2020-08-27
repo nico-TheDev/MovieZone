@@ -4,13 +4,13 @@ import Icon from "../../shared/Icon";
 import Container from "../../shared/Container";
 import respondTo from '../../../util/respondTo'
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
     background-color: var(--main-dark-5);
     padding: 2rem 0;
     margin-top:1.5rem;
 `;
 
-const FooterContainer = styled(Container)`
+export const FooterContainer = styled(Container)`
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -31,27 +31,27 @@ const FooterContainer = styled(Container)`
     `}
 `;
 
-const DBLogo = styled.img`
+export const DBLogo = styled.img`
     width: 5rem;
 `;
 
-const LogoLink = styled.a`
+export const LogoLink = styled.a`
     display: grid;
     gap: 0.4rem;
 `;
 
-const SocialIcon = styled(Icon)`
+export const SocialIcon = styled(Icon)`
     width: 2.5rem;
     height: 2.5rem;
 `;
 
-const SocialLink = styled.a`
+export const SocialLink = styled.a`
     &:hover svg {
         fill: var(--main-color);
     }
 `;
 
-const Note = styled.p`
+export const Note = styled.p`
     display:flex;
     align-items:center;
 
@@ -65,5 +65,3 @@ const Note = styled.p`
         grid-row:2/3;
     `}
 `;
-
-export { Footer, FooterContainer, DBLogo, LogoLink, SocialIcon, SocialLink , Note};

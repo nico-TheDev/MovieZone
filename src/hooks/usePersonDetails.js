@@ -14,6 +14,6 @@ export default function usePersonDetails(id) {
     return {
         data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

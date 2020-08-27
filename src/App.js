@@ -8,16 +8,17 @@ import HomePage from "./components/pages/HomePage";
 import MoviePage from "./components/pages/MoviePage";
 import TVShowPage from "./components/pages/TVShowPage";
 import PersonPage from "./components/pages/PersonPage";
-import TrendingMovies from "./components/pages/TrendingMoviesList";
-import UpcomingMovies from "./components/pages/UpcomingMoviesList";
-import TodayTVList from "./components/pages/TodayTVList";
-import AiringTVList from "./components/pages/AiringTVList";
-import PopularTV from "./components/pages/PopularList/PopularTV";
-import PopularMovies from "./components/pages/PopularList/PopularMovies";
-import TopRatedTV from "./components/pages/TopRatedList/TopRatedTV";
-import TopRatedMovies from "./components/pages/TopRatedList/TopRatedMovies";
-import GenreList from "./components/pages/GenreList";
-import SearchPageResult from "./components/pages/SearchPageResult";
+import TrendingMovies from "./components/pages/TrendingMoviesPage";
+import UpcomingMovies from "./components/pages/UpcomingMoviesPage";
+import TodayTV from "./components/pages/TodayTVPage";
+import AiringTV from "./components/pages/AiringTVPage";
+import PopularTV from "./components/pages/PopularList/PopularTVPage";
+import PopularMovies from "./components/pages/PopularList/PopularMoviesPage";
+import TopRatedTV from "./components/pages/TopRatedList/TopRatedTVPage";
+import TopRatedMovies from "./components/pages/TopRatedList/TopRatedMoviesPage";
+import GenrePage from "./components/pages/GenrePage";
+import NotFound from "./components/pages/NotFoundPage";
+import SearchResultsPage from "./components/pages/SearchResultsPage";
 
 import "./assets/css/custom.css";
 
@@ -27,19 +28,21 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/search/:query" component={SearchPageResult}/>
+                <Route path="/search/:query" component={SearchResultsPage} />
                 <Route path="/movie/:id" component={MoviePage} />
                 <Route path="/tv/:id" component={TVShowPage} />
-                <Route path="/person/:id" component={PersonPage}/>
+                <Route path="/person/:id" component={PersonPage} />
                 <Route path="/list/tv/popular" component={PopularTV} />
-                <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />
-                <Route path="/list/tv/today" component={TodayTVList} />
-                <Route path="/list/tv/airing" component={AiringTVList} />
+                <Route path="/list/tv/today" component={TodayTV} />
+                <Route path="/list/tv/airing" component={AiringTV} />
+                <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/movie/toprated" component={TopRatedMovies} />
                 <Route path="/list/movie/upcoming" component={UpcomingMovies} />
                 <Route path="/list/movie/trending" component={TrendingMovies} />
-                <Route path="/genre/:genre/:type/:id" component={GenreList}/>
+                <Route path="/genre/:genre/:type/:id" component={GenrePage} />
+                <Route path="/error/:message" component={NotFound} />
+                <Route component={NotFound} />
             </Switch>
             <Footer />
         </Router>
