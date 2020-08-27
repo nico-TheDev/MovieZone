@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card, Author, ReviewText } from "./styles";
-import cutText from "../../util/cutText";
+import cutText from "../../../util/cutText";
 
 export default function ReviewCard({ details }) {
     return (

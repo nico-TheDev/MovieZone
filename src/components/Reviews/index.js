@@ -1,7 +1,7 @@
 import React from "react";
 
 import useReviews from "../../hooks/useReviews";
-import ReviewCard from "../ReviewCard";
+import ReviewCard from "./ReviewCard";
 import Container from '../shared/Container';
 import { ReviewWrapper, Title } from "./styles";
 
