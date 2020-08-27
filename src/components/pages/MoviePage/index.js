@@ -1,9 +1,9 @@
 import React from "react";
 
-import MovieProfile from "../../MovieProfile";
-import Recommendations from "../../Recommendations";
+import MovieProfile from "./MovieProfile";
 import CastSlider from "../../CastSlider";
 import Reviews from "../../Reviews";
+import Recommendations from "../../Recommendations";
 
 export default function Movie({ match }) {
     const { id } = match.params;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import GenrePill from "../GenrePill";
-import Trailer from "../Trailer";
-import Icon from "../shared/Icon";
-import getIcon from "../../util/getIcon";
-import getRuntime from "../../util/getRuntime";
-import convertDate from "../../util/convertDate";
+import GenrePill from "../../../GenrePill";
+import Trailer from "../../../Trailer";
+import Icon from "../../../shared/Icon";
+import getIcon from "../../../../util/getIcon";
+import getRuntime from "../../../../util/getRuntime";
+import convertDate from "../../../../util/convertDate";
 import {
     Profile,
     ProfileContainer,
@@ -17,10 +17,10 @@ import {
     MovieButton,
     Poster,
 } from "./styles";
-import useDetails from "../../hooks/useDetails";
+import useDetails from "../../../../hooks/useDetails";
 
 export default function MovieProfile({ id }) {
-    const type = 'movie';
+    const type = "movie";
     const { data: details, isLoading, isError } = useDetails(id, type);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
