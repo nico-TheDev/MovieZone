@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 
 import GenrePill from "../GenrePill";
 import Trailer from "../Trailer";
 import Icon from "../shared/Icon";
 import getIcon from "../../util/getIcon";
-import getRuntime from "../../util/getRuntime";
 import convertDate from "../../util/convertDate";
 import {
     Profile,

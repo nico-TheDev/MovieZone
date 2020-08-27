@@ -1,9 +1,8 @@
 import React from "react";
 
 import usePersonMedia from "../../../hooks/usePersonMedia";
-import Container from "../../shared/Container";
 import PersonProfile from "../../PersonProfile";
-import Slider from '../../Slider';
+import PersonMedia from "../../PersonMedia";
 
 export default function Person({
     match: {
@@ -17,8 +16,8 @@ export default function Person({
 
     return (
         <>
-            <PersonProfile id={id} bg={data}/>
-            <Slider title='Top Films/TV Shows' movies={data.slice(0,10)} />
+            <PersonProfile id={id} bg={data} />
+            <PersonMedia media={data.slice(0, 5)} />
         </>
     );
 }

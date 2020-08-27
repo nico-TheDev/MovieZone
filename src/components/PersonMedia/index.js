@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-export default function PersonMedia() {
+import MediaCard from "../PersonMediaCard";
+import { MediaHolder, Title, Wrapper } from "./styles";
+
+export default function PersonMedia({ media }) {
     return (
-        <div>
-            MEDIA CARDS HERE
-        </div>
-    )
+        <Wrapper>
+            <MediaHolder>
+                <Title>Top Films and TV Shows</Title>
+
+                {media.map((item) => (
+                    <MediaCard key={item.id} details={item} />
+                ))}
+            </MediaHolder>
+        </Wrapper>
+    );
 }

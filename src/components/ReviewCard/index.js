@@ -5,7 +5,7 @@ import cutText from "../../util/cutText";
 
 export default function ReviewCard({ details }) {
     return (
-        <a href={details.url} target="_blank" rel="noreferrer">
+        <a href={details.url} target="_blank" rel="noopener noreferrer">
             <Card>
                 <ReviewText>{cutText(details.content, 400)}</ReviewText>
                 <Author>&ndash; {details.author}</Author>

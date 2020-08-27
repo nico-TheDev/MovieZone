@@ -11,8 +11,6 @@ export default function useGetCasts(id, type) {
 
     const { data, error } = useSWR(`/api/cast/${type}/${id}`, fetcher);
 
-    console.log(data);
-
     return {
         data,
         isLoading: !data && !error,

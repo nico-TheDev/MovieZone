@@ -40,8 +40,10 @@ export default function Search() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push(`/search/${query}`);
-        setQuery("");
+        if (query !== "") {
+            history.push(`/search/${query}`);
+            setQuery("");
+        }
     };
 
     return (

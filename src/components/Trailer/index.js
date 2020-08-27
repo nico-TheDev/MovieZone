@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from 'react-router-dom';
 
 import useMovieTrailers from "../../hooks/useMovieTrailers";
 import TrailerSlider from './TrailerSlider';
@@ -12,7 +11,6 @@ import {
 import getIcon from "../../util/getIcon";
 
 export default function Trailer({ id, isOpen, setIsTrailerOpen,type }) {
-    const params = useParams();
     const { data, isLoading, isError } = useMovieTrailers(id,type);
 
 

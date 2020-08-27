@@ -100,6 +100,12 @@ const MovieButton = styled(Button)`
 
 const Poster = styled.img``;
 
+const Desc = styled.p`
+    height:${({textLength}) => textLength > 400 ? '195px' : 'auto' };
+    overflow-y:${({textLength}) => textLength > 400 ? 'scroll' : 'unset' };
+
+`;
+
 export {
     Profile,
     ProfileContainer,
@@ -108,6 +114,7 @@ export {
     Genres,
     Stats,
     Stat,
+    Desc,
     MovieButton,
     Poster,
 };

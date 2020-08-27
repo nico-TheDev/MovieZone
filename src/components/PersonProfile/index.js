@@ -1,10 +1,7 @@
 import React from "react";
 
-import GenrePill from "../GenrePill";
-import Trailer from "../Trailer";
 import Icon from "../shared/Icon";
 import getIcon from "../../util/getIcon";
-import getRuntime from "../../util/getRuntime";
 import convertDate from "../../util/convertDate";
 
 import {
@@ -12,10 +9,9 @@ import {
     ProfileContainer,
     Backdrop,
     Content,
-    Genres,
+    Desc,
     Stats,
     Stat,
-    MovieButton,
     Poster,
 } from "./styles";
 import usePersonDetails from "../../hooks/usePersonDetails";
@@ -29,7 +25,7 @@ export default function PersonProfile({ id, bg }) {
 
     console.log(bg[0].backdrop_path);
 
-    document.title = 'MovieZone - '+ details.name;
+    document.title = `MovieZone - ${details.name}`;
 
     return (
         <Profile>
@@ -74,11 +70,11 @@ export default function PersonProfile({ id, bg }) {
                             <span>{details.place_of_birth ?? " Unknown"}</span>
                         </Stat>
                     </Stats>
-                    <p>
+                    <Desc textLength={details.biography.length}>
                         {details.biography
                             ? details.biography
                             : "No biography found"}
-                    </p>
+                    </Desc>
                 </Content>
             </ProfileContainer>
         </Profile>
