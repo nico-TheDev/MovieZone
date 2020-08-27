@@ -19,7 +19,6 @@ export default function AiringTVList() {
             setPageCount={setPageCount}
             type='tv'
             pageLimit={data.total_pages}
-
         />
     );
 }

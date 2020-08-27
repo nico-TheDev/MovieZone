@@ -19,8 +19,6 @@ export default function TopRatedMovies() {
             setPageCount={setPageCount}
             type='movie'
             pageLimit={data.total_pages}
-            
-
         />
     );
 }

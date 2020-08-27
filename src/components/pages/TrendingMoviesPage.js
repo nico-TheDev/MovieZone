@@ -19,7 +19,6 @@ export default function TrendingMoviesList() {
             setPageCount={setPageCount}
             type='movie'
             pageLimit={data.total_pages}
-
         />
     );
 }

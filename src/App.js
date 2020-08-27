@@ -32,10 +32,10 @@ function App() {
                 <Route path="/tv/:id" component={TVShowPage} />
                 <Route path="/person/:id" component={PersonPage}/>
                 <Route path="/list/tv/popular" component={PopularTV} />
-                <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />
                 <Route path="/list/tv/today" component={TodayTV} />
                 <Route path="/list/tv/airing" component={AiringTV} />
+                <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/movie/toprated" component={TopRatedMovies} />
                 <Route path="/list/movie/upcoming" component={UpcomingMovies} />
                 <Route path="/list/movie/trending" component={TrendingMovies} />

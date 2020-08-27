@@ -18,7 +18,6 @@ export default function SearchPageResult({ match:{params:{query}} }) {
             pageCount={pageCount}
             setPageCount={setPageCount}
             pageLimit={pageLimit.total_pages}
-
         />
     );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 import MovieCard from "../../MovieCard";
-import Pagination from "../../Pagination";
+import Pagination from "./Pagination";
 import { Wrapper, CollectionContainer as Container, Title } from "./styles";
 
 export default function Collection({

@@ -19,9 +19,10 @@ import {
 } from "./styles";
 import useDetails from "../../../../hooks/useDetails";
 
+const TYPE = "movie";
+
 export default function MovieProfile({ id }) {
-    const type = "movie";
-    const { data: details, isLoading, isError } = useDetails(id, type);
+    const { data: details, isLoading, isError } = useDetails(id, TYPE);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
@@ -40,7 +41,7 @@ export default function MovieProfile({ id }) {
                 id={id}
                 isOpen={isTrailerOpen}
                 setIsTrailerOpen={setIsTrailerOpen}
-                type={type}
+                type={TYPE}
             />
 
             <Profile>
@@ -58,21 +59,16 @@ export default function MovieProfile({ id }) {
                         />
                     )}
                     <Content>
-                        <h2>
-                            {details.name
-                                ? details.name
-                                : details.original_title}
-                        </h2>
+                        <h2>{details.name || details.original_title}</h2>
                         <Genres>
-                            {details.genres &&
-                                details.genres.map((genre) => (
-                                    <GenrePill
-                                        key={genre.id}
-                                        genre={genre.name}
-                                        id={genre.id}
-                                        type={type}
-                                    />
-                                ))}
+                            {details.genres?.map((genre) => (
+                                <GenrePill
+                                    key={genre.id}
+                                    genre={genre.name}
+                                    id={genre.id}
+                                    TYPE={TYPE}
+                                />
+                            ))}
                         </Genres>
                         <Stats>
                             <Stat>
@@ -82,7 +78,7 @@ export default function MovieProfile({ id }) {
                                 Popularity:
                                 <span>
                                     {String(details.vote_average).length === 1
-                                        ? details.vote_average + ".0"
+                                        ? `${details.vote_average}.0`
                                         : details.vote_average}
                                 </span>
                             </Stat>
@@ -92,9 +88,7 @@ export default function MovieProfile({ id }) {
                                 </Icon>
                                 Release Date:
                                 <span>
-                                    {details.release_date
-                                        ? convertDate(details.release_date)
-                                        : convertDate(details.first_air_date)}
+                                    {convertDate(details.release_date || details.first_air_date)}
                                 </span>
                             </Stat>
                             <Stat>
@@ -106,9 +100,7 @@ export default function MovieProfile({ id }) {
                             </Stat>
                         </Stats>
                         <p>
-                            {details.overview
-                                ? details.overview
-                                : "No summary found"}
+                            {details.overview || "No summary found"}
                         </p>
                         <MovieButton onClick={handleClick}>
                             <Icon>

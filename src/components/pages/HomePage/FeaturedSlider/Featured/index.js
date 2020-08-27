@@ -19,6 +19,9 @@ import {
 export default function Featured({ featured }) {
     const { data: genreNames } = useGenreList();
 
+    /* 
+        GETS THE GENRE FOR THE NAME BASED ON THE ID
+    */
     const genreList =
         genreNames &&
         featured.genre_ids.map((id) => {
@@ -34,7 +37,7 @@ export default function Featured({ featured }) {
                     key={itemId + String(Math.random() * 2)}
                     genre={genreName}
                     id={itemId}
-                    type='movie'
+                    type="movie"
                 />
             );
         });
@@ -61,9 +64,7 @@ export default function Featured({ featured }) {
                                 : "No summary found"}
                         </Description>
                         <Link to={`/movie/${featured.id}`}>
-                            <FeaturedButton>
-                                See More
-                            </FeaturedButton>
+                            <FeaturedButton>See More</FeaturedButton>
                         </Link>
                     </Content>
                     <Cover>
