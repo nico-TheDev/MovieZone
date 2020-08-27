@@ -1,10 +1,10 @@
 import React from "react";
 
 import TVProfile from "./TVProfile";
-import Recommendations from "../../Recommendations";
 import CastSlider from "../../CastSlider";
+import Seasons from "./Seasons";
 import Reviews from "../../Reviews";
-import Seasons from "../../Seasons";
+import Recommendations from "../../Recommendations";
 
 export default function TVShow({ match }) {
     const { id } = match.params;

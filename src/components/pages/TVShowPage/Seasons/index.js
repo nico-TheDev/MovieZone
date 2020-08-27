@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 
-import useDetails from "../../hooks/useDetails";
+import useDetails from "../../../../hooks/useDetails";
 import SeasonCard from "./SeasonCard";
 import { Wrapper, Title } from "./styles";
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from "../shared/Container";
+import Container from "../../../shared/Container";
 
 
 const Wrapper = styled(Container)`

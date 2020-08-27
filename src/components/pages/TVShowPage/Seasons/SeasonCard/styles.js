@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import respondTo from "../../../util/respondTo";
+import respondTo from "../../../../../util/respondTo";
 
 const Card = styled.figure`
     background: var(--main-dark-5);

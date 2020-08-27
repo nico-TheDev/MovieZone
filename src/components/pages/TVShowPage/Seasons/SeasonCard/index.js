@@ -8,8 +8,8 @@ import {
     Item,
     Placeholder,
 } from "./styles";
-import convertDate from "../../../util/convertDate";
-import cutText from "../../../util/cutText";
+import convertDate from "../../../../../util/convertDate";
+import cutText from "../../../../../util/cutText";
 
 export default function SeasonCard({ details }) {
     return (
