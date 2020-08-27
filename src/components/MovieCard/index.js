@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "styled-components";
 
 import PosterPlaceholder from "../shared/PhotoPlaceholder";
 import { Poster, Card, Date, Rating, StarIcon, Title, Content } from "./styles";
@@ -8,7 +7,7 @@ import getIcon from "../../util/getIcon";
 
 export default function MovieCard({ movie, type, mediaType }) {
     const cardDate = (date) => (date ? String(date).slice(0, 4) : "unknown");
-    const { theme } = useContext(ThemeContext);
+
     return (
         <Link to={`/${mediaType || movie.media_type || type}/${movie.id}`}>
             <Card>
@@ -28,7 +27,7 @@ export default function MovieCard({ movie, type, mediaType }) {
                         {cardDate(movie.release_date || movie.first_air_date)}
                     </Date>
                     <Rating>
-                        <StarIcon color={theme}>
+                        <StarIcon>
                             <use href={getIcon("star-full")}></use>
                         </StarIcon>
                         {String(movie.vote_average).length === 1

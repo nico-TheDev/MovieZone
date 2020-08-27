@@ -53,7 +53,7 @@ const Rating = styled.p`
 
 const StarIcon = styled(Icon)`
     margin-right: 10px;
-    fill: ${({ theme }) => theme.mainColor };
+    fill: var(--main-color);
 `;
 
 export { Card, Poster, Title, Date, Rating, StarIcon, Content };

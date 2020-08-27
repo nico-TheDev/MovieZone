@@ -5,14 +5,14 @@ import "swiper/swiper.scss";
 
 import useNowPlaying from "../../../../hooks/useNowPlaying";
 import Featured from "./Featured";
-import FeaturedLoader from "../../../Loader/FeaturedLoader";
+import FeaturedSkeleton from './FeaturedSkeleton';
 
 SwiperCore.use([Autoplay]);
 
 export default function FeaturedSlider() {
     const { data, isLoading, isError } = useNowPlaying();
 
-    if (isLoading) return <FeaturedLoader />;
+    if (isLoading) return <FeaturedSkeleton />;
 
     if (isError) return "An Error Occured";
 

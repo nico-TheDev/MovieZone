@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { RingLoader } from "../Loader/styles";
+import { ringAnim } from '../../assets/animations';
 import Icon from "../shared/Icon";
 
 const SearchForm = styled.form`
-    margin-right:1rem;
-    position:relative;
+    margin-right: 1rem;
+    position: relative;
 `;
 
 const FieldContainer = styled.div`
@@ -18,7 +18,7 @@ const SearchInput = styled.input`
     padding: 0.5rem 1rem 0.5rem 3rem;
     color: white;
     outline: none;
-    max-width:250px;
+    max-width: 250px;
 
     &:focus,
     &:active {
@@ -37,18 +37,39 @@ const SearchIcon = styled(Icon)`
     transform: translateY(-50%);
     left: 1rem;
 `;
-const SearchLoader = styled(RingLoader)`
+const SearchLoader = styled.div`
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    & div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid var(--main-color);
+        border-radius: 50%;
+        animation: ${ringAnim} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: var(--main-color) transparent transparent transparent;
+    }
+
+    & div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    & div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    & div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+
     position: absolute !important;
     transform: scale(0.25);
     right: -1rem;
     top: -1rem;
 `;
 
-
-export {
-    SearchForm,
-    FieldContainer,
-    SearchInput,
-    SearchIcon,
-    SearchLoader,
-};
+export { SearchForm, FieldContainer, SearchInput, SearchIcon, SearchLoader };

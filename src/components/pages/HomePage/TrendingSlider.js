@@ -1,13 +1,13 @@
 import React from "react";
 
 import Slider from "../../Slider";
-import SliderLoader from "../../Loader/SliderLoader";
+import SliderSkeleton from './SliderSkeleton';
 import useTrendingMovies from "../../../hooks/useTrendingMovies";
 
 export default function TrendingSlider() {
     const { isLoading, data, isError } = useTrendingMovies();
 
-    if (isLoading) return <SliderLoader />;
+    if (isLoading) return <SliderSkeleton />;
 
     if (isError) return "Error";
 

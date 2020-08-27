@@ -1,13 +1,13 @@
 import React from "react";
 
 import Slider from "../../Slider";
-import SliderLoader from "../../Loader/SliderLoader";
+import SliderSkeleton from './SliderSkeleton';
 import useTopRatedTV from "../../../hooks/useTopratedTV";
 
 export default function TopRatedSlider() {
     const { isLoading, data, isError } = useTopRatedTV();
 
-    if (isLoading) return <SliderLoader />;
+    if (isLoading) return <SliderSkeleton />;
 
     if (isError) return "Error";
 

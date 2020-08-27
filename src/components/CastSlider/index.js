@@ -6,7 +6,7 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 
 import useGetCasts from "../../hooks/useGetCasts";
-import CastCard from "../CastCard";
+import CastCard from "./CastCard";
 import { Title, CastContainer } from "./styles";
 
 SwiperCore.use([Navigation]);

@@ -1,8 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Pill = styled.span`
+export const Pill = styled.span`
     display: inline-block;
     width: max-content;
     padding: 0.3em 0.6em;
@@ -15,11 +13,3 @@ const Pill = styled.span`
         background-color: var(--main-color-2);
     }
 `;
-
-export default function GenrePill({ genre, id, type }) {
-    return (
-        <Link to={`/genre/${genre}/${type}/${id}`}>
-            <Pill>{genre}</Pill>
-        </Link>
-    );
-}
