@@ -1,6 +1,6 @@
 import React from "react";
 
-import MediaCard from "../PersonMediaCard";
+import MediaCard from "./PersonMediaCard";
 import { MediaHolder, Title, Wrapper } from "./styles";
 
 export default function PersonMedia({ media }) {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Container from "../shared/Container";
-import Button from "../shared/Button";
-import respondTo from "../../util/respondTo";
+import Container from "../../../shared/Container";
+import Button from "../../../shared/Button";
+import respondTo from "../../../../util/respondTo";
 
 const Profile = styled.header`
     position: relative;

@@ -1,8 +1,8 @@
 import React from "react";
 
 import usePersonMedia from "../../../hooks/usePersonMedia";
-import PersonProfile from "../../PersonProfile";
-import PersonMedia from "../../PersonMedia";
+import PersonProfile from "./PersonProfile";
+import PersonMedia from "./PersonMedia";
 
 export default function Person({
     match: {

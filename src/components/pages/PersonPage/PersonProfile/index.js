@@ -1,9 +1,9 @@
 import React from "react";
 
-import Icon from "../shared/Icon";
-import getIcon from "../../util/getIcon";
-import convertDate from "../../util/convertDate";
-
+import Icon from "../../../shared/Icon";
+import getIcon from "../../../../util/getIcon";
+import convertDate from "../../../../util/convertDate";
+ 
 import {
     Profile,
     ProfileContainer,
@@ -14,7 +14,7 @@ import {
     Stat,
     Poster,
 } from "./styles";
-import usePersonDetails from "../../hooks/usePersonDetails";
+import usePersonDetails from "../../../../hooks/usePersonDetails";
 
 export default function PersonProfile({ id, bg }) {
     const { data: details, isLoading, isError } = usePersonDetails(id);
