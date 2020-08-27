@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
 import {
     SearchForm,
@@ -23,9 +23,12 @@ const loaderBody = (
 
 export default function Search() {
     const history = useHistory();
+    const location = useLocation();
     const [query, setQuery] = useState("");
     const [isShowing, setIsShowing] = useState(false);
     const { data, isLoading } = useSearch(query);
+
+    useEffect(() => setQuery(""), [location.pathname]);
 
     const handleChange = (e) => setQuery(e.target.value);
 
@@ -34,7 +37,7 @@ export default function Search() {
     const hideResults = () => {
         setIsShowing(false);
     };
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/search/${query}`);

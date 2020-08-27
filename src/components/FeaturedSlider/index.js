@@ -26,6 +26,7 @@ export default function FeaturedSlider() {
                 disableOnInteraction: true,
             }}
             loop="true"
+            grabCursor='true'
         >
             {movies.map((movie) => (
                 <SwiperSlide key={movie.id}>

@@ -16,6 +16,7 @@ const ProfileContainer = styled(Container)`
     gap: 2rem;
     align-items: center;
     padding-bottom: 2rem;
+    padding-top:15vh;
 
     ${respondTo.md`
         grid-template-columns: 1fr;
@@ -58,7 +59,7 @@ const Genres = styled.ul`
 const Stats = styled.ul`
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: 1fr max-content max-content;
     gap: 10px;
 
     & > * {
@@ -69,7 +70,7 @@ const Stats = styled.ul`
     ${respondTo.md`
         justify-items:center;
         align-content:center;
-        grid-template-columns:repeat(2,auto);
+        grid-template-columns:repeat(2,max-content);
     `}
     ${respondTo.sm`
         grid-template-columns:1fr;

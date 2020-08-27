@@ -1,4 +1,6 @@
 export default function convertDate(date) {
+    if (!date) return date;
+
     const months = [
         "January",
         "February",

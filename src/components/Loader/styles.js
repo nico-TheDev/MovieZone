@@ -71,7 +71,7 @@ const FeaturedLoader = styled(Container)`
 
 const FeaturedBottom = styled.div`
     width: 100%;
-    height: 80vh;
+    height: 60vh;
     display: grid;
     align-items:center;
     grid-template-columns:1fr auto;
@@ -92,12 +92,13 @@ const SampleTags = styled.div`
 `;
 
 const SampleDesc = styled.div`
-    height: 150px;
+    height: 100%;
+    width:80%;
 `;
 
 const SampleButton = styled.div`
-    height: 100px;
-    width: 230px;
+    height: 50px;
+    width: 150px;
     border-radius: 100px;
 `;
 
