@@ -10,6 +10,7 @@
     --main-mid: rgb(31, 64, 104);
     --main-mid-2: rgba(31, 64, 104, 0.822);
     --contentBg: rgba(0, 0, 0, 0.8);
+    --loader-speed:1.5s;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");

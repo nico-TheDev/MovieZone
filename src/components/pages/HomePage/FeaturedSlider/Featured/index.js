@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import GenrePill from "../GenrePill";
-import useGenreList from "../../hooks/useGenreList";
-import cutText from "../../util/cutText";
+import GenrePill from "../../../../GenrePill";
+import useGenreList from "../../../../../hooks/useGenreList";
+import cutText from "../../../../../util/cutText";
 import {
     FeaturedStyle,
     BGWrapper,
@@ -80,24 +80,3 @@ export default function Featured({ featured }) {
         </div>
     );
 }
-
-/*
-  const genreList =
-        featured.genre_ids &&
-        featured.genre_ids.map((id) => {
-            let genreName, itemId;
-            movieGenres.forEach((item) => {
-                if (item.id === id) {
-                    genreName = item.name;
-                    itemId = item.id;
-                }
-            });
-            return (
-                <GenrePill
-                    key={itemId + String(Math.random() * 2)}
-                    genre={genreName}
-                    id={itemId}
-                />
-            );
-        });
-*/

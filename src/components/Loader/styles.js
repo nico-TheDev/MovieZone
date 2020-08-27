@@ -7,7 +7,7 @@ const SampleTitle = styled.h3`
     height: 30px;
     background: var(--main-mid);
     margin-bottom: 1rem;
-    animation: ${blink} 0.6s both infinite;
+    animation: ${blink} var(--loader-speed) ease-in-out both infinite;
 `;
 
 const SampleSlider = styled.div`
@@ -15,7 +15,7 @@ const SampleSlider = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: 1rem;
     margin-bottom: 3rem;
-    animation: ${blink} 0.6s both infinite;
+    animation: ${blink} var(--loader-speed) ease-in-out both infinite;
 `;
 
 const SampleSlide = styled.div`
@@ -23,7 +23,7 @@ const SampleSlide = styled.div`
     height: 15rem;
     background: var(--main-mid);
     border-radius: 1rem;
-    animation: ${blink} 0.6s both infinite;
+    animation: ${blink} var(--loader-speed) ease-in-out both infinite;
 `;
 
 // LOADER
@@ -64,7 +64,7 @@ const FeaturedLoader = styled(Container)`
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
-    animation: ${blink} 0.6s both infinite;
+    animation: ${blink} var(--loader-speed) ease-in-out both infinite;
 
     /* background:var(--main-dark); */
 `;

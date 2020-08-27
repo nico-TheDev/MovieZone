@@ -1,8 +1,8 @@
 import React from "react";
 
-import Slider from "./Slider";
-import SliderLoader from "./Loader/SliderLoader";
-import useTopRatedTV from "../hooks/useTopratedTV";
+import Slider from "../../Slider";
+import SliderLoader from "../../Loader/SliderLoader";
+import useTopRatedTV from "../../../hooks/useTopratedTV";
 
 export default function TopRatedSlider() {
     const { isLoading, data, isError } = useTopRatedTV();

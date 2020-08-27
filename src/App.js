@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/layout/Nav/";
 import Footer from "./components/layout/Footer/";
-import Home from "./components/pages/Home";
+import HomePage from "./components/pages/HomePage";
 
-import Movie from "./components/pages/Movie/";
-import TVShow from "./components/pages/TVShow";
-import Person from "./components/pages/Person";
+import MoviePage from "./components/pages/MoviePage";
+import TVShowPage from "./components/pages/TVShowPage";
+import PersonPage from "./components/pages/PersonPage";
 import TrendingMovies from "./components/pages/TrendingMoviesList";
 import UpcomingMovies from "./components/pages/UpcomingMoviesList";
 import TodayTVList from "./components/pages/TodayTVList";
@@ -26,11 +26,11 @@ function App() {
         <Router>
             <Nav />
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={HomePage} />
                 <Route path="/search/:query" component={SearchPageResult}/>
-                <Route path="/movie/:id" component={Movie} />
-                <Route path="/tv/:id" component={TVShow} />
-                <Route path="/person/:id" component={Person}/>
+                <Route path="/movie/:id" component={MoviePage} />
+                <Route path="/tv/:id" component={TVShowPage} />
+                <Route path="/person/:id" component={PersonPage}/>
                 <Route path="/list/tv/popular" component={PopularTV} />
                 <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />

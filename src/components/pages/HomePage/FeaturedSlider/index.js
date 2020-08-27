@@ -1,11 +1,11 @@
 import React from "react";
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/swiper.scss";
-import useNowPlaying from "../../hooks/useNowPlaying";
-import Featured from "../Featured";
-import FeaturedLoader from "../Loader/FeaturedLoader";
+
+import useNowPlaying from "../../../../hooks/useNowPlaying";
+import Featured from "./Featured";
+import FeaturedLoader from "../../../Loader/FeaturedLoader";
 
 SwiperCore.use([Autoplay]);
 

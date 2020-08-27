@@ -1,8 +1,9 @@
 import React from "react";
 
-import Slider from "./Slider";
-import SliderLoader from "./Loader/SliderLoader";
-import usePopularTV from "../hooks/usePopularTV";
+
+import Slider from "../../Slider";
+import SliderLoader from "../../Loader/SliderLoader";
+import usePopularTV from "../../../hooks/usePopularTV";
 
 export default function PopularTVSlider() {
     const { isLoading, data, isError } = usePopularTV();
