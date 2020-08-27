@@ -1,10 +1,10 @@
 import React from "react";
 
-import Icon from "../shared/Icon";
-import getIcon from "../../util/getIcon";
-import { PaginationContainer, Prev,Next, PaginationMain } from "./styles";
+import Icon from "../../../shared/Icon";
+import getIcon from "../../../../util/getIcon";
+import { PaginationContainer, Prev, Next, PaginationMain } from "./styles";
 
-export default function Pagination({ setPageCount, pageCount,pageLimit }) {
+export default function Pagination({ setPageCount, pageCount, pageLimit }) {
     const goToPrev = () => {
         setPageCount((prevCount) => (prevCount -= 1));
     };
@@ -22,9 +22,15 @@ export default function Pagination({ setPageCount, pageCount,pageLimit }) {
                     </Icon>
                 </Prev>
 
-                <h2>Page {pageCount}</h2>
+                <h3>
+                    Page {pageCount} of {pageLimit}
+                </h3>
 
-                <Next onClick={goToNext} pageCount={pageCount} pageLimit={pageLimit}>
+                <Next
+                    onClick={goToNext}
+                    pageCount={pageCount}
+                    pageLimit={pageLimit}
+                >
                     <Icon>
                         <use href={getIcon("arrow-right")} />
                     </Icon>

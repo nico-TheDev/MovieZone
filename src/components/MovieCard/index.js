@@ -5,8 +5,9 @@ import PosterPlaceholder from "../shared/PhotoPlaceholder";
 import { Poster, Card, Date, Rating, StarIcon, Title, Content } from "./styles";
 import getIcon from "../../util/getIcon";
 
+const getYear = (date) => (date ? String(date).slice(0, 4) : "unknown");
+
 export default function MovieCard({ movie, type, mediaType }) {
-    const cardDate = (date) => (date ? String(date).slice(0, 4) : "unknown");
 
     return (
         <Link to={`/${mediaType || movie.media_type || type}/${movie.id}`}>
@@ -24,7 +25,7 @@ export default function MovieCard({ movie, type, mediaType }) {
                 <Content className="content">
                     <Title> {movie.original_title || movie.name}</Title>
                     <Date>
-                        {cardDate(movie.release_date || movie.first_air_date)}
+                        {getYear(movie.release_date || movie.first_air_date)}
                     </Date>
                     <Rating>
                         <StarIcon>

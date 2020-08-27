@@ -15,6 +15,44 @@ import MobileNav from "../MobileNav";
 import getIcon from "../../../util/getIcon";
 import logoDir from "../../../assets/img/logo.png";
 
+const LINK_ONE = [
+    {
+        href: (type) => `/list/${type}/trending`,
+        label: "Trending",
+    },
+    {
+        href: (type) => `/list/${type}/popular`,
+        label: "Popular",
+    },
+    {
+        href: (type) => `/list/${type}/upcoming`,
+        label: "Upcoming",
+    },
+    {
+        href: (type) => `/list/${type}/toprated`,
+        label: "Top Rated",
+    },
+];
+
+const LINK_TWO = [
+    {
+        href: (type) => `/list/${type}/toprated`,
+        label: "Top Rated",
+    },
+    {
+        href: (type) => `/list/${type}/popular`,
+        label: "Popular",
+    },
+    {
+        href: (type) => `/list/${type}/airing`,
+        label: "Airing",
+    },
+    {
+        href: (type) => `/list/${type}/today`,
+        label: "Today",
+    },
+];
+
 export default function Nav() {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
@@ -33,13 +71,8 @@ export default function Nav() {
 
                 <Search />
 
-                <Dropdown type="movie" title="Movies" />
-                <Dropdown
-                    type="tv"
-                    title="TV Shows"
-                    item1="Today"
-                    item2="Airing"
-                />
+                <Dropdown type="movie" title="Movies" links={LINK_ONE} />
+                <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
                 <NavItem>
                     <UserIcon>
                         <use href={getIcon("user-circle")} />

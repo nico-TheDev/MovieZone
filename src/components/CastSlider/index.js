@@ -11,27 +11,28 @@ import { Title, CastContainer } from "./styles";
 
 SwiperCore.use([Navigation]);
 
+const BREAKPOINTS = {
+    300: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 10,
+    },
+    450: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 30,
+    },
+    700: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+    },
+    900: {
+        slidesPerView: 5,
+    },
+};
+
 export default function CastSlider({ id, type }) {
     const { data, isLoading, isError } = useGetCasts(id, type);
-    const breakpoints = {
-        300: {
-            slidesPerView: 2,
-            slidesPerGroup:2,
-            spaceBetween: 10,
-        },
-        450: {
-            slidesPerView: 3,
-            slidesPerGroup:3,
-            spaceBetween: 30,
-        },
-        700: {
-            slidesPerView: 4,
-            slidesPerGroup:4,
-        },
-        900: {
-            slidesPerView: 5,
-        }
-    };
 
     if (isLoading) return "Cast Loading";
 
@@ -44,10 +45,10 @@ export default function CastSlider({ id, type }) {
                 slidesPerView={5}
                 slidesPerGroup={5}
                 spaceBetween={20}
-                freeMode={true}
+                freeMode
                 navigation
-                grabCursor={true}
-                breakpoints={breakpoints}
+                grabCursor
+                breakpoints={BREAKPOINTS}
             >
                 {data.cast.slice(0, 20).map((cast) => (
                     <SwiperSlide key={cast.id}>
