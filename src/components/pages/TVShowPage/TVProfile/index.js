@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import GenrePill from "../GenrePill";
-import Trailer from "../Trailer";
-import Icon from "../shared/Icon";
-import getIcon from "../../util/getIcon";
-import convertDate from "../../util/convertDate";
+import GenrePill from "../../../GenrePill";
+import Trailer from "../../../Trailer";
+import Icon from "../../../shared/Icon";
+import getIcon from "../../../../util/getIcon";
+import convertDate from "../../../../util/convertDate";
 import {
     Profile,
     ProfileContainer,
@@ -16,7 +16,7 @@ import {
     MovieButton,
     Poster,
 } from "./styles";
-import useDetails from "../../hooks/useDetails";
+import useDetails from "../../../../hooks/useDetails";
 
 export default function TVProfile({ id }) {
     const type = "tv";
@@ -91,7 +91,8 @@ export default function TVProfile({ id }) {
                                 </Icon>
                                 First Air Date:
                                 <span>
-                                    {convertDate(details.first_air_date) ?? "Unknown"}
+                                    {convertDate(details.first_air_date) ??
+                                        "Unknown"}
                                 </span>
                             </Stat>
                             <Stat>
@@ -100,7 +101,8 @@ export default function TVProfile({ id }) {
                                 </Icon>
                                 Last Air Date:
                                 <span>
-                                    {convertDate(details.last_air_date) ?? "Unknown"}
+                                    {convertDate(details.last_air_date) ??
+                                        "Unknown"}
                                 </span>
                             </Stat>
                             <Stat>
@@ -108,16 +110,18 @@ export default function TVProfile({ id }) {
                                     <use href={getIcon("pen")} />
                                 </Icon>
                                 Created By:
-                                <span>{details.created_by[0] ? details.created_by[0].name : 'Unknown'}</span>
+                                <span>
+                                    {details.created_by[0]
+                                        ? details.created_by[0].name
+                                        : "Unknown"}
+                                </span>
                             </Stat>
                             <Stat>
                                 <Icon>
                                     <use href={getIcon("film")} />
                                 </Icon>
                                 Episodes:
-                                <span>
-                                    {details.number_of_episodes}
-                                </span>
+                                <span>{details.number_of_episodes}</span>
                             </Stat>
                             <Stat>
                                 <Icon>
