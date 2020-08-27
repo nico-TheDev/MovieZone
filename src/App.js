@@ -7,6 +7,7 @@ import Home from "./components/pages/Home";
 
 import Movie from "./components/pages/Movie/";
 import TVShow from "./components/pages/TVShow";
+import Person from "./components/pages/Person";
 import TrendingMovies from "./components/pages/TrendingMoviesList";
 import UpcomingMovies from "./components/pages/UpcomingMoviesList";
 import TodayTVList from "./components/pages/TodayTVList";
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/search/:query" component={SearchPageResult}/>
                 <Route path="/movie/:id" component={Movie} />
                 <Route path="/tv/:id" component={TVShow} />
+                <Route path="/person/:id" component={Person}/>
                 <Route path="/list/tv/popular" component={PopularTV} />
                 <Route path="/list/movie/popular" component={PopularMovies} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />
@@ -45,63 +47,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-      <Route
-                    path="/list/trending"
-                    render={(props) => (
-                        <Collection
-                            {...props}
-                            setLoading={setLoading}
-                            movies={trending}
-                            title={"Trending Movies"}
-                            pageCount={currentTrendingPage}
-                            setPage={setCurrentTrendingPage}
-                        />
-                    )}
-                />
-                <Route
-                    path="/list/popular"
-                    render={(props) => (
-                        <Collection
-                            {...props}
-                            setLoading={setLoading}
-                            movies={popular}
-                            title={"Popular Movies"}
-                            pageCount={currentPopularPage}
-                            setPage={setCurrentPopularPage}
-                        />
-                    )}
-                />
-                <Route
-                    path="/list/toprated"
-                    render={(props) => (
-                        <Collection
-                            {...props}
-                            setLoading={setLoading}
-                            movies={topRated}
-                            title={"Top Rated Movies"}
-                            pageCount={currentTopRatedPage}
-                            setPage={setCurrentTopRatedPage}
-                        />
-                    )}
-                />
-                <Route
-                    path="/list/upcoming"
-                    render={(props) => (
-                        <Collection
-                            {...props}
-                            setLoading={setLoading}
-                            movies={upcoming}
-                            title={"Upcoming Movies"}
-                        />
-                    )}
-                />
-
-                <Route path="/genre/:genre/:id" component={GenreMovies} />
-
-                <Route path="/search/:query" component={SearchResults} />
-
-                <Route path="/movie/:id" component={MovieProfile} />
-*/

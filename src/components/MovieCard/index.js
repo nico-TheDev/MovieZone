@@ -10,7 +10,7 @@ export default function MovieCard({ movie, type, mediaType }) {
     const cardDate = (date) => (date ? String(date).slice(0, 4) : "unknown");
     const { theme } = useContext(ThemeContext);
     return (
-        <Link to={`/${mediaType || type}/${movie.id}`}>
+        <Link to={`/${mediaType || movie.media_type || type}/${movie.id}`}>
             <Card>
                 {movie.poster_path ? (
                     <Poster

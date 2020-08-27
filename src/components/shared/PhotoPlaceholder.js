@@ -7,7 +7,6 @@ const PhotoPlaceholder = styled.div`
     height:252px;
     background:var(--main-mid-2);
     text-align:center;
-    padding:10px;
 `;
 
 export default PhotoPlaceholder;
