@@ -15,7 +15,7 @@ import MobileNav from "../MobileNav";
 import getIcon from "../../../util/getIcon";
 import logoDir from "../../../assets/img/logo.png";
 
-const LINK_ONE = [
+export const LINK_ONE = [
     {
         href: (type) => `/list/${type}/trending`,
         label: "Trending",
@@ -34,7 +34,7 @@ const LINK_ONE = [
     },
 ];
 
-const LINK_TWO = [
+export const LINK_TWO = [
     {
         href: (type) => `/list/${type}/toprated`,
         label: "Top Rated",
@@ -85,7 +85,7 @@ export default function Nav() {
                     </UserIcon>
                 </Menu>
             </NavContainer>
-            {<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />}{" "}
+            {<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />}
         </NavStyle>
     );
 }
