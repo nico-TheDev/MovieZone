@@ -36,8 +36,9 @@ export default function Seasons({ id }) {
                 scrollbar={{ draggable: true }}
                 slidesOffsetBefore="10"
                 slidesOffsetAfter="10"
-                grabCursor="true"
                 breakpoints={BREAKPOINTS}
+                grabCursor
+                loop
             >
                 {seasons.map((item) => (
                     <SwiperSlide key={item.id}>

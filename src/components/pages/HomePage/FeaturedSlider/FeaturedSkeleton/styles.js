@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Container from "../../../../shared/Container";
-import { blink, ringAnim } from "../../../../../assets/animations";
+import { blink } from "../../../../../assets/animations";
 
 export const FeaturedLoader = styled(Container)`
     min-height: 100vh;

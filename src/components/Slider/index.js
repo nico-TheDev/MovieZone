@@ -14,6 +14,7 @@ const BREAKPOINTS = {
     300: {
         slidesPerView: 2,
         spaceBetween: 10,
+        freeMode:true
     },
     450: {
         slidesPerView: 3,
@@ -40,6 +41,7 @@ export default function Slider({ title, movies, type }) {
                     navigation
                     breakpoints={BREAKPOINTS}
                     grabCursor
+                    
                 >
                     {movies &&
                         movies.map((movie) => (

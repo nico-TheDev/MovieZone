@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 
 import MovieProfile from "./MovieProfile";
 import CastSlider from "../../CastSlider";

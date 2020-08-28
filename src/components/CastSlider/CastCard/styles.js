@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import respondTo from '../../../util/respondTo';
+
 
 export const Cast = styled.figure`
     height: 14rem;
@@ -32,5 +34,10 @@ export const Content = styled.div`
     width: 100%;
     height: 100%;
     text-align: center;
+
+    ${respondTo.sm`
+        opacity:1;
+        background:var(--main-dark-3);
+    `}
 `;
 

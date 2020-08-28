@@ -13,8 +13,8 @@ export default function TVShow({ match }) {
         <>
             <TVProfile id={id} />
             <CastSlider id={id} type={TYPE} />
-            <Reviews id={id} type={TYPE} />
             <Seasons id={id} />
+            <Reviews id={id} type={TYPE} />
             <Recommendations id={id} type={TYPE} />
         </>
     );
