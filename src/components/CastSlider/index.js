@@ -7,6 +7,7 @@ import "swiper/components/navigation/navigation.scss";
 
 import useGetCasts from "../../hooks/useGetCasts";
 import CastCard from "./CastCard";
+import CastSliderSkeleton from './CastSliderSkeleton';
 import { Title, CastContainer } from "./styles";
 
 SwiperCore.use([Navigation]);
@@ -34,10 +35,10 @@ const BREAKPOINTS = {
 export default function CastSlider({ id, type }) {
     const { data, isLoading, hasError } = useGetCasts(id, type);
 
-    if (isLoading) return "Cast Loading";
+    if (isLoading) return <CastSliderSkeleton/>;
 
     if (hasError) return "Cast Error";
-
+    
     return (
         <CastContainer>
             <Title>Casts</Title>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Container from "../shared/Container";
 import Icon from "../shared/Icon";
+import { blink } from "../../assets/animations";
 
 export const TrailerStyle = styled.div`
     position: fixed;
@@ -59,3 +60,12 @@ export const CloseIcon = styled(Icon)`
     fill: white;
 `;
 
+export const TrailerSkeleton = styled(TrailerContainer)`
+    position: absolute;
+    z-index: 50;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--main-mid);
+    animation: ${blink} var(--loader-speed);
+`;

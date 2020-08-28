@@ -3,6 +3,7 @@ import React from "react";
 import usePersonMedia from "../../../hooks/usePersonMedia";
 import PersonProfile from "./PersonProfile";
 import PersonMedia from "./PersonMedia";
+import ProfileSkeleton from './ProfileSkeleton';
 
 export default function Person({
     match: {
@@ -11,7 +12,7 @@ export default function Person({
 }) {
     const { data, isLoading, hasError } = usePersonMedia(id);
 
-    if (isLoading) return "Loading person";
+    if (isLoading) return <ProfileSkeleton/>;
     if (hasError) return "Error person";
 
     return (

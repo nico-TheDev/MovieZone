@@ -7,11 +7,12 @@ import {
     RecommendationsContainer as Container,
     Title,
 } from "./styles";
+import RecommendationSkeleton from "./RecommendationSkeleton";
 
 export default function Recommendations({ id, type }) {
     const { data, isLoading, hasError } = useRecommendations(id, type);
 
-    if (isLoading) return "Loading Recommendations...";
+    if (isLoading) return <RecommendationSkeleton />;
 
     if (hasError) return "Error Recommendations";
 

@@ -17,6 +17,7 @@ import {
     Poster,
 } from "./styles";
 import useDetails from "../../../../hooks/useDetails";
+import ProfileSkeleton from "../ProfileSkeleton";
 
 export default function TVProfile({ id }) {
     const type = "tv";
@@ -25,7 +26,7 @@ export default function TVProfile({ id }) {
 
     const handleClick = () => setIsTrailerOpen(true);
 
-    if (isLoading) return "TV Show Loading...";
+    if (isLoading) return <ProfileSkeleton />;
 
     if (hasError) return "TV Show Error";
 

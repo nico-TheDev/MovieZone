@@ -2,13 +2,14 @@ import React, { useState } from "react";
 
 import Collection from "./Collection";
 import useGenre from "../../hooks/useGenre";
+import PageSkeleton from "./PageSkeleton";
 
 export default function GenreList({ match }) {
     const { id, genre, type } = match.params;
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = useGenre(pageCount, id, type);
 
-    if (isLoading) return "Genre Loading...";
+    if (isLoading) return <PageSkeleton/>;
 
     if (hasError) return "Genre Data errror";
 

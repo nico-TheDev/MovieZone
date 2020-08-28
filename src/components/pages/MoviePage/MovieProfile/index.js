@@ -17,6 +17,7 @@ import {
     MovieButton,
     Poster,
 } from "./styles";
+import ProfileSkeleton from '../ProfileSkeleton';
 import useDetails from "../../../../hooks/useDetails";
 
 const TYPE = "movie";
@@ -27,7 +28,7 @@ export default function MovieProfile({ id }) {
 
     const handleClick = () => setIsTrailerOpen(true);
 
-    if (isLoading) return "Movie Loading...";
+    if (isLoading) return <ProfileSkeleton/>;
 
     if (hasError) return "Movie Error";
 

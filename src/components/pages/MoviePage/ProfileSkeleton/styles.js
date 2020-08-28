@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Container from "../../../../shared/Container";
-import { blink } from "../../../../../assets/animations";
-import respondTo from "../../../../../util/respondTo";
+import Container from "../../../shared/Container";
+import { blink } from "../../../../assets/animations";
+import respondTo from "../../../../util/respondTo";
 
 export const FeaturedLoader = styled(Container)`
     min-height: 100vh;
@@ -15,7 +15,7 @@ export const FeaturedBottom = styled.div`
     height: 100vh;
     display: grid;
     align-items: end;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr;
     justify-content: space-between;
     gap: 2rem;
 
@@ -75,9 +75,9 @@ export const SamplePoster = styled.div`
     background: var(--main-mid);
     position: relative;
     bottom: 150px;
+    order:-1;
     ${respondTo.md`
       bottom:0;
-      order:-1;
     `}
 `;
 

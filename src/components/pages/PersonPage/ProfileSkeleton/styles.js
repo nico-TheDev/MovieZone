@@ -1,13 +1,19 @@
 import styled from "styled-components";
-import Container from "../../../../shared/Container";
-import { blink } from "../../../../../assets/animations";
-import respondTo from "../../../../../util/respondTo";
+import Container from "../../../shared/Container";
+import { blink } from "../../../../assets/animations";
+import respondTo from "../../../../util/respondTo";
 
 export const FeaturedLoader = styled(Container)`
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
     animation: ${blink} var(--loader-speed);
+    position:relative;
+    bottom:150px;
+    ${respondTo.md`
+        padding-top:20vh;
+        
+    `}
 `;
 
 export const FeaturedBottom = styled.div`
@@ -15,7 +21,7 @@ export const FeaturedBottom = styled.div`
     height: 100vh;
     display: grid;
     align-items: end;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr;
     justify-content: space-between;
     gap: 2rem;
 
@@ -48,15 +54,12 @@ export const SampleTitle = styled.h3`
 
 export const SampleTags = styled.div`
     height: 30px;
-    width: 60%;
-    ${respondTo.md`
-        width:300px;
-      `}
+    width: 100%;
 `;
 
 export const SampleDesc = styled.div`
     height: 150px;
-    width: 80%;
+    width: 100%;
     ${respondTo.md`
         width:100%;
         height:200px;
@@ -74,10 +77,9 @@ export const SamplePoster = styled.div`
     height: 250px;
     background: var(--main-mid);
     position: relative;
-    bottom: 150px;
+    order:-1;
     ${respondTo.md`
       bottom:0;
-      order:-1;
     `}
 `;
 
@@ -85,7 +87,6 @@ export const Content = styled.div`
     display: grid;
     gap: 1rem;
     position: relative;
-    bottom: 80px;
     ${respondTo.md`
         width:100%;
         justify-items:center;

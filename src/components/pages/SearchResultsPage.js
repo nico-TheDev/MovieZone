@@ -2,12 +2,13 @@ import React, { useState } from "react";
 
 import Collection from "./Collection";
 import useSearch from "../../hooks/useSearch";
+import PageSkeleton from "./PageSkeleton";
 
 export default function SearchPageResult({ match:{params:{query}} }) {
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError,pageLimit } = useSearch(query,pageCount);
 
-    if (isLoading) return "Search Results Loading...";
+    if (isLoading) return <PageSkeleton/>;
 
     if (hasError) return "Search Results Data error";
 
