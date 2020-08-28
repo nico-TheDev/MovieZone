@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Container from "../shared/Container";
 import Icon from "../shared/Icon";
 
-const TrailerStyle = styled.div`
+export const TrailerStyle = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -16,7 +16,7 @@ const TrailerStyle = styled.div`
     z-index: 99999;
 `;
 
-const TrailerContainer = styled(Container)`
+export const TrailerContainer = styled(Container)`
     width: 80%;
     height: 80vh;
     border-radius: 1rem;
@@ -47,16 +47,15 @@ const TrailerContainer = styled(Container)`
     }
 `;
 
-const TrailerButton = styled.button`
+export const TrailerButton = styled.button`
     position: absolute;
     top: 2rem;
     right: 2rem;
 `;
 
-const CloseIcon = styled(Icon)`
+export const CloseIcon = styled(Icon)`
     width: 2.5rem;
     height: 2.5rem;
     fill: white;
 `;
 
-export { TrailerStyle, TrailerContainer, TrailerButton, CloseIcon };

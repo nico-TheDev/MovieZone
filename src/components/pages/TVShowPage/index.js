@@ -7,15 +7,15 @@ import Reviews from "../../Reviews";
 import Recommendations from "../../Recommendations";
 
 export default function TVShow({ match }) {
+    const TYPE = "tv";
     const { id } = match.params;
-    const type = "tv";
     return (
         <>
             <TVProfile id={id} />
-            <CastSlider id={id} type={type} />
+            <CastSlider id={id} type={TYPE} />
+            <Reviews id={id} type={TYPE} />
             <Seasons id={id} />
-            <Reviews id={id} type={type} />
-            <Recommendations id={id} type={type} />
+            <Recommendations id={id} type={TYPE} />
         </>
     );
 }

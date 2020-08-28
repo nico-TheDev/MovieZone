@@ -17,13 +17,11 @@ import {
 import usePersonDetails from "../../../../hooks/usePersonDetails";
 
 export default function PersonProfile({ id, bg }) {
-    const { data: details, isLoading, isError } = usePersonDetails(id);
+    const { data: details, isLoading, hasError } = usePersonDetails(id);
 
     if (isLoading) return "Profile Loading";
 
-    if (isError) return "error profile person";
-
-    console.log(bg[0].backdrop_path);
+    if (hasError) return "error profile person";
 
     document.title = `MovieZone - ${details.name}`;
 

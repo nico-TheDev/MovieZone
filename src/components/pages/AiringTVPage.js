@@ -5,11 +5,11 @@ import useAiring from "../../hooks/useAiring";
 
 export default function AiringTVList() {
     const [pageCount, setPageCount] = useState(1);
-    const { data, isLoading, isError } = useAiring(pageCount);
+    const { data, isLoading, hasError } = useAiring(pageCount);
 
     if (isLoading) return "On air Loading...";
 
-    if (isError) return "On air Data errror";
+    if (hasError) return "On air Data errror";
 
     return (
         <Collection

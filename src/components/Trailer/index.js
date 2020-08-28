@@ -11,14 +11,14 @@ import {
 import getIcon from "../../util/getIcon";
 
 export default function Trailer({ id, isOpen, setIsTrailerOpen,type }) {
-    const { data, isLoading, isError } = useMovieTrailers(id,type);
+    const { data, isLoading, hasError } = useMovieTrailers(id,type);
 
 
     const handleClick = () => setIsTrailerOpen(false);
 
     if (isLoading) return null;
 
-    if (isError) return "Error";
+    if (hasError) return "Error";
 
     return (
         <TrailerStyle isOpen={isOpen}>

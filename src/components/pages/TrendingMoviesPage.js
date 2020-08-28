@@ -5,11 +5,11 @@ import useTrendingMovies from "../../hooks/useTrendingMovies";
 
 export default function TrendingMoviesList() {
     const [pageCount, setPageCount] = useState(1);
-    const { data, isLoading, isError } = useTrendingMovies(pageCount);
+    const { data, isLoading, hasError } = useTrendingMovies(pageCount);
 
     if (isLoading) return "Trending Loading...";
 
-    if (isError) return "Trending Data errror";
+    if (hasError) return "Trending Data errror";
 
     return (
         <Collection

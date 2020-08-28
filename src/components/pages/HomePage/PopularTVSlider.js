@@ -6,11 +6,11 @@ import SliderSkeleton from './SliderSkeleton';
 import usePopularTV from "../../../hooks/usePopularTV";
 
 export default function PopularTVSlider() {
-    const { isLoading, data, isError } = usePopularTV();
+    const { isLoading, data, hasError } = usePopularTV();
 
     if (isLoading) return <SliderSkeleton />;
 
-    if (isError) return "Error";
+    if (hasError) return "Error";
 
     return <Slider title="Popular TV Shows" movies={data.results} type={'tv'}/>;
 }

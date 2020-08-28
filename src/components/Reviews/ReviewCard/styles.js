@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Card = styled.figure`
+export const Card = styled.figure`
     padding: 2.5rem 2rem;
     position: relative;
     background: var(--main-dark-5);
@@ -13,7 +13,7 @@ const Card = styled.figure`
     }
 `;
 
-const ReviewText = styled.p`
+export const ReviewText = styled.p`
     line-height: 1.4;
     margin-bottom: 1rem;
     padding-left:2rem;
@@ -33,9 +33,8 @@ const ReviewText = styled.p`
     }
 `;
 
-const Author = styled.p`
+export const Author = styled.p`
     text-align: right;
     color: var(--main-color);
 `;
 
-export { Card, Author, ReviewText };

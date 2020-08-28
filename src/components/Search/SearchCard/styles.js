@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Card = styled.li`
+export const Card = styled.li`
     width: 90%;
     display: flex;
     padding: 0.5rem;
@@ -13,12 +13,12 @@ const Card = styled.li`
     }
 `;
 
-const Poster = styled.img`
+export const Poster = styled.img`
     width: 30px;
     display: block;
 `;
 
-const Title = styled.h4`
+export const Title = styled.h4`
     flex: 1;
     margin: 0 0.5rem;
     font-size: 0.8rem;
@@ -27,10 +27,9 @@ const Title = styled.h4`
     text-align: center;
 `;
 
-const MiniPoster = styled.div`
+export const MiniPoster = styled.div`
     width: 30px;
     height:45px;
     background: var(--main-dark-5);
 `;
 
-export { Card, Poster, Title ,MiniPoster};

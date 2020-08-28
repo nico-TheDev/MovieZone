@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { ringAnim } from '../../assets/animations';
 import Icon from "../shared/Icon";
 
-const SearchForm = styled.form`
+export const SearchForm = styled.form`
     margin-right: 1rem;
     position: relative;
 `;
 
-const FieldContainer = styled.div`
+export const FieldContainer = styled.div`
     position: relative;
 `;
 
-const SearchInput = styled.input`
+export const SearchInput = styled.input`
     border: 1px white solid;
     background: rgba(var(--main-dark), 0.5);
     border-radius: 2rem;
@@ -31,13 +31,13 @@ const SearchInput = styled.input`
     }
 `;
 
-const SearchIcon = styled(Icon)`
+export const SearchIcon = styled(Icon)`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 1rem;
 `;
-const SearchLoader = styled.div`
+export const SearchLoader = styled.div`
     display: inline-block;
     position: relative;
     width: 80px;
@@ -72,4 +72,3 @@ const SearchLoader = styled.div`
     top: -1rem;
 `;
 
-export { SearchForm, FieldContainer, SearchInput, SearchIcon, SearchLoader };

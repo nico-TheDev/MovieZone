@@ -20,14 +20,14 @@ import useDetails from "../../../../hooks/useDetails";
 
 export default function TVProfile({ id }) {
     const type = "tv";
-    const { data: details, isLoading, isError } = useDetails(id, type);
+    const { data: details, isLoading, hasError } = useDetails(id, type);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
 
     if (isLoading) return "TV Show Loading...";
 
-    if (isError) return "TV Show Error";
+    if (hasError) return "TV Show Error";
 
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title

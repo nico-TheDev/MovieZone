@@ -14,6 +14,6 @@ export default function useGenre(page = 1, id, type) {
     return {
         data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

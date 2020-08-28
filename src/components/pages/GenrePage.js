@@ -6,11 +6,11 @@ import useGenre from "../../hooks/useGenre";
 export default function GenreList({ match }) {
     const { id, genre, type } = match.params;
     const [pageCount, setPageCount] = useState(1);
-    const { data, isLoading, isError } = useGenre(pageCount, id, type);
+    const { data, isLoading, hasError } = useGenre(pageCount, id, type);
 
     if (isLoading) return "Genre Loading...";
 
-    if (isError) return "Genre Data errror";
+    if (hasError) return "Genre Data errror";
 
     return (
         <Collection

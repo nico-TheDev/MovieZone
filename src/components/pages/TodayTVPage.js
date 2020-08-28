@@ -5,11 +5,11 @@ import useTodayTV from "../../hooks/useTodayTV";
 
 export default function TodayTVList() {
     const [pageCount, setPageCount] = useState(1);
-    const { data, isLoading, isError } = useTodayTV(pageCount);
+    const { data, isLoading, hasError } = useTodayTV(pageCount);
 
     if (isLoading) return "Trending Loading...";
 
-    if (isError) return "Trending Data errror";
+    if (hasError) return "Trending Data errror";
 
     return (
         <Collection

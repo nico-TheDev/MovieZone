@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Cast = styled.figure`
+export const Cast = styled.figure`
     height: 14rem;
     width:10rem;
     position: relative;
@@ -12,7 +12,7 @@ const Cast = styled.figure`
     }
 `;
 
-const CastPhoto = styled.img`
+export const CastPhoto = styled.img`
     width: 100%;
     height: 100%;
     display: block;
@@ -20,7 +20,7 @@ const CastPhoto = styled.img`
     object-fit: cover;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
     opacity: 0;
     background: var(--main-dark-2);
     position: absolute;
@@ -34,4 +34,3 @@ const Content = styled.div`
     text-align: center;
 `;
 
-export { Cast, CastPhoto, Content };

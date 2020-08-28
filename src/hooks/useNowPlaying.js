@@ -13,6 +13,6 @@ export default function useNowPlaying() {
     return {
         data: data,
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
     };
 }

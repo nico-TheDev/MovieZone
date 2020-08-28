@@ -32,11 +32,11 @@ const BREAKPOINTS = {
 };
 
 export default function CastSlider({ id, type }) {
-    const { data, isLoading, isError } = useGetCasts(id, type);
+    const { data, isLoading, hasError } = useGetCasts(id, type);
 
     if (isLoading) return "Cast Loading";
 
-    if (isError) return "Cast Error";
+    if (hasError) return "Cast Error";
 
     return (
         <CastContainer>

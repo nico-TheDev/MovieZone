@@ -22,14 +22,14 @@ import useDetails from "../../../../hooks/useDetails";
 const TYPE = "movie";
 
 export default function MovieProfile({ id }) {
-    const { data: details, isLoading, isError } = useDetails(id, TYPE);
+    const { data: details, isLoading, hasError } = useDetails(id, TYPE);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
 
     if (isLoading) return "Movie Loading...";
 
-    if (isError) return "Movie Error";
+    if (hasError) return "Movie Error";
 
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title

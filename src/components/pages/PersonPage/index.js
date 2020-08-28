@@ -9,10 +9,10 @@ export default function Person({
         params: { id },
     },
 }) {
-    const { data, isLoading, isError } = usePersonMedia(id);
+    const { data, isLoading, hasError } = usePersonMedia(id);
 
     if (isLoading) return "Loading person";
-    if (isError) return "Error person";
+    if (hasError) return "Error person";
 
     return (
         <>

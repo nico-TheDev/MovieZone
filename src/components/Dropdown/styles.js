@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DropdownHead = styled.ul`
+export const DropdownHead = styled.ul`
     display: inline-block;
     position: relative;
     text-align:center;
@@ -17,7 +17,7 @@ const DropdownHead = styled.ul`
     }
 `;
 
-const DropdownItem = styled.li`
+export const DropdownItem = styled.li`
     padding: 0.7rem 1rem;
     width:auto;
     font-size:0.9rem;
@@ -27,14 +27,14 @@ const DropdownItem = styled.li`
 
 `;
 
-const DropdownButton = styled.span`
+export const DropdownButton = styled.span`
     display: block;
     padding: 0.5rem 1rem;
     text-transform:uppercase;
     letter-spacing:4px;
 `;
 
-const DropdownBody = styled.div`
+export const DropdownBody = styled.div`
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -44,4 +44,3 @@ const DropdownBody = styled.div`
     background: var(--main-dark);
 `;
 
-export { DropdownHead, DropdownItem, DropdownButton, DropdownBody };

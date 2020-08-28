@@ -6,11 +6,11 @@ import Container from '../shared/Container';
 import { ReviewWrapper, Title } from "./styles";
 
 export default function Reviews({ id, type }) {
-    const { data, isLoading, isError } = useReviews(id, type);
+    const { data, isLoading, hasError } = useReviews(id, type);
 
     if (isLoading) return "Review Loading";
 
-    if (isError) return "Something went wrong";
+    if (hasError) return "Something went wrong";
 
     return (
         <Container>

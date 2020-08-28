@@ -11,22 +11,22 @@ import { Wrapper, Title } from "./styles";
 
 SwiperCore.use([Scrollbar]);
 
+const BREAKPOINTS = {
+    600: {
+        slidesPerView: 2,
+        slidesOffsetBefore: 50,
+        slidesOffsetAfter: 50,
+    },
+};
+
 export default function Seasons({ id }) {
-    const { data, isLoading, isError } = useDetails(id, "tv");
+    const { data, isLoading, hasError } = useDetails(id, "tv");
 
     if (isLoading) return "Loading Cards";
 
-    if (isError) return "Loading Error";
+    if (hasError) return "Loading Error";
 
     const seasons = data.seasons;
-
-    const breakpoints = {
-        600: {
-            slidesPerView: 2,
-            slidesOffsetBefore: 50,
-            slidesOffsetAfter: 50,
-        },
-    };
 
     return (
         <Wrapper>
@@ -37,7 +37,7 @@ export default function Seasons({ id }) {
                 slidesOffsetBefore="10"
                 slidesOffsetAfter="10"
                 grabCursor="true"
-                breakpoints={breakpoints}
+                breakpoints={BREAKPOINTS}
             >
                 {seasons.map((item) => (
                     <SwiperSlide key={item.id}>

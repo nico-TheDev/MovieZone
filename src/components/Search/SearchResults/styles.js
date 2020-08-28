@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import respondTo from "../../../util/respondTo";
 
-const Results = styled.div`
+export const Results = styled.div`
     position: absolute;
     top: 100%;
     left: 0;
@@ -19,14 +19,13 @@ const Results = styled.div`
     `}
 `;
 
-const Title = styled.h3`
+export const Title = styled.h3`
     text-align: center;
     padding: 5px;
     border-bottom: 1px solid white;
 `;
 
-const SubTitle = styled(Title)`
+export const SubTitle = styled(Title)`
     border-bottom: none;
 `;
 
-export { Results, Title, SubTitle };

@@ -5,11 +5,11 @@ import useUpcomingMovies from "../../hooks/useUpcomingMovies";
 
 export default function TrendingMoviesList() {
     const [pageCount, setPageCount] = useState(1);
-    const { data, isLoading, isError } = useUpcomingMovies(pageCount);
+    const { data, isLoading, hasError } = useUpcomingMovies(pageCount);
 
     if (isLoading) return "Upcoming Loading...";
 
-    if (isError) return "Upcoming Data errror";
+    if (hasError) return "Upcoming Data errror";
 
     return (
         <Collection

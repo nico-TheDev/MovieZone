@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import respondTo from "../../../util/respondTo";
 
-const MobileNavMain = styled.nav`
+export const MobileNavMain = styled.nav`
     display: none;
     position: fixed;
     top: 0;
@@ -55,7 +55,7 @@ const MobileNavMain = styled.nav`
     }
 `;
 
-const CloseBtn = styled.button`
+export const CloseBtn = styled.button`
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -67,11 +67,11 @@ const CloseBtn = styled.button`
     }
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
     width: 12rem;
 `;
 
-const MenuHolder = styled.div`
+export const MenuHolder = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -80,5 +80,3 @@ const MenuHolder = styled.div`
         margin: 5px;
     }
 `;
-
-export { MobileNavMain, CloseBtn, Logo, MenuHolder };

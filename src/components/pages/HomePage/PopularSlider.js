@@ -5,11 +5,11 @@ import SliderSkeleton from './SliderSkeleton';
 import usePopularMovies from "../../../hooks/usePopularMovies";
 
 export default function PopularSlider() {
-    const { isLoading, data, isError } = usePopularMovies();
+    const { isLoading, data, hasError } = usePopularMovies();
 
     if (isLoading) return <SliderSkeleton />;
 
-    if (isError) return "Error";
+    if (hasError) return "Error";
 
     return <Slider title="Popular" movies={data.results} type='movie'/>;
 }

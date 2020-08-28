@@ -10,11 +10,11 @@ import FeaturedSkeleton from './FeaturedSkeleton';
 SwiperCore.use([Autoplay]);
 
 export default function FeaturedSlider() {
-    const { data, isLoading, isError } = useNowPlaying();
+    const { data, isLoading, hasError } = useNowPlaying();
 
     if (isLoading) return <FeaturedSkeleton />;
 
-    if (isError) return "An Error Occured";
+    if (hasError) return "An Error Occured";
 
     const randomNumber = Math.floor(Math.random() * 13);
     const movies = data.results.slice(randomNumber, randomNumber + 4);

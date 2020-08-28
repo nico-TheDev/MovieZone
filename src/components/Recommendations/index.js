@@ -9,11 +9,11 @@ import {
 } from "./styles";
 
 export default function Recommendations({ id, type }) {
-    const { data, isLoading, isError } = useRecommendations(id, type);
+    const { data, isLoading, hasError } = useRecommendations(id, type);
 
     if (isLoading) return "Loading Recommendations...";
 
-    if (isError) return "Error Recommendations";
+    if (hasError) return "Error Recommendations";
 
     return (
         <RecommendationsMain>

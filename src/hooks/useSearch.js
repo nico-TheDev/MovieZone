@@ -19,7 +19,7 @@ export default function useSearch(query, page = 1) {
     return {
         data: { movies, tvShows },
         isLoading: !data && !error,
-        isError: error,
+        hasError: error,
         pageLimit: data,
     };
 }
