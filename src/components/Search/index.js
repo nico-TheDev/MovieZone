@@ -64,7 +64,7 @@ export default function Search() {
                 <SearchIcon>
                     <use href={getIcon("search")} />
                 </SearchIcon>
-                {isLoading && <SearchLoader>{loaderBody}</SearchLoader>}
+                {(isLoading && query) ? <SearchLoader>{loaderBody}</SearchLoader> : null}
             </SearchField>
             {(data.movies || data.tvShows) && (
                 <SearchResults media={data} isShowing={isShowing} />
