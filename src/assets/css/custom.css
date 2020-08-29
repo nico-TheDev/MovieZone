@@ -18,7 +18,7 @@
 *,
 *::before,
 *::after {
-    box-shadow: inherit;
+    box-sizing: inherit;
     margin: 0;
     padding: 0;
     transition: 300ms;

@@ -11,7 +11,8 @@ export const Main = styled.div`
     left:0;
     width:100%;
     z-index:10000000000000000000000000000;
-    background:var(--main-dark)
+    background:var(--main-dark);
+    padding:0 3rem;
 `;
 
 export const Image = styled.img`
