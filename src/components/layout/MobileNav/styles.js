@@ -17,7 +17,7 @@ export const MobileNavMain = styled.nav`
     transition: 500ms;
 
     ul {
-        display: block;
+        display: block ;
         div {
             position: static;
             opacity: 1;
@@ -29,6 +29,11 @@ export const MobileNavMain = styled.nav`
             }
         }
     }
+
+/*Experimental Search Card  */
+    /* a li{
+        display:flex;
+    } */
 
     ${respondTo.md`
         display: flex;

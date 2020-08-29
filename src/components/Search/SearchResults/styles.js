@@ -16,6 +16,9 @@ export const Results = styled.div`
 
     ${respondTo.md`
         display:none;
+        // z-index:100;
+        // border:1px solid var(--main-color);
+        // border-top:3px solid var(--main-dark);
     `}
 `;
 

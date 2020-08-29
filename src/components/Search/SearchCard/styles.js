@@ -18,7 +18,8 @@ export const Poster = styled.img`
     display: block;
 `;
 
-export const Title = styled.h4`
+export const Title = styled.span`
+    display: inline-block;
     flex: 1;
     margin: 0 0.5rem;
     font-size: 0.8rem;
@@ -29,7 +30,6 @@ export const Title = styled.h4`
 
 export const MiniPoster = styled.div`
     width: 30px;
-    height:45px;
+    height: 45px;
     background: var(--main-dark-5);
 `;
-

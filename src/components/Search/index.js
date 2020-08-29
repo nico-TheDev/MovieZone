@@ -28,7 +28,10 @@ export default function Search() {
     const [isShowing, setIsShowing] = useState(false);
     const { data, isLoading } = useSearch(query);
 
-    useEffect(() => setQuery(""), [location.pathname]);
+    useEffect(() => {
+        window.scrollTo(0,0,);
+        setQuery("");
+    }, [location.pathname]);
 
     const handleChange = (e) => setQuery(e.target.value);
 
@@ -64,7 +67,9 @@ export default function Search() {
                 <SearchIcon>
                     <use href={getIcon("search")} />
                 </SearchIcon>
-                {(isLoading && query) ? <SearchLoader>{loaderBody}</SearchLoader> : null}
+                {isLoading && query ? (
+                    <SearchLoader>{loaderBody}</SearchLoader>
+                ) : null}
             </SearchField>
             {(data.movies || data.tvShows) && (
                 <SearchResults media={data} isShowing={isShowing} />
