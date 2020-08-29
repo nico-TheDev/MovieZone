@@ -11,6 +11,11 @@ export const CollectionContainer = styled(Container)`
     grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: 2rem;
     justify-items: start;
+
+    & a{
+        display:block;
+        width:100%;
+    }
 `;
 
 
