@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const CollectionContainer = styled(Container)`
     padding: 2rem 0 3rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     gap: 2rem;
     justify-items: start;
 
@@ -17,7 +17,6 @@ export const CollectionContainer = styled(Container)`
         width:100%;
     }
 `;
-
 
 export const Title = styled.h2`
     text-align:center;

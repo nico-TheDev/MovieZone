@@ -12,10 +12,12 @@ export default function Pagination({
 }) {
     const goToPrev = () => {
         setPageCount((prevCount) => (prevCount -= 1));
+        window.scrollTo(0,0,);
     };
 
     const goToNext = () => {
         setPageCount((prevCount) => (prevCount += 1));
+        window.scrollTo(0,0,);
     };
 
     return (

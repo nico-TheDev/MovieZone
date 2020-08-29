@@ -19,9 +19,10 @@ export const Card = styled.figure`
 export const Poster = styled.img`
     display: block;
     width: 100%;
-    height: 252px;
+    height: 300px;
     border-radius: 1rem;
     object-fit: cover;
+    object-position:center;
 `;
 
 export const Content = styled.div`

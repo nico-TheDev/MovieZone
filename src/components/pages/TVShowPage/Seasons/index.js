@@ -39,7 +39,6 @@ export default function Seasons({ id }) {
                 slidesOffsetAfter="10"
                 breakpoints={BREAKPOINTS}
                 grabCursor
-                loop
             >
                 {seasons.map((item) => (
                     <SwiperSlide key={item.id}>
