@@ -4,14 +4,17 @@ import Collection from "./Collection";
 import useAiring from "../../hooks/useAiring";
 import PageSkeleton from "./PageSkeleton";
 
-export default function AiringTVList() {
+export default function AiringTVList({ history }) {
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = useAiring(pageCount);
 
     if (isLoading) return <PageSkeleton/>;
 
-    if (hasError) return "On air Data errror";
-
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
+    
     return (
         <Collection
             movies={data.results}

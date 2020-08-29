@@ -4,14 +4,17 @@ import Collection from "../Collection";
 import useTopRatedMovies from "../../../hooks/useTopRatedMovies";
 import PageSkeleton from "../PageSkeleton";
 
-export default function TopRatedMovies() {
+export default function TopRatedMovies({ history }) {
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = useTopRatedMovies(pageCount);
 
     if (isLoading) return <PageSkeleton/>;
 
-    if (hasError) return "Top Rated Data errror";
-
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
+    
     return (
         <Collection
             movies={data.results}

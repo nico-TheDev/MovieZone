@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import useReviews from "../../hooks/useReviews";
 import ReviewCard from "./ReviewCard";
@@ -8,11 +9,15 @@ import ReviewSkeleton from "./ReviewSkeleton";
 import EmptyReview from "../EmptyPlaceholder";
 
 export default function Reviews({ id, type }) {
+    const history = useHistory();
     const { data, isLoading, hasError } = useReviews(id, type);
 
     if (isLoading) return <ReviewSkeleton />;
 
-    if (hasError) return "Something went wrong";
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
 
     return (
         <Container>

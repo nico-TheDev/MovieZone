@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import SwiperCore, { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -21,14 +22,18 @@ const BREAKPOINTS = {
 };
 
 export default function Seasons({ id }) {
+    const history = useHistory();
     const { data, isLoading, hasError } = useDetails(id, "tv");
 
     if (isLoading) return <SeasonSkeleton />;
 
-    if (hasError) return "Loading Error";
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
 
     const seasons = data.seasons;
-    
+
     return (
         <Wrapper>
             <Title>Seasons</Title>

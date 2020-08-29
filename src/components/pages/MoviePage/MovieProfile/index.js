@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 import GenrePill from "../../../GenrePill";
 import Trailer from "../../../Trailer";
@@ -23,6 +24,7 @@ import useDetails from "../../../../hooks/useDetails";
 const TYPE = "movie";
 
 export default function MovieProfile({ id }) {
+    const history = useHistory();
     const { data: details, isLoading, hasError } = useDetails(id, TYPE);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
@@ -30,8 +32,10 @@ export default function MovieProfile({ id }) {
 
     if (isLoading) return <ProfileSkeleton/>;
 
-    if (hasError) return "Movie Error";
-
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
     }`;

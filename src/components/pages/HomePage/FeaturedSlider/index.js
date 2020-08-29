@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
@@ -10,12 +11,15 @@ import FeaturedSkeleton from './FeaturedSkeleton';
 SwiperCore.use([Autoplay]);
 
 export default function FeaturedSlider() {
+    const history = useHistory();
     const { data, isLoading, hasError } = useNowPlaying();
 
     if (isLoading) return <FeaturedSkeleton />;
 
-    if (hasError) return "An Error Occured";
-
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
     const randomNumber = Math.floor(Math.random() * 13);
     const movies = data.results.slice(randomNumber, randomNumber + 4);
 

@@ -4,14 +4,17 @@ import Collection from "./Collection";
 import useUpcomingMovies from "../../hooks/useUpcomingMovies";
 import PageSkeleton from "./PageSkeleton";
 
-export default function TrendingMoviesList() {
+export default function TrendingMoviesList({ history }) {
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = useUpcomingMovies(pageCount);
 
     if (isLoading) return <PageSkeleton />;
 
-    if (hasError) return "Upcoming Data errror";
-
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
+    
     return (
         <Collection
             movies={data.results}

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import useRecommendations from "../../hooks/useRecommendations";
 import MovieCard from "../MovieCard";
@@ -11,11 +12,15 @@ import RecommendationSkeleton from "./RecommendationSkeleton";
 import EmptyRecommendation from "../EmptyPlaceholder";
 
 export default function Recommendations({ id, type }) {
+    const history = useHistory();
     const { data, isLoading, hasError } = useRecommendations(id, type);
 
     if (isLoading) return <RecommendationSkeleton />;
 
-    if (hasError) return "Error Recommendations";
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
 
     return (
         <RecommendationsMain length={data.results.length}>
@@ -27,7 +32,7 @@ export default function Recommendations({ id, type }) {
                     ))}
                 </Container>
             ) : (
-                <EmptyRecommendation title='No Movie Recommendations'/>
+                <EmptyRecommendation title="No Movie Recommendations" />
             )}
         </RecommendationsMain>
     );

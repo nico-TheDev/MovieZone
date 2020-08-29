@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import GenrePill from "../../../GenrePill";
 import Trailer from "../../../Trailer";
@@ -19,16 +20,21 @@ import {
 import useDetails from "../../../../hooks/useDetails";
 import ProfileSkeleton from "../ProfileSkeleton";
 
+const TYPE = "tv";
+
 export default function TVProfile({ id }) {
-    const type = "tv";
-    const { data: details, isLoading, hasError } = useDetails(id, type);
+    const history = useHistory();
+    const { data: details, isLoading, hasError } = useDetails(id, TYPE);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
 
     if (isLoading) return <ProfileSkeleton />;
 
-    if (hasError) return "TV Show Error";
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
 
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
@@ -40,7 +46,7 @@ export default function TVProfile({ id }) {
                 id={id}
                 isOpen={isTrailerOpen}
                 setIsTrailerOpen={setIsTrailerOpen}
-                type={type}
+                type={TYPE}
             />
 
             <Profile>
@@ -70,7 +76,7 @@ export default function TVProfile({ id }) {
                                         key={genre.id}
                                         genre={genre.name}
                                         id={genre.id}
-                                        type={type}
+                                        type={TYPE}
                                     />
                                 ))}
                         </Genres>

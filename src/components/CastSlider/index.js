@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
@@ -7,8 +8,9 @@ import "swiper/components/navigation/navigation.scss";
 
 import useGetCasts from "../../hooks/useGetCasts";
 import CastCard from "./CastCard";
-import CastSliderSkeleton from './CastSliderSkeleton';
+import CastSliderSkeleton from "./CastSliderSkeleton";
 import { Title, CastContainer } from "./styles";
+import EmptyCast from "../EmptyPlaceholder";
 
 SwiperCore.use([Navigation]);
 
@@ -33,12 +35,16 @@ const BREAKPOINTS = {
 };
 
 export default function CastSlider({ id, type }) {
+    const history = useHistory();
     const { data, isLoading, hasError } = useGetCasts(id, type);
 
-    if (isLoading) return <CastSliderSkeleton/>;
+    if (isLoading) return <CastSliderSkeleton />;
 
-    if (hasError) return "Cast Error";
-    
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
+
     return (
         <CastContainer>
             <Title>Casts</Title>
@@ -51,11 +57,13 @@ export default function CastSlider({ id, type }) {
                 grabCursor
                 breakpoints={BREAKPOINTS}
             >
-                {data.cast.slice(0, 20).map((cast) => (
-                    <SwiperSlide key={cast.id}>
-                        <CastCard person={cast} />
-                    </SwiperSlide>
-                ))}
+                {data.cast.length !== 0
+                    ? data.cast.slice(0, 20).map((cast) => (
+                          <SwiperSlide key={cast.id}>
+                              <CastCard person={cast} />
+                          </SwiperSlide>
+                      ))
+                    : <EmptyCast title='No Cast Data Found'/>}
             </Swiper>
         </CastContainer>
     );

@@ -4,14 +4,17 @@ import Collection from "../Collection";
 import usePopularMovies from "../../../hooks/usePopularMovies";
 import PageSkeleton from "../PageSkeleton";
 
-export default function PopularTV() {
+export default function PopularTV({ history }) {
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = usePopularMovies(pageCount);
 
     if (isLoading) return <PageSkeleton />;
 
-    if (hasError) return "Popular Data errror";
-    
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
+        
     return (
         <Collection
             movies={data.results}

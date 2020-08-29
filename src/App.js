@@ -41,6 +41,7 @@ function App() {
                 <Route path="/list/movie/upcoming" component={UpcomingMovies} />
                 <Route path="/list/movie/trending" component={TrendingMovies} />
                 <Route path="/genre/:genre/:type/:id" component={GenrePage}/>
+                <Route path="/error" component={NotFound}/>
                 <Route component={NotFound}/>
             </Switch>
             <Footer />
