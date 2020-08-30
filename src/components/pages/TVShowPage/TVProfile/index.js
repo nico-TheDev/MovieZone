@@ -39,6 +39,7 @@ export default function TVProfile({ id }) {
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
     }`;
+    
 
     return (
         <>

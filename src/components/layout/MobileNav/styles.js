@@ -48,7 +48,6 @@ export const MobileNavMain = styled.nav`
         form {
             display: block !important;
         input {
-            width: 90%;
             margin:auto;
             font-size: inherit;
         }

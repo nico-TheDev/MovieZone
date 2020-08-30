@@ -22,7 +22,6 @@ const ProfileContainer = styled(Container)`
         grid-template-columns: 1fr;
         justify-items: center;
         align-content: center;
-        min-height:120vh;
         padding-top:20vh;
     `}
 `;

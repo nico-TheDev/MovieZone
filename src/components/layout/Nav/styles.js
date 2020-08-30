@@ -6,7 +6,7 @@ import Icon from "../../shared/Icon";
 
 export const NavStyle = styled.nav`
     width: 100%;
-    top: 0;
+    top: 1rem;
     left: 0;
     z-index: 500;
     position: absolute;

@@ -8,11 +8,15 @@ export const FeaturedLoader = styled(Container)`
     display: flex;
     align-items: flex-end;
     animation: ${blink} var(--loader-speed);
+    padding-top: 20vh;
+    ${respondTo.md`
+        align-items: center;
+    `}
 `;
 
 export const FeaturedBottom = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     align-items: end;
     grid-template-columns: auto 1fr;
@@ -22,10 +26,8 @@ export const FeaturedBottom = styled.div`
     ${respondTo.md`
         grid-template-columns: 1fr;
         grid-template-rows: unset;
-        min-height:100vh;
-        padding-top:20vh;
         place-items:center;
-        
+        align-content:center;
     `}
 
     & > * div:not(:first-child) {
@@ -75,7 +77,7 @@ export const SamplePoster = styled.div`
     background: var(--main-mid);
     position: relative;
     bottom: 150px;
-    order:-1;
+    order: -1;
     ${respondTo.md`
       bottom:0;
     `}

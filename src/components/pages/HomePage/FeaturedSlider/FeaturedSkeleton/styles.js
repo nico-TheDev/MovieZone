@@ -8,23 +8,30 @@ export const FeaturedLoader = styled(Container)`
     display: flex;
     align-items: flex-end;
     animation: ${blink} var(--loader-speed);
+    ${respondTo.md`
+        align-items:center;
+        padding-top:20vh;
+    `}
+
+    
 `;
 
 export const FeaturedBottom = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     align-items: end;
     grid-template-columns: 1fr auto;
     justify-content: space-between;
     gap: 2rem;
-
     ${respondTo.md`
         grid-template-columns: 1fr;
         grid-template-rows: unset;
-        min-height:100vh;
-        padding-top:20vh;
+        min-height:80vh;
         place-items:center;
+        align-items:center;
+        align-content:center;
+        gap:1rem;
         
     `}
 

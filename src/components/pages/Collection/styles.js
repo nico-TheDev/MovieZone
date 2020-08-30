@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Container from "../../shared/Container";
 
 export const Wrapper = styled.div`
-    padding-top: 20vh;
+    padding-top: 12vh;
 `;
 
 export const CollectionContainer = styled(Container)`

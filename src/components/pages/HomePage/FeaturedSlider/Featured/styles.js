@@ -10,11 +10,12 @@ export const FeaturedStyle = styled.div`
     justify-content: flex-end;
     background-size: cover;
     background-position: center;
+    padding-top:12vh;
 
     ${respondTo.md`
         justify-content: center;
-        height: 110vh;
         padding-top:20vh;
+        min-height:80vh;
     `}
 `;
 

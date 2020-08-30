@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { blink } from "../../../assets/animations";
 
 export const PageBody = styled.div`
-    padding-top: 20vh;
+    padding-top: 12vh;
     width: 90%;
     margin: 3rem auto;
     display: grid;

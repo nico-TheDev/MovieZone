@@ -16,13 +16,12 @@ const ProfileContainer = styled(Container)`
     gap: 2rem;
     align-items: center;
     padding-bottom: 2rem;
-    padding-top:15vh;
+    padding-top:12vh;
 
     ${respondTo.md`
         grid-template-columns: 1fr;
         justify-items: center;
         align-content: center;
-        min-height:120vh;
         padding-top:20vh;
     `}
 `;

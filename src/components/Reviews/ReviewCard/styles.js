@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import respondTo from '../../../util/respondTo';
 
 export const Card = styled.figure`
     padding: 2.5rem 2rem;
@@ -9,8 +10,11 @@ export const Card = styled.figure`
         outline: 10px solid var(--main-color);
     }
 
-    &:hover p:first-child{
-    }
+    ${respondTo.md`
+        &:hover{
+            outline:none;
+        }
+    `}
 `;
 
 export const ReviewText = styled.p`

@@ -18,9 +18,9 @@ export const FeaturedLoader = styled(Container)`
 
 export const FeaturedBottom = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
-    align-items: end;
+    align-items: center;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     gap: 2rem;
@@ -28,9 +28,10 @@ export const FeaturedBottom = styled.div`
     ${respondTo.md`
         grid-template-columns: 1fr;
         grid-template-rows: unset;
-        min-height:100vh;
-        padding-top:20vh;
         place-items:center;
+        align-content:center;
+        min-height:80vh;
+        padding-top:20vh;
         
     `}
 

@@ -18,6 +18,7 @@ const BREAKPOINTS = {
         slidesPerView: 2,
         slidesOffsetBefore: 50,
         slidesOffsetAfter: 50,
+        loop:false
     },
 };
 
@@ -44,6 +45,7 @@ export default function Seasons({ id }) {
                 slidesOffsetAfter="10"
                 breakpoints={BREAKPOINTS}
                 grabCursor
+                loop
             >
                 {seasons.map((item) => (
                     <SwiperSlide key={item.id}>

@@ -28,6 +28,11 @@ html {
     box-sizing: border-box;
     font-size: 18px;
 }
+
+#root{
+    overflow-x:hidden;
+    overflow-y: unset;
+}
 /* 
  cp: "450px",
     sm: "600px",

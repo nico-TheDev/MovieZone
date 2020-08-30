@@ -7,7 +7,7 @@ export default function ReviewCard({ details }) {
     return (
         <a href={details.url} target="_blank" rel="noopener noreferrer">
             <Card>
-                <ReviewText>{cutText(details.content, 400)}</ReviewText>
+                <ReviewText>{cutText(details.content, 300)}</ReviewText>
                 <Author>&ndash; {details.author}</Author>
             </Card>
         </a>

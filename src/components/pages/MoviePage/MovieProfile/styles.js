@@ -3,11 +3,11 @@ import Container from "../../../shared/Container";
 import Button from "../../../shared/Button";
 import respondTo from "../../../../util/respondTo";
 
-const Profile = styled.header`
+export const Profile = styled.header`
     position: relative;
 `;
 
-const ProfileContainer = styled(Container)`
+export const ProfileContainer = styled(Container)`
     min-height: 100vh;
     position: relative;
     z-index: 2;
@@ -16,16 +16,16 @@ const ProfileContainer = styled(Container)`
     gap: 2rem;
     align-items: center;
     padding-bottom: 2rem;
+    padding-top:20vh;
 
     ${respondTo.md`
         grid-template-columns: 1fr;
         justify-items: center;
         align-content: center;
-        padding-top:20vh;
     `}
 `;
 
-const Backdrop = styled.img`
+export const Backdrop = styled.img`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -35,7 +35,7 @@ const Backdrop = styled.img`
     z-index: 1;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
     display: grid;
     gap: 1rem;
     justify-items: start;
@@ -46,7 +46,7 @@ const Content = styled.div`
     `}
 `;
 
-const Genres = styled.ul`
+export const Genres = styled.ul`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +54,7 @@ const Genres = styled.ul`
     
 `;
 
-const Stats = styled.ul`
+export const Stats = styled.ul`
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -70,7 +70,7 @@ const Stats = styled.ul`
     `}
 `;
 
-const Stat = styled.li`
+export const Stat = styled.li`
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -91,21 +91,10 @@ const Stat = styled.li`
     }
 `;
 
-const MovieButton = styled(Button)`
+export const MovieButton = styled(Button)`
     display: flex;
     align-items: center;
 `;
 
-const Poster = styled.img``;
+export const Poster = styled.img``;
 
-export {
-    Profile,
-    ProfileContainer,
-    Backdrop,
-    Content,
-    Genres,
-    Stats,
-    Stat,
-    MovieButton,
-    Poster,
-};

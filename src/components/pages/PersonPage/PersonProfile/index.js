@@ -1,9 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import Icon from "../../../shared/Icon";
 import getIcon from "../../../../util/getIcon";
 import convertDate from "../../../../util/convertDate";
- 
+
 import {
     Profile,
     ProfileContainer,
@@ -15,13 +16,18 @@ import {
     Poster,
 } from "./styles";
 import usePersonDetails from "../../../../hooks/usePersonDetails";
+import ProfileSkeleton from "../ProfileSkeleton";
 
 export default function PersonProfile({ id, bg }) {
+    const history = useHistory();
     const { data: details, isLoading, hasError } = usePersonDetails(id);
 
-    if (isLoading) return "Profile Loading";
+    if (isLoading) return <ProfileSkeleton />;
 
-    if (hasError) return "error profile person";
+    if (hasError) {
+        history.push("/error");
+        return;
+    }
 
     document.title = `MovieZone - ${details.name}`;
 
