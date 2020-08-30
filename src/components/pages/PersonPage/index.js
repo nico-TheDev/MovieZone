@@ -14,10 +14,12 @@ export default function Person({
     const { data, isLoading, hasError } = usePersonMedia(id);
 
     if (isLoading) return <ProfileSkeleton />;
+
     if (hasError) {
         history.push("/error");
         return;
     }
+    
     return (
         <>
             <PersonProfile id={id} bg={data} />

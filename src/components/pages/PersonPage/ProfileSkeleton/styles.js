@@ -9,7 +9,6 @@ export const FeaturedLoader = styled(Container)`
     align-items: flex-end;
     animation: ${blink} var(--loader-speed);
     position:relative;
-    bottom:150px;
     ${respondTo.md`
         padding-top:20vh;
         
