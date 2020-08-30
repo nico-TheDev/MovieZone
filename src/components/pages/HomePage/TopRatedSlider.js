@@ -12,7 +12,7 @@ export default function TopRatedSlider() {
     if (isLoading) return <SliderSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 

@@ -15,7 +15,7 @@ export default function Reviews({ id, type }) {
     if (isLoading) return <ReviewSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 

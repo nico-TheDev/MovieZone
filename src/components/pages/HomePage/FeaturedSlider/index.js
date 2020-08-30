@@ -1,12 +1,12 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 
 import useNowPlaying from "../../../../hooks/useNowPlaying";
 import Featured from "./Featured";
-import FeaturedSkeleton from './FeaturedSkeleton';
+import FeaturedSkeleton from "./FeaturedSkeleton";
 
 SwiperCore.use([Autoplay]);
 
@@ -17,7 +17,7 @@ export default function FeaturedSlider() {
     if (isLoading) return <FeaturedSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
     const randomNumber = Math.floor(Math.random() * 13);

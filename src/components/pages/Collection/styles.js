@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import Container from "../../shared/Container";
+import respondTo from '../../../util/respondTo';
 
 export const Wrapper = styled.div`
-    padding-top: 12vh;
+    padding-top: 20vh;
+
+    ${respondTo.md`
+        padding-top:15vh;
+    `}
 `;
 
 export const CollectionContainer = styled(Container)`

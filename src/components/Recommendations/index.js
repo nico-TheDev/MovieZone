@@ -18,7 +18,7 @@ export default function Recommendations({ id, type }) {
     if (isLoading) return <RecommendationSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 

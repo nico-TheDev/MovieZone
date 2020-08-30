@@ -21,7 +21,7 @@ export default function Trailer({ id, isOpen, setIsTrailerOpen, type }) {
     if (isLoading) return null;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 

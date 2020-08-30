@@ -32,14 +32,13 @@ export default function TVProfile({ id }) {
     if (isLoading) return <ProfileSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
     }`;
-    
 
     return (
         <>

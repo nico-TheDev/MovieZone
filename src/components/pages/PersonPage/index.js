@@ -16,10 +16,10 @@ export default function Person({
     if (isLoading) return <ProfileSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
-    
+
     return (
         <>
             <PersonProfile id={id} bg={data} />

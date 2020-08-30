@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import GenrePill from "../../../GenrePill";
 import Trailer from "../../../Trailer";
@@ -18,7 +18,7 @@ import {
     MovieButton,
     Poster,
 } from "./styles";
-import ProfileSkeleton from '../ProfileSkeleton';
+import ProfileSkeleton from "../ProfileSkeleton";
 import useDetails from "../../../../hooks/useDetails";
 
 const TYPE = "movie";
@@ -30,10 +30,10 @@ export default function MovieProfile({ id }) {
 
     const handleClick = () => setIsTrailerOpen(true);
 
-    if (isLoading) return <ProfileSkeleton/>;
+    if (isLoading) return <ProfileSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
     document.title = `MovieZone - ${
@@ -93,7 +93,10 @@ export default function MovieProfile({ id }) {
                                 </Icon>
                                 Release Date:
                                 <span>
-                                    {convertDate(details.release_date || details.first_air_date)}
+                                    {convertDate(
+                                        details.release_date ||
+                                            details.first_air_date
+                                    )}
                                 </span>
                             </Stat>
                             <Stat>
@@ -104,9 +107,7 @@ export default function MovieProfile({ id }) {
                                 <span>{getRuntime(details.runtime)}</span>
                             </Stat>
                         </Stats>
-                        <p>
-                            {details.overview || "No summary found"}
-                        </p>
+                        <p>{details.overview || "No summary found"}</p>
                         <MovieButton onClick={handleClick}>
                             <Icon>
                                 <use href={getIcon("play")} />

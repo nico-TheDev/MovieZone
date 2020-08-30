@@ -41,7 +41,7 @@ export default function CastSlider({ id, type }) {
     if (isLoading) return <CastSliderSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 
@@ -57,13 +57,15 @@ export default function CastSlider({ id, type }) {
                 grabCursor
                 breakpoints={BREAKPOINTS}
             >
-                {data.cast.length !== 0
-                    ? data.cast.slice(0, 20).map((cast) => (
-                          <SwiperSlide key={cast.id}>
-                              <CastCard person={cast} />
-                          </SwiperSlide>
-                      ))
-                    : <EmptyCast title='No Cast Data Found'/>}
+                {data.cast.length !== 0 ? (
+                    data.cast.slice(0, 20).map((cast) => (
+                        <SwiperSlide key={cast.id}>
+                            <CastCard person={cast} />
+                        </SwiperSlide>
+                    ))
+                ) : (
+                    <EmptyCast title="No Cast Data Found" />
+                )}
             </Swiper>
         </CastContainer>
     );

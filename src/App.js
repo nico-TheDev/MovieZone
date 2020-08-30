@@ -28,10 +28,10 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/search/:query" component={SearchResultsPage}/>
+                <Route path="/search/:query" component={SearchResultsPage} />
                 <Route path="/movie/:id" component={MoviePage} />
                 <Route path="/tv/:id" component={TVShowPage} />
-                <Route path="/person/:id" component={PersonPage}/>
+                <Route path="/person/:id" component={PersonPage} />
                 <Route path="/list/tv/popular" component={PopularTV} />
                 <Route path="/list/tv/toprated" component={TopRatedTV} />
                 <Route path="/list/tv/today" component={TodayTV} />
@@ -40,9 +40,9 @@ function App() {
                 <Route path="/list/movie/toprated" component={TopRatedMovies} />
                 <Route path="/list/movie/upcoming" component={UpcomingMovies} />
                 <Route path="/list/movie/trending" component={TrendingMovies} />
-                <Route path="/genre/:genre/:type/:id" component={GenrePage}/>
-                <Route path="/error" component={NotFound}/>
-                <Route component={NotFound}/>
+                <Route path="/genre/:genre/:type/:id" component={GenrePage} />
+                <Route path="/error/:message" component={NotFound} />
+                <Route component={NotFound} />
             </Switch>
             <Footer />
         </Router>

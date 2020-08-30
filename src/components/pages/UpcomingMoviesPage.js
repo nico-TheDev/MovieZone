@@ -11,10 +11,10 @@ export default function TrendingMoviesList({ history }) {
     if (isLoading) return <PageSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
-    
+
     return (
         <Collection
             movies={data.results}

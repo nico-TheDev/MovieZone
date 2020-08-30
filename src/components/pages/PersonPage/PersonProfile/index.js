@@ -25,7 +25,7 @@ export default function PersonProfile({ id, bg }) {
     if (isLoading) return <ProfileSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 

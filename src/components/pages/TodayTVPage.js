@@ -8,20 +8,20 @@ export default function TodayTVList({ history }) {
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = useTodayTV(pageCount);
 
-    if (isLoading) return <PageSkeleton/>;
+    if (isLoading) return <PageSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
-    
+
     return (
         <Collection
             movies={data.results}
             title="Airing Today TV Shows"
             pageCount={pageCount}
             setPageCount={setPageCount}
-            type='tv'
+            type="tv"
             pageLimit={data.total_pages}
         />
     );

@@ -18,7 +18,7 @@ const BREAKPOINTS = {
         slidesPerView: 2,
         slidesOffsetBefore: 50,
         slidesOffsetAfter: 50,
-        loop:false
+        loop: false,
     },
 };
 
@@ -29,7 +29,7 @@ export default function Seasons({ id }) {
     if (isLoading) return <SeasonSkeleton />;
 
     if (hasError) {
-        history.push("/error");
+        history.push(`/error/${hasError}`);
         return;
     }
 
