@@ -10,6 +10,7 @@ import {
 } from "./styles";
 import RecommendationSkeleton from "./RecommendationSkeleton";
 import EmptyRecommendation from "../EmptyPlaceholder";
+import ErrorPage from '../pages/NotFoundPage';
 
 export default function Recommendations({ id, type }) {
     const history = useHistory();
@@ -19,7 +20,7 @@ export default function Recommendations({ id, type }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

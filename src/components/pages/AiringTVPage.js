@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Collection from "./Collection";
 import useAiring from "../../hooks/useAiring";
 import PageSkeleton from "./PageSkeleton";
+import ErrorPage from '../pages/NotFoundPage';
 
 export default function AiringTVList({ history }) {
     const [pageCount, setPageCount] = useState(1);
@@ -12,7 +13,7 @@ export default function AiringTVList({ history }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

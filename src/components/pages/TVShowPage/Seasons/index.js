@@ -10,6 +10,7 @@ import useDetails from "../../../../hooks/useDetails";
 import SeasonCard from "./SeasonCard";
 import { Wrapper, Title } from "./styles";
 import SeasonSkeleton from "./SeasonSkeleton";
+import ErrorPage from '../../NotFoundPage';
 
 SwiperCore.use([Scrollbar]);
 
@@ -30,7 +31,7 @@ export default function Seasons({ id }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     const seasons = data.seasons;

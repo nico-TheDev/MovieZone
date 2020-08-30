@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Collection from "../Collection";
 import usePopularTV from "../../../hooks/usePopularTV";
 import PageSkeleton from "../PageSkeleton";
+import ErrorPage from '../NotFoundPage';
 
 export default function PopularTV({ history }) {
     const [pageCount, setPageCount] = useState(1);
@@ -12,7 +13,7 @@ export default function PopularTV({ history }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

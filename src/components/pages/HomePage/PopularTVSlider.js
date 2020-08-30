@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Slider from "../../Slider";
 import SliderSkeleton from "./SliderSkeleton";
 import usePopularTV from "../../../hooks/usePopularTV";
+import ErrorPage from '../NotFoundPage';
 
 export default function PopularTVSlider() {
     const history = useHistory();
@@ -13,7 +14,7 @@ export default function PopularTVSlider() {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

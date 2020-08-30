@@ -11,6 +11,7 @@ import CastCard from "./CastCard";
 import CastSliderSkeleton from "./CastSliderSkeleton";
 import { Title, CastContainer } from "./styles";
 import EmptyCast from "../EmptyPlaceholder";
+import ErrorPage from '../pages/NotFoundPage';
 
 SwiperCore.use([Navigation]);
 
@@ -42,7 +43,7 @@ export default function CastSlider({ id, type }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

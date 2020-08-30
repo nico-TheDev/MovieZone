@@ -4,6 +4,7 @@ import usePersonMedia from "../../../hooks/usePersonMedia";
 import PersonProfile from "./PersonProfile";
 import PersonMedia from "./PersonMedia";
 import ProfileSkeleton from "./ProfileSkeleton";
+import ErrorPage from '../../pages/NotFoundPage';
 
 export default function Person({
     match: {
@@ -17,7 +18,7 @@ export default function Person({
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

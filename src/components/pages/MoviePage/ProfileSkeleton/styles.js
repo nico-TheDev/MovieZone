@@ -7,6 +7,7 @@ export const FeaturedLoader = styled(Container)`
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
+    box-sizing:border-box;
     animation: ${blink} var(--loader-speed);
     padding-top: 20vh;
     ${respondTo.md`
@@ -16,7 +17,7 @@ export const FeaturedLoader = styled(Container)`
 
 export const FeaturedBottom = styled.div`
     width: 100%;
-    min-height: 100vh;
+    height:100%;
     display: grid;
     align-items: end;
     grid-template-columns: auto 1fr;

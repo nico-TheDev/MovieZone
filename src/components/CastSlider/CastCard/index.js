@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Placeholder from "../../shared/PhotoPlaceholder";
-import { Cast, CastPhoto, Content } from "./styles";
+import { Cast, CastPhoto, Content, Placeholder } from "./styles";
 
 export default function CastCard({ person }) {
     return (

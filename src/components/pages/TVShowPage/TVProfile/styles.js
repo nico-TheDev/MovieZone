@@ -3,11 +3,11 @@ import Container from "../../../shared/Container";
 import Button from "../../../shared/Button";
 import respondTo from "../../../../util/respondTo";
 
-const Profile = styled.header`
+export const Profile = styled.header`
     position: relative;
 `;
 
-const ProfileContainer = styled(Container)`
+export const ProfileContainer = styled(Container)`
     min-height: 100vh;
     position: relative;
     z-index: 2;
@@ -16,7 +16,7 @@ const ProfileContainer = styled(Container)`
     gap: 2rem;
     align-items: center;
     padding-bottom: 2rem;
-    padding-top:12vh;
+    padding-top: 20vh;
 
     ${respondTo.md`
         grid-template-columns: 1fr;
@@ -26,7 +26,7 @@ const ProfileContainer = styled(Container)`
     `}
 `;
 
-const Backdrop = styled.img`
+export const Backdrop = styled.img`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -36,7 +36,7 @@ const Backdrop = styled.img`
     z-index: 1;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
     display: grid;
     gap: 1rem;
     justify-items: start;
@@ -47,15 +47,14 @@ const Content = styled.div`
     `}
 `;
 
-const Genres = styled.ul`
+export const Genres = styled.ul`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
 `;
 
-const Stats = styled.ul`
+export const Stats = styled.ul`
     width: 100%;
     display: grid;
     grid-template-columns: 1fr max-content max-content;
@@ -76,7 +75,7 @@ const Stats = styled.ul`
     `}
 `;
 
-const Stat = styled.li`
+export const Stat = styled.li`
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -97,21 +96,14 @@ const Stat = styled.li`
     }
 `;
 
-const MovieButton = styled(Button)`
+export const MovieButton = styled(Button)`
     display: flex;
     align-items: center;
 `;
 
-const Poster = styled.img``;
+export const Poster = styled.img``;
 
-export {
-    Profile,
-    ProfileContainer,
-    Backdrop,
-    Content,
-    Genres,
-    Stats,
-    Stat,
-    MovieButton,
-    Poster,
-};
+export const Overview = styled.p`
+    height: ${({ textLength }) => (textLength > 250 ? "150px" : "auto")};
+    overflow-y: ${({ textLength }) => (textLength > 250 ? "scroll" : "unset")};
+`;

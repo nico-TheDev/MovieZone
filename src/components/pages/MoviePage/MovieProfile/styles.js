@@ -16,7 +16,7 @@ export const ProfileContainer = styled(Container)`
     gap: 2rem;
     align-items: center;
     padding-bottom: 2rem;
-    padding-top:20vh;
+    padding-top: 20vh;
 
     ${respondTo.md`
         grid-template-columns: 1fr;
@@ -51,7 +51,6 @@ export const Genres = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
 `;
 
 export const Stats = styled.ul`
@@ -85,8 +84,8 @@ export const Stat = styled.li`
     }
 
     span {
-        display:inline-block;
-        padding-left:5px;
+        display: inline-block;
+        padding-left: 5px;
         font-weight: normal;
     }
 `;
@@ -96,5 +95,9 @@ export const MovieButton = styled(Button)`
     align-items: center;
 `;
 
-export const Poster = styled.img``;
+export const Overview = styled.p`
+    height: ${({ textLength }) => (textLength > 250 ? "150px" : "auto")};
+    overflow-y: ${({ textLength }) => (textLength > 250 ? "scroll" : "auto")};
+`;
 
+export const Poster = styled.img``;

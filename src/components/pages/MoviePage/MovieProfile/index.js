@@ -17,9 +17,11 @@ import {
     Stat,
     MovieButton,
     Poster,
+    Overview,
 } from "./styles";
 import ProfileSkeleton from "../ProfileSkeleton";
 import useDetails from "../../../../hooks/useDetails";
+import ErrorPage from "../../NotFoundPage";
 
 const TYPE = "movie";
 
@@ -34,7 +36,7 @@ export default function MovieProfile({ id }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
@@ -107,7 +109,9 @@ export default function MovieProfile({ id }) {
                                 <span>{getRuntime(details.runtime)}</span>
                             </Stat>
                         </Stats>
-                        <p>{details.overview || "No summary found"}</p>
+                        <Overview textLength={details.overview.length}>
+                            {details.overview || "No summary found"}
+                        </Overview>
                         <MovieButton onClick={handleClick}>
                             <Icon>
                                 <use href={getIcon("play")} />

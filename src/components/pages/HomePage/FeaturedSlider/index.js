@@ -7,6 +7,7 @@ import "swiper/swiper.scss";
 import useNowPlaying from "../../../../hooks/useNowPlaying";
 import Featured from "./Featured";
 import FeaturedSkeleton from "./FeaturedSkeleton";
+import ErrorPage from '../../NotFoundPage';
 
 SwiperCore.use([Autoplay]);
 
@@ -18,7 +19,7 @@ export default function FeaturedSlider() {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
     const randomNumber = Math.floor(Math.random() * 13);
     const movies = data.results.slice(randomNumber, randomNumber + 4);

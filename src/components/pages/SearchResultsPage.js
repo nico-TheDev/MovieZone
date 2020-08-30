@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Collection from "./Collection";
 import useSearch from "../../hooks/useSearch";
 import PageSkeleton from "./PageSkeleton";
+import ErrorPage from '../pages/NotFoundPage';
 
 export default function SearchPageResult({
     match: {
@@ -20,7 +21,7 @@ export default function SearchPageResult({
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

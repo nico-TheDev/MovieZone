@@ -17,6 +17,7 @@ import {
 } from "./styles";
 import usePersonDetails from "../../../../hooks/usePersonDetails";
 import ProfileSkeleton from "../ProfileSkeleton";
+import ErrorPage from '../../../pages/NotFoundPage';
 
 export default function PersonProfile({ id, bg }) {
     const history = useHistory();
@@ -26,7 +27,7 @@ export default function PersonProfile({ id, bg }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     document.title = `MovieZone - ${details.name}`;

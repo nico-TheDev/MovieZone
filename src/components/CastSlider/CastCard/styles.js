@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import respondTo from '../../../util/respondTo';
-
+import Replacement from "../../shared/PhotoPlaceholder";
 
 export const Cast = styled.figure`
     height: 14rem;
@@ -41,3 +41,6 @@ export const Content = styled.div`
     `}
 `;
 
+export const Placeholder = styled(Replacement)`
+    height:14rem;
+`

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Slider from "../../Slider";
 import SliderSkeleton from "./SliderSkeleton";
 import useTopRatedTV from "../../../hooks/useTopratedTV";
+import ErrorPage from '../NotFoundPage';
 
 export default function TopRatedSlider() {
     const history = useHistory();
@@ -13,7 +14,7 @@ export default function TopRatedSlider() {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

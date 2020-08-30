@@ -16,9 +16,11 @@ import {
     Stat,
     MovieButton,
     Poster,
+    Overview,
 } from "./styles";
 import useDetails from "../../../../hooks/useDetails";
 import ProfileSkeleton from "../ProfileSkeleton";
+import ErrorPage from "../../NotFoundPage";
 
 const TYPE = "tv";
 
@@ -33,7 +35,7 @@ export default function TVProfile({ id }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     document.title = `MovieZone - ${
@@ -140,11 +142,11 @@ export default function TVProfile({ id }) {
                                 </span>
                             </Stat>
                         </Stats>
-                        <p>
+                        <Overview textLength={details.overview.length}>
                             {details.overview
                                 ? details.overview
                                 : "No summary found"}
-                        </p>
+                        </Overview>
                         <MovieButton onClick={handleClick}>
                             <Icon>
                                 <use href={getIcon("play")} />

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Slider from "../../Slider";
 import SliderSkeleton from "./SliderSkeleton";
 import useTrendingMovies from "../../../hooks/useTrendingMovies";
+import ErrorPage from '../NotFoundPage';
 
 export default function TrendingSlider() {
     const history = useHistory();
@@ -13,7 +14,7 @@ export default function TrendingSlider() {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return <Slider title="Trending" movies={data.results} type="movie" />;

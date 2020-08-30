@@ -7,6 +7,8 @@ import Container from "../shared/Container";
 import { ReviewWrapper, Title } from "./styles";
 import ReviewSkeleton from "./ReviewSkeleton";
 import EmptyReview from "../EmptyPlaceholder";
+import ErrorPage from '../pages/NotFoundPage';
+
 
 export default function Reviews({ id, type }) {
     const history = useHistory();
@@ -16,7 +18,7 @@ export default function Reviews({ id, type }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

@@ -4,13 +4,14 @@ import Button from "../../../../shared/Button";
 import respondTo from "../../../../../util/respondTo";
 
 export const FeaturedStyle = styled.div`
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     background-size: cover;
     background-position: center;
     padding-top:12vh;
+    box-sizing:border-box;
 
     ${respondTo.md`
         justify-content: center;

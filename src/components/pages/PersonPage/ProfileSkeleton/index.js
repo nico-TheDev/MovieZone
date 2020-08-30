@@ -4,7 +4,6 @@ import {
     FeaturedBottom,
     SampleTags,
     SampleDesc,
-    SampleButton,
     SamplePoster,
     SampleTitle,
     Content,

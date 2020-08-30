@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Collection from "./Collection";
 import useTodayTV from "../../hooks/useTodayTV";
 import PageSkeleton from "./PageSkeleton";
+import ErrorPage from '../pages/NotFoundPage';
 
 export default function TodayTVList({ history }) {
     const [pageCount, setPageCount] = useState(1);
@@ -12,7 +13,7 @@ export default function TodayTVList({ history }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

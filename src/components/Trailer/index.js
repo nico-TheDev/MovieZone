@@ -8,9 +8,9 @@ import {
     TrailerContainer,
     TrailerButton,
     CloseIcon,
-    TrailerSkeleton,
 } from "./styles";
 import getIcon from "../../util/getIcon";
+import ErrorPage from '../pages/NotFoundPage';
 
 export default function Trailer({ id, isOpen, setIsTrailerOpen, type }) {
     const history = useHistory();
@@ -22,7 +22,7 @@ export default function Trailer({ id, isOpen, setIsTrailerOpen, type }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (

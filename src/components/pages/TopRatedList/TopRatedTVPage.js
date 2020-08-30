@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Collection from "../Collection";
 import useTopRatedTV from "../../../hooks/useTopratedTV";
 import PageSkeleton from "../PageSkeleton";
+import ErrorPage from '../NotFoundPage';
 
 export default function TopRatedTV({ history }) {
     const [pageCount, setPageCount] = useState(1);
@@ -12,7 +13,7 @@ export default function TopRatedTV({ history }) {
 
     if (hasError) {
         history.push(`/error/${hasError}`);
-        return;
+        return <ErrorPage />;
     }
 
     return (
