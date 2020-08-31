@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import respondTo from '../../../util/respondTo';
-import Replacement from "../../shared/PhotoPlaceholder";
+import respondTo from 'util/respondTo';
+import Replacement from "components/shared/PhotoPlaceholder";
 
 export const Cast = styled.figure`
     height: 14rem;

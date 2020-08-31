@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import {
-    NavStyle,
-    NavContainer,
-    Logo,
-    NavItem,
-    UserIcon,
-    Menu,
-} from "./styles";
-import Dropdown from "../../Dropdown";
-import Search from "../../Search/index";
-import MobileNav from "../MobileNav";
-import getIcon from "../../../util/getIcon";
-import logoDir from "../../../assets/img/logo.png";
-import ProfileDropdown from './ProfileDropdown';
+import { NavStyle, NavContainer, Logo, UserIcon, Menu } from "./styles";
+import ProfileDropdown from "./ProfileDropdown";
+import Dropdown from "components/Dropdown";
+import Search from "components/Search";
+import MobileNav from "components/layout/MobileNav";
+import getIcon from "util/getIcon";
+import logoDir from "assets/img/logo.png";
 
 export const LINK_ONE = [
     {

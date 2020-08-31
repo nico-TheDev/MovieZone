@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Container from "../../../../shared/Container";
-import Button from "../../../../shared/Button";
-import respondTo from "../../../../../util/respondTo";
+import Container from "components/shared/Container";
+import Button from "components/shared/Button";
+import respondTo from "util/respondTo";
 
 export const FeaturedStyle = styled.div`
     height: 100vh;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Container from "../../../shared/Container";
-import Button from "../../../shared/Button";
+import Container from "components/shared/Container";
+import Button from "components/shared/Button";
 
 export const PaginationMain = styled.div`
     display: ${({ pageCount }) => (pageCount ? "block" : "none")};

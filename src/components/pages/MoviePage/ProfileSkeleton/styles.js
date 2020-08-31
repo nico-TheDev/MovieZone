@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Container from "../../../shared/Container";
-import { blink } from "../../../../assets/animations";
-import respondTo from "../../../../util/respondTo";
+import Container from "components/shared/Container";
+import { blink } from "assets/animations";
+import respondTo from "util/respondTo";
 
 export const FeaturedLoader = styled(Container)`
     min-height: 100vh;

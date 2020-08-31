@@ -1,6 +1,6 @@
 import React from "react";
 import { EmptyBody, EmptyIcon, EmptyTitle } from "./styles";
-import getIcon from "../../util/getIcon";
+import getIcon from "util/getIcon";
 
 export default function EmptyReviews({ title }) {
     return (

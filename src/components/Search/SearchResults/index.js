@@ -1,6 +1,6 @@
 import React from "react";
 import { Results, Title, SubTitle } from "./styles";
-import SearchCard from "../SearchCard";
+import SearchCard from "components/Search/SearchCard";
 
 export default function SearchResults({ media, isShowing }) {
     const { movies, tvShows } = media;

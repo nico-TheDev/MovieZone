@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ringAnim } from '../../assets/animations';
-import Icon from "../shared/Icon";
+import { ringAnim } from 'assets/animations';
+import Icon from "components/shared/Icon";
 
 export const SearchForm = styled.form`
     margin-right: 1rem;

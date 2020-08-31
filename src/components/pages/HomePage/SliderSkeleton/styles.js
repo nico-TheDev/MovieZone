@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { blink } from "../../../../assets/animations";
-import respondTo from '../../../../util/respondTo'
+import { blink } from "assets/animations";
+import respondTo from 'util/respondTo'
 
 export const SampleTitle = styled.h3`
     width: 200px;

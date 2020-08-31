@@ -1,9 +1,9 @@
 import React from "react";
 
-import MovieCard from "../../MovieCard";
+import MovieCard from "components/MovieCard";
 import Pagination from "./Pagination";
 import { Wrapper, CollectionContainer as Container, Title } from "./styles";
-import Empty from "../../EmptyPlaceholder";
+import Empty from "components/EmptyPlaceholder";
 
 export default function Collection({
     movies,

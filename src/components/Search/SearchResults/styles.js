@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import respondTo from "../../../util/respondTo";
+import respondTo from "util/respondTo";
 
 export const Results = styled.div`
     position: absolute;

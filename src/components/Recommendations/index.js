@@ -1,16 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import useRecommendations from "../../hooks/useRecommendations";
-import MovieCard from "../MovieCard";
+import useRecommendations from "hooks/useRecommendations";
+import MovieCard from "components/MovieCard";
 import {
     RecommendationsMain,
     RecommendationsContainer as Container,
     Title,
 } from "./styles";
 import RecommendationSkeleton from "./RecommendationSkeleton";
-import EmptyRecommendation from "../EmptyPlaceholder";
-import ErrorPage from '../pages/NotFoundPage';
+import EmptyRecommendation from "components/EmptyPlaceholder";
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function Recommendations({ id, type }) {
     const history = useHistory();

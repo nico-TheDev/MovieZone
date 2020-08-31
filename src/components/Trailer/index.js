@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import useMovieTrailers from "../../hooks/useMovieTrailers";
+import useMovieTrailers from "hooks/useMovieTrailers";
 import TrailerSlider from "./TrailerSlider";
 import {
     TrailerStyle,
@@ -9,8 +9,8 @@ import {
     TrailerButton,
     CloseIcon,
 } from "./styles";
-import getIcon from "../../util/getIcon";
-import ErrorPage from '../pages/NotFoundPage';
+import getIcon from "util/getIcon";
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function Trailer({ id, isOpen, setIsTrailerOpen, type }) {
     const history = useHistory();

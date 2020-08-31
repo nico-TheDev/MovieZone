@@ -1,9 +1,9 @@
 import React from "react";
 
 import MovieProfile from "./MovieProfile";
-import CastSlider from "../../CastSlider";
-import Reviews from "../../Reviews";
-import Recommendations from "../../Recommendations";
+import CastSlider from "components/CastSlider";
+import Reviews from "components/Reviews";
+import Recommendations from "components/Recommendations";
 
 const TYPE = "movie";
 export default function Movie({ match }) {

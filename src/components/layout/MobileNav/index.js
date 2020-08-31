@@ -7,12 +7,12 @@ import {
     Logo,
     MenuHolder,
 } from "./styles";
-import Search from "../../Search";
-import Icon from "../../shared/Icon";
-import getIcon from "../../../util/getIcon";
-import logo from "../../../assets/img/logo.png";
-import Dropdown from "../../Dropdown";
-import { LINK_ONE, LINK_TWO } from "../Nav";
+import Search from "components/Search";
+import Icon from "components/shared/Icon";
+import getIcon from "util/getIcon";
+import logo from "assets/img/logo.png";
+import Dropdown from "components/Dropdown";
+import { LINK_ONE, LINK_TWO } from "components/layout/Nav";
 
 export default function MobileNav({ isOpen, setIsOpen }) {
     const handleClick = () => setIsOpen(false);

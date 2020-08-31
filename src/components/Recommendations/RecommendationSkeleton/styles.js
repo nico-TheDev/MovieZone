@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blink } from "../../../assets/animations";
+import { blink } from "assets/animations";
 
 export const RecomBody = styled.div`
     width: 90%;

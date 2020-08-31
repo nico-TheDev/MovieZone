@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Icon from "../../../shared/Icon";
-import getIcon from "../../../../util/getIcon";
-import convertDate from "../../../../util/convertDate";
+import Icon from "components/shared/Icon";
+import getIcon from "util/getIcon";
+import convertDate from "util/convertDate";
 
 import {
     Profile,
@@ -15,9 +15,9 @@ import {
     Stat,
     Poster,
 } from "./styles";
-import usePersonDetails from "../../../../hooks/usePersonDetails";
+import usePersonDetails from "hooks/usePersonDetails";
 import ProfileSkeleton from "../ProfileSkeleton";
-import ErrorPage from '../../../pages/NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function PersonProfile({ id, bg }) {
     const history = useHistory();

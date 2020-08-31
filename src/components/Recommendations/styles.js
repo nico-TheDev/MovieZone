@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from "../shared/Container";
+import Container from "components/shared/Container";
 
 export const RecommendationsMain = styled.div`
     padding: ${({ length }) => (length === 0 ? 0 : "2rem")} 0;

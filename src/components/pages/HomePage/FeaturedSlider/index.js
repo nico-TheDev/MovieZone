@@ -4,10 +4,10 @@ import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 
-import useNowPlaying from "../../../../hooks/useNowPlaying";
+import useNowPlaying from "hooks/useNowPlaying";
 import Featured from "./Featured";
 import FeaturedSkeleton from "./FeaturedSkeleton";
-import ErrorPage from '../../NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 SwiperCore.use([Autoplay]);
 

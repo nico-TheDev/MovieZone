@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Title from '../shared/Title';
-import Container from '../shared/Container';
+import Title from 'components/shared/Title';
+import Container from 'components/shared/Container';
 
 export const SliderContainer = styled.div`
     height:auto;

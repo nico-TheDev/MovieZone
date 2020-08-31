@@ -1,10 +1,10 @@
 import React from "react";
 
 import TVProfile from "./TVProfile";
-import CastSlider from "../../CastSlider";
+import CastSlider from "components/CastSlider";
 import Seasons from "./Seasons";
-import Reviews from "../../Reviews";
-import Recommendations from "../../Recommendations";
+import Reviews from "components/Reviews";
+import Recommendations from "components/Recommendations";
 
 export default function TVShow({ match }) {
     const TYPE = "tv";

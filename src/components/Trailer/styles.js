@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Container from "../shared/Container";
-import Icon from "../shared/Icon";
-import { blink } from "../../assets/animations";
+import Container from "components/shared/Container";
+import Icon from "components/shared/Icon";
+import { blink } from "assets/animations";
 
 export const TrailerStyle = styled.div`
     position: fixed;

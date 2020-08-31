@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ringAnim } from "../../assets/animations";
+import { ringAnim } from "assets/animations";
 
 // LOADER
 

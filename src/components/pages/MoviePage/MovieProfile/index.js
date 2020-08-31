@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import GenrePill from "../../../GenrePill";
-import Trailer from "../../../Trailer";
-import Icon from "../../../shared/Icon";
-import getIcon from "../../../../util/getIcon";
-import getRuntime from "../../../../util/getRuntime";
-import convertDate from "../../../../util/convertDate";
+import GenrePill from "components/GenrePill";
+import Trailer from "components/Trailer";
+import Icon from "components/shared/Icon";
+import getIcon from "util/getIcon";
+import getRuntime from "util/getRuntime";
+import convertDate from "util/convertDate";
 import {
     Profile,
     ProfileContainer,
@@ -21,9 +21,9 @@ import {
     ButtonHolder
 } from "./styles";
 import ProfileSkeleton from "../ProfileSkeleton";
-import useDetails from "../../../../hooks/useDetails";
-import ErrorPage from "../../NotFoundPage";
-import ProfileButtons from "../../../ProfileButtons";
+import useDetails from "hooks/useDetails";
+import ErrorPage from 'components/pages/NotFoundPage';
+import ProfileButtons from "components/ProfileButtons";
 
 const TYPE = "movie";
 

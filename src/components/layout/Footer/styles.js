@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import Icon from "../../shared/Icon";
-import Container from "../../shared/Container";
-import respondTo from '../../../util/respondTo'
+import Icon from "components/shared/Icon";
+import Container from "components/shared/Container";
+import respondTo from 'util/respondTo'
 
 export const Footer = styled.footer`
     background-color: var(--main-dark-5);

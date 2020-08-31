@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "../Collection";
-import usePopularTV from "../../../hooks/usePopularTV";
+import usePopularTV from "hooks/usePopularTV";
 import PageSkeleton from "../PageSkeleton";
-import ErrorPage from '../NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function PopularTV({ history }) {
     const [pageCount, setPageCount] = useState(1);

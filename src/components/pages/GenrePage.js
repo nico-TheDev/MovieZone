@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useGenre from "../../hooks/useGenre";
+import useGenre from "hooks/useGenre";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from '../pages/NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function GenreList({ match, history }) {
     const { id, genre, type } = match.params;

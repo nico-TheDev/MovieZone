@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import PosterPlaceholder from "../shared/PhotoPlaceholder";
+import PosterPlaceholder from "components/shared/PhotoPlaceholder";
 import { Poster, Card, Date, Rating, StarIcon, Title, Content } from "./styles";
-import getIcon from "../../util/getIcon";
+import getIcon from "util/getIcon";
 
 const getYear = (date) => (date ? String(date).slice(0, 4) : "unknown");
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Slider from "../../Slider";
+import Slider from "components/Slider";
 import SliderSkeleton from "./SliderSkeleton";
-import usePopularTV from "../../../hooks/usePopularTV";
-import ErrorPage from '../NotFoundPage';
+import usePopularTV from "hooks/usePopularTV";
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function PopularTVSlider() {
     const history = useHistory();

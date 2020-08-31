@@ -1,6 +1,6 @@
 import React from "react";
-import Icon from '../shared/Icon';
-import getIcon from '../../util/getIcon';
+import Icon from 'components/shared/Icon';
+import getIcon from 'util/getIcon';
 import { MovieButton , ButtonHolder } from './styles';
 
 export default function ProfileButtons({ openTrailer }) {

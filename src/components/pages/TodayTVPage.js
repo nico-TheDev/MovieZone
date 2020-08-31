@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useTodayTV from "../../hooks/useTodayTV";
+import useTodayTV from "hooks/useTodayTV";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from '../pages/NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function TodayTVList({ history }) {
     const [pageCount, setPageCount] = useState(1);

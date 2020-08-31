@@ -6,12 +6,12 @@ import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 
-import useGetCasts from "../../hooks/useGetCasts";
 import CastCard from "./CastCard";
-import CastSliderSkeleton from "./CastSliderSkeleton";
 import { Title, CastContainer } from "./styles";
-import EmptyCast from "../EmptyPlaceholder";
-import ErrorPage from '../pages/NotFoundPage';
+import CastSliderSkeleton from "./CastSliderSkeleton";
+import useGetCasts from "hooks/useGetCasts";
+import EmptyCast from "components/EmptyPlaceholder";
+import ErrorPage from 'components/pages/NotFoundPage';
 
 SwiperCore.use([Navigation]);
 

@@ -1,6 +1,6 @@
 import React from "react";
-import getIcon from "../../../util/getIcon";
-import logoDir from "../../../assets/img/moviedb-logo.svg";
+import getIcon from "util/getIcon";
+import logoDir from "assets/img/moviedb-logo.svg";
 import {
     Footer,
     FooterContainer,

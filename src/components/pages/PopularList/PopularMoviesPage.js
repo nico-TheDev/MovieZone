@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "../Collection";
-import usePopularMovies from "../../../hooks/usePopularMovies";
+import usePopularMovies from "hooks/usePopularMovies";
 import PageSkeleton from "../PageSkeleton";
-import ErrorPage from '../NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 
 export default function PopularTV({ history }) {

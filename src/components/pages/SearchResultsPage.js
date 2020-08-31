@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useSearch from "../../hooks/useSearch";
+import useSearch from "hooks/useSearch";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from '../pages/NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function SearchPageResult({
     match: {

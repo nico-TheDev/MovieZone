@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blink } from "../../../assets/animations";
+import { blink } from "assets/animations";
 
 export const PageBody = styled.div`
     padding-top: 12vh;

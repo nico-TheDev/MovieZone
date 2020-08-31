@@ -1,7 +1,7 @@
 import React from "react";
 
-import Icon from "../../../shared/Icon";
-import getIcon from "../../../../util/getIcon";
+import Icon from "components/shared/Icon";
+import getIcon from "util/getIcon";
 import { PaginationContainer, Prev, Next, PaginationMain } from "./styles";
 
 export default function Pagination({

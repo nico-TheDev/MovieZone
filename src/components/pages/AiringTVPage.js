@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useAiring from "../../hooks/useAiring";
+import useAiring from "hooks/useAiring";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from '../pages/NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function AiringTVList({ history }) {
     const [pageCount, setPageCount] = useState(1);

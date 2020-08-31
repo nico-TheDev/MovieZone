@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Slider from "../../Slider";
+import Slider from "components/Slider";
 import SliderSkeleton from "./SliderSkeleton";
-import useTrendingMovies from "../../../hooks/useTrendingMovies";
-import ErrorPage from '../NotFoundPage';
+import useTrendingMovies from "hooks/useTrendingMovies";
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function TrendingSlider() {
     const history = useHistory();

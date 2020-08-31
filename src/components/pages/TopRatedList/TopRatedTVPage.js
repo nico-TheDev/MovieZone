@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "../Collection";
-import useTopRatedTV from "../../../hooks/useTopratedTV";
+import useTopRatedTV from "hooks/useTopratedTV";
 import PageSkeleton from "../PageSkeleton";
-import ErrorPage from '../NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function TopRatedTV({ history }) {
     const [pageCount, setPageCount] = useState(1);

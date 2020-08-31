@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import GenrePill from "../../../GenrePill";
-import Trailer from "../../../Trailer";
-import Icon from "../../../shared/Icon";
-import getIcon from "../../../../util/getIcon";
-import convertDate from "../../../../util/convertDate";
+import GenrePill from "components/GenrePill";
+import Trailer from "components/Trailer";
+import Icon from "components/shared/Icon";
+import getIcon from "util/getIcon";
+import convertDate from "util/convertDate";
 import {
     Profile,
     ProfileContainer,
@@ -18,10 +18,10 @@ import {
     Poster,
     Overview,
 } from "./styles";
-import useDetails from "../../../../hooks/useDetails";
+import useDetails from "hooks/useDetails";
 import ProfileSkeleton from "../ProfileSkeleton";
-import ErrorPage from "../../NotFoundPage";
-import ProfileButtons from '../../../ProfileButtons';
+import ErrorPage from 'components/pages/NotFoundPage';
+import ProfileButtons from 'components/ProfileButtons';
 
 const TYPE = "tv";
 

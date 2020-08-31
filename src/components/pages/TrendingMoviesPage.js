@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useTrendingMovies from "../../hooks/useTrendingMovies";
+import useTrendingMovies from "hooks/useTrendingMovies";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from '../pages/NotFoundPage';
+import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function TrendingMoviesList({ history }) {
     const [pageCount, setPageCount] = useState(1);

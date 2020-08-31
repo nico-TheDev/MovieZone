@@ -6,7 +6,7 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 
 import { SliderContainer, SliderTitle, Holder } from "./styles";
-import MovieCard from "../MovieCard";
+import MovieCard from "components/MovieCard";
 
 SwiperCore.use([Navigation]);
 

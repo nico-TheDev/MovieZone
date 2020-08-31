@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Container from "../../shared/Container";
-import respondTo from '../../../util/respondTo';
+import Container from "components/shared/Container";
+import respondTo from 'util/respondTo';
 
 export const Wrapper = styled.div`
     padding-top: 20vh;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import respondTo from '../../../util/respondTo';
+import respondTo from 'util/respondTo';
 
 export const Card = styled.figure`
     padding: 2.5rem 2rem;

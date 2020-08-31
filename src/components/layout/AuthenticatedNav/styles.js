@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import Container from "../../../components/shared/Container";
-import respondTo from "../../../util/respondTo";
-import Icon from "../../shared/Icon";
+import Container from "components/shared/Container";
+import respondTo from "util/respondTo";
+import Icon from "components/shared/Icon";
 
 export const NavStyle = styled.nav`
     width: 100%;

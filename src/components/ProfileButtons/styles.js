@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from '../shared/Button';
+import Button from 'components/shared/Button';
 
 export const MovieButton = styled(Button)`
     display: flex;

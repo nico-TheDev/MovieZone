@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import GenrePill from "../../../../GenrePill";
-import useGenreList from "../../../../../hooks/useGenreList";
-import cutText from "../../../../../util/cutText";
+import GenrePill from "components/GenrePill";
+import useGenreList from "hooks/useGenreList";
+import cutText from "util/cutText";
 import {
     FeaturedStyle,
     BGWrapper,

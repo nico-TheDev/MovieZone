@@ -9,8 +9,8 @@ import {
     SearchLoader,
 } from "./styles";
 import SearchResults from "./SearchResults";
-import getIcon from "../../util/getIcon";
-import useSearch from "../../hooks/useSearch";
+import getIcon from "util/getIcon";
+import useSearch from "hooks/useSearch";
 
 const loaderBody = (
     <>
