@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import getIcon from "../../../../util/getIcon";
+import getIcon from "util/getIcon";
 import {
     DropdownHead,
     DropdownItem,
@@ -25,7 +25,7 @@ export default function ProfileDropdown() {
             </DropdownButton>
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
-                    <NavLink to="/">Signup</NavLink>
+                    <NavLink to="/">Guest</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                     <NavLink to="/">Login</NavLink>

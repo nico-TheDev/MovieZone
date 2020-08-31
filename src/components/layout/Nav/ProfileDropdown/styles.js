@@ -9,7 +9,7 @@ export const DropdownHead = styled.ul`
 `;
 
 export const DropdownItem = styled.li`
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 3rem;
     width: auto;
     font-size: 0.9rem;
     a {
