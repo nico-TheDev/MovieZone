@@ -22,18 +22,16 @@ export const DropdownItem = styled.li`
     width: auto;
     font-size: 0.9rem;
     a {
-
         &:link,
-        &:visited
-        {
-            color:inherit;
+        &:visited {
+            color: inherit;
         }
         &:hover {
             color: var(--main-color);
         }
 
-        &:active{
-            color:var(--main-color);
+        &:active {
+            color: var(--main-color);
         }
     }
 `;

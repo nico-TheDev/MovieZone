@@ -21,6 +21,7 @@ import {
 import useDetails from "../../../../hooks/useDetails";
 import ProfileSkeleton from "../ProfileSkeleton";
 import ErrorPage from "../../NotFoundPage";
+import ProfileButtons from '../../../ProfileButtons';
 
 const TYPE = "tv";
 
@@ -147,12 +148,7 @@ export default function TVProfile({ id }) {
                                 ? details.overview
                                 : "No summary found"}
                         </Overview>
-                        <MovieButton onClick={handleClick}>
-                            <Icon>
-                                <use href={getIcon("play")} />
-                            </Icon>
-                            Watch Trailer
-                        </MovieButton>
+                        <ProfileButtons openTrailer={handleClick}/>
                     </Content>
                 </ProfileContainer>
             </Profile>

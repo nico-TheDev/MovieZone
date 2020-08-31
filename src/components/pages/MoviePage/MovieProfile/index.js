@@ -18,10 +18,12 @@ import {
     MovieButton,
     Poster,
     Overview,
+    ButtonHolder
 } from "./styles";
 import ProfileSkeleton from "../ProfileSkeleton";
 import useDetails from "../../../../hooks/useDetails";
 import ErrorPage from "../../NotFoundPage";
+import ProfileButtons from "../../../ProfileButtons";
 
 const TYPE = "movie";
 
@@ -112,12 +114,7 @@ export default function MovieProfile({ id }) {
                         <Overview textLength={details.overview.length}>
                             {details.overview || "No summary found"}
                         </Overview>
-                        <MovieButton onClick={handleClick}>
-                            <Icon>
-                                <use href={getIcon("play")} />
-                            </Icon>
-                            Watch Trailer
-                        </MovieButton>
+                        <ProfileButtons openTrailer={handleClick}/>
                     </Content>
                 </ProfileContainer>
             </Profile>

@@ -90,14 +90,9 @@ export const Stat = styled.li`
     }
 `;
 
-export const MovieButton = styled(Button)`
-    display: flex;
-    align-items: center;
-`;
-
 export const Overview = styled.p`
     height: ${({ textLength }) => (textLength > 250 ? "150px" : "auto")};
     overflow-y: ${({ textLength }) => (textLength > 250 ? "scroll" : "auto")};
 `;
 
-export const Poster = styled.img``;
+export const Poster = styled.img``
