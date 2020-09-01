@@ -20,7 +20,7 @@ export default function Collection({
             <Wrapper>
                 <div>
                     <Title>{title}</Title>
-                    {movies.length !== 0 ? (
+                    {movies.length ? (
                         <Container>
                             {movies.map((item) => (
                                 <MovieCard

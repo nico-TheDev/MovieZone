@@ -1,14 +1,9 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from "api/moviedb.instance";
 
 export default function useGetCasts(id, type) {
     const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${process.env.REACT_APP_KEY}&language=en-US`
-            )
-            .then((res) => res.data);
-
+        API.get(`${type}/${id}/credits`).then((res) => res.data);
     const { data, error } = useSWR(`/api/cast/${type}/${id}`, fetcher);
 
     return {

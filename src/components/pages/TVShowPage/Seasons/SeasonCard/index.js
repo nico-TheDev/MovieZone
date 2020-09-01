@@ -20,7 +20,7 @@ export default function SeasonCard({ details }) {
                     alt={details.name}
                 />
             ) : (
-                <Placeholder />
+                <Placeholder>No Poster</Placeholder>
             )}
             <CardContent>
                 <CardTitle>{details.name}</CardTitle>

@@ -54,8 +54,7 @@ export default function Featured({ featured }) {
                 <FeaturedContainer>
                     <Content>
                         <h2>{`${featured.name || featured.original_title} (${
-                            featured.release_date &&
-                            featured.release_date.split("").slice(0, 4).join("")
+                            featured.release_date?.split("").slice(0, 4).join("")
                         })`}</h2>
                         <Genres>{genreList}</Genres>
                         <Description>

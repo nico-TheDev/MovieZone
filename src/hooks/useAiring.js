@@ -1,13 +1,15 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from "api/moviedb.instance";
 
 export default function useAiring(page = 1) {
+    const config = {
+        params: {
+            page,
+        },
+    };
+
     const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=${page}`
-            )
-            .then((res) => res.data);
+        API.get("tv/on_the_air", config).then((res) => res.data);
 
     const { data, error } = useSWR(`/api/airing/tv/${page}`, fetcher);
 

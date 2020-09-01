@@ -3,14 +3,10 @@ import React, { useState } from "react";
 import Collection from "./Collection";
 import useSearch from "hooks/useSearch";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
+import ErrorPage from "components/pages/NotFoundPage";
 
-export default function SearchPageResult({
-    match: {
-        params: { query },
-    },
-    history,
-}) {
+export default function SearchPageResult({ match, history }) {
+    const { query } = match.params;
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError, pageLimit } = useSearch(
         query,

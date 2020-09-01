@@ -1,16 +1,13 @@
-import useSWR from 'swr';
-import axios from 'axios';
+import useSWR from "swr";
+import API from "api/moviedb.instance";
 
 export default function useGenreList() {
-    const fetcher = () => axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_KEY}&language=en-US`).then(res => res.data);
-    
-    const { data, error} = useSWR('/api/genrelist',fetcher);
+    const fetcher = () => API.get("genre/movie/list").then((res) => res.data);
+    const { data, error } = useSWR("/api/genrelist", fetcher);
 
     return {
         data,
         isLoading: !data && !error,
-        hasError:error
-    }
+        hasError: error,
+    };
 }
-
-;

@@ -8,6 +8,8 @@ export const Footer = styled.footer`
     background-color: var(--main-dark-5);
     padding: 2rem 0;
     margin-top:1.5rem;
+    display: ${({ isDisplayed }) => (isDisplayed ? "block" : "none")};
+
 `;
 
 export const FooterContainer = styled(Container)`

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import respondTo from "util/respondTo";
 
-const Card = styled.figure`
+export const Card = styled.figure`
     background: var(--main-dark-5);
     width: 500px;
     display: flex;
@@ -19,7 +19,7 @@ const Card = styled.figure`
     `}
 `;
 
-const CardPoster = styled.img`
+export const CardPoster = styled.img`
     height: 300px;
     display: block;
     ${respondTo.md`
@@ -27,13 +27,16 @@ const CardPoster = styled.img`
     `}
 `;
 
-const Placeholder = styled.div`
+export const Placeholder = styled.div`
     height:300px;
     width:200px;
-    background:var(-main-dark-3)
+    background:var(-main-dark-3);
+    display:grid;
+    place-items:center;
+    border:1px solid var(--main-mid-2);
 `;
 
-const CardContent = styled.div`
+export const CardContent = styled.div`
     padding: 1rem;
     ${respondTo.md`
         position:absolute;
@@ -51,14 +54,14 @@ const CardContent = styled.div`
     `}
 `;
 
-const CardTitle = styled.h3`
+export const CardTitle = styled.h3`
     text-align: center;
     margin-bottom: 1rem;
     font-weight: bold;
     letter-spacing: 2px;
 `;
 
-const CardDesc = styled.p`
+export const CardDesc = styled.p`
     font-size: 0.8rem;
     margin-top: 1rem;
     ${respondTo.md`
@@ -67,7 +70,7 @@ const CardDesc = styled.p`
     `}
 `;
 
-const Item = styled.p`
+export const Item = styled.p`
     font-weight: 600;
 
     ${respondTo.md`
@@ -80,5 +83,3 @@ const Item = styled.p`
         font-weight: normal;
     }
 `;
-
-export { Card, CardPoster, CardContent, CardTitle, CardDesc, Item, Placeholder };

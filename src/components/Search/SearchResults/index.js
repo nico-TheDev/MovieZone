@@ -27,8 +27,8 @@ export default function SearchResults({ media, isShowing }) {
 
     return (
         <Results isShowing={isShowing} isEmpty={noResults}>
-            {movies.length !== 0 ? movieList : null}
-            {tvShows.length !== 0 ? tvShowList : null}
+            {movies.length ? movieList : null}
+            {tvShows.length ? tvShowList : null}
             {noResults && <SubTitle>No Results</SubTitle>}
         </Results>
     );

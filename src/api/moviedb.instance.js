@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const config = {
-    baseURL: "https://api.themoviedb.org/3/",
-    params: {
-        api_key: process.env.REACT_APP_KEY,
-        language: "en-US",
-    },
-};
+const moviedb = axios.create();
 
-const moviedb = axios.create(config);
+moviedb.interceptors.request.use((config) => {
+    config.baseURL = process.env.REACT_APP_API;
+    config.params = config.params || {};
+    config.params["api_key"] = process.env.REACT_APP_KEY;
+    config.params["language"] = "en-US";
+    return config;
+});
 
 export default moviedb;

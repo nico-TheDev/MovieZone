@@ -28,7 +28,7 @@ export default function ProfileDropdown() {
                     <NavLink to="/">Guest</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                    <NavLink to="/">Login</NavLink>
+                    <NavLink to="/login">Login</NavLink>
                 </DropdownItem>
             </DropdownBody>
         </DropdownHead>

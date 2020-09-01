@@ -5,7 +5,7 @@ export default function useUpcomingMovies(page = 1) {
     const fetcher = () =>
         axios
             .get(
-                `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_KEY}&language=en-US`
+                `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=${page}`
             )
             .then((res) => res.data);
 

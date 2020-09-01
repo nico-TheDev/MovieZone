@@ -1,14 +1,8 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from "api/moviedb.instance";
 
 export default function useFeaturedMovies() {
-    const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=1`
-            )
-            .then((res) => res.data);
-
+    const fetcher = () => API.get("movie/now_playing").then((res) => res.data);
     const { data, error } = useSWR("/api/featured", fetcher);
 
     return {

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/moviedb-logo.svg";
 import {
@@ -12,8 +14,19 @@ import {
 } from "./styles";
 
 export default function FooterComp() {
+    const location = useLocation();
+    const [isDisplayed, setIsDisplayed] = useState(true);
+
+    useEffect(() => {
+        if (location.pathname.includes("login")) {
+            setIsDisplayed(false);
+        } else {
+            setIsDisplayed(true);
+        }
+    }, [location.pathname]);
+
     return (
-        <Footer>
+        <Footer isDisplayed={isDisplayed}>
             <FooterContainer>
                 <LogoLink
                     href="https://www.themoviedb.org/"

@@ -91,7 +91,7 @@ export const Stat = styled.li`
 `;
 
 export const Overview = styled.p`
-    height: ${({ textLength }) => (textLength > 250 ? "150px" : "auto")};
+    /* height: ${({ textLength }) => (textLength > 250 ? "150px" : "max-content")}; */
     overflow-y: ${({ textLength }) => (textLength > 250 ? "scroll" : "auto")};
 `;
 

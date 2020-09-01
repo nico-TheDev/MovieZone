@@ -50,14 +50,22 @@ export const LINK_TWO = [
 export default function Nav() {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+    const [isDisplayed, setIsDisplayed] = useState(true);
 
     // CLOSE THE NAV EVERYTIME THE URL CHANGES
-    useEffect(() => setIsOpen(false), [location.pathname]);
+    useEffect(() => {
+        if (location.pathname.includes("login")) {
+            setIsDisplayed(false);
+        } else {
+            setIsDisplayed(true);
+        }
+        setIsOpen(false);
+    }, [location.pathname]);
 
     const handleClick = () => setIsOpen(true);
 
     return (
-        <NavStyle>
+        <NavStyle isDisplayed={isDisplayed}>
             <NavContainer>
                 <Link to="/" className="logo-link">
                     <Logo src={logoDir} alt="Movie Zone Logo" />
@@ -74,7 +82,7 @@ export default function Nav() {
                     </UserIcon>
                 </Menu>
             </NavContainer>
-            {<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />}
+            <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
         </NavStyle>
     );
 }

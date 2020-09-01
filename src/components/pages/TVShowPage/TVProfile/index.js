@@ -73,8 +73,7 @@ export default function TVProfile({ id }) {
                                 : details.original_title}
                         </h2>
                         <Genres>
-                            {details.genres &&
-                                details.genres.map((genre) => (
+                            {details.genres?.map((genre) => (
                                     <GenrePill
                                         key={genre.id}
                                         genre={genre.name}

@@ -10,13 +10,13 @@ export const NavStyle = styled.nav`
     left: 0;
     z-index: 500;
     position: absolute;
-
-    ${respondTo.md`
-
-        & ul, & li, form{
-            display:none;
-        }
-    `}
+    display: ${({ isDisplayed }) => (isDisplayed ? "block" : "none")};
+    
+        ${respondTo.md`
+            & ul, & li, form{
+                display:none;
+            }
+    `};
 `;
 
 export const NavContainer = styled(Container)`
@@ -59,7 +59,7 @@ export const NavItem = styled.li`
 export const UserIcon = styled(Icon)`
     width: 2.5rem;
     height: 2.5rem;
-    fill:white;
+    fill: white;
 `;
 
 export const Menu = styled.button`
@@ -71,4 +71,3 @@ export const Menu = styled.button`
         }
     `}
 `;
-

@@ -24,7 +24,7 @@ export default function Person({
     return (
         <>
             <PersonProfile id={id} bg={data} />
-            <PersonMedia media={data.slice(0, 5)} />
+            <PersonMedia media={data.slice(0, 10)} />
         </>
     );
 }
