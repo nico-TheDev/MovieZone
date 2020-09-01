@@ -18,6 +18,7 @@ import TopRatedTV from "./components/pages/TopRatedList/TopRatedTVPage";
 import TopRatedMovies from "./components/pages/TopRatedList/TopRatedMoviesPage";
 import GenrePage from "./components/pages/GenrePage";
 import NotFound from "./components/pages/NotFoundPage";
+import Login from "./components/pages/LoginPage";
 import SearchResultsPage from "./components/pages/SearchResultsPage";
 
 import "./assets/css/custom.css";
@@ -28,6 +29,7 @@ function App() {
             <Nav />
             <Switch>
                 <Route exact path="/" component={HomePage} />
+                <Route path="/login" component={Login} />
                 <Route path="/search/:query" component={SearchResultsPage} />
                 <Route path="/movie/:id" component={MoviePage} />
                 <Route path="/tv/:id" component={TVShowPage} />
