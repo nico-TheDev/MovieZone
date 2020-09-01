@@ -23,18 +23,8 @@ const BREAKPOINTS = {
     },
 };
 
-export default function Seasons({ id }) {
-    const history = useHistory();
-    const { data, isLoading, hasError } = useDetails(id, "tv");
+export default function Seasons({ seasons }) {
 
-    if (isLoading) return <SeasonSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
-
-    const seasons = data.seasons;
 
     return (
         <Wrapper>

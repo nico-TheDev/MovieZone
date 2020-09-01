@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
+import useMovieData from 'hooks/useMediaData';
 import GenrePill from "components/GenrePill";
 import Trailer from "components/Trailer";
 import Icon from "components/shared/Icon";
@@ -18,26 +18,14 @@ import {
     Poster,
     Overview,
 } from "./styles";
-import useDetails from "hooks/useDetails";
-import ProfileSkeleton from "../ProfileSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
 import ProfileButtons from 'components/ProfileButtons';
 
 const TYPE = "tv";
 
-export default function TVProfile({ id }) {
-    const history = useHistory();
-    const { data: details, isLoading, hasError } = useDetails(id, TYPE);
+export default function TVProfile({details,trailers }) {
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
-
-    if (isLoading) return <ProfileSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
 
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
@@ -46,10 +34,9 @@ export default function TVProfile({ id }) {
     return (
         <>
             <Trailer
-                id={id}
                 isOpen={isTrailerOpen}
                 setIsTrailerOpen={setIsTrailerOpen}
-                type={TYPE}
+                trailers={trailers}
             />
 
             <Profile>

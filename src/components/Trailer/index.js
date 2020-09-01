@@ -1,7 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
-import useMovieTrailers from "hooks/useMovieTrailers";
 import TrailerSlider from "./TrailerSlider";
 import {
     TrailerStyle,
@@ -10,26 +8,15 @@ import {
     CloseIcon,
 } from "./styles";
 import getIcon from "util/getIcon";
-import ErrorPage from 'components/pages/NotFoundPage';
 
-export default function Trailer({ id, isOpen, setIsTrailerOpen, type }) {
-    const history = useHistory();
-    const { data, isLoading, hasError } = useMovieTrailers(id, type);
-
+export default function Trailer({ trailers, isOpen, setIsTrailerOpen }) {
     const handleClick = () => setIsTrailerOpen(false);
-
-    if (isLoading) return null;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
 
     return (
         <TrailerStyle isOpen={isOpen}>
             <TrailerContainer>
-                {data.results && isOpen ? (
-                    <TrailerSlider videos={data.results} />
+                {trailers && isOpen ? (
+                    <TrailerSlider videos={trailers} />
                 ) : (
                     <h2>No Trailer Found</h2>
                 )}

@@ -1,35 +1,22 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
-import useRecommendations from "hooks/useRecommendations";
 import MovieCard from "components/MovieCard";
 import {
     RecommendationsMain,
     RecommendationsContainer as Container,
     Title,
 } from "./styles";
-import RecommendationSkeleton from "./RecommendationSkeleton";
 import EmptyRecommendation from "components/EmptyPlaceholder";
-import ErrorPage from 'components/pages/NotFoundPage';
 
-export default function Recommendations({ id, type }) {
-    const history = useHistory();
-    const { data, isLoading, hasError } = useRecommendations(id, type);
-
-    if (isLoading) return <RecommendationSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
+export default function Recommendations({results,type}) {
 
     return (
-        <RecommendationsMain length={data.results.length}>
+        <RecommendationsMain length={results.length}>
             <Title>More Like This</Title>
-            {data.results.length !== 0 ? (
+            {results.length ? (
                 <Container>
-                    {data.results.slice(0, 12).map((movie) => (
-                        <MovieCard key={movie.id} movie={movie} type={type} />
+                    {results.slice(0, 12).map((item) => (
+                        <MovieCard key={item.id} movie={item} type={type} />
                     ))}
                 </Container>
             ) : (

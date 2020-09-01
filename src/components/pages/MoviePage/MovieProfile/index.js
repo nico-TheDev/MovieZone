@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 import GenrePill from "components/GenrePill";
 import Trailer from "components/Trailer";
@@ -20,26 +19,17 @@ import {
     Overview,
     ButtonHolder
 } from "./styles";
-import ProfileSkeleton from "../ProfileSkeleton";
+import ProfileSkeleton from "../MovieSkeleton";
 import useDetails from "hooks/useDetails";
 import ErrorPage from 'components/pages/NotFoundPage';
 import ProfileButtons from "components/ProfileButtons";
 
 const TYPE = "movie";
 
-export default function MovieProfile({ id }) {
-    const history = useHistory();
-    const { data: details, isLoading, hasError } = useDetails(id, TYPE);
+export default function MovieProfile({ details, trailers}) {
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
-
     const handleClick = () => setIsTrailerOpen(true);
 
-    if (isLoading) return <ProfileSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
     }`;
@@ -47,10 +37,9 @@ export default function MovieProfile({ id }) {
     return (
         <>
             <Trailer
-                id={id}
                 isOpen={isTrailerOpen}
                 setIsTrailerOpen={setIsTrailerOpen}
-                type={TYPE}
+                trailers={trailers}
             />
 
             <Profile>

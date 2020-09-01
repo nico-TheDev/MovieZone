@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
@@ -8,10 +7,7 @@ import "swiper/components/navigation/navigation.scss";
 
 import CastCard from "./CastCard";
 import { Title, CastContainer } from "./styles";
-import CastSliderSkeleton from "./CastSliderSkeleton";
-import useGetCasts from "hooks/useGetCasts";
 import EmptyCast from "components/EmptyPlaceholder";
-import ErrorPage from 'components/pages/NotFoundPage';
 
 SwiperCore.use([Navigation]);
 
@@ -35,17 +31,8 @@ const BREAKPOINTS = {
     },
 };
 
-export default function CastSlider({ id, type }) {
-    const history = useHistory();
-    const { data, isLoading, hasError } = useGetCasts(id, type);
-
-    if (isLoading) return <CastSliderSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
-
+export default function CastSlider({ casts }) {
+ 
     return (
         <CastContainer>
             <Title>Casts</Title>
@@ -58,8 +45,8 @@ export default function CastSlider({ id, type }) {
                 grabCursor
                 breakpoints={BREAKPOINTS}
             >
-                {data.cast.length !== 0 ? (
-                    data.cast.slice(0, 20).map((cast) => (
+                {casts.length ? (
+                    casts.slice(0, 20).map((cast) => (
                         <SwiperSlide key={cast.id}>
                             <CastCard person={cast} />
                         </SwiperSlide>
