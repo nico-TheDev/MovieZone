@@ -6,6 +6,7 @@ export const ChoiceHolder = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top:2rem;
 `;
 export const Container = styled(container)`
     padding: 2rem 0;
@@ -30,11 +31,11 @@ const pink = "var(--main-color)";
 const dark = "var(--main-dark)";
 
 export const MovieBtn = styled(Button)`
-    background: ${({ current }) => (current === "movie" ? pink : dark)};
-    color: ${({ current }) => (current === "movie" ? "white" : pink)};
+    background: ${({ current }) => (current === "Movies" ? pink : dark)};
+    color: ${({ current }) => (current === "Movies" ? "white" : pink)};
 `;
 
 export const TVBtn = styled(Button)`
-    background: ${({ current }) => (current === "tv" ? pink : dark)};
-    color: ${({ current }) => (current === "tv" ? "white" : pink)};
+    background: ${({ current }) => (current === "TV" ? pink : dark)};
+    color: ${({ current }) => (current === "TV" ? "white" : pink)};
 `;

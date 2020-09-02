@@ -7,6 +7,7 @@ import "swiper/components/navigation/navigation.scss";
 
 import { SliderContainer, SliderTitle, Holder } from "./styles";
 import MovieCard from "components/MovieCard";
+import Empty from "components/EmptyPlaceholder";
 
 SwiperCore.use([Navigation]);
 
@@ -14,7 +15,7 @@ const BREAKPOINTS = {
     300: {
         slidesPerView: 2,
         spaceBetween: 10,
-        freeMode:true
+        freeMode: true,
     },
     450: {
         slidesPerView: 3,
@@ -31,24 +32,29 @@ const BREAKPOINTS = {
     },
 };
 
-export default function Slider({ title, movies, type }) {
+export default function Slider({ title, movies, type,profile }) {
     return (
         <Holder>
             <SliderContainer>
-                <SliderTitle>{title}</SliderTitle>
-                <Swiper
-                    spaceBetween={30}
-                    navigation
-                    breakpoints={BREAKPOINTS}
-                    grabCursor
-                    
-                >
-                    {movies.map((movie) => (
+                <SliderTitle>
+                    {title} {profile ? `(${movies.length})` : null}
+                </SliderTitle>
+                {movies.length ? (
+                    <Swiper
+                        spaceBetween={30}
+                        navigation
+                        breakpoints={BREAKPOINTS}
+                        grabCursor
+                    >
+                        {movies.map((movie) => (
                             <SwiperSlide key={movie.id}>
                                 <MovieCard movie={movie} type={type} />
                             </SwiperSlide>
                         ))}
-                </Swiper>
+                    </Swiper>
+                ) : (
+                    <Empty title="No Media Found" />
+                )}
             </SliderContainer>
         </Holder>
     );

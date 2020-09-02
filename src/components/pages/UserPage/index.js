@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { HeaderBG, Avatar, Joined, Username, User,UserDetails } from "./styles";
+import {
+    HeaderBG,
+    Avatar,
+    Joined,
+    Username,
+    User,
+    UserDetails,
+} from "./styles";
 import UserList from "./UserLists";
+import { UserContext } from "contexts/UserContext";
 
 export default function Profile() {
+    const {
+        data: { user },
+    } = useContext(UserContext);
+
     return (
         <>
-        <HeaderBG>
-            <User>
-                <Avatar src="https://vercel.com/api/www/avatar/1f0b5e1a755dd131c912ce4cb47fb9d00e5c4655?s=204" />
-                <UserDetails>
-                    <Username>theAspiringDev1</Username>
-                    <Joined>Member since June 2020</Joined>
-                </UserDetails>
-            </User>
-        </HeaderBG>
-        <UserList/>
+            <HeaderBG>
+                <User>
+                    <Avatar
+                        src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=256
+                    `}
+                    />
+                    <UserDetails>
+                        <Username>{user?.username}</Username>
+                        <Joined>{user?.name}</Joined>
+                    </UserDetails>
+                </User>
+            </HeaderBG>
+            <UserList />
         </>
     );
 }
