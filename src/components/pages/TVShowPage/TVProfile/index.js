@@ -105,7 +105,7 @@ export default function TVProfile({details,trailers }) {
                                 <Icon>
                                     <use href={getIcon("pen")} />
                                 </Icon>
-                                Created By:
+                                Creator:
                                 <span>
                                     {details.created_by[0]
                                         ? details.created_by[0].name
