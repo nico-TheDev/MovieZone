@@ -23,7 +23,7 @@ export default function ProfileDropdown() {
             </DropdownButton>
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
-                    <NavLink to="/">Profile</NavLink>
+                    <NavLink to="/profile">Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                     <NavLink to="/">Logout</NavLink>

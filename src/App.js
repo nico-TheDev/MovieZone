@@ -20,16 +20,17 @@ import GenrePage from "./components/pages/GenrePage";
 import NotFound from "./components/pages/NotFoundPage";
 import Login from "./components/pages/LoginPage";
 import SearchResultsPage from "./components/pages/SearchResultsPage";
+import UserProfile from "components/pages/UserPage";
 import "./assets/css/custom.css";
 
 function App() {
-
     return (
         <Router>
-            <Nav/>
+            <Nav />
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/login" component={Login} />
+                <Route path="/profile" component={UserProfile} />
                 <Route path="/search/:query" component={SearchResultsPage} />
                 <Route path="/movie/:id" component={MoviePage} />
                 <Route path="/tv/:id" component={TVShowPage} />
