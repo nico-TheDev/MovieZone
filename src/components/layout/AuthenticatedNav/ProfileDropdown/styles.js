@@ -40,7 +40,7 @@ export const DropdownButton = styled.span`
     }
 
     &::before {
-        content: "Login or Signup";
+        content: "theAspiringDev  Profile";
         display: block;
         background: white;
         padding: 0.4rem;
@@ -96,8 +96,10 @@ export const DropdownBody = styled.div`
     }
 `;
 
-export const UserIcon = styled.svg`
+export const UserIcon = styled.img`
     width: 2.5rem;
     height: 2.5rem;
-    fill: white;
+    display:block;
+    border-radius:50%;
+    object-fit:cover;
 `;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavStyle, NavContainer, Logo, UserIcon, Menu } from "./styles";
-import ProfileDropdown from "./ProfileDropdown";
+import ProfileDropdown from "components/layout/AuthenticatedNav/ProfileDropdown";
 import Dropdown from "components/Dropdown";
 import Search from "components/Search";
 import MobileNav from "components/layout/MobileNav";
