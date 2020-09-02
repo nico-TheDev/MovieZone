@@ -1,10 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 import Icon from "components/shared/Icon";
 import getIcon from "util/getIcon";
 import convertDate from "util/convertDate";
-
 import {
     Profile,
     ProfileContainer,
@@ -15,20 +13,8 @@ import {
     Stat,
     Poster,
 } from "./styles";
-import usePersonDetails from "hooks/usePersonDetails";
-import ProfileSkeleton from "../ProfileSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
 
-export default function PersonProfile({ id, bg }) {
-    const history = useHistory();
-    const { data: details, isLoading, hasError } = usePersonDetails(id);
-
-    if (isLoading) return <ProfileSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
+export default function PersonProfile({ details, bg }) {
 
     document.title = `MovieZone - ${details.name}`;
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useTrendingMovies from "hooks/useTrendingMovies";
+import useTrendingMovies from "hooks/Movie/useTrendingMovies";
 import PageSkeleton from "./PageSkeleton";
 import ErrorPage from 'components/pages/NotFoundPage';
 

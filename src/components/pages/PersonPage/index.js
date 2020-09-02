@@ -1,30 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import usePersonMedia from "hooks/usePersonMedia";
 import PersonProfile from "./PersonProfile";
 import PersonMedia from "./PersonMedia";
 import ProfileSkeleton from "./ProfileSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
+import usePerson from "hooks/usePerson";
 
-export default function Person({
-    match: {
-        params: { id },
-    },
-    history,
-}) {
-    const { data, isLoading, hasError } = usePersonMedia(id);
+export default function Person({ match, history }) {
+    const { id } = match.params;
+    const { data, isLoading, hasError } = usePerson(id);
+
+    useEffect(() => {
+        if (hasError) {
+            history.push("/");
+        }
+    }, [hasError,history]);
 
     if (isLoading) return <ProfileSkeleton />;
 
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
-
     return (
         <>
-            <PersonProfile id={id} bg={data} />
-            <PersonMedia media={data.slice(0, 10)} />
+            <PersonProfile details={data.details} bg={data.media} />
+            <PersonMedia media={data.media} />
         </>
     );
 }

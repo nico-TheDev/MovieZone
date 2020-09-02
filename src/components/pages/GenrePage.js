@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Collection from "./Collection";
 import useGenre from "hooks/useGenre";
 import PageSkeleton from "./PageSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
 
 export default function GenreList({ match, history }) {
     const { id, genre, type } = match.params;
     const [pageCount, setPageCount] = useState(1);
     const { data, isLoading, hasError } = useGenre(pageCount, id, type);
 
-    if (isLoading) return <PageSkeleton />;
+    useEffect(() => {
+        if (hasError) {
+            history.push("/");
+        }
+    }, [hasError]);
 
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
+    if (isLoading) return <PageSkeleton />;
 
     return (
         <Collection

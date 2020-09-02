@@ -1,29 +1,13 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 
-import useNowPlaying from "hooks/useNowPlaying";
 import Featured from "./Featured";
-import FeaturedSkeleton from "./FeaturedSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
 
 SwiperCore.use([Autoplay]);
 
-export default function FeaturedSlider() {
-    const history = useHistory();
-    const { data, isLoading, hasError } = useNowPlaying();
-
-    if (isLoading) return <FeaturedSkeleton />;
-
-    if (hasError) {
-        history.push(`/error/${hasError}`);
-        return <ErrorPage />;
-    }
-    const randomNumber = Math.floor(Math.random() * 13);
-    const movies = data.results.slice(randomNumber, randomNumber + 4);
-
+export default function FeaturedSlider({ movies }) {
     return (
         <Swiper
             autoplay={{
@@ -33,7 +17,7 @@ export default function FeaturedSlider() {
             loop
             grabCursor
         >
-            {movies.map((movie) => (
+            {movies?.map((movie) => (
                 <SwiperSlide key={movie.id}>
                     <Featured featured={movie} />
                 </SwiperSlide>

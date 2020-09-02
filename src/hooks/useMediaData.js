@@ -28,7 +28,7 @@ export default function useMediaData(type, id) {
             }))
         );
 
-    const { data, error } = useSWR(`/api/${id}`, fetcher);
+    const { data, error } = useSWR(`/api/${type}/${id}`, fetcher);
 
     return {
         isLoading: !error && !data,

@@ -43,7 +43,7 @@ export default function Slider({ title, movies, type }) {
                     grabCursor
                     
                 >
-                    {movies?.map((movie) => (
+                    {movies.map((movie) => (
                             <SwiperSlide key={movie.id}>
                                 <MovieCard movie={movie} type={type} />
                             </SwiperSlide>

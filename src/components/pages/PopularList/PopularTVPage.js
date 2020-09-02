@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Collection from "../Collection";
-import usePopularTV from "hooks/usePopularTV";
+import usePopularTV from "hooks/TV/usePopularTV";
 import PageSkeleton from "../PageSkeleton";
 import ErrorPage from 'components/pages/NotFoundPage';
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Collection from "./Collection";
-import useAiring from "hooks/useAiring";
+import useAiring from "hooks/TV/useAiring";
 import PageSkeleton from "./PageSkeleton";
 import ErrorPage from 'components/pages/NotFoundPage';
 

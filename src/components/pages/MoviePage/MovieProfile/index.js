@@ -20,7 +20,6 @@ import {
     ButtonHolder
 } from "./styles";
 import ProfileSkeleton from "../MovieSkeleton";
-import useDetails from "hooks/useDetails";
 import ErrorPage from 'components/pages/NotFoundPage';
 import ProfileButtons from "components/ProfileButtons";
 
