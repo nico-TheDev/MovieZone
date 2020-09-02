@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import bg from "assets/img/background.png";
 import logo from "assets/img/logo.png";
@@ -16,8 +16,10 @@ import {
     SubBtn as Sub,
     ErrorMsg,
 } from "./styles";
+import { AuthContext } from "contexts/AuthContext";
 
 export default function LoginPage() {
+    const { manageSession } = useContext(AuthContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -33,7 +35,9 @@ export default function LoginPage() {
                 <Link to="/">
                     <Logo src={logo} alt="MovieZone Logo" />
                 </Link>
-                <H1>Login with your <span>MovieDB</span> Account</H1>
+                <H1>
+                    Login with your <span>MovieDB</span> Account
+                </H1>
                 <Form autoComplete="off" onSubmit={handleSubmit}>
                     <Field>
                         <Label htmlFor="username">Username</Label>
@@ -57,7 +61,7 @@ export default function LoginPage() {
                         />
                         <ErrorMsg>Lorem, ipsum dolor.</ErrorMsg>
                     </Field>
-                    <Button>Login</Button>
+                    <Button onClick={manageSession}>Login</Button>
                     <Sub>Browse as Guest</Sub>
                 </Form>
             </Content>
