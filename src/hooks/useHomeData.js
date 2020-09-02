@@ -23,21 +23,20 @@ export default function useHomeData() {
         axios
             .all(requests)
             .then(
-                axios.spread((...responses) => {
-                    console.log(responses);
-                    return {
-                        featured: responses[0].data.results.slice(
-                            random,
-                            random + 5
-                        ),
-                        popularMovies: responses[1].data.results,
-                        trendingMovies: responses[2].data.results,
-                        popularTV: responses[3].data.results,
-                        topRatedTV: responses[4].data.results,
-                    };
-                })
+                axios.spread((...responses) => ({
+                    featured: responses[0].data.results.slice(
+                        random,
+                        random + 5
+                    ),
+                    popularMovies: responses[1].data.results,
+                    trendingMovies: responses[2].data.results,
+                    popularTV: responses[3].data.results,
+                    topRatedTV: responses[4].data.results,
+                }))
             )
-            .catch((err) => console.log(err.response));
+            .catch((err) => {
+                return err;
+            });
 
     const { data, error } = useSWR(`/api/home`, fetcher);
 
