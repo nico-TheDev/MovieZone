@@ -1,22 +1,38 @@
 import React from "react";
-import Icon from 'components/shared/Icon';
-import getIcon from 'util/getIcon';
-import { MovieButton , ButtonHolder } from './styles';
+import Icon from "components/shared/Icon";
+import getIcon from "util/getIcon";
+import { MovieButton, ButtonHolder } from "./styles";
 
-export default function ProfileButtons({ openTrailer }) {
+export default function ProfileButtons({
+    openTrailer,
+    favList,
+    watchList,
+    id,
+}) {
+    const favID = favList?.map((item) => item.id);
+    const watchID = watchList?.map((item) => item.id);
+
     return (
         <ButtonHolder>
             <MovieButton>
                 <Icon>
-                    <use href={getIcon("bookmark-add")} />
+                    <use
+                        href={getIcon(
+                            favID?.includes(id) ? "bookmark" : "bookmark-add"
+                        )}
+                    />
                 </Icon>
-                Add to Favorites
+                {favID?.includes(id) ? "Added" : "Add"} to Favorites
             </MovieButton>
             <MovieButton>
                 <Icon>
-                    <use href={getIcon("list-add")} />
+                    <use
+                        href={getIcon(
+                            watchID?.includes(id) ? "listed" : "list-add"
+                        )}
+                    />
                 </Icon>
-                Add to Watchlist
+                {watchID?.includes(id) ? "Added" : "Add"} to Watchlist
             </MovieButton>
             <MovieButton onClick={openTrailer}>
                 <Icon>

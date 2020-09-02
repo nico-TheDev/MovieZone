@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import GenrePill from "components/GenrePill";
 import Trailer from "components/Trailer";
@@ -17,15 +17,17 @@ import {
     MovieButton,
     Poster,
     Overview,
-    ButtonHolder
+    ButtonHolder,
 } from "./styles";
-import ProfileSkeleton from "../MovieSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
 import ProfileButtons from "components/ProfileButtons";
+import { UserContext } from "contexts/UserContext";
 
 const TYPE = "movie";
 
-export default function MovieProfile({ details, trailers}) {
+export default function MovieProfile({ details, trailers }) {
+    const {
+        data: { media },
+    } = useContext(UserContext);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
     const handleClick = () => setIsTrailerOpen(true);
 
@@ -102,7 +104,12 @@ export default function MovieProfile({ details, trailers}) {
                         <Overview textLength={details.overview.length}>
                             {details.overview || "No summary found"}
                         </Overview>
-                        <ProfileButtons openTrailer={handleClick}/>
+                        <ProfileButtons
+                            openTrailer={handleClick}
+                            favList={media?.favoriteMovies.results}
+                            watchList={media?.watchListMovies.results}
+                            id={details.id}
+                        />
                     </Content>
                 </ProfileContainer>
             </Profile>

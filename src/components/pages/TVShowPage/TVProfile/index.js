@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import useMovieData from 'hooks/useMediaData';
 import GenrePill from "components/GenrePill";
@@ -19,10 +19,14 @@ import {
     Overview,
 } from "./styles";
 import ProfileButtons from 'components/ProfileButtons';
+import { UserContext } from "contexts/UserContext";
 
 const TYPE = "tv";
 
 export default function TVProfile({details,trailers }) {
+    const {
+        data: { media },
+    } = useContext(UserContext);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
@@ -134,7 +138,12 @@ export default function TVProfile({details,trailers }) {
                                 ? details.overview
                                 : "No summary found"}
                         </Overview>
-                        <ProfileButtons openTrailer={handleClick}/>
+                        <ProfileButtons
+                            openTrailer={handleClick}
+                            favList={media?.favoriteTV.results}
+                            watchList={media?.watchListTV.results}
+                            id={details.id}
+                        />
                     </Content>
                 </ProfileContainer>
             </Profile>
