@@ -1,7 +1,6 @@
-import React,{ useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 
-import sampleDir from 'assets/img/logo.png'
 import {
     DropdownHead,
     DropdownItem,
@@ -9,21 +8,29 @@ import {
     DropdownBody,
     UserIcon,
 } from "./styles";
+import { UserContext } from "contexts/UserContext";
 
 export default function ProfileDropdown() {
-    const [isOpen,setIsOpen] = useState(false);
+    const {
+        data: { user },
+    } = useContext(UserContext);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => setIsOpen(true);
     const closePanel = () => setIsOpen(false);
 
     return (
         <DropdownHead onMouseLeave={closePanel}>
-            <DropdownButton onClick={handleClick}>
-                <UserIcon src='https://vercel.com/api/www/avatar/1f0b5e1a755dd131c912ce4cb47fb9d00e5c4655?s=204' alt='avatar'/>
+            <DropdownButton onClick={handleClick} name={user?.username}>
+                <UserIcon
+                    src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
+                    `}
+                    alt={`${user?.username} avatar`}
+                />
             </DropdownButton>
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
-                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/profile">{user?.username} Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                     <NavLink to="/">Logout</NavLink>

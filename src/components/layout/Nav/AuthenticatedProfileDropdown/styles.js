@@ -40,7 +40,7 @@ export const DropdownButton = styled.span`
     }
 
     &::before {
-        content: "theAspiringDev  Profile";
+        content: "${({ name }) => name}  Profile";
         display: block;
         background: white;
         padding: 0.4rem;
@@ -77,9 +77,9 @@ export const DropdownBody = styled.div`
     position: absolute;
     top: 110%;
     left: 50%;
-    transform:translateX(-50%);
+    transform: translateX(-50%);
     background: var(--main-dark-5);
-    box-shadow:0 0 5px rgba(255,255,255,0.5);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 
     &::after {
         content: "";
@@ -92,14 +92,19 @@ export const DropdownBody = styled.div`
         left: 50%;
         transform: translateX(-50%);
         top: -20px;
-        filter:drop-shadow(0 -5px 5px rgba(255,255,255,0.5));
+        filter: drop-shadow(0 -5px 5px rgba(255, 255, 255, 0.5));
     }
 `;
 
 export const UserIcon = styled.img`
     width: 2.5rem;
     height: 2.5rem;
-    display:block;
-    border-radius:50%;
-    object-fit:cover;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    font-size: 8px;
+    font-family: unset;
+    letter-spacing: unset;
+    text-transform: lowercase;
+    overflow: hidden;
 `;

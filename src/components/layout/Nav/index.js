@@ -53,7 +53,7 @@ export default function Nav() {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
-    const { isLoggedIn } = useContext(UserContext);
+    const { data } = useContext(UserContext);
 
     // CLOSE THE NAV EVERYTIME THE URL CHANGES
     useEffect(() => {
@@ -76,7 +76,7 @@ export default function Nav() {
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {isLoggedIn ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {data ? <AuthProfileDropdown /> : <ProfileDropdown />}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />
