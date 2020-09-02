@@ -1,13 +1,16 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from 'api/moviedb.instance'
 
 export default function useSearch(query, page = 1) {
+    const config = {
+        params: {
+            page,
+            query
+        },
+    };
+
     const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_KEY}&query=${query}&language=en-US&page=${page}&include_adult=false`
-            )
-            .then((res) => res.data);
+        API.get("search/multi", config).then((res) => res.data);
 
     const { data, error } = useSWR(query ? `/api/search/${query}/${page}` : null, fetcher);
 

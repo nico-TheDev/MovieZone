@@ -1,14 +1,14 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from "api/moviedb.instance";
 
 export default function usePopularTV(page = 1) {
-    const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=${page}
-                `
-            )
-            .then((res) => res.data);
+    const config = {
+        params: {
+            page,
+        },
+    };
+
+    const fetcher = () => API.get("tv/popular", config).then((res) => res.data);
 
     const { data, error } = useSWR(`/api/popular/tv/${page}`, fetcher);
 

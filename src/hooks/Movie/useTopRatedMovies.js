@@ -1,13 +1,15 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from "api/moviedb.instance";
 
 export default function useTopRatedMovies(page = 1) {
+    const config = {
+        params: {
+            page,
+        },
+    };
+
     const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=${page}`
-            )
-            .then((res) => res.data);
+        API.get("movie/top_rated", config).then((res) => res.data);
 
     const { data, error } = useSWR(`/api/toprated/movie/${page}`, fetcher);
 
@@ -15,6 +17,5 @@ export default function useTopRatedMovies(page = 1) {
         data: data,
         isLoading: !data && !error,
         hasError: error,
-        
     };
 }

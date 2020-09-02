@@ -1,13 +1,15 @@
 import useSWR from "swr";
-import axios from "axios";
+import API from 'api/moviedb.instance'
 
 export default function useTrendingMovies(page = 1) {
+    const config = {
+        params: {
+            page,
+        },
+    };
+
     const fetcher = () =>
-        axios
-            .get(
-                `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=${page}`
-            )
-            .then((res) => res.data);
+        API.get("trending/movie/day", config).then((res) => res.data);
 
     const { data, error } = useSWR(`/api/trending/${page}`, fetcher);
 
