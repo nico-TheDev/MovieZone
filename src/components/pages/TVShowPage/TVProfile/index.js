@@ -143,6 +143,7 @@ export default function TVProfile({details,trailers }) {
                             favList={media?.favoriteTV.results}
                             watchList={media?.watchListTV.results}
                             id={details.id}
+                            type='tv'
                         />
                     </Content>
                 </ProfileContainer>

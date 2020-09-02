@@ -109,6 +109,7 @@ export default function MovieProfile({ details, trailers }) {
                             favList={media?.favoriteMovies.results}
                             watchList={media?.watchListMovies.results}
                             id={details.id}
+                            type='movie'
                         />
                     </Content>
                 </ProfileContainer>

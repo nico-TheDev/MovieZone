@@ -66,9 +66,10 @@ export default function useUserAccount(session) {
             }))
         );
 
-    const { data: userMedia, error } = useSWR(
-        () => (userData ? `/api/user/${userData?.id}/media` : null),
-        mediaFetcher
+    const { data: userMedia, error, mutate } = useSWR(
+        () => (userData ? `/api/user/media` : null),
+        mediaFetcher,
+        { refreshInterval: 1000, refreshWhenHidden: true }
     );
 
     return {
