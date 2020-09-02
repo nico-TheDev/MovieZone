@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/layout/Nav/";
-import AuthenticatedNav from "./components/layout/AuthenticatedNav";
 import Footer from "./components/layout/Footer/";
 import HomePage from "./components/pages/HomePage";
 
@@ -21,15 +20,13 @@ import GenrePage from "./components/pages/GenrePage";
 import NotFound from "./components/pages/NotFoundPage";
 import Login from "./components/pages/LoginPage";
 import SearchResultsPage from "./components/pages/SearchResultsPage";
-import { UserContext } from "contexts/UserContext";
 import "./assets/css/custom.css";
 
 function App() {
-    const { isLoggedIn } = useContext(UserContext);
 
     return (
         <Router>
-            {isLoggedIn ? <AuthenticatedNav /> : <Nav />}
+            <Nav/>
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/login" component={Login} />

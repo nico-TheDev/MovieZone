@@ -13,7 +13,7 @@ export const NavStyle = styled.nav`
     display: ${({ isDisplayed }) => (isDisplayed ? "block" : "none")};
     
         ${respondTo.md`
-            & ul, & li, form{
+            ul, li, form{
                 display:none;
             }
     `};

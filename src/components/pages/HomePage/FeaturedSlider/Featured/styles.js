@@ -4,7 +4,7 @@ import Button from "components/shared/Button";
 import respondTo from "util/respondTo";
 
 export const FeaturedStyle = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

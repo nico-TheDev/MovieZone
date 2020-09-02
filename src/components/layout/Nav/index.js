@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavStyle, NavContainer, Logo, UserIcon, Menu } from "./styles";
 import ProfileDropdown from "./ProfileDropdown";
+import AuthProfileDropdown from "./AuthenticatedProfileDropdown";
 import Dropdown from "components/Dropdown";
 import Search from "components/Search";
 import MobileNav from "components/layout/MobileNav";
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/logo.png";
+import { UserContext } from "contexts/UserContext";
 
 export const LINK_ONE = [
     {
@@ -51,6 +53,7 @@ export default function Nav() {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
+    const { isLoggedIn } = useContext(UserContext);
 
     // CLOSE THE NAV EVERYTIME THE URL CHANGES
     useEffect(() => {
@@ -70,12 +73,10 @@ export default function Nav() {
                 <Link to="/" className="logo-link">
                     <Logo src={logoDir} alt="Movie Zone Logo" />
                 </Link>
-
                 <Search />
-
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                <ProfileDropdown />
+                {isLoggedIn ? <AuthProfileDropdown /> : <ProfileDropdown />}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />
