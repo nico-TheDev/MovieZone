@@ -31,18 +31,21 @@ export default function UserList() {
                 type={current === "Movies" ? "movie" : "tv"}
                 title="Favorites"
                 movies={media[`favorite${current}`].results}
+                total={media[`favorite${current}`].total_results}
                 profile
             />
             <Slider
                 type={current === "Movies" ? "movie" : "tv"}
                 title="Rated"
                 movies={media[`rated${current}`].results}
+                total={media[`rated${current}`].total_results}
                 profile
             />
             <Slider
                 type={current === "Movies" ? "movie" : "tv"}
                 title="WatchList"
                 movies={media[`watchList${current}`].results}
+                total={media[`watchList${current}`].total_results}
                 profile
             />
         </>

@@ -32,12 +32,12 @@ const BREAKPOINTS = {
     },
 };
 
-export default function Slider({ title, movies, type,profile }) {
+export default function Slider({ title, movies, type,profile,total }) {
     return (
         <Holder>
             <SliderContainer>
                 <SliderTitle>
-                    {title} {(profile && movies) ? `(${movies?.length})` : null}
+                    {title} {profile && (total ? `(${total})` : null)}
                 </SliderTitle>
                 {movies.length ? (
                     <Swiper
