@@ -20,6 +20,7 @@ export default function ProfileDropdown() {
 
     const handleClick = () => setIsOpen(true);
     const closePanel = () => setIsOpen(false);
+    
     const logoutUser = () => {
         localStorage.clear();
         history.push("/");
