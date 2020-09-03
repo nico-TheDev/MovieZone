@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Container from "components/shared/Container";
-import Button from "components/shared/Button";
 import respondTo from "util/respondTo";
 
 export const Profile = styled.header`

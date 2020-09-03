@@ -14,10 +14,8 @@ import {
     Genres,
     Stats,
     Stat,
-    MovieButton,
     Poster,
     Overview,
-    ButtonHolder,
 } from "./styles";
 import ProfileButtons from "components/ProfileButtons";
 import { UserContext } from "contexts/UserContext";

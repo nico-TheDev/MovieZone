@@ -16,7 +16,7 @@ export default function Movie({ match,history }) {
         if(hasError){
             history.push('/error')
         }
-    },[hasError])
+    },[hasError,history])
 
     if(isLoading){
         return <MovieSkeleton/>

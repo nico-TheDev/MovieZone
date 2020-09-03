@@ -13,7 +13,7 @@ export default function GenreList({ match, history }) {
         if (hasError) {
             history.push("/");
         }
-    }, [hasError]);
+    }, [hasError,history]);
 
     if (isLoading) return <PageSkeleton />;
 

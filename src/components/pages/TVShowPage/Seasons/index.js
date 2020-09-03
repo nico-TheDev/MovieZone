@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import SwiperCore, { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,8 +7,6 @@ import "swiper/components/scrollbar/scrollbar.scss";
 
 import SeasonCard from "./SeasonCard";
 import { Wrapper, Title } from "./styles";
-import SeasonSkeleton from "./SeasonSkeleton";
-import ErrorPage from 'components/pages/NotFoundPage';
 
 SwiperCore.use([Scrollbar]);
 
@@ -23,7 +20,6 @@ const BREAKPOINTS = {
 };
 
 export default function Seasons({ seasons }) {
-
 
     return (
         <Wrapper>

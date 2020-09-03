@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 
-import useMovieData from 'hooks/useMediaData';
 import GenrePill from "components/GenrePill";
 import Trailer from "components/Trailer";
 import Icon from "components/shared/Icon";
@@ -14,7 +13,6 @@ import {
     Genres,
     Stats,
     Stat,
-    MovieButton,
     Poster,
     Overview,
 } from "./styles";

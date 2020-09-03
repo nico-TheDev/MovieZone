@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
+
 import Slider from "components/Slider";
-import usePopular from "hooks/Movie/usePopularMovies";
-import { ChoiceHolder, MovieBtn, TVBtn, Container } from "./styles";
+import { ChoiceHolder, MovieBtn, TVBtn } from "./styles";
 import ListSkeleton from "../ListSkeleton";
 import { UserContext } from "contexts/UserContext";
 
@@ -11,7 +11,6 @@ export default function UserList() {
         isLoading,
     } = useContext(UserContext);
     const [current, setCurrent] = useState("Movies");
-
     const setToMovie = () => setCurrent("Movies");
     const setToTV = () => setCurrent("TV");
 

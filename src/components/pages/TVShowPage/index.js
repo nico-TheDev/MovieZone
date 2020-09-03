@@ -17,7 +17,7 @@ export default function TVShow({ match, history }) {
         if (hasError) {
             history.push("/error");
         }
-    }, [hasError]);
+    }, [hasError,history]);
 
     if (isLoading) {
         return <TVSkeleton />;
