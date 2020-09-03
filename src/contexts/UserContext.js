@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { useState } from "react";
+
 import { AuthContext } from "./AuthContext";
 import useUserAccount from "hooks/useUserAccount";
 

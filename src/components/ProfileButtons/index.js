@@ -28,7 +28,7 @@ export default function ProfileButtons({
             "Content-Type": "application/json;charset=utf-8",
         },
         params: {
-            session_id: session.session_id,
+            session_id: session?.session_id,
         },
     };
 
@@ -44,19 +44,23 @@ export default function ProfileButtons({
     };
 
     const markAsFavorite = () => {
-        API.post(`account/${user.id}/favorite`, favoriteBody, config).then(
-            (res) => {
-                setIsFavorite(!isFavorite);
-            }
-        );
+        if (user) {
+            API.post(`account/${user.id}/favorite`, favoriteBody, config).then(
+                (res) => {
+                    setIsFavorite(!isFavorite);
+                }
+            );
+        }
     };
 
     const markAsListed = () => {
-        API.post(`account/${user.id}/watchlist`, listBody, config).then(
-            (res) => {
-                setIsListed(!isListed);
-            }
-        );
+        if (user) {
+            API.post(`account/${user.id}/watchlist`, listBody, config).then(
+                (res) => {
+                    setIsListed(!isListed);
+                }
+            );
+        }
     };
 
     return (

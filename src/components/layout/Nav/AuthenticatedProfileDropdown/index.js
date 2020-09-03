@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
     DropdownHead,
@@ -7,10 +7,12 @@ import {
     DropdownButton,
     DropdownBody,
     UserIcon,
+    NavBtn,
 } from "./styles";
 import { UserContext } from "contexts/UserContext";
 
 export default function ProfileDropdown() {
+    const history = useHistory();
     const {
         data: { user },
     } = useContext(UserContext);
@@ -18,6 +20,16 @@ export default function ProfileDropdown() {
 
     const handleClick = () => setIsOpen(true);
     const closePanel = () => setIsOpen(false);
+    const logoutUser = () => {
+        localStorage.clear();
+        history.push("/");
+        window.location.reload();
+    };
+
+    const goToProfile = () => {
+        history.push("/profile");
+        window.location.reload();
+    };
 
     return (
         <DropdownHead onMouseLeave={closePanel}>
@@ -30,10 +42,12 @@ export default function ProfileDropdown() {
             </DropdownButton>
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
-                    <NavLink to="/profile">{user?.username} Profile</NavLink>
+                    <NavBtn onClick={goToProfile}>
+                        {user?.username} Profile
+                    </NavBtn>
                 </DropdownItem>
                 <DropdownItem>
-                    <NavLink to="/">Logout</NavLink>
+                    <NavBtn onClick={logoutUser}>Logout</NavBtn>
                 </DropdownItem>
             </DropdownBody>
         </DropdownHead>

@@ -131,3 +131,9 @@ export const ErrorMsg = styled.span`
     display: none;
 `;
 
+export const Buttons = styled.div`
+    width:90%;
+    margin:0 auto;
+    display:grid;
+    gap:1.5rem;
+`

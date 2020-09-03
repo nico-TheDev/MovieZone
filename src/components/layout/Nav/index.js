@@ -76,7 +76,7 @@ export default function Nav() {
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {data ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {data.user ? <AuthProfileDropdown /> : <ProfileDropdown />}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />

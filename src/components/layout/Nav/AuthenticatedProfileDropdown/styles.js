@@ -108,3 +108,13 @@ export const UserIcon = styled.img`
     text-transform: lowercase;
     overflow: hidden;
 `;
+
+export const NavBtn = styled.button`
+    font-size: inherit;
+    padding: 0.5rem;
+    color:white;
+
+    &:hover {
+        color: var(--main-color);
+    }
+`;

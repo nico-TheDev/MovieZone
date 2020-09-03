@@ -19,7 +19,7 @@ export default function useUserAccount(session) {
         API.get("account", config).then((res) => res.data);
 
     const { data: userData } = useSWR(
-        () => (session.session_id ? "api/account" : null),
+        () => (session.session_id ? `api/account/` : null),
         detailsFetcher
     );
 
@@ -67,9 +67,8 @@ export default function useUserAccount(session) {
         );
 
     const { data: userMedia, error, mutate } = useSWR(
-        () => (userData ? `/api/user/media` : null),
-        mediaFetcher,
-        { refreshInterval: 1000, refreshWhenHidden: true }
+        () => (userData ? `api/user/media` : null),
+        mediaFetcher
     );
 
     return {
@@ -79,5 +78,6 @@ export default function useUserAccount(session) {
             media: userMedia,
         },
         hasError: error,
+        mutate,
     };
 }

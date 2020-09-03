@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext,useState, useEffect } from "react";
 import API from "api/moviedb.instance";
 
 export const AuthContext = createContext();
@@ -36,7 +36,7 @@ export default function AuthContextProvider({ children }) {
                 }
             });
         }
-    }, [token]);
+    }, [token,session]);
 
     const manageSession = async () => {
         const tokenData = await API.get("authentication/token/new");
