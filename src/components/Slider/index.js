@@ -39,7 +39,7 @@ export default function Slider({ title, movies, type,profile,total }) {
                 <SliderTitle>
                     {title} {profile && (total ? `(${total})` : null)}
                 </SliderTitle>
-                {(movies && movies.length) ? (
+                {movies ? (
                     <Swiper
                         spaceBetween={30}
                         navigation
