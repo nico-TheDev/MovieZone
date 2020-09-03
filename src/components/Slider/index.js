@@ -37,7 +37,7 @@ export default function Slider({ title, movies, type,profile }) {
         <Holder>
             <SliderContainer>
                 <SliderTitle>
-                    {title} {(profile && movies) ? `(${movies.length})` : null}
+                    {title} {(profile && movies) ? `(${movies?.length})` : null}
                 </SliderTitle>
                 {movies.length ? (
                     <Swiper
