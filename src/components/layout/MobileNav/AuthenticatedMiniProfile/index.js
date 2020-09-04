@@ -2,12 +2,9 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Holder, Title, GoTo } from "./styles";
-import { UserContext } from "contexts/UserContext";
 
 export default function MiniProfile() {
-    const {
-        data: { user },
-    } = useContext(UserContext);
+ 
     const history = useHistory();
 
     const logoutUser = () => {
@@ -24,7 +21,7 @@ export default function MiniProfile() {
     return (
         <Holder>
             <Title>Profile</Title>
-            <GoTo onClick={goToProfile}>{user?.username}</GoTo>
+            <GoTo onClick={goToProfile}>sampleUsername</GoTo>
             <GoTo onClick={logoutUser}>Logout</GoTo>
         </Holder>
     );

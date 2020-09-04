@@ -1,17 +1,11 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext } from "react";
 
-import { AuthContext } from "./AuthContext";
-import useUserAccount from "hooks/useUserAccount";
+import { useAuth } from "./AuthContext";
 
-export const UserContext = createContext();
+const UserContext = createContext();
 
-export default function UserContextProvider({ children }) {
-    const { session } = useContext(AuthContext);
-    const { data,isLoading } = useUserAccount(session);
+export const UserProvider = (props) => {
+    return <UserContext.Provider value={{}} {...props} />;
+};
 
-    return (
-        <UserContext.Provider value={{ data,isLoading }}>
-            {children}
-        </UserContext.Provider>
-    );
-}
+export const useUser = () => React.useContext(UserContext);

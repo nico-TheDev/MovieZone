@@ -9,13 +9,9 @@ import {
     UserIcon,
     NavBtn,
 } from "./styles";
-import { UserContext } from "contexts/UserContext";
 
 export default function ProfileDropdown() {
     const history = useHistory();
-    const {
-        data: { user },
-    } = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => setIsOpen(true);
@@ -32,25 +28,27 @@ export default function ProfileDropdown() {
         window.location.reload();
     };
 
-    return (
-        <DropdownHead onMouseLeave={closePanel}>
-            <DropdownButton onClick={handleClick} name={user?.username}>
-                <UserIcon
-                    src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
-                    `}
-                    alt={`${user?.username} avatar`}
-                />
-            </DropdownButton>
-            <DropdownBody isOpen={isOpen}>
-                <DropdownItem>
-                    <NavBtn onClick={goToProfile}>
-                        {user?.username} Profile
-                    </NavBtn>
-                </DropdownItem>
-                <DropdownItem>
-                    <NavBtn onClick={logoutUser}>Logout</NavBtn>
-                </DropdownItem>
-            </DropdownBody>
-        </DropdownHead>
-    );
+    return <h1>hello</h1>
+
+    // return (
+    //     <DropdownHead onMouseLeave={closePanel}>
+    //         <DropdownButton onClick={handleClick} name={user?.username}>
+    //             <UserIcon
+    //                 src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
+    //                 `}
+    //                 alt={`${user?.username} avatar`}
+    //             />
+    //         </DropdownButton>
+    //         <DropdownBody isOpen={isOpen}>
+    //             <DropdownItem>
+    //                 <NavBtn onClick={goToProfile}>
+    //                     {user?.username} Profile
+    //                 </NavBtn>
+    //             </DropdownItem>
+    //             <DropdownItem>
+    //                 <NavBtn onClick={logoutUser}>Logout</NavBtn>
+    //             </DropdownItem>
+    //         </DropdownBody>
+    //     </DropdownHead>
+    // );
 }

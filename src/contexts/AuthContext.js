@@ -1,60 +1,31 @@
-import React, { createContext,useState, useEffect } from "react";
+import React, { createContext, useReducer } from "react";
+import AuthReducer from "reducers/AuthReducer";
 import API from "api/moviedb.instance";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-const getToken = () => {
-    if (localStorage.getItem("token")) {
-        return JSON.parse(localStorage.getItem("token"));
-    }
-    return null;
+export const AuthProvider = (props) => {
+    const [state, dispatch] = useReducer(AuthReducer, {
+        isLoggedIn: false,
+        token: null,
+        session: null,
+    });
+    // code for pre-loading the user's information if we have their token in
+    // localStorage goes here
+
+    // 🚨 this is the important bit.
+    // Normally your provider components render the context provider with a value.
+    // But we post-pone rendering any of the children until after we've determined
+    // whether or not we have a user token and if we do, then we render a spinner
+    // while we go retrieve that user's information.
+
+    const login = () => {}; // make a login request
+    const register = () => {}; // register the user
+    const logout = () => {}; // clear the token in localStorage and the user data
+    // note, I'm not bothering to optimize this `value` with React.useMemo here
+    // because this is the top-most component rendered in our app and it will very
+    // rarely re-render/cause a performance problem.
+    return <AuthContext.Provider value={{}} {...props} />;
 };
-const getSession = () => {
-    if (localStorage.getItem("session")) {
-        return JSON.parse(localStorage.getItem("session"));
-    }
-    return null;
-};
 
-export default function AuthContextProvider({ children }) {
-    const baseURL = window.location.origin;
-    const [token, setToken] = useState(() => getToken());
-    const [session, setSession] = useState(() => getSession());
-
-    useEffect(() => {
-        if (token && !session) {
-            API.post("authentication/session/new", {
-                request_token: token.request_token,
-            }).then((res) => {
-                if (res.data.success) {
-                    console.log(res.data);
-                    setSession(res.data);
-                    localStorage.setItem("session", JSON.stringify(res.data));
-                } else {
-                    console.log(res);
-                    console.log("error token");
-                }
-            });
-        }
-    }, [token,session]);
-
-    const manageSession = async () => {
-        const tokenData = await API.get("authentication/token/new");
-        console.log(tokenData.data);
-        if (tokenData.data.success) {
-            localStorage.setItem("token", JSON.stringify(tokenData.data));
-            setToken(tokenData.data);
-            window.location
-                .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/
-            `);
-        } else {
-            console.log("No Token ");
-        }
-    };
-
-    return (
-        <AuthContext.Provider value={{ manageSession, token, session }}>
-            {children}
-        </AuthContext.Provider>
-    );
-}
+export const useAuth = () => React.useContext(AuthContext);

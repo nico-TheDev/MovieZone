@@ -18,14 +18,10 @@ import {
     Overview,
 } from "./styles";
 import ProfileButtons from "components/ProfileButtons";
-import { UserContext } from "contexts/UserContext";
 
 const TYPE = "movie";
 
 export default function MovieProfile({ details, trailers }) {
-    const {
-        data: { media },
-    } = useContext(UserContext);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
     const handleClick = () => setIsTrailerOpen(true);
 
@@ -104,8 +100,6 @@ export default function MovieProfile({ details, trailers }) {
                         </Overview>
                         <ProfileButtons
                             openTrailer={handleClick}
-                            favList={media?.favoriteMovies.results}
-                            watchList={media?.watchListMovies.results}
                             id={details.id}
                             type='movie'
                         />

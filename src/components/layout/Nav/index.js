@@ -9,7 +9,6 @@ import Search from "components/Search";
 import MobileNav from "components/layout/MobileNav";
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/logo.png";
-import { UserContext } from "contexts/UserContext";
 
 export const LINK_ONE = [
     {
@@ -53,7 +52,6 @@ export default function Nav() {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
-    const { data } = useContext(UserContext);
 
     // CLOSE THE NAV EVERYTIME THE URL CHANGES
     useEffect(() => {
@@ -76,7 +74,7 @@ export default function Nav() {
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {data.user ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {false ? <AuthProfileDropdown /> : <ProfileDropdown />}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />

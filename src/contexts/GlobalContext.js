@@ -1,11 +1,11 @@
 import React from "react";
-import UserContextProvider from "./UserContext";
-import AuthContextProvider from "./AuthContext";
+import { UserProvider } from "./UserContext";
+import { AuthProvider } from "./AuthContext";
 
 export default function GlobalContextProvider({ children }) {
     return (
-        <AuthContextProvider>
-            <UserContextProvider>{children}</UserContextProvider>
-        </AuthContextProvider>
+        <AuthProvider>
+            <UserProvider>{children}</UserProvider>
+        </AuthProvider>
     );
 }

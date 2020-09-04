@@ -4,8 +4,7 @@ import Icon from "components/shared/Icon";
 import getIcon from "util/getIcon";
 import { MovieButton, ButtonHolder } from "./styles";
 import API from "api/moviedb.instance";
-import { AuthContext } from "contexts/AuthContext";
-import { UserContext } from "contexts/UserContext";
+
 
 export default function ProfileButtons({
     openTrailer,
@@ -14,54 +13,50 @@ export default function ProfileButtons({
     id,
     type,
 }) {
-    const { session } = useContext(AuthContext);
-    const {
-        data: { user },
-    } = useContext(UserContext);
-    let favID = favList?.map((item) => item.id);
-    let watchID = watchList?.map((item) => item.id);
-    let [isFavorite, setIsFavorite] = useState(favID?.includes(id));
-    let [isListed, setIsListed] = useState(watchID?.includes(id));
 
-    const config = {
-        headers: {
-            "Content-Type": "application/json;charset=utf-8",
-        },
-        params: {
-            session_id: session?.session_id,
-        },
-    };
+    // const config = {
+    //     headers: {
+    //         "Content-Type": "application/json;charset=utf-8",
+    //     },
+    //     params: {
+    //         session_id: session?.session_id,
+    //     },
+    // };
 
-    const favoriteBody = {
-        media_type: type,
-        media_id: id,
-        favorite: !isFavorite,
-    };
-    const listBody = {
-        media_type: type,
-        media_id: id,
-        watchlist: !isListed,
-    };
+    // const favoriteBody = {
+    //     media_type: type,
+    //     media_id: id,
+    //     favorite: !isFavorite,
+    // };
+    // const listBody = {
+    //     media_type: type,
+    //     media_id: id,
+    //     watchlist: !isListed,
+    // };
 
-    const markAsFavorite = () => {
-        if (user) {
-            API.post(`account/${user.id}/favorite`, favoriteBody, config).then(
-                (res) => {
-                    setIsFavorite(!isFavorite);
-                }
-            );
-        }
-    };
+    // const markAsFavorite = () => {
+    //     if (user) {
+    //         API.post(`account/${user.id}/favorite`, favoriteBody, config).then(
+    //             (res) => {
+    //                 setIsFavorite(!isFavorite);
+    //             }
+    //         );
+    //     }
+    // };
 
-    const markAsListed = () => {
-        if (user) {
-            API.post(`account/${user.id}/watchlist`, listBody, config).then(
-                (res) => {
-                    setIsListed(!isListed);
-                }
-            );
-        }
-    };
+    // const markAsListed = () => {
+    //     if (user) {
+    //         API.post(`account/${user.id}/watchlist`, listBody, config).then(
+    //             (res) => {
+    //                 setIsListed(!isListed);
+    //             }
+    //         );
+    //     }
+    // };
+    const markAsFavorite = () => console.log('added to favorites')
+    const markAsListed = () => console.log('added to list')
+
+    const [isFavorite,isListed] = [false,false];
 
     return (
         <ButtonHolder>

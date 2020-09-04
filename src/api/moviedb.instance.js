@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const moviedb = axios.create({
-    timeout: 5000,
-});
+const moviedb = axios.create();
 
 moviedb.interceptors.request.use((config) => {
     config.baseURL = process.env.REACT_APP_API;
