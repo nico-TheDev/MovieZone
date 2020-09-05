@@ -14,14 +14,15 @@ import {
     Stats,
     Stat,
     Poster,
+    ShowTitle,
     Overview,
 } from "./styles";
-import ProfileButtons from 'components/ProfileButtons';
+import ProfileButtons from "components/ProfileButtons";
+import Rating from "components/Rating";
 
 const TYPE = "tv";
 
-export default function TVProfile({details,trailers }) {
-
+export default function TVProfile({ details, trailers }) {
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
@@ -53,20 +54,21 @@ export default function TVProfile({details,trailers }) {
                         />
                     )}
                     <Content>
-                        <h2>
+                        <ShowTitle>
                             {details.name
                                 ? details.name
                                 : details.original_title}
-                        </h2>
+                            <Rating />
+                        </ShowTitle>
                         <Genres>
                             {details.genres?.map((genre) => (
-                                    <GenrePill
-                                        key={genre.id}
-                                        genre={genre.name}
-                                        id={genre.id}
-                                        type={TYPE}
-                                    />
-                                ))}
+                                <GenrePill
+                                    key={genre.id}
+                                    genre={genre.name}
+                                    id={genre.id}
+                                    type={TYPE}
+                                />
+                            ))}
                         </Genres>
                         <Stats>
                             <Stat>
@@ -136,7 +138,7 @@ export default function TVProfile({details,trailers }) {
                         <ProfileButtons
                             openTrailer={handleClick}
                             id={details.id}
-                            type='tv'
+                            type="tv"
                         />
                     </Content>
                 </ProfileContainer>

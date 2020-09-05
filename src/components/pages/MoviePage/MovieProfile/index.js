@@ -16,8 +16,10 @@ import {
     Stat,
     Poster,
     Overview,
+    ShowTitle
 } from "./styles";
 import ProfileButtons from "components/ProfileButtons";
+import Rating from "components/Rating";
 
 const TYPE = "movie";
 
@@ -52,7 +54,10 @@ export default function MovieProfile({ details, trailers }) {
                         />
                     )}
                     <Content>
-                        <h2>{details.name || details.original_title}</h2>
+                        <ShowTitle>
+                            {details.name || details.original_title}
+                            <Rating />
+                        </ShowTitle>
                         <Genres>
                             {details.genres?.map((genre) => (
                                 <GenrePill
@@ -101,7 +106,7 @@ export default function MovieProfile({ details, trailers }) {
                         <ProfileButtons
                             openTrailer={handleClick}
                             id={details.id}
-                            type='movie'
+                            type="movie"
                         />
                     </Content>
                 </ProfileContainer>

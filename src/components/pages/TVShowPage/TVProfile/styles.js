@@ -107,3 +107,11 @@ export const Overview = styled.p`
     height: ${({ textLength }) => (textLength > 250 ? "150px" : "auto")};
     overflow-y: ${({ textLength }) => (textLength > 250 ? "scroll" : "unset")};
 `;
+export const ShowTitle = styled.h2`
+    display: grid;
+    gap: 10px;
+
+    ${respondTo.md`
+        justify-items:center;
+    `}
+`;

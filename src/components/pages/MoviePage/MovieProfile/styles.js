@@ -94,4 +94,12 @@ export const Overview = styled.p`
     overflow-y: ${({ textLength }) => (textLength > 250 ? "scroll" : "auto")};
 `;
 
+export const ShowTitle = styled.h2`
+    display:grid;
+    gap:10px;
+    ${respondTo.md`
+        justify-items:center;
+    `}
+`
+
 export const Poster = styled.img``
