@@ -1,31 +1,91 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 import AuthReducer from "reducers/AuthReducer";
 import API from "api/moviedb.instance";
+import actionTypes from "ActionTypes";
+import useUser from "hooks/useUserAccount";
+import useUserMedia from "hooks/useUserMedia";
+
+const getToken = () => {
+    if (localStorage.getItem("token")) {
+        return JSON.parse(localStorage.getItem("token"));
+    }
+    return null;
+};
+const getSession = () => {
+    if (localStorage.getItem("session")) {
+        return JSON.parse(localStorage.getItem("session"));
+    }
+    return null;
+};
 
 const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
     const [state, dispatch] = useReducer(AuthReducer, {
         isLoggedIn: false,
-        token: null,
-        session: null,
+        token: getToken(),
+        session: getSession(),
+        user: null,
+        userMedia: null,
     });
-    // code for pre-loading the user's information if we have their token in
-    // localStorage goes here
+    const baseURL = window.location.origin;
+    const { data: userData } = useUser(state.session);
+    const { data: userMedia } = useUserMedia(state.session, state.user);
 
-    // 🚨 this is the important bit.
-    // Normally your provider components render the context provider with a value.
-    // But we post-pone rendering any of the children until after we've determined
-    // whether or not we have a user token and if we do, then we render a spinner
-    // while we go retrieve that user's information.
+    // CHECK IF THERE IS TOKEN
+    useEffect(() => {
+        if (state.token && !state.session) {
+            API.post("authentication/session/new", {
+                request_token: state.token.request_token,
+            }).then((res) => {
+                if (res.data.success) {
+                    dispatch({
+                        type: actionTypes.SAVE_SESSION,
+                        session: res.data,
+                    });
+                } else {
+                    console.log("error token");
+                }
+            });
+        }
+    }, [state.token, state.session]);
 
-    const login = () => {}; // make a login request
-    const register = () => {}; // register the user
-    const logout = () => {}; // clear the token in localStorage and the user data
-    // note, I'm not bothering to optimize this `value` with React.useMemo here
-    // because this is the top-most component rendered in our app and it will very
-    // rarely re-render/cause a performance problem.
-    return <AuthContext.Provider value={{}} {...props} />;
+    // GET THE USER
+
+    useEffect(() => {
+        if (state.session) {
+            dispatch({ type: actionTypes.GET_USER, user: userData });
+        }
+    }, [userData]);
+
+    useEffect(() => {
+      
+        if (state.user) {
+            dispatch({ type: actionTypes.GET_USER_MEDIA, media: userMedia });
+        }
+    }, [state.user, state.session,userMedia]);
+
+    const manageSession = async () => {
+        const tokenData = await API.get("authentication/token/new");
+        if (tokenData.data.success) {
+            dispatch({
+                type: actionTypes.SAVE_TOKEN,
+                token: tokenData.data,
+            });
+            window.location
+                .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/
+            `);
+        } else {
+            console.log("No Token ");
+        }
+    };
+
+    return (
+        <AuthContext.Provider
+            value={{ state, dispatch, manageSession }}
+            {...props}
+        />
+    );
 };
 
 export const useAuth = () => React.useContext(AuthContext);

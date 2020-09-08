@@ -1,7 +1,40 @@
-export default function AuthReducer(state,action){
+import actionTypes from "ActionTypes";
 
-    switch(action.type){
-        
+export default function AuthReducer(state, action) {
+    switch (action.type) {
+        case actionTypes.RETRIEVE_TOKEN:
+            // if there was a previous session
+
+            return state;
+        case actionTypes.RETRIEVE_SESSION:
+            const retrievedSession = JSON.parse(
+                localStorage.getItem("session")
+            );
+            const retrievedToken = JSON.parse(localStorage.getItem("token"));
+            // if there was a previous session
+
+            return {
+                ...state,
+                token: retrievedToken,
+                session: retrievedSession,
+            };
+        case actionTypes.SAVE_TOKEN:
+            localStorage.setItem("token", JSON.stringify(action.token));
+            return { ...state, token: action.token };
+        case actionTypes.SAVE_SESSION:
+            localStorage.setItem("session", JSON.stringify(action.session));
+            return { ...state, session: action.session };
+        case actionTypes.GET_USER:
+            return {
+                ...state,
+                user: action.user,
+            };
+        case actionTypes.GET_USER_MEDIA:
+            return {
+                ...state,
+                userMedia: action.media,
+            };
+        default:
+            return state;
     }
-
 }
