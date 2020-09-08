@@ -17,19 +17,10 @@ import {
     Btn as Button,
     SubBtn as Sub,
 } from "./styles";
+import { useAuth } from "contexts/AuthContext";
 
 export default function LoginPage() {
-    const [username ,setUsername] = useState('')
-    const [password ,setPassword] = useState('')
-
-    const handleUsername = (e) => setUsername(e.target.value);
-    const handlePassword = (e) => setPassword(e.target.value);
-
-    const handleSubmit = (e) =>  {
-         e.preventDefault();
-
-    }
-
+    const { manageSession } = useAuth();
     return (
         <Main>
             <Content>
@@ -39,8 +30,18 @@ export default function LoginPage() {
                 <H1>
                     Login with your <span>MovieDB</span> Account
                 </H1>
-                <Form autoComplete="off" onSubmit={handleSubmit}>
-                    <Field>
+                <Buttons>
+                    <Button onClick={manageSession}>Login</Button>
+                    <Sub>Browse as Guest</Sub>
+                </Buttons>
+            </Content>
+            <BG src={bg} alt="Background Photo" />
+        </Main>
+    );
+}
+
+/*
+    <Field>
                         <Label htmlFor="username">Username</Label>
                         <Input
                             type="text"
@@ -62,11 +63,4 @@ export default function LoginPage() {
                         />
                         <ErrorMsg>Lorem, ipsum dolor.</ErrorMsg>
                     </Field>
-                    <Button>Login</Button>
-                    <Sub>Browse as Guest</Sub>
-                </Form>
-            </Content>
-            <BG src={bg} alt="Background Photo" />
-        </Main>
-    );
-}
+*/

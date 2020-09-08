@@ -16,7 +16,7 @@ export default function Rating() {
         const ratingValue = index + 1;
 
         return (
-            <RaterLabel>
+            <RaterLabel key={index}>
                 <Rater
                     type="radio"
                     name="rating"
