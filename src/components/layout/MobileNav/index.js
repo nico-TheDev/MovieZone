@@ -15,9 +15,11 @@ import Dropdown from "components/Dropdown";
 import { LINK_ONE, LINK_TWO } from "components/layout/Nav";
 import MiniProfile from "components/layout/MobileNav/MiniProfile";
 import AuthenticatedMiniProfile from "components/layout/MobileNav/AuthenticatedMiniProfile";
+import { useAuth } from 'contexts/AuthContext';
+
 
 export default function MobileNav({ isOpen, setIsOpen }) {
- 
+    const { state:{isLoggedIn} } = useAuth();
     const handleClick = () => setIsOpen(false);
 
     return (
@@ -35,7 +37,7 @@ export default function MobileNav({ isOpen, setIsOpen }) {
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
             </MenuHolder>
-            {false ? <AuthenticatedMiniProfile /> : <MiniProfile />}
+            {isLoggedIn ? <AuthenticatedMiniProfile /> : <MiniProfile />}
         </MobileNavMain>
     );
 }

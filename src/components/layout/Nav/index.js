@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavStyle, NavContainer, Logo, UserIcon, Menu } from "./styles";
@@ -9,6 +9,7 @@ import Search from "components/Search";
 import MobileNav from "components/layout/MobileNav";
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/logo.png";
+import { useAuth } from 'contexts/AuthContext';
 
 export const LINK_ONE = [
     {
@@ -49,6 +50,7 @@ export const LINK_TWO = [
 ];
 
 export default function Nav() {
+    const { state:{isLoggedIn} } = useAuth();
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
@@ -74,7 +76,7 @@ export default function Nav() {
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {false ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {isLoggedIn ? <AuthProfileDropdown /> : <ProfileDropdown />}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />

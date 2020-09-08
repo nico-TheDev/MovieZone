@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -9,16 +9,22 @@ import {
     UserIcon,
     NavBtn,
 } from "./styles";
+import { useAuth } from "contexts/AuthContext";
+import actionTypes from "ActionTypes";
 
 export default function ProfileDropdown() {
+    const {
+        state: { user },
+        dispatch,
+    } = useAuth();
     const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => setIsOpen(true);
     const closePanel = () => setIsOpen(false);
-    
+
     const logoutUser = () => {
-        localStorage.clear();
+        dispatch({ type: actionTypes.LOGOUT });
         history.push("/");
         window.location.reload();
     };
@@ -28,27 +34,25 @@ export default function ProfileDropdown() {
         window.location.reload();
     };
 
-    return <h1>hello</h1>
-
-    // return (
-    //     <DropdownHead onMouseLeave={closePanel}>
-    //         <DropdownButton onClick={handleClick} name={user?.username}>
-    //             <UserIcon
-    //                 src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
-    //                 `}
-    //                 alt={`${user?.username} avatar`}
-    //             />
-    //         </DropdownButton>
-    //         <DropdownBody isOpen={isOpen}>
-    //             <DropdownItem>
-    //                 <NavBtn onClick={goToProfile}>
-    //                     {user?.username} Profile
-    //                 </NavBtn>
-    //             </DropdownItem>
-    //             <DropdownItem>
-    //                 <NavBtn onClick={logoutUser}>Logout</NavBtn>
-    //             </DropdownItem>
-    //         </DropdownBody>
-    //     </DropdownHead>
-    // );
+    return (
+        <DropdownHead onMouseLeave={closePanel}>
+            <DropdownButton onClick={handleClick} name={user?.username}>
+                <UserIcon
+                    src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
+                    `}
+                    alt={`${user?.username} avatar`}
+                />
+            </DropdownButton>
+            <DropdownBody isOpen={isOpen}>
+                <DropdownItem>
+                    <NavBtn onClick={goToProfile}>
+                        {user?.username} Profile
+                    </NavBtn>
+                </DropdownItem>
+                <DropdownItem>
+                    <NavBtn onClick={logoutUser}>Logout</NavBtn>
+                </DropdownItem>
+            </DropdownBody>
+        </DropdownHead>
+    );
 }
