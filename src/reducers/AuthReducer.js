@@ -33,6 +33,15 @@ export default function AuthReducer(state, action) {
             return {
                 ...state,
                 userMedia: action.media,
+                isLoggedIn: true,
+            };
+        case actionTypes.LOGOUT:
+            localStorage.clear();
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: null,
+                userMedia: null,
             };
         default:
             return state;

@@ -59,11 +59,10 @@ export const AuthProvider = (props) => {
     }, [userData]);
 
     useEffect(() => {
-      
         if (state.user) {
             dispatch({ type: actionTypes.GET_USER_MEDIA, media: userMedia });
         }
-    }, [state.user, state.session,userMedia]);
+    }, [state.user, state.session, userMedia]);
 
     const manageSession = async () => {
         const tokenData = await API.get("authentication/token/new");
@@ -73,7 +72,7 @@ export const AuthProvider = (props) => {
                 token: tokenData.data,
             });
             window.location
-                .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/
+                .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/profile
             `);
         } else {
             console.log("No Token ");
