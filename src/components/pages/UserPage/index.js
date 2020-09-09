@@ -8,26 +8,36 @@ import {
     UserDetails,
 } from "./styles";
 import UserList from "./UserLists";
+import GuestList from "./GuestList";
 import { useAuth } from "contexts/AuthContext";
+import getIcon from "util/getIcon";
 
 export default function Profile() {
-    const { state:{user} } = useAuth();
+    const {
+        state: { user },
+    } = useAuth();
 
     return (
         <>
             <HeaderBG>
                 <User>
-                    <Avatar
-                        src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=256
+                    {user ? (
+                        <Avatar
+                            src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=256
                     `}
-                    />
+                        />
+                    ) : (
+                        <Avatar as="svg">
+                            <use href={getIcon("user-circle")} />
+                        </Avatar>
+                    )}
                     <UserDetails>
-                        <Username>{user?.username}</Username>
+                        <Username>{user ? user.username : "Guest"}</Username>
                         <Joined>{user?.name}</Joined>
                     </UserDetails>
                 </User>
             </HeaderBG>
-            <UserList />
+            {user ? <UserList /> : <GuestList />}
         </>
     );
 }

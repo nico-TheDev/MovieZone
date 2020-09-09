@@ -34,7 +34,9 @@ export const Avatar = styled.img`
     border-radius: 50%;
     width:11rem;
     height:11rem;
+    fill:white;
 `;
+
 
 export const UserDetails = styled.div``
 

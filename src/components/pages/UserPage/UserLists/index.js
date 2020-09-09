@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
-import Slider from "components/Slider";
 import { ChoiceHolder, MovieBtn, TVBtn } from "./styles";
 import ListSkeleton from "../ListSkeleton";
 import { useAuth } from "contexts/AuthContext";
+import UserSlider from "./UserSlider";
+import GuestSlider from "../GuestList/GuestSlider";
 
 export default function UserList() {
     const {
@@ -26,27 +27,7 @@ export default function UserList() {
                 </TVBtn>
             </ChoiceHolder>
 
-            <Slider
-                type={current === "Movies" ? "movie" : "tv"}
-                title="Favorites"
-                movies={userMedia[`favorite${current}`].results}
-                total={userMedia[`favorite${current}`].total_results}
-                profile
-            />
-            <Slider
-                type={current === "Movies" ? "movie" : "tv"}
-                title="WatchList"
-                movies={userMedia[`watchList${current}`].results}
-                total={userMedia[`watchList${current}`].total_results}
-                profile
-            />
-            <Slider
-                type={current === "Movies" ? "movie" : "tv"}
-                title="Rated"
-                movies={userMedia[`rated${current}`].results}
-                total={userMedia[`rated${current}`].total_results}
-                profile
-            />
+            <UserSlider current={current} />
         </>
     );
 }
