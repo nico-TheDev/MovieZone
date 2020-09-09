@@ -78,7 +78,7 @@ export const AuthProvider = (props) => {
         if (state.guestSession) {
             dispatch({ type: actionTypes.GET_GUEST_MEDIA, media: guestMedia });
         }
-    }, [state.guestSession,guestMedia]);
+    }, [state.guestSession, guestMedia]);
 
     const manageSession = async () => {
         const tokenData = await API.get("authentication/token/new");
@@ -88,7 +88,7 @@ export const AuthProvider = (props) => {
                 token: tokenData.data,
             });
             window.location
-                .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/profile
+                .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/
             `);
         } else {
             console.log("No Token ");
