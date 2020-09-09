@@ -35,6 +35,11 @@ export default function AuthReducer(state, action) {
                 userMedia: action.media,
                 isLoggedIn: true,
             };
+        case actionTypes.GET_GUEST_MEDIA:
+            return {
+                ...state,
+                guestMedia: action.media,
+            };
         case actionTypes.LOGOUT:
             localStorage.clear();
             return {
@@ -42,7 +47,12 @@ export default function AuthReducer(state, action) {
                 isLoggedIn: false,
                 user: null,
                 userMedia: null,
+                guestSession:null,
+                guestMedia:null
             };
+        case actionTypes.SAVE_GUEST_SESSION:
+            localStorage.setItem("guestSession", JSON.stringify(action.guest));
+            return { ...state, guestSession: action.guest };
         default:
             return state;
     }

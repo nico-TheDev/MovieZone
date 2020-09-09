@@ -6,4 +6,6 @@ export default {
     GET_USER_MEDIA: "getUserMedia",
     SAVE_SESSION: "saveSession",
     LOGOUT: "logout",
+    SAVE_GUEST_SESSION:'saveGuestSession',
+    GET_GUEST_MEDIA:'getGuestMedia'
 };
