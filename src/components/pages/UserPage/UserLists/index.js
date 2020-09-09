@@ -35,16 +35,16 @@ export default function UserList() {
             />
             <Slider
                 type={current === "Movies" ? "movie" : "tv"}
-                title="Rated"
-                movies={userMedia[`rated${current}`].results}
-                total={userMedia[`rated${current}`].total_results}
+                title="WatchList"
+                movies={userMedia[`watchList${current}`].results}
+                total={userMedia[`watchList${current}`].total_results}
                 profile
             />
             <Slider
                 type={current === "Movies" ? "movie" : "tv"}
-                title="WatchList"
-                movies={userMedia[`watchList${current}`].results}
-                total={userMedia[`watchList${current}`].total_results}
+                title="Rated"
+                movies={userMedia[`rated${current}`].results}
+                total={userMedia[`rated${current}`].total_results}
                 profile
             />
         </>
