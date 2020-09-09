@@ -9,18 +9,14 @@ import {
     Logo,
     H1,
     Buttons,
-    Form,
-    Field,
-    Label,
-    Input,
-    ErrorMsg,
+
     Btn as Button,
     SubBtn as Sub,
 } from "./styles";
 import { useAuth } from "contexts/AuthContext";
 
 export default function LoginPage() {
-    const { manageSession } = useAuth();
+    const { manageSession, manageGuestSession } = useAuth();
     return (
         <Main>
             <Content>
@@ -32,35 +28,10 @@ export default function LoginPage() {
                 </H1>
                 <Buttons>
                     <Button onClick={manageSession}>Login</Button>
-                    <Sub>Browse as Guest</Sub>
+                    <Sub onClick={manageGuestSession}>Browse as Guest</Sub>
                 </Buttons>
             </Content>
             <BG src={bg} alt="Background Photo" />
         </Main>
     );
 }
-
-/*
-    <Field>
-                        <Label htmlFor="username">Username</Label>
-                        <Input
-                            type="text"
-                            placeholder="Username"
-                            id="username"
-                            value={username}
-                            onChange={handleUsername}
-                        />
-                        <ErrorMsg>Lorem, ipsum dolor.</ErrorMsg>
-                    </Field>
-                    <Field>
-                        <Label htmlFor="password">Password</Label>
-                        <Input
-                            type="password"
-                            placeholder="Password"
-                            id="password"
-                            value={password}
-                            onChange={handlePassword}
-                        />
-                        <ErrorMsg>Lorem, ipsum dolor.</ErrorMsg>
-                    </Field>
-*/

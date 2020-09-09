@@ -19,7 +19,7 @@ import { useAuth } from 'contexts/AuthContext';
 
 
 export default function MobileNav({ isOpen, setIsOpen }) {
-    const { state:{isLoggedIn} } = useAuth();
+    const { state:{isLoggedIn,guestSession} } = useAuth();
     const handleClick = () => setIsOpen(false);
 
     return (
@@ -37,7 +37,7 @@ export default function MobileNav({ isOpen, setIsOpen }) {
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
             </MenuHolder>
-            {isLoggedIn ? <AuthenticatedMiniProfile /> : <MiniProfile />}
+            {isLoggedIn || guestSession ? <AuthenticatedMiniProfile /> : <MiniProfile />}
         </MobileNavMain>
     );
 }

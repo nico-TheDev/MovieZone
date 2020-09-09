@@ -24,7 +24,7 @@ export default function MiniProfile() {
     return (
         <Holder>
             <Title>Profile</Title>
-            <GoTo onClick={goToProfile}>{user.username}</GoTo>
+            <GoTo onClick={goToProfile}>{user ? user.username : 'Guest'}</GoTo>
             <GoTo onClick={logoutUser}>Logout</GoTo>
         </Holder>
     );

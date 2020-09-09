@@ -74,6 +74,7 @@ export const DropdownButton = styled.span`
 
 export const DropdownBody = styled.div`
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    pointer-events: ${({ isOpen }) => (isOpen ? 'all' : 'none')};
     position: absolute;
     top: 110%;
     left: 50%;
@@ -107,6 +108,7 @@ export const UserIcon = styled.img`
     letter-spacing: unset;
     text-transform: lowercase;
     overflow: hidden;
+    fill:white;
 `;
 
 export const NavBtn = styled.button`

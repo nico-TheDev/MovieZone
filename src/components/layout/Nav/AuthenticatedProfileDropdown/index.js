@@ -11,10 +11,11 @@ import {
 } from "./styles";
 import { useAuth } from "contexts/AuthContext";
 import actionTypes from "ActionTypes";
+import getIcon from "util/getIcon";
 
 export default function ProfileDropdown() {
     const {
-        state: { user },
+        state: { user, guestSession },
         dispatch,
     } = useAuth();
     const history = useHistory();
@@ -37,16 +38,22 @@ export default function ProfileDropdown() {
     return (
         <DropdownHead onMouseLeave={closePanel}>
             <DropdownButton onClick={handleClick} name={user?.username}>
-                <UserIcon
-                    src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
+                {user ? (
+                    <UserIcon
+                        src={`https://secure.gravatar.com/avatar/${user?.avatar.gravatar.hash}.jpg?s=64
                     `}
-                    alt={`${user?.username} avatar`}
-                />
+                        alt={`${user?.username} avatar`}
+                    />
+                ) : (
+                    <UserIcon as="svg">
+                        <use href={getIcon("user-circle")} />
+                    </UserIcon>
+                )}
             </DropdownButton>
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
                     <NavBtn onClick={goToProfile}>
-                        {user?.username} Profile
+                        {user ? user.username : 'Guest'} Profile
                     </NavBtn>
                 </DropdownItem>
                 <DropdownItem>

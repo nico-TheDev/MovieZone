@@ -6,9 +6,6 @@ export default function MiniProfile() {
     return (
         <Holder>
             <Title>Profile</Title>
-            <Link to='/guest'>
-                <GoTo>Guest</GoTo>
-            </Link>
             <Link to='/login'>
                 <GoTo>Login</GoTo>
             </Link>

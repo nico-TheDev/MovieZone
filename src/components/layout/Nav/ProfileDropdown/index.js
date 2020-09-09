@@ -25,9 +25,6 @@ export default function ProfileDropdown() {
             </DropdownButton>
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
-                    <NavLink to="/">Guest</NavLink>
-                </DropdownItem>
-                <DropdownItem>
                     <NavLink to="/login">Login</NavLink>
                 </DropdownItem>
             </DropdownBody>

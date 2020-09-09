@@ -40,7 +40,7 @@ export const DropdownButton = styled.span`
     }
 
     &::before {
-        content: "Login or Signup";
+        content: "Login";
         display: block;
         background: white;
         padding: 0.4rem;

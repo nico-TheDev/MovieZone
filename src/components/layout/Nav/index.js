@@ -50,7 +50,7 @@ export const LINK_TWO = [
 ];
 
 export default function Nav() {
-    const { state:{isLoggedIn} } = useAuth();
+    const { state:{isLoggedIn,guestSession} } = useAuth();
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
@@ -76,7 +76,7 @@ export default function Nav() {
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {isLoggedIn ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {isLoggedIn || guestSession  ? <AuthProfileDropdown /> : <ProfileDropdown />}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />
