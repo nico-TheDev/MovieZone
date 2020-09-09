@@ -5,6 +5,7 @@ import {
     Rater,
     RaterLabel,
     RateIcon,
+    Alert
 } from "./styles";
 import getIcon from "util/getIcon";
 import API from "api/moviedb.instance";
@@ -13,6 +14,7 @@ import { useAuth } from "contexts/AuthContext";
 export default function Rating({ type, id }) {
     const { state } = useAuth();
     const [rating, setRating] = useState(null);
+    const [isDisplayed, setIsDisplayed] = useState(false);
     const [hover, setHover] = useState(null);
 
     useEffect(() => {
@@ -43,7 +45,10 @@ export default function Rating({ type, id }) {
                         session_id: state.session.session_id,
                     },
                 }
-            ).then((res) => alert("Sucessful Rating"));
+            ).then((res) => {
+                setIsDisplayed(true);
+                setTimeout(() => setIsDisplayed(false),2000);
+            });
         };
 
         return (
@@ -71,10 +76,13 @@ export default function Rating({ type, id }) {
     };
 
     return (
+        <>
         <RatingWrapper>
             <RatingForm id="rating-form">
                 {[...Array(5)].map(displayStars)}
             </RatingForm>
         </RatingWrapper>
+        <Alert isDisplayed={isDisplayed}>Successfully Reviewed!</Alert>
+        </>
     );
 }
