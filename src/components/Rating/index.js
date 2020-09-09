@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     RatingWrapper,
     RatingForm,
@@ -7,13 +7,44 @@ import {
     RateIcon,
 } from "./styles";
 import getIcon from "util/getIcon";
+import API from "api/moviedb.instance";
+import { useAuth } from "contexts/AuthContext";
 
-export default function Rating() {
+export default function Rating({ type, id }) {
+    const { state } = useAuth();
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
+    useEffect(() => {
+        if (state.user && state.userMedia) {
+            const ratedList = state.userMedia[
+                `rated${type === "tv" ? "TV" : "Movies"}`
+            ].results.map((item) => ({ id: item.id, rating: item.rating }));
+            ratedList.forEach((item) => {
+                if (item.id === id) {
+                    setRating(Math.floor(item.rating / 2));
+                }
+            });
+        }
+    }, [state.userMedia,state.user]);
+
     const displayStars = (star, index) => {
         const ratingValue = index + 1;
+
+        const submitRating = (e) => {
+            setRating(ratingValue);
+            API.post(
+                `/${type}/${id}/rating`,
+                {
+                    value: ratingValue * 2,
+                },
+                {
+                    params: {
+                        session_id: state.session.session_id,
+                    },
+                }
+            ).then((res) => alert("Sucessful Rating"));
+        };
 
         return (
             <RaterLabel key={index}>
@@ -21,7 +52,7 @@ export default function Rating() {
                     type="radio"
                     name="rating"
                     value={ratingValue}
-                    onClick={() => setRating(ratingValue)}
+                    onClick={submitRating}
                 />
                 <RateIcon
                     onMouseEnter={() => setHover(ratingValue)}
@@ -41,7 +72,9 @@ export default function Rating() {
 
     return (
         <RatingWrapper>
-            <RatingForm>{[...Array(5)].map(displayStars)}</RatingForm>
+            <RatingForm id="rating-form">
+                {[...Array(5)].map(displayStars)}
+            </RatingForm>
         </RatingWrapper>
     );
 }

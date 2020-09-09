@@ -58,7 +58,7 @@ export default function TVProfile({ details, trailers }) {
                             {details.name
                                 ? details.name
                                 : details.original_title}
-                            <Rating />
+                            <Rating type='tv' id={details.id}/>
                         </ShowTitle>
                         <Genres>
                             {details.genres?.map((genre) => (
