@@ -69,6 +69,7 @@ export const H1 = styled.h1`
     span{
         color:transparent;
         background-image:var(--moviedb-gradient);
+        -webkit-background-clip:text;
         background-clip:text;
     }
 `;
