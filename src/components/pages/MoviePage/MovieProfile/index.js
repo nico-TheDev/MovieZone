@@ -21,9 +21,9 @@ import {
 import ProfileButtons from "components/ProfileButtons";
 import Rating from "components/Rating";
 
-const TYPE = "movie";
 
 export default function MovieProfile({ details, trailers }) {
+    const TYPE = "movie";
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
     const handleClick = () => setIsTrailerOpen(true);
 
@@ -64,7 +64,7 @@ export default function MovieProfile({ details, trailers }) {
                                     key={genre.id}
                                     genre={genre.name}
                                     id={genre.id}
-                                    TYPE={TYPE}
+                                    type={TYPE}
                                 />
                             ))}
                         </Genres>

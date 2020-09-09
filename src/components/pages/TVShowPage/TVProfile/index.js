@@ -20,9 +20,9 @@ import {
 import ProfileButtons from "components/ProfileButtons";
 import Rating from "components/Rating";
 
-const TYPE = "tv";
 
 export default function TVProfile({ details, trailers }) {
+    const TYPE = "tv";
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
     const handleClick = () => setIsTrailerOpen(true);
