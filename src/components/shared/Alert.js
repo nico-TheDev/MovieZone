@@ -5,7 +5,7 @@ const Alert = styled.p`
     background: ${({ user }) => (user ? "limegreen" : "crimson")};
     color: white;
     display: ${({ isDisplayed }) => (isDisplayed ? "block" : "none")};
-    position: absolute;
+    position: fixed;
     z-index: 10000;
     top: 20%;
     left: 50%;

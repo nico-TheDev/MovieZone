@@ -9,7 +9,7 @@ import {
 import getIcon from "util/getIcon";
 import API from "api/moviedb.instance";
 import { useAuth } from "contexts/AuthContext";
-import Alert from 'components/shared/Alert';
+import Alert from "components/shared/Alert";
 
 export default function Rating({ type, id }) {
     const { state } = useAuth();
@@ -19,6 +19,21 @@ export default function Rating({ type, id }) {
         message: "",
     });
     const [hover, setHover] = useState(null);
+
+    const displayMessage = (msg) => {
+        setIsDisplayed({
+            display: true,
+            message: msg,
+        });
+        setTimeout(
+            () =>
+                setIsDisplayed({
+                    display: false,
+                    message: "",
+                }),
+            2000
+        );
+    };
 
     useEffect(() => {
         if (state.user && state.userMedia) {
@@ -32,6 +47,21 @@ export default function Rating({ type, id }) {
             });
         }
     }, [state.userMedia, state.user]);
+
+    useEffect(() => {
+        if (state.guestSession && state.guestMedia) {
+            const key = `rated${type === "tv" ? "TV" : "Movies"}`;
+            const ratedList = state.guestMedia[key].results.map((item) => ({
+                id: item.id,
+                rating: item.rating,
+            }));
+            ratedList.forEach((item) => {
+                if (item.id === id) {
+                    setRating(Math.floor(item.rating / 2));
+                }
+            });
+        }
+    }, [state.guestMedia, state.guestSession]);
 
     const displayStars = (star, index) => {
         const ratingValue = index + 1;
@@ -49,33 +79,25 @@ export default function Rating({ type, id }) {
                             session_id: state.session.session_id,
                         },
                     }
+                ).then((res) => {});
+            } else if (state.guestSession) {
+                setRating(ratingValue);
+                API.post(
+                    `/${type}/${id}/rating`,
+                    {
+                        value: ratingValue * 2,
+                    },
+                    {
+                        params: {
+                            guest_session_id:
+                                state.guestSession.guest_session_id,
+                        },
+                    }
                 ).then((res) => {
-                    setIsDisplayed({
-                        display: true,
-                        message: "Successfully Reviewed!",
-                    });
-                    setTimeout(
-                        () =>
-                            setIsDisplayed({
-                                display: false,
-                                message: "",
-                            }),
-                        2000
-                    );
+                    displayMessage("Successfully Reviewed!");
                 });
             } else {
-                setIsDisplayed({
-                    display: true,
-                    message: "Try signing in!",
-                });
-                setTimeout(
-                    () =>
-                        setIsDisplayed({
-                            display: false,
-                            message: "",
-                        }),
-                    2000
-                );
+                displayMessage("Try Signing In");
             }
         };
 
@@ -110,7 +132,10 @@ export default function Rating({ type, id }) {
                     {[...Array(5)].map(displayStars)}
                 </RatingForm>
             </RatingWrapper>
-            <Alert isDisplayed={isDisplayed.display} user={state.user}>
+            <Alert
+                isDisplayed={isDisplayed.display}
+                user={state.user || state.guestSession}
+            >
                 {isDisplayed.message}
             </Alert>
         </>
