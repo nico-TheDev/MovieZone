@@ -27,7 +27,6 @@ export default function ProfileDropdown() {
     const logoutUser = () => {
         dispatch({ type: actionTypes.LOGOUT });
         history.push("/");
-        window.location.reload();
     };
 
     const goToProfile = () => {

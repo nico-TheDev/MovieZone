@@ -2,18 +2,20 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Holder, Title, GoTo } from "./styles";
-import { useAuth } from 'contexts/AuthContext';
-
+import { useAuth } from "contexts/AuthContext";
+import actionTypes from "ActionTypes";
 
 export default function MiniProfile() {
-    const { state:{user} } = useAuth();
- 
+    const {
+        state: { user },
+        dispatch,
+    } = useAuth();
+
     const history = useHistory();
 
     const logoutUser = () => {
-        localStorage.clear();
+        dispatch({ type: actionTypes.LOGOUT });
         history.push("/");
-        window.location.reload();
     };
 
     const goToProfile = () => {
@@ -24,7 +26,7 @@ export default function MiniProfile() {
     return (
         <Holder>
             <Title>Profile</Title>
-            <GoTo onClick={goToProfile}>{user ? user.username : 'Guest'}</GoTo>
+            <GoTo onClick={goToProfile}>{user ? user.username : "Guest"}</GoTo>
             <GoTo onClick={logoutUser}>Logout</GoTo>
         </Holder>
     );
