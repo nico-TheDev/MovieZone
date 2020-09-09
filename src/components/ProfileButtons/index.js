@@ -5,6 +5,7 @@ import getIcon from "util/getIcon";
 import { MovieButton, ButtonHolder } from "./styles";
 import API from "api/moviedb.instance";
 import { useAuth } from "contexts/AuthContext";
+import Alert from "components/shared/Alert";
 
 export default function ProfileButtons({ openTrailer, id, type }) {
     const media = type === "movie" ? "Movies" : "TV";
@@ -13,6 +14,10 @@ export default function ProfileButtons({ openTrailer, id, type }) {
     } = useAuth();
     const [isFavorite, setIsFavorite] = useState(false);
     const [isListed, setIsListed] = useState(false);
+    const [isDisplayed, setIsDisplayed] = useState({
+        display: false,
+        message: "",
+    });
 
     const config = {
         headers: {
@@ -52,6 +57,19 @@ export default function ProfileButtons({ openTrailer, id, type }) {
                     setIsFavorite(!isFavorite);
                 }
             );
+        } else {
+            setIsDisplayed({
+                display: true,
+                message: "Try signing in!",
+            });
+            setTimeout(
+                () =>
+                    setIsDisplayed({
+                        display: false,
+                        message: "",
+                    }),
+                2000
+            );
         }
     };
 
@@ -62,31 +80,49 @@ export default function ProfileButtons({ openTrailer, id, type }) {
                     setIsListed(!isListed);
                 }
             );
+        } else {
+            setIsDisplayed({
+                display: true,
+                message: "Try signing in!",
+            });
+            setTimeout(
+                () =>
+                    setIsDisplayed({
+                        display: false,
+                        message: "",
+                    }),
+                2000
+            );
         }
     };
 
     return (
-        <ButtonHolder>
-            <MovieButton onClick={markAsFavorite}>
-                <Icon>
-                    <use
-                        href={getIcon(isFavorite ? "bookmark" : "bookmark-add")}
-                    />
-                </Icon>
-                {isFavorite ? "Added" : "Add"} to Favorites
-            </MovieButton>
-            <MovieButton onClick={markAsListed}>
-                <Icon>
-                    <use href={getIcon(isListed ? "listed" : "list-add")} />
-                </Icon>
-                {isListed ? "Added" : "Add"} to Watchlist
-            </MovieButton>
-            <MovieButton onClick={openTrailer}>
-                <Icon>
-                    <use href={getIcon("play")} />
-                </Icon>
-                Watch Trailer
-            </MovieButton>
-        </ButtonHolder>
+        <>
+            <ButtonHolder>
+                <MovieButton onClick={markAsFavorite}>
+                    <Icon>
+                        <use
+                            href={getIcon(
+                                isFavorite ? "bookmark" : "bookmark-add"
+                            )}
+                        />
+                    </Icon>
+                    {isFavorite ? "Added" : "Add"} to Favorites
+                </MovieButton>
+                <MovieButton onClick={markAsListed}>
+                    <Icon>
+                        <use href={getIcon(isListed ? "listed" : "list-add")} />
+                    </Icon>
+                    {isListed ? "Added" : "Add"} to Watchlist
+                </MovieButton>
+                <MovieButton onClick={openTrailer}>
+                    <Icon>
+                        <use href={getIcon("play")} />
+                    </Icon>
+                    Watch Trailer
+                </MovieButton>
+            </ButtonHolder>
+            <Alert isDisplayed={isDisplayed.display} user={user}>{isDisplayed.message}</Alert>
+        </>
     );
 }

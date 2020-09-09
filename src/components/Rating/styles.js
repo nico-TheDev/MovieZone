@@ -19,16 +19,3 @@ export const RateIcon = styled.svg`
     cursor: pointer;
 `;
 
-export const Alert = styled.p`
-    padding: 1rem 2rem;
-    background: limegreen;
-    color: white;
-    display: ${({ isDisplayed }) => (isDisplayed ? "block" : "none")};
-    position: absolute;
-    z-index: 10000;
-    top: 20%;
-    left: 50%;
-    font-size:1.1rem;
-    transform: translate(-50%, -50%);
-    border-radius:1rem;
-`;
