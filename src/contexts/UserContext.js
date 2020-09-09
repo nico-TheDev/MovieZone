@@ -1,7 +1,5 @@
 import React, { createContext } from "react";
 
-import { useAuth } from "./AuthContext";
-
 const UserContext = createContext();
 
 export const UserProvider = (props) => {

@@ -15,7 +15,7 @@ import getIcon from "util/getIcon";
 
 export default function ProfileDropdown() {
     const {
-        state: { user, guestSession },
+        state: { user },
         dispatch,
     } = useAuth();
     const history = useHistory();

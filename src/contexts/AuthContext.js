@@ -66,7 +66,7 @@ export const AuthProvider = (props) => {
         if (state.session) {
             dispatch({ type: actionTypes.GET_USER, user: userData });
         }
-    }, [userData]);
+    }, [userData,state.session]);
     // GET USER MEDIA
     useEffect(() => {
         if (state.user) {

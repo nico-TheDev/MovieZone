@@ -46,7 +46,7 @@ export default function Rating({ type, id }) {
                 }
             });
         }
-    }, [state.userMedia, state.user]);
+    }, [state.userMedia, state.user,id,type]);
 
     useEffect(() => {
         if (state.guestSession && state.guestMedia) {
@@ -61,7 +61,7 @@ export default function Rating({ type, id }) {
                 }
             });
         }
-    }, [state.guestMedia, state.guestSession]);
+    }, [state.guestMedia, state.guestSession,id,type]);
 
     const displayStars = (star, index) => {
         const ratingValue = index + 1;

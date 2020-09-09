@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { ChoiceHolder, MovieBtn, TVBtn } from "./styles";
+import { ChoiceHolder } from "./styles";
 import ListSkeleton from "../ListSkeleton";
 import { useAuth } from "contexts/AuthContext";
 import GuestSlider from "../GuestList/GuestSlider";
@@ -14,8 +14,8 @@ export default function GuestList() {
 
     return (
         <>
-            <ChoiceHolder/>
-            <GuestSlider/>
+            <ChoiceHolder />
+            <GuestSlider />
         </>
     );
 }

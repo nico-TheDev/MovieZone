@@ -4,7 +4,6 @@ import { ChoiceHolder, MovieBtn, TVBtn } from "./styles";
 import ListSkeleton from "../ListSkeleton";
 import { useAuth } from "contexts/AuthContext";
 import UserSlider from "./UserSlider";
-import GuestSlider from "../GuestList/GuestSlider";
 
 export default function UserList() {
     const {

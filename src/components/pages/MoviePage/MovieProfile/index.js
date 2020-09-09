@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 import GenrePill from "components/GenrePill";
 import Trailer from "components/Trailer";

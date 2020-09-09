@@ -48,7 +48,7 @@ export default function ProfileButtons({ openTrailer, id, type }) {
             userMedia[`watchList${media}`].results.map((item) => item.id);
         setIsFavorite(favorites?.includes(id));
         setIsListed(wannaWatch?.includes(id));
-    }, [userMedia]);
+    }, [userMedia,id,media]);
 
     const markAsFavorite = () => {
         if (user) {
