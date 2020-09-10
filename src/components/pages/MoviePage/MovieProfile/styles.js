@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 import Container from "components/shared/Container";
 import respondTo from "util/respondTo";
 
@@ -34,7 +35,7 @@ export const Backdrop = styled.img`
     z-index: 1;
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
     display: grid;
     gap: 1rem;
     justify-items: start;
@@ -101,4 +102,4 @@ export const ShowTitle = styled.h2`
     `}
 `
 
-export const Poster = styled.img``
+export const Poster = styled(motion.img)``
