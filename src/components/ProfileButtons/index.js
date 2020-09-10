@@ -95,7 +95,10 @@ export default function ProfileButtons({ openTrailer, id, type }) {
 
     return (
         <>
-            <ButtonHolder>
+            <ButtonHolder
+                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -200 }}
+            >
                 <MovieButton onClick={markAsFavorite}>
                     <Icon>
                         <use

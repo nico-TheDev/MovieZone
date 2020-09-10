@@ -9,8 +9,16 @@ import {
 } from "./styles";
 
 export default function Dropdown({ links, title, type }) {
+    const initial = { opacity: 0, y:-100 };
+    const animate = { opacity: 1, y:0 };
+    const transition = { delay: 2 };
+
     return (
-        <DropdownHead>
+        <DropdownHead
+            initial={initial}
+            animate={animate}
+            transition={transition}
+        >
             <DropdownButton>{title}</DropdownButton>
             <DropdownBody>
                 {links?.map((link) => (

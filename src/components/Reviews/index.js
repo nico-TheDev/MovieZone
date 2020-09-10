@@ -6,6 +6,8 @@ import { ReviewWrapper, Title } from "./styles";
 import EmptyReview from "components/EmptyPlaceholder";
 
 export default function Reviews({ reviews }) {
+
+
     return (
         <Container>
             <ReviewWrapper>

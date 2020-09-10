@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion'
 
 import Container from "components/shared/Container";
 import respondTo from "util/respondTo";
@@ -30,7 +31,7 @@ export const NavContainer = styled(Container)`
     }
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(motion.img)`
     ${respondTo.sm`
         width:12rem;
     `}

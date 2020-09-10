@@ -21,7 +21,6 @@ import {
 import ProfileButtons from "components/ProfileButtons";
 import Rating from "components/Rating";
 
-
 export default function MovieProfile({ details, trailers }) {
     const TYPE = "movie";
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
@@ -30,6 +29,9 @@ export default function MovieProfile({ details, trailers }) {
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
     }`;
+
+    const initial = { opacity: 0, x: -100 };
+    const animate = { opacity: 1, x: 0 };
 
     return (
         <>
@@ -51,12 +53,14 @@ export default function MovieProfile({ details, trailers }) {
                         <Poster
                             src={`https://image.tmdb.org/t/p/w200/${details.poster_path}`}
                             alt="poster"
+                            animate={animate}
+                            initial={initial}
                         />
                     )}
-                    <Content>
+                    <Content animate={animate} initial={initial}>
                         <ShowTitle>
                             {details.name || details.original_title}
-                            <Rating type='movie' id={details.id}/>
+                            <Rating type="movie" id={details.id} />
                         </ShowTitle>
                         <Genres>
                             {details.genres?.map((genre) => (

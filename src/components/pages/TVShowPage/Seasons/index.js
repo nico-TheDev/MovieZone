@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SwiperCore, { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
@@ -20,9 +22,26 @@ const BREAKPOINTS = {
 };
 
 export default function Seasons({ seasons }) {
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+    const variants = {
+        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: -200 },
+    };
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible");
+        }
+    }, [controls, inView]);
 
     return (
-        <Wrapper>
+        <Wrapper
+            ref={ref}
+            initial={"hidden"}
+            animate={controls}
+            variants={variants}
+        >
             <Title>Seasons</Title>
             <Swiper
                 slidesPerView={1}

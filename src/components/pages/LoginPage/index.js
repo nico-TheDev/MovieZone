@@ -9,7 +9,6 @@ import {
     Logo,
     H1,
     Buttons,
-
     Btn as Button,
     SubBtn as Sub,
 } from "./styles";
@@ -17,21 +16,44 @@ import { useAuth } from "contexts/AuthContext";
 
 export default function LoginPage() {
     const { manageSession, manageGuestSession } = useAuth();
+
+    const mainVariant = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const variants = {
+        show: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: -200 },
+    };
+
     return (
         <Main>
-            <Content>
+            <Content variants={mainVariant} initial="hidden" animate="show">
                 <Link to="/">
-                    <Logo src={logo} alt="MovieZone Logo" />
+                    <Logo src={logo} alt="MovieZone Logo" variants={variants} />
                 </Link>
-                <H1>
+                <H1 variants={variants}>
                     Login with your <span>MovieDB</span> Account
                 </H1>
                 <Buttons>
-                    <Button onClick={manageSession}>Login</Button>
-                    <Sub onClick={manageGuestSession}>Browse as Guest</Sub>
+                    <Button onClick={manageSession} variants={variants}>
+                        Login
+                    </Button>
+                    <Sub onClick={manageGuestSession} variants={variants}>
+                        Browse as Guest
+                    </Sub>
                 </Buttons>
             </Content>
-            <BG src={bg} alt="Background Photo" />
+            <BG
+                src={bg}
+                alt="Background Photo"
+            />
         </Main>
     );
 }

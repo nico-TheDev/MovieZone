@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
+
 import Container from "components/shared/Container";
 import Button from "components/shared/Button";
 import respondTo from "util/respondTo";
@@ -34,7 +36,7 @@ export const BG = styled.img`
     filter: brightness(40%);
 `;
 
-export const Genres = styled.ul`
+export const Genres = styled(motion.ul)`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -65,7 +67,7 @@ export const Content = styled.div`
     `}
 `;
 
-export const Description = styled.p`
+export const Description = styled(motion.p)`
     width: 80%;
     margin-bottom: 1rem;
 

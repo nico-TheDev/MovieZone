@@ -20,7 +20,6 @@ import {
 import ProfileButtons from "components/ProfileButtons";
 import Rating from "components/Rating";
 
-
 export default function TVProfile({ details, trailers }) {
     const TYPE = "tv";
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
@@ -30,6 +29,9 @@ export default function TVProfile({ details, trailers }) {
     document.title = `MovieZone - ${
         details.name ? details.name : details.title || details.original_title
     }`;
+
+    const initial = { opacity: 0, x: -100 };
+    const animate = { opacity: 1, x: 0 };
 
     return (
         <>
@@ -51,14 +53,16 @@ export default function TVProfile({ details, trailers }) {
                         <Poster
                             src={`https://image.tmdb.org/t/p/w200/${details.poster_path}`}
                             alt="poster"
+                            initial={initial}
+                            animate={animate}
                         />
                     )}
-                    <Content>
+                    <Content initial={initial} animate={animate}>
                         <ShowTitle>
                             {details.name
                                 ? details.name
                                 : details.original_title}
-                            <Rating type='tv' id={details.id}/>
+                            <Rating type="tv" id={details.id} />
                         </ShowTitle>
                         <Genres>
                             {details.genres?.map((genre) => (
