@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion }  from 'framer-motion';
 
-export const DropdownHead = styled.ul`
+export const DropdownHead = styled(motion.ul)`
     display: inline-block;
     position: relative;
     text-align: center;
@@ -27,7 +28,7 @@ export const DropdownItem = styled.li`
     }
 `;
 
-export const DropdownButton = styled.span`
+export const DropdownButton = styled(motion.span)`
     display: block;
     padding: 0.5rem 1rem;
     text-transform: uppercase;

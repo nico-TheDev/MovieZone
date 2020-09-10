@@ -9,7 +9,7 @@ import Search from "components/Search";
 import MobileNav from "components/layout/MobileNav";
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/logo.png";
-import { useAuth } from 'contexts/AuthContext';
+import { useAuth } from "contexts/AuthContext";
 
 export const LINK_ONE = [
     {
@@ -50,7 +50,9 @@ export const LINK_TWO = [
 ];
 
 export default function Nav() {
-    const { state:{isLoggedIn,guestSession} } = useAuth();
+    const {
+        state: { isLoggedIn, guestSession },
+    } = useAuth();
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
@@ -67,16 +69,29 @@ export default function Nav() {
 
     const handleClick = () => setIsOpen(true);
 
+    const initial = { x: -100, opacity: 0 };
+    const animate = { x: 0, opacity: 1 };
+    const transition = { delay: 2 };
     return (
         <NavStyle isDisplayed={isDisplayed}>
             <NavContainer>
                 <Link to="/" className="logo-link">
-                    <Logo src={logoDir} alt="Movie Zone Logo" />
+                    <Logo
+                        src={logoDir}
+                        alt="Movie Zone Logo"
+                        initial={initial}
+                        animate={animate}
+                        transition={transition}
+                    />
                 </Link>
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {isLoggedIn || guestSession  ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {isLoggedIn || guestSession ? (
+                    <AuthProfileDropdown />
+                ) : (
+                    <ProfileDropdown />
+                )}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />
