@@ -54,7 +54,7 @@ export const AuthProvider = (props) => {
                         session: res.data,
                     });
                 } else {
-                    console.log("error token");
+                    console.error("error token");
                 }
             });
         }
@@ -66,7 +66,7 @@ export const AuthProvider = (props) => {
         if (state.session) {
             dispatch({ type: actionTypes.GET_USER, user: userData });
         }
-    }, [userData,state.session]);
+    }, [userData, state.session]);
     // GET USER MEDIA
     useEffect(() => {
         if (state.user) {
@@ -91,7 +91,7 @@ export const AuthProvider = (props) => {
                 .assign(`https://www.themoviedb.org/authenticate/${tokenData.data.request_token}?redirect_to=${baseURL}/
             `);
         } else {
-            console.log("No Token ");
+            console.error("No Token ");
         }
     };
 
@@ -106,7 +106,7 @@ export const AuthProvider = (props) => {
                     window.location.assign("/profile");
                 }
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.error(err));
     };
 
     return (

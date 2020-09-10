@@ -1,4 +1,4 @@
-import React, { useAuthState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
     RatingWrapper,
     RatingForm,
@@ -12,13 +12,13 @@ import { useAuth } from "contexts/AuthContext";
 import Alert from "components/shared/Alert";
 
 export default function Rating({ type, id }) {
-    const { AuthState: AuthAuthState } = useAuth();
-    const [rating, setRating] = useAuthState(null);
-    const [isDisplayed, setIsDisplayed] = useAuthState({
+    const { state: AuthState } = useAuth();
+    const [rating, setRating] = useState(null);
+    const [isDisplayed, setIsDisplayed] = useState({
         display: false,
         message: "",
     });
-    const [hover, setHover] = useAuthState(null);
+    const [hover, setHover] = useState(null);
 
     const displayMessage = (msg) => {
         setIsDisplayed({
@@ -55,6 +55,7 @@ export default function Rating({ type, id }) {
                 id: item.id,
                 rating: item.rating,
             }));
+            
             ratedList.forEach((item) => {
                 if (item.id === id) {
                     setRating(Math.floor(item.rating / 2));
@@ -63,7 +64,7 @@ export default function Rating({ type, id }) {
         }
     }, [AuthState.guestMedia, AuthState.guestSession, id, type]);
 
-    const displayStars = (star, index) => {
+    const displayStars = (_, index) => {
         const ratingValue = index + 1;
 
         const submitRating = (e) => {
@@ -79,7 +80,7 @@ export default function Rating({ type, id }) {
                             session_id: AuthState.session.session_id,
                         },
                     }
-                ).then((res) => {
+                ).then(() => {
                     displayMessage("Successfully Reviewed!");
                 });
             } else if (AuthState.guestSession) {
@@ -95,7 +96,7 @@ export default function Rating({ type, id }) {
                                 AuthState.guestSession.guest_session_id,
                         },
                     }
-                ).then((res) => {
+                ).then(() => {
                     displayMessage("Successfully Reviewed!");
                 });
             } else {
