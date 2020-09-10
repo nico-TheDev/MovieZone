@@ -4,6 +4,7 @@ import MovieCard from "components/MovieCard";
 import Pagination from "./Pagination";
 import { Wrapper, CollectionContainer as Container, Title } from "./styles";
 import Empty from "components/EmptyPlaceholder";
+import { motion } from "framer-motion";
 
 export default function Collection({
     movies,
@@ -15,20 +16,46 @@ export default function Collection({
 }) {
     document.title = `MovieZone - ${title}`;
 
+    const mainVariant = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+    const itemVariant = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 },
+    };
+
     return (
         <>
             <Wrapper>
                 <div>
-                    <Title>{title}</Title>
+                    <Title
+                        variants={itemVariant}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        {title}
+                    </Title>
                     {movies.length ? (
-                        <Container>
+                        <Container
+                            variants={mainVariant}
+                            initial="hidden"
+                            animate="show"
+                        >
                             {movies.map((item) => (
-                                <MovieCard
-                                    movie={item}
-                                    key={item.id}
-                                    type={type}
-                                    mediaType={item.media_type}
-                                />
+                                <motion.div variants={itemVariant}>
+                                    <MovieCard
+                                        movie={item}
+                                        key={item.id}
+                                        type={type}
+                                        mediaType={item.media_type}
+                                    />
+                                </motion.div>
                             ))}
                         </Container>
                     ) : (

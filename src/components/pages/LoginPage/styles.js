@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
+
 import Button from "components/shared/Button";
 import respondTo from "util/respondTo";
 
@@ -26,7 +28,7 @@ ${respondTo.cp`
     `}
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
     padding: 1rem;
     display: grid;
     place-items: center;
@@ -35,7 +37,7 @@ export const Content = styled.div`
     gap: 1rem;
 `;
 
-export const BG = styled.img`
+export const BG = styled(motion.img)`
     display: block;
     object-fit: cover;
     width: 100%;
@@ -51,13 +53,13 @@ export const BG = styled.img`
     `}
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(motion.img)`
     display: block;
     width: 200px;
     margin: auto;
 `;
 
-export const H1 = styled.h1`
+export const H1 = styled(motion.h1)`
     text-align: center;
     letter-spacing: 3px;
     text-shadow: 3px 3px 0 rgba(white, 0.4);

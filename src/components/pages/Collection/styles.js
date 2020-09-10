@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 import Container from "components/shared/Container";
 import respondTo from 'util/respondTo';
 
@@ -23,7 +24,7 @@ export const CollectionContainer = styled(Container)`
     }
 `;
 
-export const Title = styled.h2`
+export const Title = styled(motion.h2)`
     text-align:center;
     margin-bottom:1rem;
 `;
