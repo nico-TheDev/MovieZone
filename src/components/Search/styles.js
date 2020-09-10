@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { ringAnim } from 'assets/animations';
 import Icon from "components/shared/Icon";
+import { motion } from 'framer-motion'
 
-export const SearchForm = styled.form`
+export const SearchForm = styled(motion.form)`
     margin-right: 1rem;
     position: relative;
 `;

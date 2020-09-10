@@ -49,11 +49,18 @@ export default function Search() {
         }
     };
 
+    const initial = { opacity: 0, y:-100 };
+    const animate = { opacity: 1, y:0 };
+    const transition = { delay: 2 };
+
     return (
         <SearchForm
             onMouseLeave={hideResults}
             onMouseEnter={showResults}
             onSubmit={handleSubmit}
+            initial={initial}
+            animate={animate}
+            transition={transition}
         >
             <SearchField>
                 <SearchInput
