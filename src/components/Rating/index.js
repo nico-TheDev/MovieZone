@@ -46,7 +46,7 @@ export default function Rating({ type, id }) {
                 }
             });
         }
-    }, [state.userMedia, state.user,id,type]);
+    }, [state.userMedia, state.user, id, type]);
 
     useEffect(() => {
         if (state.guestSession && state.guestMedia) {
@@ -61,7 +61,7 @@ export default function Rating({ type, id }) {
                 }
             });
         }
-    }, [state.guestMedia, state.guestSession,id,type]);
+    }, [state.guestMedia, state.guestSession, id, type]);
 
     const displayStars = (star, index) => {
         const ratingValue = index + 1;
@@ -79,7 +79,9 @@ export default function Rating({ type, id }) {
                             session_id: state.session.session_id,
                         },
                     }
-                ).then((res) => {});
+                ).then((res) => {
+                    displayMessage("Successfully Reviewed!");
+                });
             } else if (state.guestSession) {
                 setRating(ratingValue);
                 API.post(
