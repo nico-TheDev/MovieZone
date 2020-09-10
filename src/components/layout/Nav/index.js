@@ -50,6 +50,7 @@ export const LINK_TWO = [
 ];
 
 export default function Nav() {
+    const { state: AuthState } = useAuth();
     const { isLoggedIn, guestSession } = AuthState;
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
