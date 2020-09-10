@@ -14,16 +14,16 @@ import {
 } from "./styles";
 
 export default function FooterComp() {
-    const location = useLocation();
+    const {pathname} = useLocation();
     const [isDisplayed, setIsDisplayed] = useState(true);
 
     useEffect(() => {
-        if (location.pathname.includes("login")) {
+        if (pathname.includes("login")) {
             setIsDisplayed(false);
         } else {
             setIsDisplayed(true);
         }
-    }, [location.pathname]);
+    }, [pathname]);
 
     return (
         <Footer isDisplayed={isDisplayed}>

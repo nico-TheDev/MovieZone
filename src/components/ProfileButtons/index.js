@@ -39,12 +39,10 @@ export default function ProfileButtons({ openTrailer, id, type }) {
     };
 
     useEffect(() => {
-        const favorites =
-            userMedia &&
-            userMedia[`favorite${media}`].results.map((item) => item.id);
-        const wannaWatch =
-            userMedia &&
-            userMedia[`watchList${media}`].results.map((item) => item.id);
+        const favorites = userMedia 
+        && userMedia[`favorite${media}`].results.map((item) => item.id);
+        const wannaWatch = userMedia 
+        && userMedia[`watchList${media}`].results.map((item) => item.id);
         setIsFavorite(favorites?.includes(id));
         setIsListed(wannaWatch?.includes(id));
     }, [userMedia, id, media]);
@@ -52,7 +50,7 @@ export default function ProfileButtons({ openTrailer, id, type }) {
     const markAsFavorite = () => {
         if (user) {
             API.post(`account/${user.id}/favorite`, favoriteBody, config).then(
-                (res) => {
+                () => {
                     setIsFavorite(!isFavorite);
                 }
             );
@@ -75,7 +73,7 @@ export default function ProfileButtons({ openTrailer, id, type }) {
     const markAsListed = () => {
         if (user) {
             API.post(`account/${user.id}/watchlist`, listBody, config).then(
-                (res) => {
+                () => {
                     setIsListed(!isListed);
                 }
             );
