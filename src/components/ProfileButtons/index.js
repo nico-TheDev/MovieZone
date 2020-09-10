@@ -48,7 +48,7 @@ export default function ProfileButtons({ openTrailer, id, type }) {
             userMedia[`watchList${media}`].results.map((item) => item.id);
         setIsFavorite(favorites?.includes(id));
         setIsListed(wannaWatch?.includes(id));
-    }, [userMedia,id,media]);
+    }, [userMedia, id, media]);
 
     const markAsFavorite = () => {
         if (user) {
@@ -98,7 +98,10 @@ export default function ProfileButtons({ openTrailer, id, type }) {
 
     return (
         <>
-            <ButtonHolder>
+            <ButtonHolder
+                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -200 }}
+            >
                 <MovieButton onClick={markAsFavorite}>
                     <Icon>
                         <use
@@ -122,7 +125,9 @@ export default function ProfileButtons({ openTrailer, id, type }) {
                     Watch Trailer
                 </MovieButton>
             </ButtonHolder>
-            <Alert isDisplayed={isDisplayed.display} user={user}>{isDisplayed.message}</Alert>
+            <Alert isDisplayed={isDisplayed.display} user={user}>
+                {isDisplayed.message}
+            </Alert>
         </>
     );
 }
