@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
+import { useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
@@ -32,9 +34,26 @@ const BREAKPOINTS = {
 };
 
 export default function CastSlider({ casts }) {
- 
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+    const variants = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 200 },
+    };
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible");
+        }
+    }, [controls, inView]);
+
     return (
-        <CastContainer>
+        <CastContainer
+            ref={ref}
+            initial={"hidden"}
+            animate={controls}
+            variants={variants}
+        >
             <Title>Casts</Title>
             <Swiper
                 slidesPerView={5}

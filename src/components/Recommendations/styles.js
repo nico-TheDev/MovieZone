@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Container from "components/shared/Container";
 
-export const RecommendationsMain = styled.div`
+export const RecommendationsMain = styled(motion.div)`
     padding: ${({ length }) => (length === 0 ? 0 : "2rem")} 0;
 `;
 
