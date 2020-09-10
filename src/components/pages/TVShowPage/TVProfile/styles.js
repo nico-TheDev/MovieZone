@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 import Container from "../../../shared/Container";
 import Button from "../../../shared/Button";
 import respondTo from "../../../../util/respondTo";
@@ -36,7 +38,7 @@ export const Backdrop = styled.img`
     z-index: 1;
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
     display: grid;
     gap: 1rem;
     justify-items: start;
@@ -101,11 +103,9 @@ export const MovieButton = styled(Button)`
     align-items: center;
 `;
 
-export const Poster = styled.img``;
+export const Poster = styled(motion.img)``;
 
-export const Overview = styled.p`
- 
-`;
+export const Overview = styled.p``;
 export const ShowTitle = styled.h2`
     display: grid;
     gap: 10px;
