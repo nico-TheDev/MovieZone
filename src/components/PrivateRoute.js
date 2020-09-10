@@ -4,9 +4,8 @@ import { useAuth } from "contexts/AuthContext";
 import LoginPage from "components/pages/LoginPage";
 
 export default function PrivateRoute({ component, ...options }) {
-    const {
-        state: { user, guestSession },
-    } = useAuth();
+    const { state: AuthState } = useAuth();
+    const { user, guestSession } = AuthState;
 
     const finalComponent = user || guestSession ? component : LoginPage;
 

@@ -14,10 +14,8 @@ import actionTypes from "ActionTypes";
 import getIcon from "util/getIcon";
 
 export default function ProfileDropdown() {
-    const {
-        state: { user },
-        dispatch,
-    } = useAuth();
+    const { state: AuthState, dispatch } = useAuth();
+    const { user } = AuthState;
     const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +50,7 @@ export default function ProfileDropdown() {
             <DropdownBody isOpen={isOpen}>
                 <DropdownItem>
                     <NavBtn onClick={goToProfile}>
-                        {user ? user.username : 'Guest'} Profile
+                        {user ? user.username : "Guest"} Profile
                     </NavBtn>
                 </DropdownItem>
                 <DropdownItem>

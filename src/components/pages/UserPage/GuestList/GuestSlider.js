@@ -3,9 +3,8 @@ import Slider from "components/Slider";
 import { useAuth } from "contexts/AuthContext";
 
 export default function GuestSlider() {
-    const {
-        state: { guestMedia },
-    } = useAuth();
+    const { state: AuthState } = useAuth();
+    const { guestMedia } = AuthState;
 
     return (
         <>

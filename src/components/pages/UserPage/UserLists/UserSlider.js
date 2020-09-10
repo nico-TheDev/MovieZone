@@ -3,10 +3,9 @@ import Slider from "components/Slider";
 import { useAuth } from "contexts/AuthContext";
 
 export default function UserSlider({ current }) {
-    const {
-        state: { userMedia },
-    } = useAuth();
-
+    const { state: AuthState } = useAuth();
+    const { userMedia } = AutState;
+    
     return (
         <>
             <Slider

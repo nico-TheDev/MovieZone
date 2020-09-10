@@ -9,9 +9,8 @@ import Alert from "components/shared/Alert";
 
 export default function ProfileButtons({ openTrailer, id, type }) {
     const media = type === "movie" ? "Movies" : "TV";
-    const {
-        state: { user, session, userMedia },
-    } = useAuth();
+    const { state: AuthState } = useAuth();
+    const { user, session, userMedia } = AuthState;
     const [isFavorite, setIsFavorite] = useState(false);
     const [isListed, setIsListed] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState({
@@ -48,7 +47,7 @@ export default function ProfileButtons({ openTrailer, id, type }) {
             userMedia[`watchList${media}`].results.map((item) => item.id);
         setIsFavorite(favorites?.includes(id));
         setIsListed(wannaWatch?.includes(id));
-    }, [userMedia,id,media]);
+    }, [userMedia, id, media]);
 
     const markAsFavorite = () => {
         if (user) {
@@ -122,7 +121,9 @@ export default function ProfileButtons({ openTrailer, id, type }) {
                     Watch Trailer
                 </MovieButton>
             </ButtonHolder>
-            <Alert isDisplayed={isDisplayed.display} user={user}>{isDisplayed.message}</Alert>
+            <Alert isDisplayed={isDisplayed.display} user={user}>
+                {isDisplayed.message}
+            </Alert>
         </>
     );
 }

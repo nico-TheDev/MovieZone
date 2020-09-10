@@ -6,10 +6,8 @@ import { useAuth } from "contexts/AuthContext";
 import actionTypes from "ActionTypes";
 
 export default function MiniProfile() {
-    const {
-        state: { user },
-        dispatch,
-    } = useAuth();
+    const { state: AuthState, dispatch } = useAuth();
+    const { user } = AuthState;
 
     const history = useHistory();
 

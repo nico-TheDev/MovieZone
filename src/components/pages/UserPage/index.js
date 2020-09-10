@@ -13,10 +13,9 @@ import { useAuth } from "contexts/AuthContext";
 import getIcon from "util/getIcon";
 
 export default function Profile() {
-    const {
-        state: { user },
-    } = useAuth();
-
+    const { state: AuthState } = useAuth();
+    const { user } = AuthState;
+    
     return (
         <>
             <HeaderBG>

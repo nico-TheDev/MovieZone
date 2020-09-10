@@ -25,9 +25,8 @@ import { useAuth } from "contexts/AuthContext";
 import "./assets/css/custom.css";
 
 function App() {
-    const {
-        state: { user, guestSession },
-    } = useAuth();
+    const { state: AuthState } = useAuth();
+    const { user, guestSession } = AuthState;
 
     return (
         <Router>

@@ -9,7 +9,7 @@ import Search from "components/Search";
 import MobileNav from "components/layout/MobileNav";
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/logo.png";
-import { useAuth } from 'contexts/AuthContext';
+import { useAuth } from "contexts/AuthContext";
 
 export const LINK_ONE = [
     {
@@ -50,7 +50,8 @@ export const LINK_TWO = [
 ];
 
 export default function Nav() {
-    const { state:{isLoggedIn,guestSession} } = useAuth();
+    const { state: AuthState } = useAuth();
+    const { isLoggedIn, guestSession } = AuthState;
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isDisplayed, setIsDisplayed] = useState(true);
@@ -76,7 +77,11 @@ export default function Nav() {
                 <Search />
                 <Dropdown type="movie" title="Movies" links={LINK_ONE} />
                 <Dropdown type="tv" title="TV Shows" links={LINK_TWO} />
-                {isLoggedIn || guestSession  ? <AuthProfileDropdown /> : <ProfileDropdown />}
+                {isLoggedIn || guestSession ? (
+                    <AuthProfileDropdown />
+                ) : (
+                    <ProfileDropdown />
+                )}
                 <Menu onClick={handleClick}>
                     <UserIcon>
                         <use href={getIcon("menu")} />

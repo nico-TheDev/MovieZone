@@ -6,9 +6,8 @@ import { useAuth } from "contexts/AuthContext";
 import GuestSlider from "../GuestList/GuestSlider";
 
 export default function GuestList() {
-    const {
-        state: { guestMedia },
-    } = useAuth();
+    const { state: AuthState } = useAuth();
+    const { guestMedia } = AuthState;
 
     if (!guestMedia) return <ListSkeleton />;
 
