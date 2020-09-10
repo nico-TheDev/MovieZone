@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
 
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
@@ -32,14 +34,32 @@ const BREAKPOINTS = {
     },
 };
 
-export default function Slider({ title, movies, type,profile,total }) {
+export default function Slider({ title, movies, type, profile, total }) {
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+    const variants = {
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 },
+    };
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible");
+        }
+    }, [controls, inView]);
+
     return (
         <Holder>
-            <SliderContainer>
+            <SliderContainer
+                ref={ref}
+                initial={'hidden'}
+                animate={controls}
+                variants={variants}
+            >
                 <SliderTitle>
                     {title} {profile && (total ? `(${total})` : null)}
                 </SliderTitle>
-                {(movies && movies.length) ? (
+                {movies && movies.length ? (
                     <Swiper
                         spaceBetween={30}
                         navigation
