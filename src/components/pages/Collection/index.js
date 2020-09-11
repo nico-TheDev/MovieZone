@@ -48,7 +48,7 @@ export default function Collection({
                             animate="show"
                         >
                             {movies.map((item) => (
-                                <motion.div variants={itemVariant}>
+                                <motion.div variants={itemVariant} style={{width:'100%'}}>
                                     <MovieCard
                                         movie={item}
                                         key={item.id}
