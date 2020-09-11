@@ -18,7 +18,7 @@ export const FeaturedStyle = styled.div`
     ${respondTo.md`
         justify-content: center;
         padding-top:20vh;
-        min-height:80vh;
+        height:120vh;
     `}
 `;
 
