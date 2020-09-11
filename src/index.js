@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import GlobalContextProvider from "./contexts/GlobalContext";
 
 import App from "./App";
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <GlobalContextProvider>
@@ -10,3 +11,6 @@ ReactDOM.render(
     </GlobalContextProvider>,
     document.getElementById("root")
 );
+
+
+serviceWorker.register();

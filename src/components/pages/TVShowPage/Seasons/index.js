@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SwiperCore, { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useAnimation, motion } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper.scss";
