@@ -72,7 +72,7 @@ export default function Featured({ featured }) {
                                 : "No summary found"}
                         </Description>
                         <Link to={`/movie/${featured.id}`}>
-                            <FeaturedButton initial={initial} animate={animate}>
+                            <FeaturedButton initial={{opacity:0}} animate={{opacity:1}}>
                                 See More
                             </FeaturedButton>
                         </Link>
