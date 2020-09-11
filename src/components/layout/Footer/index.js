@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
 
 import getIcon from "util/getIcon";
 import logoDir from "assets/img/moviedb-logo.svg";
@@ -14,8 +16,20 @@ import {
 } from "./styles";
 
 export default function FooterComp() {
-    const {pathname} = useLocation();
+    const { pathname } = useLocation();
     const [isDisplayed, setIsDisplayed] = useState(true);
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+    const variants = {
+        visible: { opacity: 1,y:0 },
+        hidden: { opacity: 0,y:-100 },
+    };
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible");
+        }
+    }, [controls, inView]);
 
     useEffect(() => {
         if (pathname.includes("login")) {
@@ -27,7 +41,12 @@ export default function FooterComp() {
 
     return (
         <Footer isDisplayed={isDisplayed}>
-            <FooterContainer>
+            <FooterContainer
+                ref={ref}
+                initial={"hidden"}
+                animate={controls}
+                variants={variants}
+            >
                 <LogoLink
                     href="https://www.themoviedb.org/"
                     target="_blank"

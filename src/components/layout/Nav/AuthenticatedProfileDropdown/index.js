@@ -31,9 +31,18 @@ export default function ProfileDropdown() {
         history.push("/profile");
         window.location.reload();
     };
+    
+    const initial = { opacity: 0, y: -100 };
+    const animate = { opacity: 1, y: 0 };
+    const transition = { delay: 2 };
 
     return (
-        <DropdownHead onMouseLeave={closePanel}>
+        <DropdownHead
+            onMouseLeave={closePanel}
+            initial={initial}
+            animate={animate}
+            transition={transition}
+        >
             <DropdownButton onClick={handleClick} name={user?.username}>
                 {user ? (
                     <UserIcon

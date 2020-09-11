@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 
-export const DropdownHead = styled.ul`
+export const DropdownHead = styled(motion.ul)`
     display: inline-block;
     position: relative;
     text-align: center;
