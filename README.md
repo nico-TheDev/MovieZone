@@ -29,7 +29,21 @@ After cloning the repo, open the folder with you current code editor and install
     npm install
 ```
 
-After all the dependencies get installed, run the start script to open the development server.
+After all the dependencies get installed, you need to create an .env file at the root of the project and paste the following:
+
+> THIS IS THE IMPORTANT BIT! You need to get your own api key from the movieDb website to run the application. 
+
+*   You need to register an account and get an API key.
+*   After getting your API Key, paste the api key in the .env file.
+
+
+```
+REACT_APP_KEY = GET YOUR KEY AT THE MOVIEDB WEBSITE
+REACT_APP_API = https://api.themoviedb.org/3/
+```
+
+With the .env file created with an API key. Just run the npm command to start the application.
+
 
 ```
     npm run start
@@ -47,7 +61,7 @@ MovieZone is deployed using [Vercel](https://vercel.com/).
 * [ReactJS](https://reactjs.org) - The web framework used
 * [Context API](https://reactjs.org) - responsible for global state management
 * [SWR](https://swr.vercel.app/) - responsible for data fetching with [Axios](https://github.com/axios/axios)
-* [Styled Components](https://styled-components.com/) - Dependency Management
+* [Styled Components](https://styled-components.com/) - responsible for design and styling the web application
 * [Framer Motion](https://www.framer.com/api) - Used in the animations
 * [MovieDB](https://www.themoviedb.org/) - the API used for the project
 
