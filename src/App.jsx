@@ -34,9 +34,7 @@ function App() {
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/login" component={Login} />
-                {(user || guestSession) && (
-                    <Route path="/profile" component={UserProfile} />
-                )}
+                {(user || guestSession) && <Route path="/profile" component={UserProfile} />}
                 <Route path="/search/:query" component={SearchResultsPage} />
                 <Route path="/movie/:id" component={MoviePage} />
                 <Route path="/tv/:id" component={TVShowPage} />
